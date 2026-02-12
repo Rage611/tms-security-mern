@@ -1,0 +1,124 @@
+/* --- HEADER STYLES --- */
+.header {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    background: #121212; 
+    backdrop-filter: blur(10px);       
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    z-index: 9999; 
+}
+
+/* The Gold Laser Line */
+.header::after {
+    content: '';          
+    position: absolute;   
+    bottom: 0;            
+    left: 0;
+    width: 100%;          
+    height: 2px;          
+    background: linear-gradient(90deg, transparent 0%, #ffd700 50%, transparent 100%);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.header__inner {
+    height: 100%;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    position: relative;
+}
+
+/* --- LOGO STYLING --- */
+.logo {
+    display: flex;         
+    align-items: center;   
+    height: 100%;          
+}
+
+.logo img {
+    height: 80px;          
+    width: auto;           
+    transition: transform 0.3s ease; 
+}
+
+.logo:hover img {
+    transform: scale(1.05); 
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4)); 
+}
+
+
+
+
+/* --- NAVIGATION STYLES --- */
+
+
+
+.navbar {
+    width: 100%;
+    background-color: #0f172a ; /* Dark background */
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    height: 90px; /* Adjust based on your shield logo size */
+    width: auto;
+}
+
+.nav__list {
+    display: flex; /* Makes the list items sit side-by-side instead of stacked */
+    gap: 2rem;     /* Adds 32px of space between each link */
+    list-style: none; /* Removes the bullet points */
+}
+
+.nav__link {
+    color: #94a3b8; /* Muted grey text (inactive state) */
+    text-decoration: none;
+    font-weight: 500;
+
+    /* CHANGED: Increased size and weight */
+    font-size: 1.10rem;   /* Was 1rem. Now it's 15% bigger. */
+    font-weight: 600;     /* Made it Semi-Bold so it's easier to read */
+    text-transform: uppercase; /* Makes the text all uppercase for a more modern look */
+    letter-spacing: 0.5px;
+    
+    transition: color 0.3s ease; /* Makes the hover effect smooth, not instant */
+}
+
+.nav__link:hover {
+    color: #ffffff; /* Lights up white when you mouse over it */
+}
+
+/* The "Get Quote" Button */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.6rem 1.5rem;
+    border-radius: 10px; /* Rounded corners */
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb; /* Darker blue on hover */
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5); /* Adds a "Glow" effect */
+}
+
+/* Hide Hamburger on Desktop */
+.hamburger {
+    display: none; /* We only want this visible on mobile phones */
+}

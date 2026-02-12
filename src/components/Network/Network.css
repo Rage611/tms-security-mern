@@ -1,0 +1,29 @@
+/* src/components/Network/Network.css */
+
+.network-section {
+    background: #1e293b;    
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: -2px; /* Welds it to the previous section */
+    z-index: 1;
+}
+
+.network-section .services-title {
+    color: #ffffff !important;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
+
+.network-section .services-subtitle {
+    color: #9ca3af !important; 
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.highlight {
+    color: #fbbf24; /* Ensuring gold highlight works here too */
+}

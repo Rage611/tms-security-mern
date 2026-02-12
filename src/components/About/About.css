@@ -1,0 +1,128 @@
+.about-section {
+    /* Background: Deep Gunmetal Gradient (Matches Logo Background) */
+    background: radial-gradient(circle at center, #1f2937 0%, #000000 100%);
+    color: #e2e8f0; 
+    padding: 100px 0;
+    position: relative;
+    border-top: 1px solid rgba(212, 175, 55, 0.3); /* Gold divider line */
+}
+
+/* Fix the Container Width so it doesn't look empty */
+.about__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers content together */
+    gap: 6rem;               /* Big space between Text and Logo */
+    width: 90%;              /* Take up most of the screen */
+    max-width: 1600px;       /* Allow it to get wider than before */
+    margin: 0 auto;
+}
+
+/* --- LEFT SIDE: TEXT CONTENT --- */
+.about__content {
+    flex: 1;
+    max-width: 700px; /* Prevents text from stretching too wide */
+}
+
+/* 1. Tagline: METALLIC GOLD */
+.section-tagline {
+    color: #fbbf24; /* Bright Gold */
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Adds a small gold line before the tagline */
+.section-tagline::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #fbbf24);
+}
+
+/* 2. Main Title: SILVER & SHADOW (Matches "TMS" on Shield) */
+.section-title {
+    font-size: 3.5rem; /* Much Bigger */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    
+    /* Silver Gradient Text */
+    background: linear-gradient(180deg, #ffffff, #94a3b8);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    
+    /* Text Shadow for 3D effect */
+    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+}
+
+/* 3. Paragraphs: Clean White/Grey */
+.section-text {
+    color: #cbd5e1; /* Light Silver */
+    font-size: 1.25rem; /* Larger text for easier reading */
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    font-weight: 300;
+}
+
+/* 4. Button: GOLD INGOT STYLE */
+.btn-dark {
+    display: inline-block;
+    background: linear-gradient(180deg, #d97706, #b45309); /* Gold Gradient */
+    color: white;
+    padding: 1rem 3rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 1px solid #fcd34d; /* Bright Gold Border */
+    border-radius: 4px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Deep Shadow */
+    transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 20px rgba(217, 119, 6, 0.6); /* Glowing Gold effect */
+}
+
+/* --- RIGHT SIDE: LOGO --- */
+.about__image-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.about__image-box img {
+    max-height: 500px; /* Big enough to be impressive, but fits screen */
+    width: auto;
+    filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.2)); /* Subtle Gold Glow behind logo */
+}
+
+/* --- MOBILE RESPONSIVE --- */
+@media (max-width: 1100px) {
+    .about__inner {
+        flex-direction: column-reverse; /* Put text on TOP of logo on mobile */
+        text-align: center;
+        gap: 3rem;
+    }
+    
+    .section-tagline {
+        justify-content: center; /* Center the tagline */
+    }
+    
+    .section-tagline::before {
+        display: none;
+    }
+    
+    .about__image-box img {
+        max-height: 300px; /* Smaller logo on phones */
+    }
+}
