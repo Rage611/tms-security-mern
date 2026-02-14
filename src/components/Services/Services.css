@@ -96,7 +96,7 @@
 
 /* --- ACHIEVEMENTS SECTION (Royal Tech Theme) --- */
 .stats-section {
-    background: linear-gradient(180deg, #000000 0%, #111827 70%);
+    background-color: #0a0e14;
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Parallax effect */
@@ -109,6 +109,32 @@
     max-width: 1200px;
     margin: 0 auto;
 }
+
+.stats-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.stat-card {
+  text-align: center;
+  flex: 1;
+  position: relative;
+}
+
+.stat-card:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1); /* Thin white line */
+}
+
+
 
 .stats-grid {
     display: flex;

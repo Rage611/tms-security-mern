@@ -1,8 +1,9 @@
 .clients-section {
     background-color: #ffffff;
-    padding: 60px 0;
+    padding: 20px 0;
     overflow: hidden;
     position: relative;
+    z-index: 10;
 }
 
 .logo-slider {
@@ -15,7 +16,6 @@
 .logo-track {
     display: flex;
     white-space: nowrap;
-    /* This width should be 250px * (original logos + duplicated logos) */
     width: calc(250px * 12); 
     animation: scrollInfinite 30s linear infinite;
 }

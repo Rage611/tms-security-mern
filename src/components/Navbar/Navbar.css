@@ -1,17 +1,17 @@
-/* --- HEADER STYLES --- */
+/* --- HEADER & GOLD LASER LINE --- */
 .header {
     position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
-    height: var(--nav-height);
+    height: 90px;
     background: #121212; 
-    backdrop-filter: blur(10px);       
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
+    display: flex;
+    align-items: center;
     z-index: 9999; 
 }
 
-/* The Gold Laser Line */
+/* The Gold Laser Line Effect */
 .header::after {
     content: '';          
     position: absolute;   
@@ -20,53 +20,11 @@
     width: 100%;          
     height: 2px;          
     background: linear-gradient(90deg, transparent 0%, #ffd700 50%, transparent 100%);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-}
-
-.header__inner {
-    height: 100%;
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    position: relative;
-}
-
-/* --- LOGO STYLING --- */
-.logo {
-    display: flex;         
-    align-items: center;   
-    height: 100%;          
-}
-
-.logo img {
-    height: 80px;          
-    width: auto;           
-    transition: transform 0.3s ease; 
-}
-
-.logo:hover img {
-    transform: scale(1.05); 
-    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4)); 
-}
-
-
-
-
-/* --- NAVIGATION STYLES --- */
-
-
-
-.navbar {
-    width: 100%;
-    background-color: #0f172a ; /* Dark background */
-    padding: 1rem 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
+    box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
 }
 
 .nav-container {
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -75,50 +33,145 @@
     padding: 0 2rem;
 }
 
-.logo {
-    height: 90px; /* Adjust based on your shield logo size */
+/* --- LOGO --- */
+.logo-img {
+    height: 75px; 
     width: auto;
+    transition: transform 0.3s ease;
 }
 
+.logo-img:hover {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
+}
+
+/* --- NAVIGATION --- */
 .nav__list {
-    display: flex; /* Makes the list items sit side-by-side instead of stacked */
-    gap: 2rem;     /* Adds 32px of space between each link */
-    list-style: none; /* Removes the bullet points */
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+    list-style: none;
 }
 
 .nav__link {
-    color: #94a3b8; /* Muted grey text (inactive state) */
+    color: #94a3b8; 
     text-decoration: none;
-    font-weight: 500;
-
-    /* CHANGED: Increased size and weight */
-    font-size: 1.10rem;   /* Was 1rem. Now it's 15% bigger. */
-    font-weight: 600;     /* Made it Semi-Bold so it's easier to read */
-    text-transform: uppercase; /* Makes the text all uppercase for a more modern look */
-    letter-spacing: 0.5px;
-    
-    transition: color 0.3s ease; /* Makes the hover effect smooth, not instant */
+    font-size: 1.10rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    transition: color 0.3s ease;
 }
 
 .nav__link:hover {
-    color: #ffffff; /* Lights up white when you mouse over it */
+    color: #ffd700; /* Changes to Gold on hover */
 }
 
-/* The "Get Quote" Button */
+/* --- BUTTON --- */
 .btn-primary {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.6rem 1.5rem;
-    border-radius: 10px; /* Rounded corners */
-    transition: all 0.3s ease;
+    background-color: #2563eb;
+    color: white !important; /* Forces text to stay white */
+    padding: 0.7rem 1.6rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary:hover {
-    background-color: #2563eb; /* Darker blue on hover */
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5); /* Adds a "Glow" effect */
+    background-color: #1d4ed8;
+    box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
 
-/* Hide Hamburger on Desktop */
+/* Hide Hamburger for now */
 .hamburger {
-    display: none; /* We only want this visible on mobile phones */
+    display: none;
+}
+
+/* --- EXISTING CODE (Keep your Header, Logo, etc. same as before) --- */
+
+/* ... (Your existing header styles) ... */
+
+/* --- NEW DROPDOWN STYLES --- */
+
+/* 1. The Container for the Link + Menu */
+/* --- SIMPLE DARK DROPDOWN --- */
+
+/* 1. The Container */
+.dropdown {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+/* 2. The Menu (Dark & Minimal) */
+/* --- SMOOTH DARK DROPDOWN --- */
+
+/* 1. The Menu (Hidden State) */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #121212; /* Dark background */
+    border: 1px solid #333;
+    min-width: 200px;
+    padding: 10px 0;
+    list-style: none;
+    z-index: 10000;
+
+    /* ANIMATION PROPERTIES */
+    opacity: 0;                /* Invisible */
+    visibility: hidden;        /* Cannot be clicked */
+    transform: translateY(-15px); /* Starts slightly lower down */
+    transition: all 0.3s ease;   /* The "Smooth" Magic */
+}
+
+/* 2. The Menu (Visible State) */
+.dropdown:hover .dropdown-menu {
+    opacity: 1;                /* Fully visible */
+    visibility: visible;       /* Clickable */
+    transform: translateY(0);  /* Slides up into place */
+}
+
+/* 3. The Links (Keep this the same) */
+.dropdown-link {
+    display: block;
+    padding: 12px 20px;
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.dropdown-link:hover {
+    background-color: #1a1a1a;
+    color: #ffd700;
+}
+
+/* 4. The Links */
+.dropdown-link {
+    display: block;
+    padding: 12px 20px;
+    color: #94a3b8; /* Same silver text as your main links */
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+/* 5. Hover Effect */
+.dropdown-link:hover {
+    background-color: #1a1a1a; /* Slightly lighter black */
+    color: #ffd700; /* Turns Gold */
+}
+
+/* Arrow Adjustment */
+.arrow {
+    font-size: 0.6rem;
+    margin-left: 8px;
+    color: #ffd700;
+    vertical-align: middle;
 }

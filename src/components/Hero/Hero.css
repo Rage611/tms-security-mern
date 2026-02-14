@@ -1,109 +1,73 @@
 .hero {
-    /* CRITICAL FIX: This pushes the content down below the header */
-    padding-top: 90px; 
-    
-    padding-bottom: 0px;
-    background: radial-gradient(circle at top right, #1e293b 0%, var(--bg-color) 60%);
-    overflow: hidden;
-    position:static;
-    z-index: 1; /* Low number so it stays BEHIND the header */
+  position: relative;
+  width: 100%;
+  height: 100vh; 
+  overflow: hidden;
+  background-color: #000;
 }
 
-/* --- FULL WIDTH FIX --- */
-
-/* 1. Unlock the Container constraints */
-.hero .container {
-    max-width: 100%;  /* Allows it to touch the edges */
-    padding: 0;       /* Removes the empty side space */
-    margin: 0;        /* Removes centering margins */
-    width: 90%;      /* Forces full width */
-    
-}
-
-/* --- HERO LAYOUT FIX --- */
-.hero__inner {
-    display: flex;  /* Switched from Grid to Flexbox (It's safer for alignment) */
-    align-items: center;
-    justify-content: space-between;
-    gap: 2rem;      /* Smaller gap prevents pushing image off-screen */
-    padding: 0 1rem; /* Safety padding so it doesn't touch the edges */
-}
-
-/* Force the Text Side to take 50% width */
-.hero__content {
-    flex: 1;             /* Takes 1 part of space */
-    min-width: 400px;    /* Prevents it from disappearing */
-    z-index: 10;
-}
-
-/* Force the Slider Side to take 50% width */
 .hero__slider-frame {
-    flex: 1;            /* Takes up 50% of the space */
-    max-width: 100%;   /* Limits maximum width */
-    height: 600px;      /* Fixed height */
-    position: relative;
-    border-radius: 0px;
-    overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 100%;
+  height: 100%;
 }
 
-/* --- THE SLIDES (Stacked on top of each other) --- */
+/* 1. Base Slide State */
 .hero__slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures images fill the box perfectly */
-
-    object-position: center 20%; /* Adjusts the vertical position of the image (20% from the top) */
-    
-    /* THE FADE MAGIC */
-    opacity: 0; /* Invisible by default */
-    transition: opacity 1.5s ease-in-out, transform 6s ease; /* Smooth fade + Slow zoom */
-    transform: scale(1); /* Start at normal size */
-    z-index: 1;
+  width: 100%;
+  height: 100%;
+  
+  /* CHANGE THIS: "contain" shows the whole image */
+  object-fit: cover; 
+  
+  /* Centers the image within the black area */
+  object-position: center center; 
+  
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  /* Start invisible for the fade effect */
+  opacity: 0;
+  
+  /* Keep the fade animation */
+  transition: opacity 1s ease-in-out; 
+  
+  /* Ensures no scaling is applied */
+  transform: scale(1); 
 }
 
-/* --- THE ACTIVE CLASS (JS will add this) --- */
+/* 2. Active State (Visible Only) */
 .hero__slide.active {
-    opacity: 1; /* Make visible */
-    z-index: 2; /* Bring to front */
-    transform: scale(1.1); /* "Ken Burns" Effect: Slowly zooms in while visible */
+  opacity: 1;
+  z-index: 1;
+  /* NO ANIMATION property here */
 }
 
-.hero-img {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
+/* This is the bottom bar overlay */
+.hero__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px 20px;
+  z-index: 10;
+  /* Dark gradient from transparent to blackish-grey */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 70%, transparent 100%);
+  color: white;
+  text-align: left;
 }
 
-main {
-    padding-top: 35px; 
+.hero__content h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-
-
-
-@media (max-width: 968px) {
-    .hero__inner {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .hero__slider-frame {
-        height: 350px;
-    }
-
-    .hero__content {
-        min-width: auto;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav__list {
-        display: none; /* You will later toggle with hamburger */
-    }
+.hero__content p {
+  font-size: 1.1rem;
+  margin-top: 10px;
+  max-width: 600px;
+  opacity: 0.9;
 }

@@ -13,6 +13,7 @@ const Clients = () => {
     { id: 4, src: "src/assets/images/clients/pvr-logo.png" },
     { id: 5, src: "src/assets/images/clients/reebok-logo.png" },
     { id: 6, src: "src/assets/images/clients/Wave-Infratech-Logo.png" },
+    { id: 7, src: "src/assets/images/clients/woodland-Logo.png" },
   ];
 
   // We double the array so the animation never shows a blank space

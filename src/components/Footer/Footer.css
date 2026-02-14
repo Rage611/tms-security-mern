@@ -1,0 +1,79 @@
+.footer {
+  background-color: #1a1a1a;
+  color: #94a3b8;
+  width: 100%;
+}
+
+.footer-top-bar {
+  background-color: #c53030;
+  padding: 15px 0;
+  color: white;
+}
+
+.top-bar-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.footer-logo-small {
+  height: 50px;
+  background: white;
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.get-in-touch-btn {
+  background: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 8px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.get-in-touch-btn:hover {
+  background: white;
+  color: #c53030;
+}
+
+.footer-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  padding: 60px 20px;
+}
+
+.footer-column h3 {
+  color: white;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+  border-left: 3px solid #c53030;
+  padding-left: 10px;
+}
+
+.footer-column p, .footer-column li {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column a {
+  color: #94a3b8;
+  text-decoration: none;
+}
+
+.footer-column a:hover {
+  color: white;
+}

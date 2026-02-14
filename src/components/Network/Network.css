@@ -1,29 +1,66 @@
-/* src/components/Network/Network.css */
-
 .network-section {
-    background: #1e293b;    
-    padding: 80px 0;
-    text-align: center;
+    background-color: #0a0e14;
     position: relative;
-    overflow: hidden;
-    margin-top: -2px; /* Welds it to the previous section */
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 1;
 }
 
-.network-section .services-title {
-    color: #ffffff !important;
-    font-size: 2.8rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
+.network__inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.network-section .services-subtitle {
-    color: #9ca3af !important; 
-    font-size: 1.2rem;
+.map-container {
+    position: relative;
+    /* REDUCED SIZE: Change this to 40% or 50% to make it smaller */
+    width: 50%; 
     max-width: 700px;
-    margin: 0 auto;
+    margin-top: 50px;
+    margin: -100px auto 0 auto;
 }
 
-.highlight {
-    color: #fbbf24; /* Ensuring gold highlight works here too */
+.map-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgba(0, 150, 255, 0.2));
+}
+
+/* Beacon Styles */
+.map-beacon {
+    position: absolute;
+    z-index: 10;
+}
+
+.pulse {
+    width: 12px;
+    height: 12px;
+    background: #ffd700;
+    border-radius: 50%;
+    box-shadow: 0 0 0 rgba(255, 215, 0, 0.4);
+    animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+    0% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(255, 215, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 215, 0, 0); }
+}
+
+.beacon-label {
+    position: absolute;
+    left: 20px;
+    top: -10px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 5px 10px;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    border-left: 2px solid #ffd700;
 }

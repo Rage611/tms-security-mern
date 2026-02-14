@@ -9,15 +9,16 @@ const About = () => {
         
         {/* LEFT SIDE: TEXT CONTENT */}
         <div className="about__content">
-          <div className="section-tagline">Elite Protection</div>
+          <div className="section-tagline">#1 Security Services in India</div>
           <h2 className="section-title">WHO WE ARE</h2>
           <p className="section-text">
-            TMS Group is a premier security provider dedicated to safeguarding 
-            what matters most. With a focus on professionalism and advanced 
-            protection strategies, we ensure peace of mind for our clients 
-            through elite manpower and cutting-edge technology.
+            We provide the most reliable and efficient security services and solutions, especially for Corporate, Governmental, and Institutional bodies.
           </p>
-          <button className="btn-dark">LEARN MORE ABOUT TMS</button>
+
+          <p className="section-text">
+            We are a professional agency providing customized security arrangements to industrial, commercial, and business houses. Besides guarding, we specialize in rapid response and surveillance.
+          </p>
+          <button className="btn-dark">READ MORE </button>
         </div>
 
         {/* RIGHT SIDE: LOGO */}
