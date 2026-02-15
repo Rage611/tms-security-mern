@@ -1,0 +1,111 @@
+.career-page {
+    width: 100%;
+    background-color: #fff;
+}
+
+/* --- HERO SECTION --- */
+.career-hero {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.career-hero .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.career-hero h1 {
+    position: relative;
+    color: white;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* --- FORM & IMAGE LAYOUT --- */
+.career-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.career-content-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.career-form-section {
+    flex: 1;
+}
+
+.career-title {
+    color: #991b1b; /* TMS Red */
+    font-size: 1.8rem;
+    margin-bottom: 40px;
+    font-weight: 500;
+}
+
+.career-main-form .form-input-group {
+    margin-bottom: 25px;
+}
+
+.career-main-form label {
+    display: block;
+    font-size: 0.9rem;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.career-main-form input, 
+.career-main-form textarea {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid #ccc; /* Underline style from reference */
+    font-size: 1rem;
+    outline: none;
+}
+
+.career-main-form input:focus, 
+.career-main-form textarea:focus {
+    border-bottom: 1px solid #991b1b;
+}
+
+.career-submit-btn {
+    background-color: #991b1b;
+    color: white;
+    padding: 10px 35px;
+    border: none;
+    border-radius: 2px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+/* --- IMAGE SECTION --- */
+.career-image-section {
+    flex: 1;
+}
+
+.career-display-img {
+    width: 100%;
+    height: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .career-content-wrapper {
+        flex-direction: column;
+    }
+}

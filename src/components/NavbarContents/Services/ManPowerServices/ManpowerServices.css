@@ -1,0 +1,192 @@
+.service-page {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* --- HERO BANNER --- */
+.service-hero {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.service-hero h1 {
+    position: relative;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 2;
+    border-bottom: 3px solid #ffd700;
+    padding-bottom: 10px;
+}
+
+/* --- MAIN LAYOUT --- */
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: flex;
+    gap: 40px;
+}
+
+/* Left Content Column */
+.service-content {
+    flex: 2.5; /* 70% Width */
+}
+
+.content-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.main-heading {
+    color: #991b1b; /* TMS Red */
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.text-block {
+    margin-bottom: 25px;
+}
+
+.text-block h3 {
+    color: #1e293b; /* Dark Blue Heading */
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.text-block p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #475569;
+    text-align: justify;
+}
+
+/* Bullet Points List */
+.service-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+.service-list li {
+    margin-bottom: 8px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* --- RIGHT SIDEBAR --- */
+.sidebar {
+    flex: 1; /* 30% Width */
+}
+
+/* Navigation Menu Box */
+.services-nav {
+    margin-bottom: 30px;
+}
+
+.services-nav h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.services-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.services-nav li {
+    margin-bottom: 5px;
+}
+
+.services-nav a {
+    display: block;
+    padding: 12px 15px;
+    background-color: #1e293b; /* Dark Blue Background */
+    color: white;
+    text-decoration: none;
+    font-size: 0.9rem;
+    border-radius: 2px;
+    transition: background 0.3s, padding-left 0.3s;
+}
+
+.services-nav a:hover {
+    background-color: #991b1b; /* Red on hover */
+    padding-left: 20px; /* Slide effect */
+}
+
+.services-nav a.active {
+    background-color: #991b1b; /* Active state is Red */
+}
+
+/* Contact Widget (Reused) */
+.contact-widget {
+    background-color: #0f172a;
+    padding: 25px;
+    border-top: 4px solid #ffd700;
+    color: white;
+}
+
+.contact-widget h3 {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+}
+
+.widget-form input, .widget-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 2px;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #c53030;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.submit-btn:hover {
+    background-color: #991b1b;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+    }
+}

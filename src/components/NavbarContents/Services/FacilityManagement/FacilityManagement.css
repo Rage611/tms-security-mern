@@ -1,0 +1,42 @@
+.service-page {
+    width: 100%;
+    min-height: 100vh; /* Ensures it takes up space */
+    background-color: #fff;
+    display: block !important; /* Forces visibility */
+}
+
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: flex;
+    gap: 40px;
+}
+
+.top-section {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.content-image-small {
+    width: 300px;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+.highlight-text {
+    font-style: italic;
+    color: #64748b;
+    margin: 20px 0;
+    padding: 15px;
+    border-left: 4px solid #991b1b;
+    background: #f8fafc;
+}
+
+.form-input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+}

@@ -40,7 +40,6 @@
 .hero__slide.active {
   opacity: 1;
   z-index: 1;
-  /* NO ANIMATION property here */
 }
 
 /* This is the bottom bar overlay */

@@ -1,0 +1,192 @@
+.leadership-page {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+/* --- HERO BANNER --- */
+.leadership-hero {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Slightly shorter for a clean look */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leadership-hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.leadership-hero h1 {
+    position: relative;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    z-index: 2;
+    border-bottom: 3px solid #ffd700;
+    padding-bottom: 10px;
+}
+
+/* --- MAIN LAYOUT --- */
+.content-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    display: flex;
+    gap: 50px;
+    align-items: flex-start; /* Keeps sidebar at top */
+}
+
+/* --- LEFT COLUMN: LEADERS --- */
+.leaders-list {
+    flex: 2.5; /* Takes up 70% of width */
+}
+
+/* The Card (Photo + Text) */
+.leader-card {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+/* Leader Image Style */
+.leader-image-box {
+    flex-shrink: 0; /* Prevents image from shrinking */
+    width: 220px;
+    height: 260px;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 5px; /* White border effect like passport photo */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.leader-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top; /* Focus on face */
+}
+
+/* Leader Text Style */
+.leader-bio {
+    flex-grow: 1;
+}
+
+.leader-name {
+    color: #991b1b; /* TMS Red */
+    font-size: 1.6rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.leader-title {
+    color: #475569;
+    font-size: 1rem;
+    font-style: italic;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.leader-bio p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: justify; /* Clean text alignment */
+}
+
+/* Divider Line between leaders */
+.divider {
+    border: 0;
+    border-top: 1px solid #e2e8f0;
+    margin: 40px 0;
+}
+
+/* --- RIGHT COLUMN: SIDEBAR (Same as before) --- */
+.sidebar {
+    flex: 1; /* Takes up 30% of width */
+    position: sticky;
+    top: 100px; /* Sticks when scrolling */
+}
+
+.contact-widget {
+    background-color: #0f172a;
+    padding: 25px;
+    border-top: 4px solid #ffd700;
+    color: white;
+}
+
+.contact-widget h3 {
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+}
+
+.widget-form .form-group {
+    margin-bottom: 15px;
+}
+
+.widget-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+.widget-form input, 
+.widget-form textarea {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-radius: 2px;
+    font-family: inherit;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #c53030;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+.submit-btn:hover {
+    background-color: #991b1b;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+    }
+    
+    .leader-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .leader-image-box {
+        width: 100%;
+        max-width: 300px;
+        height: auto;
+        aspect-ratio: 1/1;
+    }
+    
+    .leader-bio p {
+        text-align: left;
+    }
+}
