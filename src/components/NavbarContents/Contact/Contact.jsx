@@ -22,17 +22,17 @@ const Contact = () => {
             
             <div className="contact-info-item">
               <span className="icon">📍</span>
-              <p>57, Rajdhani Enclave, Pritampura New Delhi - 110034</p>
+              <p>526, Ground Floor, Opp Metro Pillar No. 623, Site-1, Vikas Puri, New Delhi, 110018</p>
             </div>
 
             <div className="contact-info-item">
               <span className="icon">📞</span>
-              <p>011 - 45150000, 27191569</p>
+              <p>+91 9717763351</p>
             </div>
 
             <div className="contact-info-item">
               <span className="icon">📠</span>
-              <p>011 - 27101546</p>
+              <p>+91 11 4140 1113</p>
             </div>
 
             <h2 className="presence-heading">We are Present at:</h2>
@@ -79,7 +79,7 @@ const Contact = () => {
       <div className="map-section">
         <iframe 
           title="TMS Office Location"
-          src="https://www.google.com/maps?q=57,+Rajdhani+Enclave,+Pitampura,+New+Delhi,+110034&output=embed"
+          src="https://www.google.com/maps?q=500,+Shankar+Garden,+Vikaspuri,+New+Delhi,+Delhi,+110018&output=embed"
           allowFullScreen="" 
           loading="lazy" 
           referrerPolicy="no-referrer-when-downgrade">

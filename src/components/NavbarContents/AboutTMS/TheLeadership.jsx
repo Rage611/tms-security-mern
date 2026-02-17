@@ -3,7 +3,7 @@ import './TheLeadership.css';
 import leadershipBanner from '../../../assets/images/hero/hero-3.png'; 
 // You will need to upload real photos of the 2 leaders later. 
 // For now, I am using the hero image as a placeholder.
-import leader1 from '../../../assets/images/hero/hero-1.png'; 
+import leader1 from '../../../assets/images/leadership/owner-logo.jpeg'; 
 import leader2 from '../../../assets/images/hero/hero-2.png';
 
 const TheLeadership = () => {
@@ -27,7 +27,7 @@ const TheLeadership = () => {
               <img src={leader1} alt="Managing Director" />
             </div>
             <div className="leader-bio">
-              <h2 className="leader-name">NAME OF DIRECTOR</h2>
+              <h2 className="leader-name">Mr. Ajay Kumar Singh</h2>
               <h4 className="leader-title">Managing Director (Ex-Defense)</h4>
               <p>
                 A visionary leader with over 25 years of experience in security and defense. 
