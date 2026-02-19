@@ -14,10 +14,14 @@ const Navbar = () => {
       <div className="nav-container">
         
         <div className="logo-container">
-            <Link to="/" onClick={closeMenu}>
-                <img src={logo} alt="TMS Logo" className="logo-img" />
-            </Link>
+    <Link to="/" onClick={closeMenu} className="logo-link">
+        <img src={logo} alt="TMS Logo" className="logo-img" />
+        <div className="logo-text">
+            <span className="brand-bold">TMS</span>
+            <span className="brand-light">Security</span>
         </div>
+    </Link>
+</div>
 
         <ul className={`nav__list ${isOpen ? "active" : ""}`}>
             <li><Link to="/" className="nav__link" onClick={closeMenu}>HOME</Link></li>
@@ -62,7 +66,7 @@ const Navbar = () => {
             </li>
         </ul>
 
-        <div className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+        <div className={`hamburger ${isOpen ? "active" : ""}`} onClick={() => setIsOpen(!isOpen)}>
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>

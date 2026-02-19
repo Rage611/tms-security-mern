@@ -15,58 +15,135 @@
 .hero__slide {
   width: 100%;
   height: 100%;
-  
-  /* CHANGE THIS: "contain" shows the whole image */
   object-fit: cover; 
-  
-  /* Centers the image within the black area */
   object-position: center center; 
-  
   position: absolute;
   top: 0;
   left: 0;
-  
-  /* Start invisible for the fade effect */
   opacity: 0;
-  
-  /* Keep the fade animation */
-  transition: opacity 1s ease-in-out; 
-  
-  /* Ensures no scaling is applied */
-  transform: scale(1); 
-}
-
-/* 2. Active State (Visible Only) */
-.hero__slide.active {
-  opacity: 1;
+  transition: opacity 1.5s ease-in-out; 
   z-index: 1;
 }
 
-/* This is the bottom bar overlay */
-.hero__content {
+.hero__slide.active {
+  opacity: 1;
+  z-index: 2; /* Sits above inactive slides */
+}
+
+/* --- TEXT OVERLAY SECTION --- */
+/* Base overlay stays centered vertically */
+.hero__text-overlay {
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
   width: 100%;
-  padding: 40px 20px;
   z-index: 10;
-  /* Dark gradient from transparent to blackish-grey */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 70%, transparent 100%);
-  color: white;
+  display: flex;
+  flex-direction: column;
+  pointer-events: none;
+}
+
+.hero__text-overlay.upper-text {
+  top: 75%; /* Moves it to the top vacant space above the car */
+  transform: translateY(0); /* Resets the vertical centering offset */
+}
+
+/* Logic for Left Alignment (Current Default) */
+.left-align {
+  left: 0;
+  padding-left: 2%; /* Reduced from 8% to move it further left */
+  align-items: flex-start;
   text-align: left;
 }
 
-.hero__content h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
+/* Logic for Right Alignment (For your Manned Guarding image) */
+.right-align {
+  right: 0;
+  padding-right: 8%;
+  align-items: flex-end;
+  text-align: right;
 }
 
-.hero__content p {
-  font-size: 1.1rem;
-  margin-top: 10px;
-  max-width: 600px;
-  opacity: 0.9;
+
+.hero__title {
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif; 
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #d4af37; /* TMS Gold */
+  line-height: 1.1;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  /* Animation Initial State */
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  transition-delay: 0.5s; 
+}
+
+.hero__subtitle {
+  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff; /* Silver */
+  margin-top: 15px;
+  letter-spacing: 0.5px;
+
+  /* Animation Initial State */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+  transition-delay: 0.8s; 
+
+  text-shadow: 
+    0px 2px 4px rgba(0, 0, 0, 0.8), 
+    0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* --- ANIMATION TRIGGER --- */
+.hero__slide.active + .hero__text-overlay .hero__title,
+.hero__slide.active + .hero__text-overlay .hero__subtitle {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- ARROW NAVIGATION --- */
+.hero__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.4); 
+  color: #c0c0c0; 
+  font-size: 2.5rem;
+  padding: 15px 20px;
+  border: none;
+  cursor: pointer;
+  z-index: 15; 
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero__arrow:hover {
+  background-color: rgba(212, 175, 55, 0.8); /* Gold hover */
+  color: #000;
+}
+
+.hero__arrow.left { left: 20px; }
+.hero__arrow.right { right: 20px; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .hero__text-overlay {
+    left: 5%;
+    right: 5%;
+    text-align: center;
+    top: 60%;
+  }
+  .hero__title { font-size: 2.2rem; }
+  .hero__subtitle { font-size: 1.1rem; }
+  .hero__arrow { padding: 10px 15px; font-size: 1.8rem; }
 }
