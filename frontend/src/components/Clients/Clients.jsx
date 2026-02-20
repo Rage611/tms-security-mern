@@ -7,7 +7,7 @@ import hdfcLogo from '../../assets/images/clients/hdfc-logo.png';
 import iciciLogo from '../../assets/images/clients/icici-logo.png';
 import pvrLogo from '../../assets/images/clients/pvr-logo.png';
 import reebokLogo from '../../assets/images/clients/reebok-logo.png';
-import waveLogo from '../../assets/images/clients/Wave-Infratech-Logo.png'; // Capital L matching your file
+import waveLogo from '../../assets/images/clients/wave-infratech-logo.png'; // Capital L matching your file
 import woodlandLogo from '../../assets/images/clients/woodland-logo.png'; // Lowercase l matching your file
 
 const Clients = () => {
