@@ -1,19 +1,25 @@
 import React from 'react';
 import './Clients.css';
 
-// Import your client logos here
-// import client1 from '../../assets/images/clients/client1.png';
+// 1. You MUST import them here, otherwise Vercel won't package the images!
+import adidasLogo from '../../assets/images/clients/adidas-logo.png';
+import hdfcLogo from '../../assets/images/clients/hdfc-logo.png';
+import iciciLogo from '../../assets/images/clients/icici-logo.png';
+import pvrLogo from '../../assets/images/clients/pvr-logo.png';
+import reebokLogo from '../../assets/images/clients/reebok-logo.png';
+import waveLogo from '../../assets/images/clients/wave-infratech-logo.png'; // Capital L matching your file
+import woodlandLogo from '../../assets/images/clients/woodland-logo.png'; // Lowercase l matching your file
 
 const Clients = () => {
-  // Add your actual logo imports to this array
+  // 2. Use the variables without quotes, NOT the text strings
   const logos = [
-    { id: 1, src: "src/assets/images/clients/adidas-logo.png" },
-    { id: 2, src: "src/assets/images/clients/hdfc-logo.png" },
-    { id: 3, src: "src/assets/images/clients/icici-logo.png" },
-    { id: 4, src: "src/assets/images/clients/pvr-logo.png" },
-    { id: 5, src: "src/assets/images/clients/reebok-logo.png" },
-    { id: 6, src: "src/assets/images/clients/Wave-Infratech-logo.png" },
-    { id: 7, src: "src/assets/images/clients/woodland-logo.png" },
+    { id: 1, src: adidasLogo, alt: "Adidas" },
+    { id: 2, src: hdfcLogo, alt: "HDFC" },
+    { id: 3, src: iciciLogo, alt: "ICICI Bank" },
+    { id: 4, src: pvrLogo, alt: "PVR Cinemas" },
+    { id: 5, src: reebokLogo, alt: "Reebok" },
+    { id: 6, src: waveLogo, alt: "Wave Infratech" },
+    { id: 7, src: woodlandLogo, alt: "Woodland" },
   ];
 
   // We double the array so the animation never shows a blank space
@@ -30,7 +36,7 @@ const Clients = () => {
           <div className="logo-track">
             {displayLogos.map((logo, index) => (
               <div key={index} className="client-logo">
-                <img src={logo.src} alt={`Client ${index}`} />
+                <img src={logo.src} alt={logo.alt} />
               </div>
             ))}
           </div>
