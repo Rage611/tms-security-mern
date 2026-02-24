@@ -1,4 +1,3 @@
-/* --- HEADER & GOLD LASER LINE --- */
 .header {
     position: fixed; 
     top: 0;
@@ -11,7 +10,6 @@
     z-index: 9999; 
 }
 
-/* The Gold Laser Line Effect */
 .header::after {
     content: '';          
     position: absolute;   
@@ -33,9 +31,22 @@
     padding: 0 20px;
 }
 
-/* --- LOGO --- */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 10001;  
+}
+
 .logo-img {
-    height: 75px; 
+    height: 80px; 
     width: auto;
     transition: transform 0.3s ease;
 }
@@ -45,7 +56,23 @@
     filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.4));
 }
 
-/* --- NAVIGATION --- */
+.logo-text {
+    display: flex;
+    gap: 8px;
+    font-size: 2.2rem; 
+    letter-spacing: 1px;
+}
+
+.brand-bold {
+    font-weight: 800;
+    color: #d4af37; 
+}
+
+.brand-light {
+    font-weight: bold;
+    color: #a9a9a9;
+}
+
 .nav__list {
     display: flex;
     gap: 2.5rem;
@@ -56,7 +83,7 @@
 .nav__link {
     color: #94a3b8; 
     text-decoration: none;
-    font-size: 1.10rem;
+    font-size: 1.15rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.8px;
@@ -64,13 +91,12 @@
 }
 
 .nav__link:hover {
-    color: #ffd700; /* Changes to Gold on hover */
+    color: #ffd700; 
 }
 
-/* --- BUTTON --- */
 .btn-primary {
     background-color: #2563eb;
-    color: white !important; /* Forces text to stay white */
+    color: white !important; 
     padding: 0.7rem 1.6rem;
     border-radius: 8px;
     font-size: 0.9rem;
@@ -82,21 +108,10 @@
     box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
 }
 
-/* Hide Hamburger for now */
 .hamburger {
     display: none;
 }
 
-/* --- EXISTING CODE (Keep your Header, Logo, etc. same as before) --- */
-
-/* ... (Your existing header styles) ... */
-
-/* --- NEW DROPDOWN STYLES --- */
-
-/* 1. The Container for the Link + Menu */
-/* --- SIMPLE DARK DROPDOWN --- */
-
-/* 1. The Container */
 .dropdown {
     position: relative;
     height: 100%;
@@ -104,36 +119,28 @@
     align-items: center;
 }
 
-/* 2. The Menu (Dark & Minimal) */
-/* --- SMOOTH DARK DROPDOWN --- */
-
-/* 1. The Menu (Hidden State) */
 .dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: #121212; /* Dark background */
+    background-color: #121212; 
     border: 1px solid #333;
     min-width: 200px;
     padding: 10px 0;
     list-style: none;
     z-index: 10000;
-
-    /* ANIMATION PROPERTIES */
-    opacity: 0;                /* Invisible */
-    visibility: hidden;        /* Cannot be clicked */
-    transform: translateY(-15px); /* Starts slightly lower down */
-    transition: all 0.3s ease;   /* The "Smooth" Magic */
+    opacity: 0;                
+    visibility: hidden;        
+    transform: translateY(-15px); 
+    transition: all 0.3s ease;   
 }
 
-/* 2. The Menu (Visible State) */
 .dropdown:hover .dropdown-menu {
-    opacity: 1;                /* Fully visible */
-    visibility: visible;       /* Clickable */
-    transform: translateY(0);  /* Slides up into place */
+    opacity: 1;                
+    visibility: visible;       
+    transform: translateY(0);  
 }
 
-/* 3. The Links (Keep this the same) */
 .dropdown-link {
     display: block;
     padding: 12px 20px;
@@ -142,7 +149,7 @@
     font-size: 0.9rem;
     font-weight: 500;
     text-transform: uppercase;
-    transition: color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .dropdown-link:hover {
@@ -150,25 +157,6 @@
     color: #ffd700;
 }
 
-/* 4. The Links */
-.dropdown-link {
-    display: block;
-    padding: 12px 20px;
-    color: #94a3b8; /* Same silver text as your main links */
-    text-decoration: none;
-    font-size: 0.9rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    transition: color 0.2s ease;
-}
-
-/* 5. Hover Effect */
-.dropdown-link:hover {
-    background-color: #1a1a1a; /* Slightly lighter black */
-    color: #ffd700; /* Turns Gold */
-}
-
-/* Arrow Adjustment */
 .arrow {
     font-size: 0.6rem;
     margin-left: 8px;
@@ -176,117 +164,76 @@
     vertical-align: middle;
 }
 
-
-.logo-container {
-    margin-left: -50px;
-}
-
-
-/* Align logo image and text side-by-side */
-.logo-link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    cursor: pointer; /* Ensures the hand icon appears on hover */
-    z-index: 10001;  /* Keeps it above the header background */
-}
-
-
-
-/* Adjust your shield size if needed */
-.logo-img {
-    height: 55px; 
-    width: auto;
-}
-
-/* Style the text wrapper */
-.logo-text {
-    display: flex;
-    gap: 6px;
-    font-size: 1.8rem; /* Adjust size to fit your navbar */
-    letter-spacing: 1px;
-}
-
-/* The bold 'TMS' part */
-.brand-bold {
-    font-weight: 800;
-    color: #d4af37; /* A gold color to match your shield, or use #fff */
-}
-
-/* The lighter 'Security' part */
-.brand-light {
-    font-weight: bold;
-    color: #a9a9a9;
-}
-
-/* Mobile adjustments for the Header */
 @media (max-width: 768px) {
-  .header {
-    height: 80px !important;
-    overflow: visible;
-  }
+    .header {
+        height: 80px !important;
+        overflow: visible;
+    }
 
-  .hamburger {
-    display: flex !important;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    z-index: 10001;
-  }
+    .hamburger {
+        display: flex !important;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+        z-index: 10001;
+    }
 
-  .bar {
-    width: 25px;
-    height: 3px;
-    background-color: #ffd700 !important;
-    border-radius: 2px;
-  }
+    .bar {
+        width: 25px;
+        height: 3px;
+        background-color: #ffd700 !important;
+        border-radius: 2px;
+    }
 
-  .logo-img {
-    height: 50px;
-    width: auto;
-    object-fit: contain;
-  }
+    .logo-img {
+        height: 50px; 
+        width: auto;
+        object-fit: contain;
+    }
 
-  .logo-text {
-    font-size: 1.1rem;
-  }
+    .logo-text {
+        font-size: 1.5rem; 
+    }
 
-  .logo-container {
-    margin-left: 0;
-  }
+    .logo-link {
+        gap: 10px; 
+    }
 
-  .nav__list {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 80px;
-    left: -100%;
-    width: 100%;
-    height: calc(100vh - 80px);
-    background: #121212;
-    transition: 0.4s ease-in-out;
-    z-index: 99999;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 40px;
-    gap: 10px;
-  }
+    .logo-container {
+        margin-left: 0;
+    }
 
-  .nav__list.active {
-    left: 0;
-  }
+    .nav__list {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 80px);
+        background: #121212;
+        transition: 0.4s ease-in-out;
+        z-index: 99999;
+        justify-content: flex-start;
+        align-items: center;
+        padding-top: 40px;
+        gap: 10px;
+    }
 
-  .nav__list li {
-    list-style: none;
-    width: 100%;
-    text-align: center;
-    padding: 10px 0;
-  }
+    .nav__list.active {
+        left: 0;
+    }
 
-  .dropdown {
-    height: auto !important;
-    display: block;
-    width: 100%;
-  }
+    .nav__list li {
+        list-style: none;
+        width: 100%;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .dropdown {
+        height: auto !important;
+        display: block;
+        width: 100%;
+    }
 }

@@ -9,16 +9,23 @@ const About = () => {
         
         {/* LEFT SIDE: TEXT CONTENT */}
         <div className="about__content">
-          <div className="section-tagline">#1 Security Services in India</div>
-          <h2 className="section-title">WHO WE ARE</h2>
+          <div className="section-tagline">India's Premier Security Partner</div>
+          
+          <h2 className="section-title">
+            Uncompromising Protection.<br />Absolute Certainty.
+          </h2>
+          
           <p className="section-text">
-            We provide the most reliable and efficient security services and solutions, especially for Corporate, Governmental, and Institutional bodies.
+            We engineer bespoke security architectures for corporate, governmental, and elite commercial enterprises.
           </p>
 
           <p className="section-text">
-            We are a professional agency providing customized security arrangements to industrial, commercial, and business houses. Besides guarding, we specialize in rapid response and surveillance.
+             From rapid-response tactical teams to advanced digital surveillance, our mandate is total asset protection.
           </p>
-          <button className="btn-dark">READ MORE </button>
+          
+          <button className="btn-dark">
+            EXPLORE OUR CAPABILITIES <span className="arrow">&#8594;</span>
+          </button>
         </div>
 
         {/* RIGHT SIDE: LOGO */}

@@ -10,7 +10,7 @@ const Hero = () => {
       img: hero1,
       title: "TMS Security Services",
       subtitle: "Your safety is our primary commitment.",
-      layout: "left-align lower-text" // Keeps text on the left for the guard image
+      layout: "left-align" // Keeps text on the left for the guard image
     },
     {
       img: hero2,
@@ -59,7 +59,7 @@ const Hero = () => {
             {/* DYNAMIC CLASS: This now uses the 'layout' property 
               from your slides array to position the text.
             */}
-            <div className={`hero__text-overlay ${slide.layout}`}>
+            <div className={`hero__text-overlay ${slide.layout} ${index === currentIndex ? 'active' : ''}`}>
               <h1 className="hero__title">{slide.title}</h1>
               <p className="hero__subtitle">{slide.subtitle}</p>
             </div>

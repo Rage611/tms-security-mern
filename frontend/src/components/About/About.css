@@ -1,128 +1,157 @@
 .about-section {
-    /* Background: Deep Gunmetal Gradient (Matches Logo Background) */
-    background: radial-gradient(circle at center, #1f2937 0%, #000000 100%);
-    color: #e2e8f0; 
-    padding: 100px 0;
+    background-color: #050505;
     position: relative;
-    border-top: 1px solid rgba(212, 175, 55, 0.3); /* Gold divider line */
+    padding: 140px 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
 }
 
-/* Fix the Container Width so it doesn't look empty */
+.about-section::before {
+    content: "";
+    position: absolute;
+    top: -30%;
+    left: -15%;
+    width: 60%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(212,175,55,0.06) 0%, rgba(5,5,5,0) 70%);
+    pointer-events: none;
+}
+
 .about__inner {
     display: flex;
     align-items: center;
-    justify-content: center; /* Centers content together */
-    gap: 6rem;               /* Big space between Text and Logo */
-    width: 90%;              /* Take up most of the screen */
-    max-width: 1600px;       /* Allow it to get wider than before */
+    justify-content: space-between;
+    gap: 6rem;
+    width: 90%;
+    max-width: 1200px;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
-/* --- LEFT SIDE: TEXT CONTENT --- */
 .about__content {
     flex: 1;
-    max-width: 700px; /* Prevents text from stretching too wide */
+    max-width: 600px;
 }
 
-/* 1. Tagline: METALLIC GOLD */
 .section-tagline {
-    color: #fbbf24; /* Bright Gold */
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 1rem;
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
+    gap: 16px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #d4af37;
+    margin-bottom: 32px;
 }
 
-/* Adds a small gold line before the tagline */
 .section-tagline::before {
-    content: '';
+    content: "";
     display: block;
     width: 40px;
-    height: 3px;
-    background: linear-gradient(90deg, transparent, #fbbf24);
+    height: 1px;
+    background-color: #d4af37;
 }
 
-/* 2. Main Title: SILVER & SHADOW (Matches "TMS" on Shield) */
 .section-title {
-    font-size: 3.5rem; /* Much Bigger */
-    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-weight: 300;
+    color: #ffffff;
     line-height: 1.1;
-    margin-bottom: 2rem;
-    
-    /* Silver Gradient Text */
-    background: linear-gradient(180deg, #ffffff, #94a3b8);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    
-    /* Text Shadow for 3D effect */
-    filter: drop-shadow(0 4px 6px rgba(0,0,0,0.5));
+    margin-bottom: 40px;
+    letter-spacing: -1.5px;
 }
 
-/* 3. Paragraphs: Clean White/Grey */
 .section-text {
-    color: #cbd5e1; /* Light Silver */
-    font-size: 1.25rem; /* Larger text for easier reading */
+    font-family: 'Inter', sans-serif;
+    font-size: 1.15rem;
+    color: #94a3b8;
     line-height: 1.8;
-    margin-bottom: 2rem;
+    margin-bottom: 24px;
     font-weight: 300;
 }
 
-/* 4. Button: GOLD INGOT STYLE */
+.section-text:last-of-type {
+    margin-bottom: 56px;
+}
+
 .btn-dark {
-    display: inline-block;
-    background: linear-gradient(180deg, #d97706, #b45309); /* Gold Gradient */
-    color: white;
-    padding: 1rem 3rem;
-    font-size: 1.1rem;
+    background: transparent;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    color: #d4af37;
+    padding: 18px 36px;
+    font-size: 0.9rem;
+    font-family: 'Inter', sans-serif;
     font-weight: 600;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    border: 1px solid #fcd34d; /* Bright Gold Border */
-    border-radius: 4px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5); /* Deep Shadow */
-    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-radius: 2px;
 }
 
 .btn-dark:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 0 20px rgba(217, 119, 6, 0.6); /* Glowing Gold effect */
+    background: #d4af37;
+    color: #050505;
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+    border-color: #d4af37;
 }
 
-/* --- RIGHT SIDE: LOGO --- */
+.btn-dark .arrow {
+    transition: transform 0.3s ease;
+}
+
+.btn-dark:hover .arrow {
+    transform: translateX(6px);
+}
+
 .about__image-box {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 .about__image-box img {
-    max-height: 500px; /* Big enough to be impressive, but fits screen */
-    width: auto;
-    filter: drop-shadow(0 0 30px rgba(212, 175, 55, 0.2)); /* Subtle Gold Glow behind logo */
+    max-width: 450px;
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 40px rgba(212, 175, 55, 0.08));
+    transition: transform 0.7s ease;
 }
 
-/* --- MOBILE RESPONSIVE --- */
+.about__image-box img:hover {
+    transform: scale(1.03);
+}
+
 @media (max-width: 1100px) {
     .about__inner {
-        flex-direction: column-reverse; /* Put text on TOP of logo on mobile */
+        flex-direction: column;
         text-align: center;
-        gap: 3rem;
+        gap: 4rem;
     }
-    
-    .section-tagline {
-        justify-content: center; /* Center the tagline */
+
+    .about__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
-    
+
     .section-tagline::before {
         display: none;
     }
-    
+
+    .about__image-box {
+        justify-content: center;
+    }
+
     .about__image-box img {
-        max-height: 300px; /* Smaller logo on phones */
+        max-width: 300px;
     }
 }
