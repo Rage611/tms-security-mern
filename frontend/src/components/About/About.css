@@ -1,20 +1,34 @@
 .about-section {
     background-color: #050505;
     position: relative;
-    padding: 140px 0;
+    padding: 100px 0 60px 0;
     overflow: hidden;
     border-top: 1px solid rgba(212, 175, 55, 0.1);
 }
 
+/* Update the background glow */
 .about-section::before {
     content: "";
     position: absolute;
-    top: -30%;
-    left: -15%;
-    width: 60%;
-    height: 120%;
-    background: radial-gradient(circle, rgba(212,175,55,0.06) 0%, rgba(5,5,5,0) 70%);
+    top: -20%;
+    right: -10%; /* Moved the light behind the logo */
+    width: 70%;
+    height: 140%;
+    background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, rgba(5,5,5,0) 60%);
     pointer-events: none;
+    z-index: 1;
+}
+
+/* Update the shield shadow */
+.about__image-box img {
+    max-width: 480px; /* Made it slightly larger */
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 3;
+    /* Richer, deeper gold shadow */
+    filter: drop-shadow(0 20px 50px rgba(212, 175, 55, 0.15));
+    transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .about__inner {
@@ -31,35 +45,58 @@
 
 .about__content {
     flex: 1;
-    max-width: 600px;
+    max-width: 650px;
+    
+    /* The Editorial Anchor */
+    border-left: 1px solid rgba(212, 175, 55, 0.3);
+    padding-left: 2.5rem; /* Space between the line and the text */
+    position: relative;
 }
 
+/* Optional: Add a tiny glowing dot at the top of the line */
+.about__content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -3px;
+    width: 5px;
+    height: 5px;
+    background-color: #d4af37;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #d4af37;
+}
+
+/* 1. Delete the horizontal line */
+.section-tagline::before {
+    display: none; /* This kills the old horizontal line */
+}
+
+/* 2. Remove any extra padding so it aligns perfectly with the paragraphs */
 .section-tagline {
     display: inline-flex;
     align-items: center;
-    gap: 16px;
     font-family: 'Inter', sans-serif;
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 4px;
     text-transform: uppercase;
     color: #d4af37;
-    margin-bottom: 32px;
-}
-
-.section-tagline::before {
-    content: "";
-    display: block;
-    width: 40px;
-    height: 1px;
-    background-color: #d4af37;
+    margin-bottom: 25px;
+    padding-left: 0; /* Ensures it sits flush left */
 }
 
 .section-title {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 4.2rem);
+    font-size: clamp(2.8rem, 5vw, 4.5rem); /* Made it slightly larger */
     font-weight: 300;
-    color: #ffffff;
+    
+    /* Premium Silver Gradient */
+    background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; 
+    
     line-height: 1.1;
     margin-bottom: 40px;
     letter-spacing: -1.5px;
@@ -128,6 +165,32 @@
 
 .about__image-box img:hover {
     transform: scale(1.03);
+}
+
+
+.about__content {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.about__image-box {
+    opacity: 0;
+    transform: translateY(50px) scale(0.92);
+    transition: opacity 1.4s cubic-bezier(0.22, 1, 0.36, 1),
+                transform 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: 0.25s;
+}
+
+.is-visible .about__content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.is-visible .about__image-box {
+    opacity: 1;
+    transform: translateY(0) scale(1);
 }
 
 @media (max-width: 1100px) {
