@@ -22,7 +22,7 @@ const Stats = () => {
         
         <div className="stats__header">
           <div className="section-tagline">OUR MILESTONES</div>
-          <h2 className="section-title" style={{ marginBottom: '60px' }}>OUR ACHIEVEMENTS</h2>
+          <h2 className="section-title" style={{ marginBottom: '60px' }}>Securing Your World</h2>
         </div>
 
         <div className="stats-grid">

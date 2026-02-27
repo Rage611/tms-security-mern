@@ -105,20 +105,22 @@
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
 .service-card {
     position: relative;
     border-radius: 4px;
     overflow: hidden;
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 3 / 4.2;
     cursor: pointer;
     opacity: 0;
     transform: translateY(60px);
     transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
                 transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    border: none;
+    border-top: 6px solid #d4af37;
 }
 
 .is-visible .service-card {
@@ -140,12 +142,13 @@
 .card-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.4) 40%, transparent 100%);
+    background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.1) 40%, transparent 100%);
     transition: background 0.5s ease;
+    z-index: 1;
 }
 
 .service-card:hover .card-overlay {
-    background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.6) 50%, rgba(5,5,5,0.2) 100%);
+    background: linear-gradient(to top, rgba(5,5,5,0.98) 0%, rgba(5,5,5,0.85) 60%, rgba(5,5,5,0.4) 100%);
 }
 
 .card-content {
@@ -153,41 +156,55 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 40px 30px;
+    padding: 40px 40px; 
+    z-index: 2;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
     box-sizing: border-box;
 }
 
 .card-title {
     font-family: 'Inter', sans-serif;
     color: #ffffff;
-    font-size: 1.4rem;
-    font-weight: 500;
-    letter-spacing: 1px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
+    line-height: 1.4; 
     margin: 0;
     text-align: left;
-    transition: transform 0.4s ease, color 0.4s ease;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.6);
 }
 
-.card-arrow {
-    color: #d4af37;
-    font-size: 1.5rem;
+.card-text-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    width: 100%;
+}
+
+.service-card:hover .card-text-wrapper {
+    grid-template-rows: 1fr;
+}
+
+.card-description {
+    overflow: hidden;
     opacity: 0;
-    transform: translateX(-15px);
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    color: #e2e8f0;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 0;
+    transition: opacity 0.4s ease, padding-top 0.4s ease;
 }
 
-.service-card:hover .card-title {
-    transform: translateY(-5px);
-    color: #d4af37;
-}
-
-.service-card:hover .card-arrow {
+.service-card:hover .card-description {
     opacity: 1;
-    transform: translateX(0);
+    padding-top: 15px;
+    transition-delay: 0.15s;
 }
 
 .stats-grid {
@@ -239,11 +256,19 @@
     }
 }
 
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
 @media (max-width: 768px) {
     .services-section, .stats-section {
         padding: 80px 20px;
     }
     .services-grid {
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 }
