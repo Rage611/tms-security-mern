@@ -1,8 +1,6 @@
 import React from 'react';
 import './TheLeadership.css';
 import leadershipBanner from '../../../assets/images/hero/hero-3.png'; 
-// You will need to upload real photos of the 2 leaders later. 
-// For now, I am using the hero image as a placeholder.
 import leader1 from '../../../assets/images/leadership/owner-logo.jpeg'; 
 import leader2 from '../../../assets/images/hero/hero-2.png';
 
@@ -10,7 +8,6 @@ const TheLeadership = () => {
   return (
     <div className="leadership-page">
       
-      {/* Banner Section */}
       <div className="leadership-hero" style={{ backgroundImage: `url(${leadershipBanner})` }}>
         <div className="overlay"></div>
         <h1>THE LEADERSHIP</h1>
@@ -18,10 +15,8 @@ const TheLeadership = () => {
 
       <div className="content-container">
         
-        {/* Left Column: Leaders List */}
         <div className="leaders-list">
           
-          {/* LEADER 1 (e.g., Your Father) */}
           <div className="leader-card">
             <div className="leader-image-box">
               <img src={leader1} alt="Managing Director" />
@@ -43,7 +38,6 @@ const TheLeadership = () => {
 
           <hr className="divider" />
 
-          {/* LEADER 2 (The Second Person) */}
           <div className="leader-card">
             <div className="leader-image-box">
               <img src={leader2} alt="Director" />
@@ -66,7 +60,6 @@ const TheLeadership = () => {
 
         </div>
 
-        {/* Right Column: Contact Widget (Kept same as reference) */}
         <div className="sidebar">
           <div className="contact-widget">
             <h3>GET IN TOUCH</h3>

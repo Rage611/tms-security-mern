@@ -1,44 +1,59 @@
 /* --- RESET & DEFAULTS --- */
-/* This removes the annoying default white space browsers add around pages */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Crucial: Ensures padding doesn't make elements bigger than their width */
+    box-sizing: border-box;
 }
 
-/* --- VARIABLES (The Design System) --- */
+/* --- VARIABLES (The Midnight Gold Design System) --- */
 :root {
-    --bg-color: #1E1E1E;       
-    --surface-color: rgba(255, 255, 255, 0.05); /* Glassy see-through white */
-    --primary-color: #3b82f6;  /* Bright Trust Blue */
-    --text-color: #f8fafc;     /* White-ish text */
-    --nav-height: 90px;        /* Fixed height so we can calculate spacing later */
+    /* Core Backgrounds */
+    --bg-primary: #ffffff;         /* Crisp white for main pages */
+    --bg-dark: #050505;            /* Deep Onyx for footers & premium sections */
+    --bg-surface: #f8fafc;         /* Subtle off-white for light cards */
+    --bg-glass-dark: rgba(5, 5, 5, 0.95); /* For premium dark floating elements */
+
+    /* Typography */
+    --text-primary: #111827;       /* Charcoal Black - High contrast, extremely elegant */
+    --text-secondary: #4b5563;     /* Slate Gray - For breathable paragraph text */
+    --text-light: #ffffff;         /* For text on dark backgrounds */
+    --text-muted: #a1a1aa;         /* For secondary text on dark backgrounds */
+
+    /* The Brand Palette */
+    --accent-gold: #ffd700;        /* Signature TMS Gold */
+    --accent-gold-hover: #e6c200;  /* Darker gold for interaction states */
+    
+    /* UI Elements */
+    --border-light: rgba(0, 0, 0, 0.08);
+    --border-gold: rgba(255, 215, 0, 0.2);
+    --nav-height: 90px;
 }
 
+/* --- BASE STYLES --- */
 body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Crucial: Makes text render sharper and more premium */
+    -moz-osx-font-smoothing: grayscale;
 }
 
 /* --- UTILITY CLASSES --- */
-/* This constrains the width. Without this, your text would stretch 
-   edge-to-edge on a 27-inch monitor, which looks ugly. */
 .container {
-    max-width: 1200px; /* Standard website width */
-    margin: 0 auto;    /* "0" top/bottom, "auto" left/right -> Centers the div */
-    padding: 0 40px;   /* Adds breathing room on mobile screens */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
 }
 
 .app-wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: var(--bg-color);
+    background-color: var(--bg-primary);
 }
 
 main {
-    flex: 1; /* Pushes the footer (when we add it) to the bottom */
+    flex: 1;
     width: 100%;
 }

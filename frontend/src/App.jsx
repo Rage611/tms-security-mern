@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom'; // Removed BrowserRouter import
 
 /* --- Components --- */
+import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
 
@@ -34,6 +35,7 @@ const Home = () => (
 function App() {
   return (
     <div className="app-wrapper">
+      <ScrollToTop />
       <Navbar />
       
       <main>
