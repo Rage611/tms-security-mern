@@ -1,82 +1,117 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import './Housekeeping.css';
 
-// Using 4 sets of dots to reach the assets folder from your deep sub-folder
 import serviceBanner from '../../../../assets/images/hero/hero-1.png'; 
 import houseImg from '../../../../assets/images/hero/hero-2.png'; 
 
 const Housekeeping = () => {
+  const { pathname } = useLocation();
+
+  const handleSafeLink = (e, targetPath) => {
+    if (pathname === targetPath) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="service-page">
-      {/* Hero Banner */}
       <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
         <div className="overlay"></div>
         <h1>HOUSEKEEPING SERVICES</h1>
       </div>
 
       <div className="content-container">
-        {/* Main Content (Left) */}
+        
         <div className="service-content">
-          <div className="top-section">
-            <img src={houseImg} alt="Housekeeping" className="content-image-small" />
-            <div className="intro-text">
-              <h2 className="main-heading">PROFESSIONAL HOUSEKEEPING</h2>
-              <p>
-                TMS provides complete house keeping facilities for offices. The services are 
-                designed to provide your employees fresh, clean and germ free environment.
-              </p>
-              <p>
-                Each office is assigned to an executive with the responsibility of directly 
-                supervising operations. TMS employs modern tools making work areas healthy 
-                and attractive for your staff.
-              </p>
-            </div>
-          </div>
+          <img src={houseImg} alt="Professional Housekeeping Operations" className="service-featured-image" />
           
-          <div className="text-block">
-            <p>
-                Though the cleaning industry has come a long way, still a lot remains to be 
-                done. At TMS, we have a lot of determination, dedication, and a strong will 
-                to implement changes required to take standards one generation ahead.
+          <h2 className="section-title text-theme-dark">PROFESSIONAL HOUSEKEEPING</h2>
+          
+          <p className="service-body-text">
+            TMS provides comprehensive environmental management for corporate headquarters and elite commercial spaces. 
+            Our protocols are engineered to provide your personnel with a fresh, sterile, and clinically clean environment 
+            that reflects the prestige of your organization.
+          </p>
+
+          <blockquote className="elite-quote text-theme-dark">
+            "We implement the rigorous changes required to take environmental standards one generation ahead."
+          </blockquote>
+
+          <div className="service-text-block">
+            <h3 className="text-theme-dark">Operational Supervision</h3>
+            <p className="service-body-text">
+              Every facility is assigned a dedicated executive responsible for directly supervising tactical operations. 
+              By employing modern mechanized tools and military-grade discipline, we ensure work areas are not just 
+              attractive, but operationally healthy for your staff.
             </p>
           </div>
 
-          <div className="strengths-section">
-            <h3>OUR STRENGTHS</h3>
-            <ul className="strength-list">
-              <li>Specific and clear view points to provide best services.</li>
-              <li>In-house training and upgradation capabilities.</li>
-              <li>Trained and committed work force.</li>
-              <li>Continuous training up to the level of Managers every 3 months.</li>
-              <li>Adequate machine infrastructure for mechanized cleaning solutions.</li>
-              <li>24/7 connectivity with Supervisors, Managers, and Office Control Room.</li>
-              <li>Full compliance with Contract Labour Act rules and regulations.</li>
+          <div className="service-text-block">
+            <h3 className="text-theme-dark">OUR STRENGTHS</h3>
+            <ul className="tactical-list">
+              <li>Specific and clear operational viewpoints to provide superior results.</li>
+              <li>In-house training and continuous technological upgradation.</li>
+              <li>A trained, committed, and high-discipline workforce.</li>
+              <li>Quarterly executive-level training for all management tiers.</li>
+              <li>Heavy machine infrastructure for advanced mechanized cleaning.</li>
+              <li>24/7 tactical connectivity with Supervisors and Office Control Room.</li>
+              <li>Full compliance with Contract Labour Act and regulatory frameworks.</li>
             </ul>
           </div>
         </div>
 
-        {/* Sidebar (Right) */}
         <div className="sidebar">
-          <div className="services-nav">
+          <div className="services-side-nav">
             <h3>OUR SERVICES</h3>
             <ul>
-              <li><Link to="/manpower">Manned Guarding</Link></li>
-              <li><Link to="/facility-management">Facility Management</Link></li>
-              <li><Link to="/housekeeping" className="active">Housekeeping</Link></li>
+              <li>
+                <Link 
+                  to="/manpower" 
+                  onClick={(e) => handleSafeLink(e, '/manpower')}
+                  className={pathname === '/manpower' ? 'active' : ''}
+                >
+                  Manned Guarding
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/facility-management" 
+                  onClick={(e) => handleSafeLink(e, '/facility-management')}
+                  className={pathname === '/facility-management' ? 'active' : ''}
+                >
+                  Facility Management
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/housekeeping" 
+                  onClick={(e) => handleSafeLink(e, '/housekeeping')}
+                  className={pathname === '/housekeeping' ? 'active' : ''}
+                >
+                  Housekeeping
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div className="contact-widget">
             <h3>GET IN TOUCH</h3>
             <form className="widget-form">
-              <input type="text" placeholder="Name*" className="form-input" />
-              <input type="email" placeholder="Email*" className="form-input" />
-              <textarea placeholder="Message" rows="4" className="form-input"></textarea>
+              <div className="form-group">
+                <input type="text" placeholder="Name*" required />
+              </div>
+              <div className="form-group">
+                <input type="email" placeholder="Email*" required />
+              </div>
+              <div className="form-group">
+                <textarea placeholder="Message" rows="4"></textarea>
+              </div>
               <button type="button" className="submit-btn">SEND</button>
             </form>
           </div>
         </div>
+
       </div>
     </div>
   );

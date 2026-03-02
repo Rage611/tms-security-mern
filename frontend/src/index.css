@@ -1,45 +1,34 @@
-/* --- RESET & DEFAULTS --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* --- VARIABLES (The Midnight Gold Design System) --- */
 :root {
-    /* Core Backgrounds */
-    --bg-primary: #ffffff;         /* Crisp white for main pages */
-    --bg-dark: #050505;            /* Deep Onyx for footers & premium sections */
-    --bg-surface: #f8fafc;         /* Subtle off-white for light cards */
-    --bg-glass-dark: rgba(5, 5, 5, 0.95); /* For premium dark floating elements */
-
-    /* Typography */
-    --text-primary: #111827;       /* Charcoal Black - High contrast, extremely elegant */
-    --text-secondary: #4b5563;     /* Slate Gray - For breathable paragraph text */
-    --text-light: #ffffff;         /* For text on dark backgrounds */
-    --text-muted: #a1a1aa;         /* For secondary text on dark backgrounds */
-
-    /* The Brand Palette */
-    --accent-gold: #ffd700;        /* Signature TMS Gold */
-    --accent-gold-hover: #e6c200;  /* Darker gold for interaction states */
-    
-    /* UI Elements */
+    --bg-primary: #ffffff;
+    --bg-dark: #050505;
+    --bg-surface: #f8fafc;
+    --bg-glass-dark: rgba(5, 5, 5, 0.95);
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-light: #ffffff;
+    --text-muted: #a1a1aa;
+    --accent-gold: #ffd700;
+    --accent-gold-hover: #e6c200;
     --border-light: rgba(0, 0, 0, 0.08);
     --border-gold: rgba(255, 215, 0, 0.2);
     --nav-height: 90px;
 }
 
-/* --- BASE STYLES --- */
 body {
     background-color: var(--bg-primary);
     color: var(--text-primary);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
-    -webkit-font-smoothing: antialiased; /* Crucial: Makes text render sharper and more premium */
+    -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- UTILITY CLASSES --- */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -56,4 +45,16 @@ body {
 main {
     flex: 1;
     width: 100%;
+}
+
+.text-theme-dark {
+    color: var(--text-primary);
+    background: none;
+    -webkit-text-fill-color: var(--text-primary);
+}
+
+.text-theme-light {
+    color: var(--text-light);
+    background: none;
+    -webkit-text-fill-color: var(--text-light);
 }

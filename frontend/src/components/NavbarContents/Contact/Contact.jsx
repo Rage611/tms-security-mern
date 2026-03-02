@@ -1,47 +1,72 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import './Contact.css';
-// Make sure this path is correct based on your folder structure (3 dots vs 4 dots)
+
 import contactBanner from '../../../assets/images/hero/hero-2.png'; 
 
 const Contact = () => {
+  const { pathname } = useLocation();
+
+  // Route Reset: Snaps to top on load
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
-    <div className="contact-page">
+    <div className="contact-page full-width" key={pathname}>
+      
       {/* 1. Hero Banner */}
       <div className="contact-hero" style={{ backgroundImage: `url(${contactBanner})` }}>
         <div className="overlay"></div>
         <h1>CONTACT US</h1>
       </div>
 
-      {/* 2. Main Content */}
+      {/* 2. Main Content Grid */}
       <div className="contact-container">
         <div className="contact-flex-wrapper">
           
-          {/* Left Side: Office Details */}
+          {/* Left Side: Corporate Intel */}
           <div className="office-details-section">
-            <h2 className="office-heading">Delhi (Corporate Office)</h2>
+            <h2 className="office-heading">CORPORATE HEADQUARTERS</h2>
+            <p className="contact-body-text">
+              For operational inquiries, strategic partnerships, or immediate security deployments, 
+              reach out to our command center.
+            </p>
             
-            <div className="contact-info-item">
-              <span className="icon">📍</span>
-              <p>526, Ground Floor, Opp Metro Pillar No. 623, Site-1, Vikas Puri, New Delhi, 110018</p>
+            <div className="info-block">
+              <h3 className="gold-heading">Delhi Office</h3>
+              <ul className="tactical-info-list">
+                <li>
+                  <strong>ADDRESS:</strong><br />
+                  526, Ground Floor, Opp Metro Pillar No. 623,<br />
+                  Site-1, Vikas Puri, New Delhi, 110018
+                </li>
+                <li>
+                  <strong>DIRECT LINE:</strong><br />
+                  +91 9717763351
+                </li>
+                <li>
+                  <strong>SECURE FAX:</strong><br />
+                  +91 11 4140 1113
+                </li>
+              </ul>
             </div>
 
-            <div className="contact-info-item">
-              <span className="icon">📞</span>
-              <p>+91 9717763351</p>
+            <div className="info-block">
+              <h3 className="gold-heading">National Presence</h3>
+              <p className="contact-body-text">
+                Operating with a comprehensive network across major metropolitan hubs and strategic industrial zones nationwide.
+              </p>
             </div>
-
-            <div className="contact-info-item">
-              <span className="icon">📠</span>
-              <p>+91 11 4140 1113</p>
-            </div>
-
-            <h2 className="presence-heading">We are Present at:</h2>
           </div>
 
-          {/* Right Side: Inquiry Form */}
+          {/* Right Side: Secure Inquiry Portal */}
           <div className="contact-form-section">
-            <h2 className="form-heading">Get In Touch With Us</h2>
-            <form className="main-contact-form">
+            <div className="portal-header-small">
+              <h2>SECURE INQUIRY PORTAL</h2>
+            </div>
+            
+            <form className="elite-contact-form">
               <div className="input-row">
                 <input type="text" placeholder="Your Name*" required />
               </div>
@@ -54,9 +79,10 @@ const Contact = () => {
                 <input type="text" placeholder="Subject" />
               </div>
 
+              {/* Upgraded Elite Dropdown */}
               <div className="input-row">
-                <label className="select-label">Select Service*</label>
-                <select required>
+                <select required defaultValue="">
+                  <option value="" disabled>Select Service*</option>
                   <option value="guarding">Guarding Services</option>
                   <option value="facility">Facility Management</option>
                   <option value="housekeeping">Housekeeping</option>
@@ -68,14 +94,14 @@ const Contact = () => {
                 <textarea placeholder="Your Message" rows="6"></textarea>
               </div>
 
-              <button type="submit" className="contact-send-btn">Send</button>
+              <button type="button" className="contact-send-btn">TRANSMIT MESSAGE</button>
             </form>
           </div>
 
         </div>
       </div>
 
-      {/* 3. NEW: Google Map Section */}
+      {/* 3. Tactical Map Section (Using your custom invert filter) */}
       <div className="map-section">
         <iframe 
           title="TMS Office Location"
