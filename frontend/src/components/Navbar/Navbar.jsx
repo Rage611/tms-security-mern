@@ -5,6 +5,7 @@ import logo from "../../assets/images/Logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isGuardingHovered, setIsGuardingHovered] = useState(false);
 
   const closeMenu = () => setIsOpen(false);
 
@@ -30,7 +31,7 @@ const Navbar = () => {
               href="#" 
               className="nav__link" 
               onClick={(e) => e.preventDefault()} 
-              style={{ cursor: "default" }}       
+              style={{ cursor: "default" }}      
             >
               ABOUT TMS <span className="arrow">▼</span>
             </a>
@@ -45,12 +46,29 @@ const Navbar = () => {
               href="#" 
               className="nav__link" 
               onClick={(e) => e.preventDefault()} 
-              style={{ cursor: "default" }}       
+              style={{ cursor: "default" }}      
             >
               SERVICES <span className="arrow">▼</span>
             </a>
             <ul className="dropdown-menu">
-              <li><Link to="/manpower" className="dropdown-link" onClick={closeMenu}>MANNED GUARDING</Link></li>
+              {/* Nested Dropdown Container */}
+              <li 
+                className="nested-dropdown"
+                onMouseEnter={() => setIsGuardingHovered(true)}
+                onMouseLeave={() => setIsGuardingHovered(false)}
+              >
+                <Link to="/manpower" className="dropdown-link nested-link" onClick={closeMenu}>
+                  MANNED GUARDING <span className="arrow-right">▶</span>
+                </Link>
+                
+                {/* The Nested Menu List */}
+                <ul className={`nested-menu ${isGuardingHovered ? 'show-nested' : ''}`}>
+                  <li><Link to="/bouncer" className="dropdown-link" onClick={closeMenu}>BOUNCER</Link></li>
+                  <li><Link to="/trained-gunman" className="dropdown-link" onClick={closeMenu}>TRAINED GUNMAN</Link></li>
+                  <li><Link to="/pso" className="dropdown-link" onClick={closeMenu}>PSO</Link></li>
+                </ul>
+              </li>
+
               <li><Link to="/facility-management" className="dropdown-link" onClick={closeMenu}>FACILITY MANAGEMENT</Link></li>        
               <li><Link to="/housekeeping" className="dropdown-link" onClick={closeMenu}>HOUSE KEEPING</Link></li>
             </ul>
