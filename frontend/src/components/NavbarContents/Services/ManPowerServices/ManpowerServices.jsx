@@ -1,25 +1,33 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './ManpowerServices.css';
 
 import serviceBanner from '../../../../assets/images/hero/hero-1.png'; 
 import guardTeam from '../../../../assets/images/hero/hero-2.png';
 
 const ManpowerServices = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  const handleSafeLink = (e, targetPath) => {
+    if (pathname === targetPath) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="service-page">
-      
       <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
         <div className="overlay"></div>
         <h1>MANNED GUARDING</h1>
       </div>
 
       <div className="content-container">
-        
         <div className="service-content">
-          
           <img src={guardTeam} alt="TMS Security Guard Team" className="service-featured-image" />
-          
           <h2 className="section-title text-theme-dark">SECURITY GUARD SERVICES</h2>
           
           <div className="service-text-block">
@@ -71,38 +79,52 @@ const ManpowerServices = () => {
               <li>Quality Control and Assurance (QCA) Checks</li>
             </ul>
           </div>
-
         </div>
 
         <div className="sidebar">
-          
           <div className="services-side-nav">
             <h3>OUR SERVICES</h3>
             <ul>
-              <li><Link to="/manpower" className="active">Manned Guarding</Link></li>
-              <li><Link to="/facility">Facility Management</Link></li>
-              <li><Link to="/housekeeping">Housekeeping</Link></li>
+              <li>
+                <Link 
+                  to="/manpower" 
+                  onClick={(e) => handleSafeLink(e, '/manpower')}
+                  className={pathname === '/manpower' ? 'active' : ''}
+                >
+                  Manned Guarding
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/facility-management" 
+                  onClick={(e) => handleSafeLink(e, '/facility-management')}
+                  className={pathname === '/facility-management' ? 'active' : ''}
+                >
+                  Facility Management
+                </Link>
+              </li>
+              <li>
+                <Link 
+                  to="/housekeeping" 
+                  onClick={(e) => handleSafeLink(e, '/housekeeping')}
+                  className={pathname === '/housekeeping' ? 'active' : ''}
+                >
+                  Housekeeping
+                </Link>
+              </li>
             </ul>
           </div>
 
           <div className="contact-widget">
             <h3>GET IN TOUCH</h3>
             <form className="widget-form">
-              <div className="form-group">
-                <input type="text" placeholder="Name*" required />
-              </div>
-              <div className="form-group">
-                <input type="email" placeholder="Email*" required />
-              </div>
-              <div className="form-group">
-                <textarea placeholder="Message" rows="4"></textarea>
-              </div>
+              <div className="form-group"><input type="text" placeholder="Name*" required /></div>
+              <div className="form-group"><input type="email" placeholder="Email*" required /></div>
+              <div className="form-group"><textarea placeholder="Message" rows="4"></textarea></div>
               <button type="button" className="submit-btn">SEND</button>
             </form>
           </div>
-
         </div>
-
       </div>
     </div>
   );

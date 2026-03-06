@@ -8,14 +8,19 @@ import facilityImg from '../../../../assets/images/hero/hero-3.png';
 const FacilityManagement = () => {
   const { pathname } = useLocation();
 
-  // This ensures every page load or link click snaps perfectly to the top
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  // THE SAFETY CATCH: Prevents the router from crashing if you click the active page
+  const handleSafeLink = (e, targetPath) => {
+    if (pathname === targetPath) {
+      e.preventDefault();
+    }
+  };
+
   return (
-    /* The key={pathname} forces React to load a completely fresh page every time, fixing the invisible text bug! */
-    <div className="service-page" key={pathname}>
+    <div className="service-page">
       <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
         <div className="overlay"></div>
         <h1>FACILITY MANAGEMENT</h1>
@@ -51,17 +56,29 @@ const FacilityManagement = () => {
             <h3>OUR SERVICES</h3>
             <ul>
               <li>
-                <Link to="/manpower" className={pathname === '/manpower' ? 'active' : ''}>
+                <Link 
+                  to="/manpower" 
+                  onClick={(e) => handleSafeLink(e, '/manpower')}
+                  className={pathname === '/manpower' ? 'active' : ''}
+                >
                   Manned Guarding
                 </Link>
               </li>
               <li>
-                <Link to="/facility-management" className={pathname === '/facility-management' ? 'active' : ''}>
+                <Link 
+                  to="/facility-management" 
+                  onClick={(e) => handleSafeLink(e, '/facility-management')}
+                  className={pathname === '/facility-management' ? 'active' : ''}
+                >
                   Facility Management
                 </Link>
               </li>
               <li>
-                <Link to="/housekeeping" className={pathname === '/housekeeping' ? 'active' : ''}>
+                <Link 
+                  to="/housekeeping" 
+                  onClick={(e) => handleSafeLink(e, '/housekeeping')}
+                  className={pathname === '/housekeeping' ? 'active' : ''}
+                >
                   Housekeeping
                 </Link>
               </li>

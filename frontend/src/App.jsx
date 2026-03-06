@@ -21,7 +21,10 @@ import FacilityManagement from './components/NavbarContents/Services/FacilityMan
 import Housekeeping from './components/NavbarContents/Services/Housekeeping/Housekeeping';
 import Career from './components/NavbarContents/Career/Career';
 import Contact from './components/NavbarContents/Contact/Contact';
-/* --- Home Component --- */
+import Bouncer from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/Bouncer/Bouncer";
+import PSO from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/PSO/PSO";
+import TrainedGunman from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/TrainedGunman/TrainedGunman";
+
 const Home = () => (
   <>
     <Hero />
@@ -48,6 +51,9 @@ function App() {
           <Route path="/housekeeping" element={<Housekeeping />} />
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/bouncer" element={<Bouncer />} />
+          <Route path="/pso" element={<PSO />} />
+          <Route path="/trained-gunman" element={<TrainedGunman />} />
         </Routes>
       </main>
 
