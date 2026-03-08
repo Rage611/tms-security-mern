@@ -6,12 +6,12 @@
     border-top: 1px solid rgba(212, 175, 55, 0.1);
 }
 
-/* Update the background glow */
+/* Background glow */
 .about-section::before {
     content: "";
     position: absolute;
     top: -20%;
-    right: -10%; /* Moved the light behind the logo */
+    right: -10%;
     width: 70%;
     height: 140%;
     background: radial-gradient(circle, rgba(212,175,55,0.08) 0%, rgba(5,5,5,0) 60%);
@@ -19,14 +19,13 @@
     z-index: 1;
 }
 
-/* Update the shield shadow */
+/* Shield shadow */
 .about__image-box img {
-    max-width: 480px; /* Made it slightly larger */
+    max-width: 480px; 
     width: 100%;
     height: auto;
     position: relative;
     z-index: 3;
-    /* Richer, deeper gold shadow */
     filter: drop-shadow(0 20px 50px rgba(212, 175, 55, 0.15));
     transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
@@ -49,11 +48,11 @@
     
     /* The Editorial Anchor */
     border-left: 1px solid rgba(212, 175, 55, 0.3);
-    padding-left: 2.5rem; /* Space between the line and the text */
+    padding-left: 2.5rem; 
     position: relative;
 }
 
-/* Optional: Add a tiny glowing dot at the top of the line */
+/* Glowing dot at the top of the line */
 .about__content::before {
     content: '';
     position: absolute;
@@ -66,12 +65,10 @@
     box-shadow: 0 0 10px #d4af37;
 }
 
-/* 1. Delete the horizontal line */
 .section-tagline::before {
-    display: none; /* This kills the old horizontal line */
+    display: none; 
 }
 
-/* 2. Remove any extra padding so it aligns perfectly with the paragraphs */
 .section-tagline {
     display: inline-flex;
     align-items: center;
@@ -82,30 +79,28 @@
     text-transform: uppercase;
     color: #d4af37;
     margin-bottom: 25px;
-    padding-left: 0; /* Ensures it sits flush left */
+    padding-left: 0; 
 }
 
 .section-title {
     font-family: 'Inter', sans-serif;
-    font-size: clamp(2.8rem, 5vw, 4.5rem); /* Made it slightly larger */
+    font-size: clamp(2.8rem, 5vw, 4.5rem); 
     font-weight: 300;
-    
-    /* Premium Silver Gradient */
     background: linear-gradient(180deg, #ffffff 0%, #a1a1aa 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent; 
-    
     line-height: 1.1;
     margin-bottom: 40px;
     letter-spacing: -1.5px;
 }
 
+/* TEXT FIX: Brightened to crisp silver for legibility */
 .section-text {
     font-family: 'Inter', sans-serif;
     font-size: 1.15rem;
-    color: #94a3b8;
+    color: #e2e8f0; 
     line-height: 1.8;
     margin-bottom: 24px;
     font-weight: 300;
@@ -115,14 +110,15 @@
     margin-bottom: 56px;
 }
 
+/* BUTTON FIX: Inverted to Solid Gold */
 .btn-dark {
-    background: transparent;
-    border: 1px solid rgba(212, 175, 55, 0.3);
-    color: #d4af37;
+    background: #d4af37;
+    border: 1px solid #d4af37;
+    color: #050505;
     padding: 18px 36px;
     font-size: 0.9rem;
     font-family: 'Inter', sans-serif;
-    font-weight: 600;
+    font-weight: 800; /* Bolder text for contrast */
     letter-spacing: 2px;
     text-transform: uppercase;
     cursor: pointer;
@@ -134,10 +130,9 @@
 }
 
 .btn-dark:hover {
-    background: #d4af37;
-    color: #050505;
+    background: transparent;
+    color: #d4af37;
     box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
-    border-color: #d4af37;
 }
 
 .btn-dark .arrow {
@@ -167,7 +162,7 @@
     transform: scale(1.03);
 }
 
-
+/* Animation Classes */
 .about__content {
     opacity: 0;
     transform: translateY(50px);
@@ -193,17 +188,21 @@
     transform: translateY(0) scale(1);
 }
 
+/* ALIGNMENT FIX: Mobile view overrides */
 @media (max-width: 1100px) {
     .about__inner {
         flex-direction: column;
-        text-align: center;
+        text-align: left; /* Anchors the text to the left */
+        align-items: flex-start; /* Forces the box to align left */
         gap: 4rem;
     }
 
     .about__content {
         display: flex;
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start; /* Anchors the button and text to the left */
+        padding-left: 20px; /* Gives the gold line slight breathing room */
+        width: 100%;
     }
 
     .section-tagline::before {
@@ -211,7 +210,9 @@
     }
 
     .about__image-box {
+        align-self: center; /* Keeps the logo perfectly centered at the bottom */
         justify-content: center;
+        width: 100%;
     }
 
     .about__image-box img {

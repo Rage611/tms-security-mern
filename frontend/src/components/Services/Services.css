@@ -250,25 +250,81 @@
     letter-spacing: 3px;
 }
 
-@media (min-width: 968px) {
-    .stat-item:not(:last-child) {
-        border-right: 1px solid rgba(212, 175, 55, 0.15);
-    }
-}
-
-@media (max-width: 1024px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
-}
-
 @media (max-width: 768px) {
+    /* 1. Remove side padding so the carousel can bleed to the edges */
     .services-section, .stats-section {
-        padding: 80px 20px;
+        padding: 80px 0; 
     }
+    
+    /* 2. Release the container width for the edge-to-edge swipe */
+    .services__inner, .stats__inner {
+        width: 100%; 
+    }
+
+    /* 3. Keep the text safely padded so it doesn't touch the screen edge */
+    .services-header, .stats__header {
+        padding: 0 5%; 
+    }
+
+    /* 4. THE HORIZONTAL CAROUSEL (The Magic) */
     .services-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory; /* The native snap effect */
+        gap: 15px;
+        padding: 0 5%; /* Aligns the first card perfectly with your headers */
+        
+        /* Hides the ugly default scrollbars for an app-like feel */
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* IE/Edge */
     }
+
+    .services-grid::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
+    }
+
+    /* 5. THE 85/15 PEEK CARD */
+    /* 5. THE 85/15 PEEK CARD (STRETCH FIX) */
+    .service-card {
+        min-width: 85%; 
+        max-width: 85%; /* Forces the width to behave */
+        height: 420px; /* HARD LOCK: physically stops the endless stretching */
+        aspect-ratio: auto; /* Overrides the desktop math that confused the browser */
+        flex-shrink: 0; 
+        scroll-snap-align: center; 
+    }
+
+
+    @media (max-width: 768px) {
+    /* 1. THE 2x2 GRID UPGRADE */
+    .stats-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; /* Forces 2 columns on mobile */
+        gap: 40px 15px !important; /* 40px vertical space, 15px horizontal space */
+        align-items: start;
+    }
+
+    /* 2. Sizing adjustments so they fit beautifully side-by-side */
+    .stat-item {
+        min-width: unset; /* Removes the flexbox limit from your desktop CSS */
+        padding: 0 10px;
+    }
+
+    .stat-number {
+        font-size: 2.5rem !important; /* Slightly scaled down so 100+ fits perfectly */
+        margin-bottom: 5px !important; /* Pulls the number and label tightly together */
+    }
+
+    .stat-label {
+        font-size: 0.75rem !important; 
+        letter-spacing: 2px;
+        line-height: 1.4;
+    }
+
+    /* Pulls the 2x2 grid closer to the Header on mobile */
+    .stats__header {
+        margin-bottom: 40px !important; 
+    }
+}
 }
