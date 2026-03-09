@@ -6,16 +6,19 @@
 
 /* ── CSS Variables ─────────────────────────────────────────────────────────── */
 
+/* ── CSS Variables ─────────────────────────────────────────────────────────── */
 :root {
   --gold:          #d4af37;
   --gold-bright:   #f0d060;
   --gold-dim:      rgba(212, 175, 55, 0.15);
-  --blue-exp:      #3b82f6;
+  
+  /* THE COLOR PIVOT: Back to the original Stealth Blue */
+  --blue-exp:      #3b82f6; 
   --blue-dim:      rgba(59, 130, 246, 0.18);
+  
   --map-bg:        #050505;
   --font:          'Inter', system-ui, sans-serif;
 }
-
 /* ── Section Shell ─────────────────────────────────────────────────────────── */
 
 .network-section {
@@ -253,6 +256,13 @@
 .beacon__label--right { left:  calc(50% + 11px); }
 .beacon__label--left  { right: calc(50% + 11px); flex-direction: row-reverse; }
 
+/* Pushes the label perfectly centered beneath the dot */
+.beacon__label--bottom {
+  top: calc(50% + 10px); 
+  left: 50%;
+  transform: translateX(-50%); 
+}
+
 /* City name */
 .beacon__city-name {
   font-family: var(--font);
@@ -269,7 +279,7 @@
     0 0 20px rgba(212, 175, 55, 0.45);
 }
 
-/* Expansion city name — muted blue-white */
+/* Expansion city name — Muted Emerald */
 .beacon__city-name--exp {
   color: #93c5fd;
   text-shadow:
@@ -277,7 +287,7 @@
     0 0 14px rgba(0, 0, 0, 0.95),
     1px 1px 0 rgba(0, 0, 0, 0.8),
    -1px -1px 0 rgba(0, 0, 0, 0.8),
-    0 0 16px rgba(59, 130, 246, 0.4);
+    0 0 16px rgba(59, 130, 246, 0.6);
 }
 
 /* ── HQ Badge ── */
@@ -303,18 +313,18 @@
   font-size: 0.46rem;
   font-weight: 700;
   letter-spacing: 1.2px;
-  color: #93c5fd;
-  border: 1px solid rgba(59, 130, 246, 0.5);
+  color: #a7f3d0;
+  border: 1px solid rgba(16, 185, 129, 0.5);
+  background: rgba(4, 120, 87, 0.2);
   padding: 1px 4px;
   border-radius: 2px;
   line-height: 1.5;
   flex-shrink: 0;
   backdrop-filter: blur(4px);
-  background: rgba(29, 78, 216, 0.2);
 }
 
 /* =============================================================================
-   SVG PARABOLA ARCS (Force Projection Web)
+   SVG PARABOLA ARCS (Two-Phase Force Projection)
    ============================================================================= */
 
 .network-arcs {
@@ -327,52 +337,65 @@
   pointer-events: none; 
 }
 
-/* --- ACTIVE ROUTES (Gold Lasers) --- */
+/* --- PHASE 1: ACTIVE ROUTES (Solid Gold Lasers) --- */
 .arc-line {
   fill: none;
   stroke: url(#arc-glow); 
   stroke-width: 0.6; 
   stroke-linecap: round;
   filter: drop-shadow(0 0 4px rgba(212, 175, 55, 1));
-  stroke-dasharray: 60;
-  stroke-dashoffset: 60;
+  
+  stroke-dasharray: 120;
+  stroke-dashoffset: 120;
 }
 
+/* --- PHASE 1: ACTIVE ROUTES (Solid Gold Lasers) --- */
 .is-visible .arc-line {
-  animation: draw-arc 4s ease-out forwards;
+  /* CHANGE: Increased from 3s to 4.5s for a slow, tactical deployment */
+  animation: draw-arc 8s cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
+  animation-delay: 0.5s; 
 }
-
-.is-visible .arc-delay-1 { animation-delay: 0.5s; }
-.is-visible .arc-delay-2 { animation-delay: 1.5s; }
-.is-visible .arc-delay-3 { animation-delay: 2.5s; }
-.is-visible .arc-delay-4 { animation-delay: 3.5s; }
 
 @keyframes draw-arc {
   to { stroke-dashoffset: 0; }
 }
 
-/* --- EXPANSION ROUTES (Blue Dashed Lines) --- */
-.arc-line-dashed {
+/* --- THE RADAR CLIP (Shoots the dots outward from Delhi) --- */
+.radar-circle {
+  r: 0; /* Starts completely invisible at HQ */
+}
+
+.is-visible .radar-circle {
+  /* Expands massively at 2.5s to reveal the paths sequentially */
+  animation: radar-burst 10s cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
+  animation-delay: 2.5s;
+}
+
+@keyframes radar-burst {
+  to { r: 150; } /* Expands to cover the entire map */
+}
+
+/* --- PHASE 2: EXPANSION ROUTES (Flowing Data Stream) --- */
+.arc-line-exp {
   fill: none;
-  stroke: url(#arc-glow-blue);
-  stroke-width: 0.3; 
+  stroke: #38bdf8; 
+  stroke-width: 0.6; 
   stroke-linecap: round;
-  stroke-dasharray: 1.5 2.5; 
-  filter: drop-shadow(0 0 3px rgba(59, 130, 246, 0.8));
-  opacity: 0; 
+  filter: drop-shadow(0 0 4px rgba(56, 189, 248, 1));
+  
+  /* Tight dots */
+  stroke-dasharray: 3 3; 
+  /* No opacity hidden state needed! The radar-circle hides it perfectly */
 }
 
-/* Fire these AFTER the gold lines finish */
-.is-visible .arc-line-dashed {
-  animation: fade-in-arc 2s ease-out forwards;
+/* Continually animates the dots sliding forward */
+.is-visible .arc-line-exp {
+  animation: flow-dots 8s linear infinite; 
 }
 
-.is-visible .arc-delay-5 { animation-delay: 4.5s; }
-.is-visible .arc-delay-6 { animation-delay: 5.0s; }
-.is-visible .arc-delay-7 { animation-delay: 5.5s; }
-
-@keyframes fade-in-arc {
-  to { opacity: 0.7; }
+@keyframes flow-dots {
+  from { stroke-dashoffset: 60; }
+  to { stroke-dashoffset: 0; }
 }
 
 /* =============================================================================
@@ -477,6 +500,8 @@
   .beacon__upcoming-tag {
     display: none;
   }
+
+  .beacon__label--bottom { top: calc(50% + 14px); }
 
   .beacon__hq-badge {
     font-size: 0.44rem;
