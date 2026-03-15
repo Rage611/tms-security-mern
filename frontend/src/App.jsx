@@ -25,6 +25,7 @@ import Bouncer from "./components/NavbarContents/Services/ManPowerServices/ManPo
 import PSO from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/PSO/PSO";
 import TrainedGunman from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/TrainedGunman/TrainedGunman";
 
+
 const Home = () => (
   <>
     <Hero />

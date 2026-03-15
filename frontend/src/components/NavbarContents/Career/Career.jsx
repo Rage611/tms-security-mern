@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Turnstile } from '@marsidev/react-turnstile'; // <-- The Bouncer
 import './Career.css';
 
 import careerBanner from '../../../assets/images/hero/hero-3.png'; 
@@ -11,6 +12,86 @@ const Career = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  // ─── SECURE FORM STATE ──────────────────────────────────────────
+  const [formData, setFormData] = useState({ 
+    name: '', email: '', phone: '', position: '', experience: '', message: '' 
+  });
+  const [resumeFile, setResumeFile] = useState(null); 
+  const [status, setStatus] = useState('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState(null);
+
+  // Handle Text Inputs
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle File Input
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) {
+        setErrorMessage('File is too large. Maximum size is 5MB.');
+        setResumeFile(null);
+        e.target.value = null;
+      } else {
+        setErrorMessage('');
+        setResumeFile(file);
+      }
+    }
+  };
+
+  // ─── TRANSMISSION LOGIC ─────────────────────────────────────────
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!turnstileToken) {
+      setErrorMessage('Security verification pending. Please wait.');
+      return;
+    }
+
+    if (!resumeFile) {
+      setErrorMessage('A resume (PDF/DOC) is required for deployment consideration.');
+      return;
+    }
+
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      // 📦 THE HEAVY-DUTY SHIPPING CRATE
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('email', formData.email);
+      payload.append('phone', formData.phone);
+      payload.append('position', formData.position);
+      payload.append('experience', formData.experience); // Added your custom field!
+      payload.append('message', formData.message);
+      payload.append('resume', resumeFile); 
+      payload.append('turnstileToken', turnstileToken);
+
+      // 🚀 Fire payload to your Node.js backend
+      const response = await fetch('http://localhost:5000/api/career', {
+        method: 'POST',
+        body: payload, // NO Content-Type header! Let the browser handle it.
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', phone: '', position: '', experience: '', message: '' });
+        setResumeFile(null);
+      } else {
+        setStatus('error');
+        setErrorMessage(data.error || 'Transmission failed. Try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage('Network error. Is the Command Center backend offline?');
+    }
+  };
 
   return (
     <div className="career-page full-width" key={pathname}>
@@ -70,48 +151,73 @@ const Career = () => {
              <p>Submit your details for preliminary evaluation by our recruitment division.</p>
           </div>
 
-          <form className="elite-application-form">
-            <div className="form-grid">
-              <div className="form-group">
-                <label>Full Name*</label>
-                <input type="text" placeholder="Enter your full name" required />
-              </div>
-              
-              <div className="form-group">
-                <label>Email Address*</label>
-                <input type="email" placeholder="Enter your email" required />
-              </div>
-
-              <div className="form-group">
-                <label>Phone Number*</label>
-                <input type="tel" placeholder="Enter your contact number" required />
-              </div>
-
-              {/* NEW ELITE DROPDOWN */}
-              <div className="form-group">
-                <label>Position Applied For*</label>
-                <select required defaultValue="">
-                  <option value="" disabled>Select a position...</option>
-                  <option value="Security Guard">Security Guard</option>
-                  <option value="Field Officer">Field Officer</option>
-                  <option value="Housekeeping">Housekeeping</option>
-                </select>
-              </div>
+          {status === 'success' ? (
+            <div className="success-message" style={{ color: '#a7f3d0', padding: '20px', border: '1px solid #10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', textAlign: 'center', marginTop: '20px' }}>
+              ✅ Dossier securely uploaded. Our recruitment officers will review your file.
             </div>
+          ) : (
+            <form className="elite-application-form" onSubmit={handleSubmit}>
+              <div className="form-grid">
+                <div className="form-group">
+                  <label>Full Name*</label>
+                  <input type="text" name="name" placeholder="Enter your full name" value={formData.name} onChange={handleChange} required />
+                </div>
+                
+                <div className="form-group">
+                  <label>Email Address*</label>
+                  <input type="email" name="email" placeholder="Enter your email" value={formData.email} onChange={handleChange} required />
+                </div>
 
-            {/* Shifted Previous Experience to Full-Width for perfect symmetry */}
-            <div className="form-group full-width-input">
-              <label>Previous Experience / Service Background</label>
-              <input type="text" placeholder="e.g., Ex-Army, 5 yrs Corporate Security" />
-            </div>
+                <div className="form-group">
+                  <label>Phone Number*</label>
+                  <input type="tel" name="phone" placeholder="Enter your contact number" value={formData.phone} onChange={handleChange} required />
+                </div>
 
-            <div className="form-group full-width-input">
-              <label>Cover Letter / Additional Details</label>
-              <textarea placeholder="State why you are a fit for TMS Security..." rows="5"></textarea>
-            </div>
+                <div className="form-group">
+                  <label>Position Applied For*</label>
+                  <select name="position" required value={formData.position} onChange={handleChange}>
+                    <option value="" disabled>Select a position...</option>
+                    <option value="Security Guard">Security Guard</option>
+                    <option value="Field Officer">Field Officer</option>
+                    <option value="Housekeeping">Housekeeping</option>
+                  </select>
+                </div>
+              </div>
 
-            <button type="button" className="submit-btn-gold">SUBMIT APPLICATION</button>
-          </form>
+              <div className="form-group full-width-input">
+                <label>Previous Experience / Service Background</label>
+                <input type="text" name="experience" placeholder="e.g., Ex-Army, 5 yrs Corporate Security" value={formData.experience} onChange={handleChange} />
+              </div>
+
+              <div className="form-group full-width-input">
+                <label>Cover Letter / Additional Details</label>
+                <textarea name="message" placeholder="State why you are a fit for TMS Security..." rows="5" value={formData.message} onChange={handleChange}></textarea>
+              </div>
+
+              {/* 📄 NEW: THE FILE UPLOAD FIELD */}
+              <div className="form-group full-width-input" style={{ padding: '15px', border: '1px dashed rgba(255,255,255,0.3)', backgroundColor: 'rgba(0,0,0,0.2)' }}>
+                <label>Upload Resume (PDF or DOC, max 5MB)*</label>
+                <input type="file" name="resume" accept=".pdf,.doc,.docx" onChange={handleFileChange} required style={{ border: 'none', padding: '10px 0' }} />
+              </div>
+
+              {/* 🛡️ CLOUDFLARE TURNSTILE WIDGET */}
+              <div className="form-group full-width-input" style={{ marginTop: '10px' }}>
+                <Turnstile 
+                  siteKey="0x4AAAAAACrR03wgNaXB91As" // Testing Key
+                  onSuccess={(token) => setTurnstileToken(token)}
+                  onError={() => setErrorMessage('Security check failed.')}
+                  options={{ theme: 'dark' }} 
+                />
+              </div>
+
+              {errorMessage && <div style={{ color: '#ef4444', marginBottom: '15px', textAlign: 'center' }}>⚠️ {errorMessage}</div>}
+
+              {/* Changed to type="submit" */}
+              <button type="submit" className="submit-btn-gold" disabled={status === 'loading' || !turnstileToken}>
+                {status === 'loading' ? 'TRANSMITTING...' : 'SUBMIT APPLICATION'}
+              </button>
+            </form>
+          )}
 
         </div>
       </section>

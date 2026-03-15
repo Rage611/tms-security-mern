@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Turnstile } from '@marsidev/react-turnstile'; // <-- The Invisible Bouncer
 import './Contact.css';
 
 import contactBanner from '../../../assets/images/hero/hero-2.png'; 
@@ -11,6 +12,57 @@ const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  // ─── SECURE FORM STATE ──────────────────────────────────────────
+  const [formData, setFormData] = useState({ 
+    name: '', email: '', subject: '', service: '', message: '' 
+  });
+  const [status, setStatus] = useState('idle'); // 'idle', 'loading', 'success', 'error'
+  const [errorMessage, setErrorMessage] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState(null);
+
+  // Handle Input Changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // ─── TRANSMISSION LOGIC ─────────────────────────────────────────
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!turnstileToken) {
+      setErrorMessage('Security verification pending. Please wait.');
+      return;
+    }
+
+    setStatus('loading');
+    setErrorMessage('');
+
+    try {
+      // 🚀 Fire payload to your Node.js backend
+      const response = await fetch('http://localhost:5000/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          turnstileToken: turnstileToken,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus('success');
+        setFormData({ name: '', email: '', subject: '', service: '', message: '' }); // Clear form
+      } else {
+        setStatus('error');
+        setErrorMessage(data.error || 'Transmission failed. Try again.');
+      }
+    } catch (error) {
+      setStatus('error');
+      setErrorMessage('Network error. Is the Command Center backend offline?');
+    }
+  };
 
   return (
     <div className="contact-page full-width" key={pathname}>
@@ -66,42 +118,62 @@ const Contact = () => {
               <h2>SECURE INQUIRY PORTAL</h2>
             </div>
             
-            <form className="elite-contact-form">
-              <div className="input-row">
-                <input type="text" placeholder="Your Name*" required />
+            {status === 'success' ? (
+              <div className="success-message" style={{ color: '#a7f3d0', padding: '20px', border: '1px solid #10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', marginTop: '20px' }}>
+                ✅ Message securely transmitted to HQ. We will contact you shortly.
               </div>
+            ) : (
+              <form className="elite-contact-form" onSubmit={handleSubmit}>
+                <div className="input-row">
+                  <input type="text" name="name" placeholder="Your Name*" value={formData.name} onChange={handleChange} required />
+                </div>
 
-              <div className="input-row">
-                <input type="email" placeholder="Your Email*" required />
-              </div>
+                <div className="input-row">
+                  <input type="email" name="email" placeholder="Your Email*" value={formData.email} onChange={handleChange} required />
+                </div>
 
-              <div className="input-row">
-                <input type="text" placeholder="Subject" />
-              </div>
+                <div className="input-row">
+                  <input type="text" name="subject" placeholder="Subject" value={formData.subject} onChange={handleChange} />
+                </div>
 
-              {/* Upgraded Elite Dropdown */}
-              <div className="input-row">
-                <select required defaultValue="">
-                  <option value="" disabled>Select Service*</option>
-                  <option value="guarding">Guarding Services</option>
-                  <option value="facility">Facility Management</option>
-                  <option value="housekeeping">Housekeeping</option>
-                  <option value="electronic">Electronic Security</option>
-                </select>
-              </div>
+                <div className="input-row">
+                  <select name="service" required value={formData.service} onChange={handleChange}>
+                    <option value="" disabled>Select Service*</option>
+                    <option value="guarding">Guarding Services</option>
+                    <option value="facility">Facility Management</option>
+                    <option value="housekeeping">Housekeeping</option>
+                    <option value="electronic">Electronic Security</option>
+                  </select>
+                </div>
 
-              <div className="input-row">
-                <textarea placeholder="Your Message" rows="6"></textarea>
-              </div>
+                <div className="input-row">
+                  <textarea name="message" placeholder="Your Message" rows="6" value={formData.message} onChange={handleChange} required></textarea>
+                </div>
 
-              <button type="button" className="contact-send-btn">TRANSMIT MESSAGE</button>
-            </form>
+                {/* 🛡️ CLOUDFLARE TURNSTILE WIDGET */}
+                <div className="input-row" style={{ marginTop: '10px' }}>
+                  <Turnstile 
+                    siteKey="0x4AAAAAACrR03wgNaXB91As" // Testing Key
+                    onSuccess={(token) => setTurnstileToken(token)}
+                    onError={() => setErrorMessage('Security check failed.')}
+                    options={{ theme: 'dark' }} 
+                  />
+                </div>
+
+                {errorMessage && <div style={{ color: '#ef4444', marginBottom: '15px' }}>⚠️ {errorMessage}</div>}
+
+                {/* Changed from type="button" to type="submit" */}
+                <button type="submit" className="contact-send-btn" disabled={status === 'loading' || !turnstileToken}>
+                  {status === 'loading' ? 'TRANSMITTING...' : 'TRANSMIT MESSAGE'}
+                </button>
+              </form>
+            )}
           </div>
 
         </div>
       </div>
 
-      {/* 3. Tactical Map Section (Using your custom invert filter) */}
+      {/* 3. Tactical Map Section */}
       <div className="map-section">
         <iframe 
           title="TMS Office Location"
