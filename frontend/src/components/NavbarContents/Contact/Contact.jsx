@@ -3,6 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { Turnstile } from '@marsidev/react-turnstile'; // <-- The Invisible Bouncer
 import './Contact.css';
 
+
 import contactBanner from '../../../assets/images/hero/hero-2.png'; 
 
 const Contact = () => {
@@ -65,7 +66,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="contact-page full-width" key={pathname}>
+    <div id="contact-section" className="contact-page full-width" key={pathname}>
       
       {/* 1. Hero Banner */}
       <div className="contact-hero" style={{ backgroundImage: `url(${contactBanner})` }}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { HashLink } from 'react-router-hash-link'; // <-- NEW: Import the smooth-scroller
 import './Footer.css';
 import logo from '../../assets/images/Logo.png';
 
@@ -9,7 +10,11 @@ const Footer = () => {
         <div className="top-bar-content">
           <img src={logo} alt="TMS Logo" className="footer-logo-small" />
           <p>A Market Leader in Security, Facility Management and Cash Logistics</p>
-          <button className="get-in-touch-btn">GET IN TOUCH</button>
+          
+          {/* UPDATED: Button is now a HashLink pointing to the ID we added in Contact.jsx */}
+          <HashLink smooth to="/contact#contact-section" className="get-in-touch-btn">
+            GET IN TOUCH
+          </HashLink>
         </div>
       </div>
 
@@ -27,9 +32,9 @@ const Footer = () => {
           <h3>USEFUL LINKS</h3>
           <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/about">About Us</a></li>
             <li><a href="/services">Services</a></li>
             <li><a href="/career">Career</a></li>
+            <li><a href="/contact">Contact Us</a></li>
           </ul>
         </div>
 
@@ -38,16 +43,16 @@ const Footer = () => {
           <ul>
             <li>Security Solutions India</li>
             <li>Industrial Guarding</li>
-            <li>Surveillance & CCTV</li>
-            <li>Cash Logistics</li>
+            <li>Surveillance</li>
+            <li>HouseKeeping</li>
           </ul>
         </div>
 
         <div className="footer-column">
           <h3>CONTACT DETAILS</h3>
-          <p><strong>Address:</strong> Greater Noida, Uttar Pradesh, India</p>
-          <p><strong>Phone:</strong> +91-XXXXXXXXXX</p>
-          <p><strong>Email:</strong> info@tmssecurity.in</p>
+          <p><strong>Address:</strong> 526, Ground Floor, Opp Metro Pillar No. 623, Site-1, Vikas Puri, New Delhi, 110018</p>
+          <p><strong>Phone:</strong> +91-9717763351</p>
+          <p><strong>Email:</strong> ajaytmsgroup10@gmail.com</p>
         </div>
       </div>
     </footer>

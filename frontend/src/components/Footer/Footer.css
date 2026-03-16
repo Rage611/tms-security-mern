@@ -46,12 +46,15 @@
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1.5px;
+    text-decoration: none !important; /* Forcefully removes the underline */
+    display: inline-block;
 }
 
 .get-in-touch-btn:hover {
     background: var(--accent-gold);
     color: var(--bg-dark);
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+    text-decoration: none;
 }
 
 /* --- THE MAIN FOOTER --- */
