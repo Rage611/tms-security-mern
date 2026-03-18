@@ -1,5 +1,5 @@
 import React from 'react';
-import { HashLink } from 'react-router-hash-link'; // <-- NEW: Import the smooth-scroller
+import { HashLink } from 'react-router-hash-link'; // <-- The smooth-scroller
 import './Footer.css';
 import logo from '../../assets/images/Logo.png';
 
@@ -11,7 +11,7 @@ const Footer = () => {
           <img src={logo} alt="TMS Logo" className="footer-logo-small" />
           <p>A Market Leader in Security, Facility Management and Cash Logistics</p>
           
-          {/* UPDATED: Button is now a HashLink pointing to the ID we added in Contact.jsx */}
+          {/* Glide to Contact Form */}
           <HashLink smooth to="/contact#contact-section" className="get-in-touch-btn">
             GET IN TOUCH
           </HashLink>
@@ -31,20 +31,25 @@ const Footer = () => {
         <div className="footer-column">
           <h3>USEFUL LINKS</h3>
           <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/services">Services</a></li>
-            <li><a href="/career">Career</a></li>
-            <li><a href="/contact">Contact Us</a></li>
+            {/* Standard Links for fast routing */}
+            <li><a href="/">HOME</a></li>
+            <li><a href="/career">CAREER</a></li>
+            <li><a href="/contact">CONTACT US</a></li>
+            
+            {/* 🎯 THE TACTICAL UPDATE: Smooth Glide to the About/Company page */}
+            <li>
+              <HashLink smooth to="/company">ABOUT US</HashLink>
+            </li>
           </ul>
         </div>
 
         <div className="footer-column">
           <h3>OUR SOLUTIONS</h3>
           <ul>
-            <li>Security Solutions India</li>
-            <li>Industrial Guarding</li>
-            <li>Surveillance</li>
-            <li>HouseKeeping</li>
+            <li>SECURITY SOLUTIONS</li>
+            <li>INDUSTRIAL GUARDING</li>
+            <li>TRAINED GUNMAN</li>
+            <li>HOUSEKEEPING</li>
           </ul>
         </div>
 

@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom'; // <-- 1. Must import this
+import { HashLink } from 'react-router-hash-link';
 import './TheCompany.css';
 import companyBanner from '../../../assets/images/hero/hero-2.png'; 
 
 const TheCompany = () => {
+  // 🎯 2. THIS IS THE MISSING LINE THAT CAUSED THE CRASH:
+  const { pathname } = useLocation();
+
+  // Snaps the page to the top when it loads
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
-    <div className="company-page">
+    <div id="company-section" className="company-page" key={pathname}>
       <div className="company-hero" style={{ backgroundImage: `url(${companyBanner})` }}>
         <div className="overlay"></div>
         <h1>THE COMPANY</h1>
@@ -27,7 +37,10 @@ const TheCompany = () => {
           <div className="contact-widget">
             <h3>PARTNER WITH US</h3>
             <p className="contact-widget-text">Secure your enterprise with our elite guarding solutions today.</p>
-            <button type="button" className="submit-btn">GET A QUOTE</button>
+            
+            <HashLink smooth to="/contact#contact-section" className="submit-btn" style={{ textDecoration: 'none', display: 'inline-block', textAlign: 'center' }}>
+              GET A QUOTE
+            </HashLink>
           </div>
         </div>
       </div>
