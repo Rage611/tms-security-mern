@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
+import { Helmet } from 'react-helmet-async'; // <-- 🛡️ 1. ACTIVATED IMPORT
 import hero1 from '../../assets/images/hero/hero-1.png';
 import hero2 from '../../assets/images/hero/hero-2.png';
 import hero3 from '../../assets/images/hero/hero-3.png';
@@ -45,6 +46,19 @@ const Hero = () => {
 
   return (
     <section className="hero">
+      
+      {/* 🛡️ 2. INJECT PRIMARY HOME PAGE SEO METADATA HERE */}
+      <Helmet>
+        {/* 🎯 TACTICAL TITLE: Targets main keyword + brand + broad location */}
+        <title>TMS Security Group | Best Security Services in India & Delhi NCR</title>
+        
+        {/* 📝 Compelling summary to increase Click-Through Rate (CTR) from Google results */}
+        <meta name="description" content="Looking for the best security services? TMS Group provides elite industrial guarding, trained gunmen, and facility management solutions across India. Trusted protection for your enterprise." />
+        
+        {/* 🔗 Primary Canonical Link for the root domain */}
+        <link rel="canonical" href="https://tmssecurity.in/" />
+      </Helmet>
+
       <button className="hero__arrow left" onClick={prevSlide}>&#10094;</button>
       <button className="hero__arrow right" onClick={nextSlide}>&#10095;</button>
 
@@ -54,7 +68,7 @@ const Hero = () => {
             <img
               src={slide.img}
               className={`hero__slide ${index === currentIndex ? 'active' : ''}`}
-              alt="Security"
+              alt={`TMS Security ${slide.title}`} // Improved alt tag for image SEO
             />
             {/* DYNAMIC CLASS: This now uses the 'layout' property 
               from your slides array to position the text.

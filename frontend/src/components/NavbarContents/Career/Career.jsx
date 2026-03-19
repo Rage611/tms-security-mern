@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async'; // <-- 🛡️ 1. TACTICAL IMPORT
 import { Turnstile } from '@marsidev/react-turnstile'; // <-- The Bouncer
 import './Career.css';
 
@@ -96,6 +97,18 @@ const Career = () => {
   return (
     <div className="career-page full-width" key={pathname}>
       
+      {/* 🛡️ 2. INJECT RECRUITMENT SEO METADATA HERE */}
+      <Helmet>
+        {/* 🎯 TACTICAL TITLE: Targets job seekers specifically */}
+        <title>Security Jobs in India | Join the TMS Security Force</title>
+        
+        {/* 📝 Summary highlighting specific roles (bouncer, gunmen, GTO) */}
+        <meta name="description" content="Start your career with India's premier security provider. Apply now for security guard, bouncer, gunmen, and GTO roles at TMS Group. Submit your application dossier today." />
+        
+        {/* 🔗 Canonical Link ensures Google ranks this exact URL */}
+        <link rel="canonical" href="https://tmssecurity.in/career" />
+      </Helmet>
+
       <div className="career-hero" style={{ backgroundImage: `url(${careerBanner})` }}>
         <div className="overlay"></div>
         <h1>CAREERS AT TMS</h1>
@@ -104,7 +117,7 @@ const Career = () => {
       <div className="content-container">
         <div className="career-content-main">
           
-          <img src={guardTeam} alt="TMS Security Officer" className="career-featured-image" />
+          <img src={guardTeam} alt="TMS Security Officer Team" className="career-featured-image" />
           
           <div className="career-text-wrap">
             <h2 className="section-title text-theme-dark">JOIN THE ELITE VANGUARD</h2>
@@ -120,7 +133,7 @@ const Career = () => {
             </blockquote>
 
             <div className="career-details-grid">
-               <div className="career-text-block">
+                <div className="career-text-block">
                 <h3 className="text-theme-dark">Who We Look For</h3>
                 <p className="career-body-text">
                   Our core operational philosophy is built on defense legacy and tactical precision. 
@@ -136,6 +149,7 @@ const Career = () => {
                   <li>Flawless background verification and police clearance.</li>
                   <li>High aptitude for situational awareness and crisis management.</li>
                   <li>Commitment to continuous training and strict protocols.</li>
+                  <li>Clean uniform and appearance.</li>
                 </ul>
               </div>
             </div>
@@ -147,8 +161,8 @@ const Career = () => {
         <div className="portal-container">
           
           <div className="portal-header">
-             <h2>APPLICATION PORTAL</h2>
-             <p>Submit your details for preliminary evaluation by our recruitment division.</p>
+              <h2>APPLICATION PORTAL</h2>
+              <p>Submit your details for preliminary evaluation by our recruitment division.</p>
           </div>
 
           {status === 'success' ? (
@@ -180,6 +194,8 @@ const Career = () => {
                     <option value="Security Guard">Security Guard</option>
                     <option value="Field Officer">Field Officer</option>
                     <option value="Housekeeping">Housekeeping</option>
+                    <option value="Bouncer">Bouncer</option>
+                    <option value="trained gunman"> trained gunman</option>
                   </select>
                 </div>
               </div>

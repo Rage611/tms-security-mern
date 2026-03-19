@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Turnstile } from '@marsidev/react-turnstile'; // <-- The Invisible Bouncer
+import { Helmet } from 'react-helmet-async';
 import './Contact.css';
 
 
@@ -67,6 +68,13 @@ const Contact = () => {
 
   return (
     <div id="contact-section" className="contact-page full-width" key={pathname}>
+
+      <Helmet>
+        <title>Contact TMS Security | Best Security Services in Vikas Puri, Delhi</title>
+        <meta name="description" content="Connect with TMS Security Group headquarters in Vikas Puri, New Delhi. Reach out for strategic partnerships, immediate security deployments, or queries about India's best security services." />
+        {/* Tells Google this is the master version of this URL */}
+        <link rel="canonical" href="https://tmssecurity.in/contact" />
+      </Helmet>
       
       {/* 1. Hero Banner */}
       <div className="contact-hero" style={{ backgroundImage: `url(${contactBanner})` }}>
