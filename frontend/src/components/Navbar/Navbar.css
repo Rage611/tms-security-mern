@@ -170,7 +170,27 @@
     vertical-align: middle;
 }
 
-@media (max-width: 768px) {
+/* --- THE TACTICAL SQUEEZE (For Small Laptops: 1025px to 1200px) --- */
+@media (max-width: 1200px) and (min-width: 1025px) {
+    .nav__list {
+        gap: 1.2rem;
+    }
+    
+    .nav__link {
+        font-size: 1rem;
+    }
+    
+    .logo-text {
+        font-size: 1.8rem;
+    }
+    
+    .btn-primary {
+        padding: 0.6rem 1.2rem;
+    }
+}
+
+/* --- UPDATED: MOBILE MENU TRIGGERS AT 1024px (Tablets) --- */
+@media (max-width: 1024px) {
     .header {
         height: 80px !important;
         overflow: visible;
@@ -244,41 +264,36 @@
     }
 }
 
-/* --- EXISTING CODE (Keep all your existing CSS above this) --- */
+/* --- EXISTING CODE (Nested Menu) --- */
 
-/* Ensure the main dropdown links act as anchors for the nested menus */
 .dropdown-menu > li {
     position: relative;
 }
 
-/* Style for the nested menu container */
 .nested-menu {
     position: absolute;
     top: 0;
-    left: 100%; /* Push it to the right of the main dropdown */
+    left: 100%; 
     background-color: var(--bg-dark); 
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-top: 2px solid var(--accent-gold);
     min-width: 200px;
     padding: 10px 0;
     list-style: none;
-    z-index: 10001; /* Must be higher than main dropdown */
+    z-index: 10001; 
     
-    /* Animation defaults */
     opacity: 0;                
     visibility: hidden;        
-    transform: translateX(-15px); /* Slide in from left */
+    transform: translateX(-15px); 
     transition: all 0.3s ease;   
 }
 
-/* Class toggled by React state */
 .nested-menu.show-nested {
     opacity: 1;                
     visibility: visible;       
     transform: translateX(0);  
 }
 
-/* Flex layout for the parent link to push the arrow to the right */
 .nested-link {
     display: flex;
     justify-content: space-between;
@@ -291,13 +306,11 @@
     transition: transform 0.3s ease;
 }
 
-/* Optional: Keep the parent link highlighted when hovering the nested menu */
 .nested-dropdown:hover > .dropdown-link {
     background-color: rgba(255, 255, 255, 0.05);
     color: var(--accent-gold);
 }
 
-/* Override the hover behavior for nested items so they act normal */
 .nested-menu .dropdown-link {
     color: var(--text-muted);
     background-color: transparent;
@@ -310,31 +323,29 @@
 
 /* --- OVERRIDE: NESTED MENU LINK HOVER COLORS --- */
 
-/* 1. Base State: The nested links should have the muted text color by default */
 .nested-menu .dropdown-link {
-    color: var(--text-muted);           /* Restores the standard gray/white text */
-    background-color: transparent;      /* Removes any default backgrounds */
+    color: var(--text-muted);          
+    background-color: transparent;      
 }
 
-/* 2. Hover State: Only turn gold when physically hovered over */
 .nested-menu .dropdown-link:hover {
-    background-color: rgba(255, 255, 255, 0.05); /* Slight highlight */
-    color: var(--accent-gold);                   /* The targeted gold text pop */
+    background-color: rgba(255, 255, 255, 0.05); 
+    color: var(--accent-gold);                  
 }
 
-/* --- MOBILE RESPONSIVE TWEAKS --- */
-@media (max-width: 768px) {
+/* --- MOBILE RESPONSIVE TWEAKS (UPDATED TO 1024px) --- */
+@media (max-width: 1024px) {
     .nested-menu {
-        position: static; /* Drop it into the normal flow on mobile */
+        position: static; 
         width: 100%;
         transform: none;
         border: none;
-        background-color: rgba(0, 0, 0, 0.2); /* Slightly darker to show depth */
-        display: none; /* Hide by default on mobile */
+        background-color: rgba(0, 0, 0, 0.2); 
+        display: none; 
     }
     
     .nested-menu.show-nested {
-        display: block; /* Show normally on click/hover in mobile view */
+        display: block; 
         transform: none;
     }
 
@@ -343,4 +354,3 @@
         gap: 10px;
     }
 }
-
