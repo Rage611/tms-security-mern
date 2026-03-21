@@ -84,16 +84,6 @@ const FacilityManagement = () => {
               </li>
             </ul>
           </div>
-
-          <div className="contact-widget">
-            <h3>GET IN TOUCH</h3>
-            <form className="widget-form">
-              <div className="form-group"><input type="text" placeholder="Name*" required /></div>
-              <div className="form-group"><input type="email" placeholder="Email*" required /></div>
-              <div className="form-group"><textarea placeholder="Message" rows="4"></textarea></div>
-              <button type="button" className="submit-btn">SEND</button>
-            </form>
-          </div>
         </div>
       </div>
     </div>

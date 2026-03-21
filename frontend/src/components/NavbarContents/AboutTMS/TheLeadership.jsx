@@ -37,49 +37,7 @@ const TheLeadership = () => {
           </div>
 
           <hr className="divider" />
-
-          <div className="leader-card">
-            <div className="leader-image-box">
-              <img src={leader2} alt="Director" />
-            </div>
-            <div className="leader-bio">
-              <h2 className="leader-name">NAME OF DIRECTOR</h2>
-              <h4 className="leader-title">Joint Managing Director</h4>
-              <p>
-                A dynamic professional responsible for the strategic operations and technological 
-                advancements of the company. With a keen eye for detail, he ensures that 
-                TMS stays ahead of the curve by integrating modern surveillance systems with 
-                traditional guarding.
-              </p>
-              <p>
-                He is dedicated to client satisfaction and maintaining the highest standards 
-                of service delivery across all sites.
-              </p>
-            </div>
-          </div>
-
-        </div>
-
-        <div className="sidebar">
-          <div className="contact-widget">
-            <h3>GET IN TOUCH</h3>
-            <form className="widget-form">
-              <div className="form-group">
-                <label>Name*</label>
-                <input type="text" />
-              </div>
-              <div className="form-group">
-                <label>Email*</label>
-                <input type="email" />
-              </div>
-              <div className="form-group">
-                <label>Message</label>
-                <textarea rows="4"></textarea>
-              </div>
-              <button type="button" className="submit-btn">SEND</button>
-            </form>
-          </div>
-        </div>
+        </div>   
 
       </div>
     </div>
