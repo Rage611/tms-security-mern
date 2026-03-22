@@ -224,6 +224,10 @@
                 transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+#capabilities-grid {
+    scroll-margin-top: 130px; /* Adjust this number based on your header's height */
+}
+
 .is-visible .stat-item {
     opacity: 1;
     transform: translateY(0);
@@ -328,3 +332,4 @@
     }
 }
 }
+

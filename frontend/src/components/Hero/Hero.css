@@ -1,9 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Inter:wght@400;600&display=swap');
+
 .hero {
   position: relative;
   width: 100%;
   height: 100vh; 
   overflow: hidden;
   background-color: #000;
+}
+
+/* --- THE TACTICAL OVERLAY --- */
+/* This darkens the left and right edges of the images so text always pops */
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(10, 10, 10, 0.8) 0%, rgba(10, 10, 10, 0.1) 50%, rgba(10, 10, 10, 0.8) 100%);
+  z-index: 3;
+  pointer-events: none;
 }
 
 .hero__slider-frame {
@@ -31,7 +44,6 @@
 }
 
 /* --- TEXT OVERLAY SECTION --- */
-/* Update your existing class to include opacity and visibility */
 .hero__text-overlay {
   position: absolute;
   top: 50%;
@@ -41,23 +53,32 @@
   display: flex;
   flex-direction: column;
   pointer-events: none;
-  
-  /* ADD THESE 3 LINES: This hides the boxes that aren't active */
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
 
-/* ADD THIS NEW RULE: This reveals the box ONLY when its slide is active */
 .hero__text-overlay.active {
   opacity: 1;
   visibility: visible;
 }
 
-/* Fixed the top positioning so it doesn't push the text off-screen */
+/* --- VERTICAL POSITIONING OVERRIDES --- */
+/* Pushes the text block further down the screen for specific slides */
+.hero__text-overlay.lower-text {
+  top: 75%; /* Drops it to the lower quarter of the screen */
+  transform: translateY(-50%);
+}
+
 .hero__text-overlay.upper-text {
-  top: 65%; 
-  transform: translateY(0); 
+  top: 35%; /* Lifts it up higher (for your 3rd slide if needed) */
+  transform: translateY(-50%);
+}
+
+/* Add this to Hero.css if you want a custom middle-ground drop */
+.hero__text-overlay.mid-lower-text {
+  top: 65%; /* Sits perfectly in the middle of the car door */
+  transform: translateY(-50%);
 }
 
 /* Logic for Left Alignment */
@@ -78,10 +99,11 @@
   max-width: 45%;
 }
 
+/* --- PREMIUM TYPOGRAPHY UPGRADE --- */
 .hero__title {
-  font-family: 'Inter', 'Segoe UI', Roboto, sans-serif; 
+  font-family: 'Montserrat', 'Segoe UI', Roboto, sans-serif; /* Elite Geometric Font */
   font-size: clamp(1.8rem, 3.5vw, 3.5rem); 
-  font-weight: 800;
+  font-weight: 800; /* Extra bold for authority */
   color: #d4af37;
   line-height: 1.1;
   margin: 0;
@@ -96,17 +118,22 @@
 .hero__subtitle {
   font-family: 'Inter', 'Segoe UI', Roboto, sans-serif;
   font-size: clamp(1.1rem, 2vw, 2rem);
-  font-weight: 600;
+  font-weight: 400; /* Lighter weight for premium contrast against title */
   color: #ffffff;
   margin-top: 15px;
   letter-spacing: 0.5px;
+  
+  /* The Tactical Anchor */
+  padding-left: 15px; 
+  border-left: 4px solid #d4af37; 
+  
   opacity: 0;
   transform: translateY(30px);
   transition: opacity 1.2s ease-out, transform 1.2s ease-out;
   transition-delay: 0.8s; 
-  text-shadow: 
-    0px 2px 4px rgba(0, 0, 0, 0.8), 
-    0px 0px 10px rgba(0, 0, 0, 0.5);
+  
+  /* Soft, modern glow instead of harsh drop shadow */
+  text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6); 
 }
 
 /* --- ANIMATION TRIGGER --- */
@@ -145,36 +172,23 @@
 
 /* Tablet & Small Laptop Adjustments */
 @media (max-width: 1024px) {
-  .hero__title {
-    font-size: 2.8rem; 
-  }
-  .hero__subtitle {
-    font-size: 1.5rem;
-  }
-  .left-align {
-    padding-left: 5%;
-    max-width: 50%;
-  }
-  .right-align {
-    padding-right: 5%;
-    max-width: 50%;
-  }
+  .hero__title { font-size: 2.8rem; }
+  .hero__subtitle { font-size: 1.5rem; }
+  .left-align { padding-left: 5%; max-width: 50%; }
+  .right-align { padding-right: 5%; max-width: 50%; }
 }
 
-/* Responsive Adjustments */
 /* Tablet & Large Mobile Adjustments */
 @media (max-width: 768px) {
-
-  /* --- IMAGE ZOOM & FRAMING FIX --- */
   .hero {
-    height: 75vh; /* Reduces the extreme vertical stretch */
-    min-height: 550px; /* Ensures it never gets too small on tiny phones */
+    height: 75vh; 
+    min-height: 550px; 
   }
 
   .hero__slide {
-    object-position: center center !important; /* Forces the focus to the middle of the image */
+    object-position: center center !important; 
   }
-  /* 1. Force ALL text overlays to center and override desktop alignments */
+  
   .hero__text-overlay,
   .hero__text-overlay.left-align, 
   .hero__text-overlay.right-align,
@@ -182,20 +196,19 @@
     left: 50%;
     right: auto;
     top: auto;
-    bottom: 8%; /* Sits flush near the bottom */
-    transform: translateX(-50%); /* Perfect horizontal centering */
+    bottom: 8%; 
+    transform: translateX(-50%); 
     width: 90%;
     max-width: 500px;
     text-align: center;
     align-items: center;
     padding: 25px 20px;
-    background: rgba(5, 5, 5, 0.85); /* Deep corporate black with slight transparency */
-    border-bottom: 3px solid #d4af37; /* Tactical gold accent line */
+    background: rgba(5, 5, 5, 0.85); 
+    border-bottom: 3px solid #d4af37; 
     border-radius: 4px;
     box-sizing: border-box;
   }
 
-  /* 2. Scale down typography for readability */
   .hero__title { 
     font-size: 1.8rem; 
     line-height: 1.3;
@@ -204,15 +217,17 @@
   .hero__subtitle { 
     font-size: 1rem; 
     margin-top: 12px;
+    padding-left: 0; /* Remove anchor for centered mobile design */
+    border-left: none; /* Remove anchor for centered mobile design */
+    text-shadow: none; /* Unnecessary on solid dark background */
   }
   
-  /* 3. Give arrows breathing room and move them up to avoid the text box */
   .hero__arrow { 
     padding: 12px 16px; 
     font-size: 1.2rem; 
-    top: 40%; /* Pushes them up so they never hit the text box */
+    top: 40%; 
     transform: translateY(-50%);
-    border-radius: 50px; /* Elegant circular arrows on mobile */
+    border-radius: 50px; 
     background-color: rgba(0, 0, 0, 0.5);
   }
 
@@ -220,10 +235,10 @@
   .hero__arrow.right { right: 15px; }
 }
 
-/* Small Mobile (Standard Smartphones) Adjustments */
+/* Small Mobile Adjustments */
 @media (max-width: 480px) {
   .hero__arrow {
-    top: 35%; /* Push higher on very small screens */
+    top: 35%; 
     padding: 10px 14px;
     font-size: 1rem;
   }
@@ -237,32 +252,24 @@
     padding: 20px 15px;
   }
   
-  .hero__title {
-    font-size: 1.5rem;
-  }
+  .hero__title { font-size: 1.5rem; }
 
-  /* --- MOBILE ANIMATION OVERRIDES --- */
-  /* This speeds up the fade-in so you don't get that "blackish" mid-animation text */
-  /* --- THE NUCLEAR MOBILE TEXT OVERRIDE --- */
-  
-  /* 1. Force the Gold Title to instantly appear */
+  /* Mobile Animation Overrides */
   .hero__slide.active + .hero__text-overlay .hero__title,
   .hero__text-overlay.active .hero__title {
     opacity: 1 !important;
     transform: none !important;
     color: #d4af37 !important; 
-    transition: none !important; /* Kills the buggy fade-in */
+    transition: none !important; 
     visibility: visible !important;
   }
 
-  /* 2. Force the White Subtitle to instantly appear */
   .hero__slide.active + .hero__text-overlay .hero__subtitle,
   .hero__text-overlay.active .hero__subtitle {
     opacity: 1 !important;
     transform: none !important;
     color: #ffffff !important; 
-    transition: none !important; /* Kills the buggy fade-in */
+    transition: none !important; 
     visibility: visible !important;
   }
 }
-

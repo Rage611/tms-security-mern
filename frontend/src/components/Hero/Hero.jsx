@@ -23,7 +23,7 @@ const Hero = () => {
       img: hero3, // The Manned Guarding / Car image
       title: "Manned Guarding",
       subtitle: "Highly trained professionals protecting your assets 24/7.",
-      layout: "right-align upper-text" // Moves text to the right vacant space
+      layout: "right-align lower-text" // Moves text to the right vacant space
     }
   ];
 

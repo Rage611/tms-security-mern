@@ -195,7 +195,7 @@ const Career = () => {
                     <option value="Field Officer">Field Officer</option>
                     <option value="Housekeeping">Housekeeping</option>
                     <option value="Bouncer">Bouncer</option>
-                    <option value="trained gunman"> trained gunman</option>
+                    <option value="trained gunman"> Trained Gunman</option>
                   </select>
                 </div>
               </div>
