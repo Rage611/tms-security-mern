@@ -172,10 +172,15 @@
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
     line-height: 1.4; 
     margin: 0;
     text-align: left;
     text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+}
+
+.service-card:hover .card-title {
+  color: #D4AF37 ; /* Your official TMS Gold */
 }
 
 .card-text-wrapper {
@@ -238,7 +243,11 @@
     font-size: clamp(3rem, 5vw, 4.5rem);
     font-weight: 300;
     background: linear-gradient(180deg, #fcd34d 0%, #d4af37 100%);
+    
+    /* THE FIX: Add the standard version alongside the webkit version */
+    background-clip: text; 
     -webkit-background-clip: text;
+    
     -webkit-text-fill-color: transparent;
     color: transparent;
     margin-bottom: 12px;
@@ -254,70 +263,67 @@
     letter-spacing: 3px;
 }
 
+/* =========================================
+   MOBILE RESPONSIVE RULES (CLEANED UP)
+   ========================================= */
 @media (max-width: 768px) {
-    /* 1. Remove side padding so the carousel can bleed to the edges */
+    /* 1. Remove side padding */
     .services-section, .stats-section {
         padding: 80px 0; 
     }
     
-    /* 2. Release the container width for the edge-to-edge swipe */
+    /* 2. Release container width */
     .services__inner, .stats__inner {
         width: 100%; 
     }
 
-    /* 3. Keep the text safely padded so it doesn't touch the screen edge */
+    /* 3. Keep text safely padded */
     .services-header, .stats__header {
         padding: 0 5%; 
     }
 
-    /* 4. THE HORIZONTAL CAROUSEL (The Magic) */
+    /* 4. THE HORIZONTAL CAROUSEL */
     .services-grid {
         display: flex;
         flex-direction: row;
         overflow-x: auto;
-        scroll-snap-type: x mandatory; /* The native snap effect */
+        scroll-snap-type: x mandatory; 
         gap: 15px;
-        padding: 0 5%; /* Aligns the first card perfectly with your headers */
-        
-        /* Hides the ugly default scrollbars for an app-like feel */
-        scrollbar-width: none; /* Firefox */
-        -ms-overflow-style: none; /* IE/Edge */
+        padding: 0 5%; 
+        scrollbar-width: none; 
+        -ms-overflow-style: none; 
     }
 
     .services-grid::-webkit-scrollbar {
-        display: none; /* Chrome/Safari */
+        display: none; 
     }
 
-    /* 5. THE 85/15 PEEK CARD */
-    /* 5. THE 85/15 PEEK CARD (STRETCH FIX) */
+    /* 5. THE PEEK CARD */
     .service-card {
         min-width: 85%; 
-        max-width: 85%; /* Forces the width to behave */
-        height: 420px; /* HARD LOCK: physically stops the endless stretching */
-        aspect-ratio: auto; /* Overrides the desktop math that confused the browser */
+        max-width: 85%; 
+        height: 420px; 
+        aspect-ratio: auto; 
         flex-shrink: 0; 
         scroll-snap-align: center; 
     }
 
-
-    @media (max-width: 768px) {
-    /* 1. THE 2x2 GRID UPGRADE */
+    /* 6. THE 2x2 STATS GRID */
     .stats-grid {
         display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important; /* Forces 2 columns on mobile */
-        gap: 40px 15px !important; /* 40px vertical space, 15px horizontal space */
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 40px 15px !important; 
         align-items: start;
     }
 
-    /* 2. Sizing adjustments so they fit beautifully side-by-side */
     .stat-item {
-        min-width: unset; /* Removes the flexbox limit from your desktop CSS */
+        min-width: unset; 
         padding: 0 10px;
     }
 
     .stat-number {
-        font-size: 2.5rem !important; /* Slightly scaled down so 100+ fits perfectly */
-        margin-bottom: 5px !important; /* Pulls the number and label tightly together */
+        font-size: 2.5rem !important; 
+        margin-bottom: 5px !important; 
     }
 
     .stat-label {
@@ -326,10 +332,7 @@
         line-height: 1.4;
     }
 
-    /* Pulls the 2x2 grid closer to the Header on mobile */
     .stats__header {
         margin-bottom: 40px !important; 
     }
 }
-}
-
