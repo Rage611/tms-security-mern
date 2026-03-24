@@ -4,10 +4,10 @@ import Stats from './Stats';
 import ServicesCard from './ServicesCard'; 
 import './Services.css';
 
-import guardImg from '../../assets/images/hero/hero-1.png';
-import escortImg from '../../assets/images/hero/hero-2.png';
-import bouncerImg from '../../assets/images/hero/hero-3.png';
-import housekeepingImg from '../../assets/images/hero/hero-3.png'; 
+import guardImg from '../../assets/images/services/manpower.jpg';
+import escortImg from '../../assets/images/services/escort.jpg';
+import bouncerImg from '../../assets/images/services/bouncer.png';
+import housekeepingImg from '../../assets/images/services/housekeeping.png'; 
 
 const Services = () => {
   const { ref, inView } = useInView({
