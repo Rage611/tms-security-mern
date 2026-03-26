@@ -1,34 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Turnstile } from '@marsidev/react-turnstile'; // <-- The Invisible Bouncer
+import { Turnstile } from '@marsidev/react-turnstile';
 import { Helmet } from 'react-helmet-async';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
-
 
 import contactBanner from '../../../assets/images/hero/hero-2.png'; 
 
 const Contact = () => {
   const { pathname } = useLocation();
 
-  // Route Reset: Snaps to top on load
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // ─── SECURE FORM STATE ──────────────────────────────────────────
   const [formData, setFormData] = useState({ 
     name: '', email: '', subject: '', service: '', message: '' 
   });
-  const [status, setStatus] = useState('idle'); // 'idle', 'loading', 'success', 'error'
+  const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [turnstileToken, setTurnstileToken] = useState(null);
 
-  // Handle Input Changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // ─── TRANSMISSION LOGIC ─────────────────────────────────────────
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -41,28 +37,27 @@ const Contact = () => {
     setErrorMessage('');
 
     try {
-      // 🚀 Fire payload to your Node.js backend
-      const response = await fetch('http://localhost:5000/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...formData,
-          turnstileToken: turnstileToken,
-        }),
-      });
+      const templateParams = {
+        client_name: formData.name,
+        client_email: formData.email,
+        inquiry_subject: formData.subject,
+        service_requested: formData.service,
+        client_message: formData.message
+      };
 
-      const data = await response.json();
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID, 
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-      if (response.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', subject: '', service: '', message: '' }); // Clear form
-      } else {
-        setStatus('error');
-        setErrorMessage(data.error || 'Transmission failed. Try again.');
-      }
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', service: '', message: '' });
+      e.target.reset();
     } catch (error) {
       setStatus('error');
-      setErrorMessage('Network error. Is the Command Center backend offline?');
+      setErrorMessage('Transmission failed. Try again.');
     }
   };
 
@@ -72,21 +67,17 @@ const Contact = () => {
       <Helmet>
         <title>Contact TMS Security | Best Security Services in Vikas Puri, Delhi</title>
         <meta name="description" content="Connect with TMS Security Group headquarters in Vikas Puri, New Delhi. Reach out for strategic partnerships, immediate security deployments, or queries about India's best security services." />
-        {/* Tells Google this is the master version of this URL */}
         <link rel="canonical" href="https://tmssecurity.in/contact" />
       </Helmet>
       
-      {/* 1. Hero Banner */}
       <div className="contact-hero" style={{ backgroundImage: `url(${contactBanner})` }}>
         <div className="overlay"></div>
         <h1>CONTACT US</h1>
       </div>
 
-      {/* 2. Main Content Grid */}
       <div className="contact-container">
         <div className="contact-flex-wrapper">
           
-          {/* Left Side: Corporate Intel */}
           <div className="office-details-section">
             <h2 className="office-heading">CORPORATE HEADQUARTERS</h2>
             <p className="contact-body-text">
@@ -121,7 +112,6 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Right Side: Secure Inquiry Portal */}
           <div className="contact-form-section">
             <div className="portal-header-small">
               <h2>SECURE INQUIRY PORTAL</h2>
@@ -159,10 +149,9 @@ const Contact = () => {
                   <textarea name="message" placeholder="Your Message" rows="6" value={formData.message} onChange={handleChange} required></textarea>
                 </div>
 
-                {/* 🛡️ CLOUDFLARE TURNSTILE WIDGET */}
                 <div className="input-row" style={{ marginTop: '10px' }}>
                   <Turnstile 
-                    siteKey="0x4AAAAAACrR03wgNaXB91As" // Testing Key
+                    siteKey="0x4AAAAAACrR03wgNaXB91As" 
                     onSuccess={(token) => setTurnstileToken(token)}
                     onError={() => setErrorMessage('Security check failed.')}
                     options={{ theme: 'dark' }} 
@@ -171,7 +160,6 @@ const Contact = () => {
 
                 {errorMessage && <div style={{ color: '#ef4444', marginBottom: '15px' }}>⚠️ {errorMessage}</div>}
 
-                {/* Changed from type="button" to type="submit" */}
                 <button type="submit" className="contact-send-btn" disabled={status === 'loading' || !turnstileToken}>
                   {status === 'loading' ? 'TRANSMITTING...' : 'TRANSMIT MESSAGE'}
                 </button>
@@ -182,7 +170,6 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* 3. Tactical Map Section */}
       <div className="map-section">
         <iframe 
           title="TMS Office Location"
