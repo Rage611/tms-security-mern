@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async'; // <-- 🛡️ 1. TACTICAL IMPORT
-import { Turnstile } from '@marsidev/react-turnstile'; // <-- The Bouncer
+import { Helmet } from 'react-helmet-async';
+import { Turnstile } from '@marsidev/react-turnstile';
+import emailjs from '@emailjs/browser';
 import './Career.css';
 
 import careerBanner from '../../../assets/images/hero/hero-3.png'; 
@@ -14,7 +15,6 @@ const Career = () => {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  // ─── SECURE FORM STATE ──────────────────────────────────────────
   const [formData, setFormData] = useState({ 
     name: '', email: '', phone: '', position: '', experience: '', message: '' 
   });
@@ -23,12 +23,10 @@ const Career = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [turnstileToken, setTurnstileToken] = useState(null);
 
-  // Handle Text Inputs
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Handle File Input
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -43,7 +41,6 @@ const Career = () => {
     }
   };
 
-  // ─── TRANSMISSION LOGIC ─────────────────────────────────────────
   const handleSubmit = async (e) => {
     e.preventDefault();
     
@@ -61,51 +58,56 @@ const Career = () => {
     setErrorMessage('');
 
     try {
-      // 📦 THE HEAVY-DUTY SHIPPING CRATE
       const payload = new FormData();
-      payload.append('name', formData.name);
-      payload.append('email', formData.email);
-      payload.append('phone', formData.phone);
-      payload.append('position', formData.position);
-      payload.append('experience', formData.experience); // Added your custom field!
-      payload.append('message', formData.message);
-      payload.append('resume', resumeFile); 
-      payload.append('turnstileToken', turnstileToken);
+      payload.append("file", resumeFile);
+      payload.append("upload_preset", import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+      payload.append("cloud_name", import.meta.env.VITE_CLOUDINARY_CLOUD_NAME);
+      payload.append("folder", "resumes");
 
-      // 🚀 Fire payload to your Node.js backend
-      const response = await fetch('http://localhost:5000/api/career', {
-        method: 'POST',
-        body: payload, // NO Content-Type header! Let the browser handle it.
-      });
+      const uploadResponse = await fetch(
+        `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_CLOUD_NAME}/upload`,
+        { method: "POST", body: payload }
+      );
 
-      const data = await response.json();
+      const fileData = await uploadResponse.json();
 
-      if (response.ok) {
-        setStatus('success');
-        setFormData({ name: '', email: '', phone: '', position: '', experience: '', message: '' });
-        setResumeFile(null);
-      } else {
-        setStatus('error');
-        setErrorMessage(data.error || 'Transmission failed. Try again.');
+      if (!fileData.secure_url) {
+        throw new Error("Cloud storage upload failed.");
       }
+
+      const templateParams = {
+        user_name: formData.name,
+        user_email: formData.email,
+        user_phone: formData.phone,
+        position: formData.position,
+        experience: formData.experience,
+        message: formData.message,
+        resume_link: fileData.secure_url
+      };
+
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        templateParams,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
+      setStatus('success');
+      setFormData({ name: '', email: '', phone: '', position: '', experience: '', message: '' });
+      setResumeFile(null);
+      e.target.reset();
     } catch (error) {
       setStatus('error');
-      setErrorMessage('Network error. Is the Command Center backend offline?');
+      setErrorMessage('Transmission failed. Try again.');
     }
   };
 
   return (
     <div className="career-page full-width" key={pathname}>
       
-      {/* 🛡️ 2. INJECT RECRUITMENT SEO METADATA HERE */}
       <Helmet>
-        {/* 🎯 TACTICAL TITLE: Targets job seekers specifically */}
         <title>Security Jobs in India | Join the TMS Security Force</title>
-        
-        {/* 📝 Summary highlighting specific roles (bouncer, gunmen, GTO) */}
         <meta name="description" content="Start your career with India's premier security provider. Apply now for security guard, bouncer, gunmen, and GTO roles at TMS Group. Submit your application dossier today." />
-        
-        {/* 🔗 Canonical Link ensures Google ranks this exact URL */}
         <link rel="canonical" href="https://tmssecurity.in/career" />
       </Helmet>
 
@@ -167,7 +169,7 @@ const Career = () => {
 
           {status === 'success' ? (
             <div className="success-message" style={{ color: '#a7f3d0', padding: '20px', border: '1px solid #10b981', backgroundColor: 'rgba(16, 185, 129, 0.1)', textAlign: 'center', marginTop: '20px' }}>
-              ✅ Dossier securely uploaded. Our recruitment officers will review your file.
+              ✅ Resume securely uploaded. Our recruitment officers will review your file shortly.
             </div>
           ) : (
             <form className="elite-application-form" onSubmit={handleSubmit}>
@@ -210,16 +212,14 @@ const Career = () => {
                 <textarea name="message" placeholder="State why you are a fit for TMS Security..." rows="5" value={formData.message} onChange={handleChange}></textarea>
               </div>
 
-              {/* 📄 NEW: THE FILE UPLOAD FIELD */}
               <div className="form-group full-width-input" style={{ padding: '15px', border: '1px dashed rgba(255,255,255,0.3)', backgroundColor: 'rgba(0,0,0,0.2)' }}>
                 <label>Upload Resume (PDF or DOC, max 5MB)*</label>
                 <input type="file" name="resume" accept=".pdf,.doc,.docx" onChange={handleFileChange} required style={{ border: 'none', padding: '10px 0' }} />
               </div>
 
-              {/* 🛡️ CLOUDFLARE TURNSTILE WIDGET */}
               <div className="form-group full-width-input" style={{ marginTop: '10px' }}>
                 <Turnstile 
-                  siteKey="0x4AAAAAACrR03wgNaXB91As" // Testing Key
+                  siteKey="0x4AAAAAACrR03wgNaXB91As" 
                   onSuccess={(token) => setTurnstileToken(token)}
                   onError={() => setErrorMessage('Security check failed.')}
                   options={{ theme: 'dark' }} 
@@ -228,7 +228,6 @@ const Career = () => {
 
               {errorMessage && <div style={{ color: '#ef4444', marginBottom: '15px', textAlign: 'center' }}>⚠️ {errorMessage}</div>}
 
-              {/* Changed to type="submit" */}
               <button type="submit" className="submit-btn-gold" disabled={status === 'loading' || !turnstileToken}>
                 {status === 'loading' ? 'TRANSMITTING...' : 'SUBMIT APPLICATION'}
               </button>
