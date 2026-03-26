@@ -170,7 +170,60 @@
     vertical-align: middle;
 }
 
-/* --- THE TACTICAL SQUEEZE (For Small Laptops: 1025px to 1200px) --- */
+.dropdown-menu > li {
+    position: relative;
+}
+
+.nested-menu {
+    position: absolute;
+    top: 0;
+    left: 100%; 
+    background-color: var(--bg-dark); 
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 2px solid var(--accent-gold);
+    min-width: 200px;
+    padding: 10px 0;
+    list-style: none;
+    z-index: 10001; 
+    opacity: 0;                
+    visibility: hidden;        
+    transform: translateX(-15px); 
+    transition: all 0.3s ease;   
+}
+
+.nested-menu.show-nested {
+    opacity: 1;                
+    visibility: visible;       
+    transform: translateX(0);  
+}
+
+.nested-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.arrow-right {
+    font-size: 0.6rem;
+    color: var(--accent-gold);
+    transition: transform 0.3s ease;
+}
+
+.nested-dropdown:hover > .dropdown-link {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--accent-gold);
+}
+
+.nested-menu .dropdown-link {
+    color: var(--text-muted);          
+    background-color: transparent;      
+}
+
+.nested-menu .dropdown-link:hover {
+    background-color: rgba(255, 255, 255, 0.05); 
+    color: var(--accent-gold);                  
+}
+
 @media (max-width: 1200px) and (min-width: 1025px) {
     .nav__list {
         gap: 1.2rem;
@@ -189,7 +242,6 @@
     }
 }
 
-/* --- UPDATED: MOBILE MENU TRIGGERS AT 1024px (Tablets) --- */
 @media (max-width: 1024px) {
     .header {
         height: 80px !important;
@@ -243,7 +295,7 @@
         justify-content: flex-start;
         align-items: center;
         padding-top: 40px;
-        gap: 10px;
+        gap: 15px;
     }
 
     .nav__list.active {
@@ -262,79 +314,25 @@
         display: block;
         width: 100%;
     }
-}
 
-/* --- EXISTING CODE (Nested Menu) --- */
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        transform: none !important;
+        border: none;
+        border-top: none;
+        background-color: transparent;
+        padding: 0;
+        display: none;
+        opacity: 1;
+        visibility: visible;
+    }
 
-.dropdown-menu > li {
-    position: relative;
-}
+    .dropdown:hover .dropdown-menu {
+        display: block;
+        transform: none;
+    }
 
-.nested-menu {
-    position: absolute;
-    top: 0;
-    left: 100%; 
-    background-color: var(--bg-dark); 
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-top: 2px solid var(--accent-gold);
-    min-width: 200px;
-    padding: 10px 0;
-    list-style: none;
-    z-index: 10001; 
-    
-    opacity: 0;                
-    visibility: hidden;        
-    transform: translateX(-15px); 
-    transition: all 0.3s ease;   
-}
-
-.nested-menu.show-nested {
-    opacity: 1;                
-    visibility: visible;       
-    transform: translateX(0);  
-}
-
-.nested-link {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.arrow-right {
-    font-size: 0.6rem;
-    color: var(--accent-gold);
-    transition: transform 0.3s ease;
-}
-
-.nested-dropdown:hover > .dropdown-link {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: var(--accent-gold);
-}
-
-.nested-menu .dropdown-link {
-    color: var(--text-muted);
-    background-color: transparent;
-}
-
-.nested-menu .dropdown-link:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: var(--accent-gold);
-}
-
-/* --- OVERRIDE: NESTED MENU LINK HOVER COLORS --- */
-
-.nested-menu .dropdown-link {
-    color: var(--text-muted);          
-    background-color: transparent;      
-}
-
-.nested-menu .dropdown-link:hover {
-    background-color: rgba(255, 255, 255, 0.05); 
-    color: var(--accent-gold);                  
-}
-
-/* --- MOBILE RESPONSIVE TWEAKS (UPDATED TO 1024px) --- */
-@media (max-width: 1024px) {
     .nested-menu {
         position: static; 
         width: 100%;
@@ -342,6 +340,8 @@
         border: none;
         background-color: rgba(0, 0, 0, 0.2); 
         display: none; 
+        opacity: 1;
+        visibility: visible;
     }
     
     .nested-menu.show-nested {
