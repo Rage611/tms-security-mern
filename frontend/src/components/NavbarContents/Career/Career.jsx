@@ -219,7 +219,7 @@ const Career = () => {
 
               <div className="form-group full-width-input" style={{ marginTop: '10px' }}>
                 <Turnstile 
-                  siteKey="0x4AAAAAACrR03wgNaXB91As" 
+                  siteKey="0x4AAAAAACwTs4bYHKH_D6P6" 
                   onSuccess={(token) => setTurnstileToken(token)}
                   onError={() => setErrorMessage('Security check failed.')}
                   options={{ theme: 'dark' }} 
