@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import "../../ManpowerServices.css";
+import "./SecurityGuard.css";
 
 import serviceBanner from "../../../../../../assets/images/hero/hero-1.png";
 import guardTeam from "../../../../../../assets/images/hero/hero-2.png";

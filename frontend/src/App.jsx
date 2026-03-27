@@ -16,7 +16,6 @@ import Network from './components/Network/Network';
 /* --- New Pages --- */
 import TheCompany from './components/NavbarContents/AboutTMS/TheCompany';
 import TheLeadership from './components/NavbarContents/AboutTMS/TheLeadership';
-import ManpowerServices from './components/NavbarContents/Services/ManPowerServices/ManpowerServices';
 import FacilityManagement from './components/NavbarContents/Services/FacilityManagement/FacilityManagement';
 import Housekeeping from './components/NavbarContents/Services/Housekeeping/Housekeeping';
 import Career from './components/NavbarContents/Career/Career';
@@ -51,7 +50,6 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/company" element={<TheCompany />} />
           <Route path="/leadership" element={<TheLeadership />} />
-          <Route path="/manpower" element={<ManpowerServices />} />
           <Route path="/facility-management" element={<FacilityManagement />} />
           <Route path="/housekeeping" element={<Housekeeping />} />
           <Route path="/career" element={<Career />} />
