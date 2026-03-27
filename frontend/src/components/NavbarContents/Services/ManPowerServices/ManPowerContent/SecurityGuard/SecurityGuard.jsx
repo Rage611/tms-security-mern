@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './ManpowerServices.css';
+import "../../ManpowerServices.css";
 
-import serviceBanner from '../../../../assets/images/hero/hero-1.png'; 
-import guardTeam from '../../../../assets/images/hero/hero-2.png';
+import serviceBanner from "../../../../../../assets/images/hero/hero-1.png";
+import guardTeam from "../../../../../../assets/images/hero/hero-2.png";
 
-const ManpowerServices = () => {
+const SecurityGuards = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const ManpowerServices = () => {
     <div className="service-page">
       <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
         <div className="overlay"></div>
-        <h1>MANNED GUARDING</h1>
+        <h1>SECURITY GUARDS</h1>
       </div>
 
       <div className="content-container">
@@ -87,9 +87,9 @@ const ManpowerServices = () => {
             <ul>
               <li>
                 <Link 
-                  to="/manpower" 
-                  onClick={(e) => handleSafeLink(e, '/manpower')}
-                  className={pathname === '/manpower' ? 'active' : ''}
+                  to="/security-guards" 
+                  onClick={(e) => handleSafeLink(e, '/security-guards')}
+                  className={pathname === '/security-guards' ? 'active' : ''}
                 >
                   Manned Guarding
                 </Link>
@@ -120,4 +120,4 @@ const ManpowerServices = () => {
   );
 };
 
-export default ManpowerServices;
+export default SecurityGuards;

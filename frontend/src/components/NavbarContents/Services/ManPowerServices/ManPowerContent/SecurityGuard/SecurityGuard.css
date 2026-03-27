@@ -250,10 +250,74 @@
 @media (max-width: 900px) {
     .content-container {
         flex-direction: column;
-        gap: 60px;
+        gap: 50px;
+        padding: 60px 20px;
+    }
+    
+    .service-content {
+        width: 100%;
+    }
+    
+    .sidebar {
+        width: 100%;
+        position: static;
     }
     
     .service-featured-image {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .service-hero {
         height: 300px;
+        padding-left: 20px;
+    }
+
+    .service-hero h1 {
+        font-size: 2.2rem;
+        padding-left: 15px;
+        border-left: 4px solid var(--accent-gold);
+    }
+
+    .service-featured-image {
+        height: 250px;
+        margin-bottom: 30px;
+    }
+
+    .service-body-text {
+        text-align: left;
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
+    .service-text-block {
+        margin-top: 35px;
+    }
+
+    .service-text-block h3 {
+        font-size: 1.15rem;
+    }
+
+    .services-side-nav {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-hero {
+        height: 250px;
+    }
+
+    .service-hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .content-container {
+        padding: 40px 15px;
+    }
+
+    .tactical-list li {
+        font-size: 0.95rem;
     }
 }

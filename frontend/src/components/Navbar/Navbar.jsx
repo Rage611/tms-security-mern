@@ -51,18 +51,23 @@ const Navbar = () => {
               SERVICES <span className="arrow">▼</span>
             </a>
             <ul className="dropdown-menu">
-              {/* Nested Dropdown Container */}
+              
               <li 
                 className="nested-dropdown"
                 onMouseEnter={() => setIsGuardingHovered(true)}
                 onMouseLeave={() => setIsGuardingHovered(false)}
               >
-                <Link to="/manpower" className="dropdown-link nested-link" onClick={closeMenu}>
+                <a 
+                  href="#" 
+                  className="dropdown-link nested-link" 
+                  onClick={(e) => e.preventDefault()} 
+                  style={{ cursor: 'default' }}
+                >
                   MANNED GUARDING <span className="arrow-right">▶</span>
-                </Link>
+                </a>
                 
-                {/* The Nested Menu List */}
                 <ul className={`nested-menu ${isGuardingHovered ? 'show-nested' : ''}`}>
+                  <li><Link to="/security-guards" className="dropdown-link" onClick={closeMenu}>SECURITY GUARDS</Link></li>
                   <li><Link to="/bouncer" className="dropdown-link" onClick={closeMenu}>BOUNCER</Link></li>
                   <li><Link to="/trained-gunman" className="dropdown-link" onClick={closeMenu}>TRAINED GUNMAN</Link></li>
                   <li><Link to="/pso" className="dropdown-link" onClick={closeMenu}>PSO</Link></li>

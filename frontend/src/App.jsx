@@ -24,6 +24,10 @@ import Contact from './components/NavbarContents/Contact/Contact';
 import Bouncer from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/Bouncer/Bouncer";
 import PSO from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/PSO/PSO";
 import TrainedGunman from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/TrainedGunman/TrainedGunman";
+import SecurityGuards from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/SecurityGuard/SecurityGuard";
+
+
+
 
 
 const Home = () => (
@@ -55,6 +59,7 @@ function App() {
           <Route path="/bouncer" element={<Bouncer />} />
           <Route path="/pso" element={<PSO />} />
           <Route path="/trained-gunman" element={<TrainedGunman />} />
+          <Route path="/security-guards" element={<SecurityGuards />} />
         </Routes>
       </main>
 
