@@ -120,7 +120,6 @@
     transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
                 transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
     border: none;
-    border-top: 6px solid #d4af37;
 }
 
 .is-visible .service-card {

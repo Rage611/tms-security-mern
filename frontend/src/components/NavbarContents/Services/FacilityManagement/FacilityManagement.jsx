@@ -3,7 +3,8 @@ import { Link, useLocation } from 'react-router-dom';
 import './FacilityManagement.css';
 
 import serviceBanner from '../../../../assets/images/hero/hero-1.png'; 
-import facilityImg from '../../../../assets/images/hero/hero-3.png'; 
+import facilityImg from '../../../../assets/images/NavbarServices/facilitymanagement.png'; 
+ 
 
 const FacilityManagement = () => {
   const { pathname } = useLocation();
@@ -48,41 +49,6 @@ const FacilityManagement = () => {
               TMS deploys highly experienced engineers to meticulously plan and execute activities for routine, 
               planned, and preventive maintenance architectures.
             </p>
-          </div>
-        </div>
-
-        <div className="sidebar">
-          <div className="services-side-nav">
-            <h3>OUR SERVICES</h3>
-            <ul>
-              <li>
-                <Link 
-                  to="/manpower" 
-                  onClick={(e) => handleSafeLink(e, '/manpower')}
-                  className={pathname === '/manpower' ? 'active' : ''}
-                >
-                  Manned Guarding
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/facility-management" 
-                  onClick={(e) => handleSafeLink(e, '/facility-management')}
-                  className={pathname === '/facility-management' ? 'active' : ''}
-                >
-                  Facility Management
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/housekeeping" 
-                  onClick={(e) => handleSafeLink(e, '/housekeeping')}
-                  className={pathname === '/housekeeping' ? 'active' : ''}
-                >
-                  Housekeeping
-                </Link>
-              </li>
-            </ul>
           </div>
         </div>
       </div>

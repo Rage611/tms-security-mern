@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import "./SecurityGuard.css";
 
 import serviceBanner from "../../../../../../assets/images/hero/hero-1.png";
-import guardTeam from "../../../../../../assets/images/hero/hero-2.png";
+import guardTeam from "../../../../../../assets/images/NavbarServices/securityguard.jpg";
 
 const SecurityGuards = () => {
   const { pathname } = useLocation();
@@ -81,40 +81,6 @@ const SecurityGuards = () => {
           </div>
         </div>
 
-        <div className="sidebar">
-          <div className="services-side-nav">
-            <h3>OUR SERVICES</h3>
-            <ul>
-              <li>
-                <Link 
-                  to="/security-guards" 
-                  onClick={(e) => handleSafeLink(e, '/security-guards')}
-                  className={pathname === '/security-guards' ? 'active' : ''}
-                >
-                  Manned Guarding
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/facility-management" 
-                  onClick={(e) => handleSafeLink(e, '/facility-management')}
-                  className={pathname === '/facility-management' ? 'active' : ''}
-                >
-                  Facility Management
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/housekeeping" 
-                  onClick={(e) => handleSafeLink(e, '/housekeeping')}
-                  className={pathname === '/housekeeping' ? 'active' : ''}
-                >
-                  Housekeeping
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
       </div>
     </div>
   );

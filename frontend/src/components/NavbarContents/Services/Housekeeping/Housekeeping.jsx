@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import './Housekeeping.css';
 
 import serviceBanner from '../../../../assets/images/hero/hero-1.png'; 
-import houseImg from '../../../../assets/images/hero/hero-2.png'; 
+import houseImg from '../../../../assets/images/NavbarServices/Housekeeping.jpg'; 
 
 const Housekeeping = () => {
   const { pathname } = useLocation();
@@ -57,41 +57,6 @@ const Housekeeping = () => {
               <li>Heavy machine infrastructure for advanced mechanized cleaning.</li>
               <li>24/7 tactical connectivity with Supervisors and Office Control Room.</li>
               <li>Full compliance with Contract Labour Act and regulatory frameworks.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="sidebar">
-          <div className="services-side-nav">
-            <h3>OUR SERVICES</h3>
-            <ul>
-              <li>
-                <Link 
-                  to="/manpower" 
-                  onClick={(e) => handleSafeLink(e, '/manpower')}
-                  className={pathname === '/manpower' ? 'active' : ''}
-                >
-                  Manned Guarding
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/facility-management" 
-                  onClick={(e) => handleSafeLink(e, '/facility-management')}
-                  className={pathname === '/facility-management' ? 'active' : ''}
-                >
-                  Facility Management
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  to="/housekeeping" 
-                  onClick={(e) => handleSafeLink(e, '/housekeeping')}
-                  className={pathname === '/housekeeping' ? 'active' : ''}
-                >
-                  Housekeeping
-                </Link>
-              </li>
             </ul>
           </div>
         </div>
