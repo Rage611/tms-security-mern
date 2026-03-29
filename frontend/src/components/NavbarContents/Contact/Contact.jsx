@@ -170,10 +170,14 @@ const Contact = () => {
         </div>
       </div>
 
+      {/* Updated Map Section */}
       <div className="map-section">
         <iframe 
           title="TMS Office Location"
-          src="https://www.google.com/maps?q=500,+Shankar+Garden,+Vikaspuri,+New+Delhi,+Delhi,+110018&output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d875.5182412238406!2d77.06984496967594!3d28.62757519847924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04d9ed2c7e95%3A0x327bdb98043e6095!2sTMS%20Security%20Services!5e0!3m2!1sen!2sus!4v1774792028883!5m2!1sen!2sus"
+          width="100%"
+          height="450"
+          style={{ border: 0 }}
           allowFullScreen="" 
           loading="lazy" 
           referrerPolicy="no-referrer-when-downgrade">
