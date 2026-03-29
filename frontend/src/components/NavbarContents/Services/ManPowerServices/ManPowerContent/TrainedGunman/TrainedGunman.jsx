@@ -1,10 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './TrainedGunman.css';
-
 // Pre-applied the deep nesting fix for your image paths!
 import serviceBanner from '../../../../../../assets/images/hero/hero-1.png'; 
-import armedImg from '../../../../../../assets/images/hero/hero-2.png'; 
+import armedImg from '../../../../../../assets/images/NavbarServices/gunman.png'; 
 
 const TrainedGunman = () => {
   const { pathname } = useLocation();

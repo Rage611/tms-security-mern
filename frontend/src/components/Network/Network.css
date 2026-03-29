@@ -174,30 +174,32 @@
 
 /* ── Core dot ── */
 
+/* ── Core dot ── */
 .beacon__core {
   display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 9px;
-  height: 9px;
+  width: 5px; /* Reduced from 9px */
+  height: 5px; /* Reduced from 9px */
   border-radius: 50%;
   background: var(--gold);
+  /* Tighter, less muddy glow */
   box-shadow:
-    0 0 0   2px rgba(212, 175, 55, 0.35),
-    0 0 10px 2px rgba(212, 175, 55, 0.6);
+    0 0 0   1px rgba(212, 175, 55, 0.35),
+    0 0 6px 1px rgba(212, 175, 55, 0.6);
   z-index: 2;
 }
 
 /* Expansion core — dim blue */
 .beacon__core--exp {
-  width: 6px;
-  height: 6px;
+  width: 4px; /* Reduced from 6px */
+  height: 4px; /* Reduced from 6px */
   background: #1d4ed8;
   box-shadow:
-    0 0 0   2px rgba(59, 130, 246, 0.25),
-    0 0 8px 2px rgba(59, 130, 246, 0.45);
+    0 0 0   1px rgba(59, 130, 246, 0.25),
+    0 0 5px 1px rgba(59, 130, 246, 0.45);
 }
 
 /* ── Pulse rings ── */
@@ -206,8 +208,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 20px;
-  height: 20px;
+  width: 12px; /* Reduced from 20px */
+  height: 12px; /* Reduced from 20px */
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   border: 1.5px solid var(--gold);
@@ -215,6 +217,17 @@
   animation: ring-pulse 3s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
   animation-delay: var(--ring-delay, 0s);
   z-index: 1;
+}
+
+/* ── HQ beacon — larger, brighter core ── */
+.beacon--active.is-hq .beacon__core,
+.beacon[aria-label*="Headquarters"] .beacon__core {
+  width: 8px; /* Reduced from 12px */
+  height: 8px; /* Reduced from 12px */
+  background: var(--gold-bright);
+  box-shadow:
+    0 0 0   2px rgba(240, 208, 96, 0.3),
+    0 0 10px 2px rgba(212, 175, 55, 0.8);
 }
 
 @keyframes ring-pulse {
@@ -475,18 +488,18 @@
   }
 
   .beacon__core {
-    width: 7px;
-    height: 7px;
+    width: 4px;
+    height: 4px;
   }
 
   .beacon__core--exp {
-    width: 5px;
-    height: 5px;
+    width: 3px;
+    height: 3px;
   }
 
   .beacon__ring {
-    width: 14px;
-    height: 14px;
+    width: 10px;
+    height: 10px;
   }
 
   .beacon__city-name {
