@@ -23,7 +23,7 @@ const TheLeadership = () => {
             </div>
             <div className="leader-bio">
               <h2 className="leader-name">Mr. Ajay Kumar Singh</h2>
-              <h4 className="leader-title">Managing Director (Ex-Defense)</h4>
+              <h4 className="leader-title">Managing Director </h4>
               <p>
                 A visionary leader with over 25 years of experience in security and defense. 
                 After serving the nation with distinction, he founded TMS Security Services to 
