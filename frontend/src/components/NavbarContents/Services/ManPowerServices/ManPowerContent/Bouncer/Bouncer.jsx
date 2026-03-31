@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import './Bouncer.css';
+import '../../../SharedServiceLayout.css';
 
 import serviceBanner from "../../../../../../assets/images/hero/hero-1.png"; 
 import tacticalImg from "../../../../../../assets/images/NavbarServices/bouncer.png";
