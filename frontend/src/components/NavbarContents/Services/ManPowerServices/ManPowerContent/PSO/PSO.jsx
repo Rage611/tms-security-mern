@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+import '../../../SharedServiceLayout.css';
+
 // Pre-applied the deep nesting fix for your image paths!
 import serviceBanner from '../../../../../../assets/images/hero/hero-3.png'; 
 import psoImg from '../../../../../../assets/images/NavbarServices/pso.png'; 
