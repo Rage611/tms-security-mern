@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'; // Removed BrowserRouter import
-
+import { Analytics } from "@vercel/analytics/react"
 /* --- Components --- */
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar/Navbar';
@@ -62,6 +62,7 @@ function App() {
       </main>
 
       <Footer />
+      <Analytics />
     </div>
   );
 }
