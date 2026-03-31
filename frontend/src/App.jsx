@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom'; // Removed BrowserRouter import
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from '@vercel/speed-insights/react';
 /* --- Components --- */
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar/Navbar';
@@ -63,6 +64,7 @@ function App() {
 
       <Footer />
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
