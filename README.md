@@ -29,3 +29,31 @@ To run this project on your local machine:
 1. Clone the repository:
    ```bash
    git clone [https://github.com/Rage611/tms-security-mern.git](https://github.com/Rage611/tms-security-mern.git)
+   ```
+
+2. Navigate to the project directory:
+   ```bash
+   cd tms-security-mern
+   ```
+
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Set up Environment Variables:
+   Create a `.env` file in the root directory and add your required API keys to ensure forms compile correctly:
+   ```env
+   VITE_EMAILJS_SERVICE_ID=your_service_id
+   VITE_EMAILJS_TEMPLATE_ID=your_template_id
+   VITE_EMAILJS_CAREER_TEMPLATE_ID=your_career_template_id
+   VITE_EMAILJS_PUBLIC_KEY=your_public_key
+   VITE_CLOUDINARY_CLOUD_NAME=your_cloud_name
+   VITE_CLOUDINARY_UPLOAD_PRESET=your_unsigned_preset
+   ```
+
+5. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
