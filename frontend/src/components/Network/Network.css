@@ -5,8 +5,6 @@
    ============================================================================= */
 
 /* ── CSS Variables ─────────────────────────────────────────────────────────── */
-
-/* ── CSS Variables ─────────────────────────────────────────────────────────── */
 :root {
   --gold:          #d4af37;
   --gold-bright:   #f0d060;
@@ -19,8 +17,8 @@
   --map-bg:        #050505;
   --font:          'Inter', system-ui, sans-serif;
 }
-/* ── Section Shell ─────────────────────────────────────────────────────────── */
 
+/* ── Section Shell ─────────────────────────────────────────────────────────── */
 .network-section {
   position: relative;
   background-color: var(--map-bg);
@@ -46,7 +44,6 @@
 
 /* ── CRT Scanlines ─────────────────────────────────────────────────────────── */
 /* Extremely subtle — adds texture without being distracting on mobile */
-
 .network__scanlines {
   position: absolute;
   inset: 0;
@@ -62,7 +59,6 @@
 }
 
 /* ── Inner Layout ──────────────────────────────────────────────────────────── */
-
 .network__inner {
   position: relative;
   width: 100%;
@@ -73,7 +69,6 @@
 }
 
 /* ── Section Header ────────────────────────────────────────────────────────── */
-
 .network__header {
   text-align: center;
   margin-bottom: 36px;
@@ -134,7 +129,6 @@
 }
 
 /* ── Map Container ─────────────────────────────────────────────────────────── */
-
 .map-container {
   position: relative;
   width: 46%;
@@ -158,7 +152,6 @@
    Each beacon is position:absolute, transform:translate(-50%,-50%) so the
    percentage top/left anchors to the exact city location on the image.
    ============================================================================= */
-
 .beacon {
   position: absolute;
   transform: translate(-50%, -50%);
@@ -173,16 +166,14 @@
 }
 
 /* ── Core dot ── */
-
-/* ── Core dot ── */
 .beacon__core {
   display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 5px; /* Reduced from 9px */
-  height: 5px; /* Reduced from 9px */
+  width: 5px; 
+  height: 5px; 
   border-radius: 50%;
   background: var(--gold);
   /* Tighter, less muddy glow */
@@ -194,8 +185,8 @@
 
 /* Expansion core — dim blue */
 .beacon__core--exp {
-  width: 4px; /* Reduced from 6px */
-  height: 4px; /* Reduced from 6px */
+  width: 4px; 
+  height: 4px; 
   background: #1d4ed8;
   box-shadow:
     0 0 0   1px rgba(59, 130, 246, 0.25),
@@ -208,8 +199,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 12px; /* Reduced from 20px */
-  height: 12px; /* Reduced from 20px */
+  width: 12px; 
+  height: 12px; 
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
   border: 1.5px solid var(--gold);
@@ -217,17 +208,6 @@
   animation: ring-pulse 3s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
   animation-delay: var(--ring-delay, 0s);
   z-index: 1;
-}
-
-/* ── HQ beacon — larger, brighter core ── */
-.beacon--active.is-hq .beacon__core,
-.beacon[aria-label*="Headquarters"] .beacon__core {
-  width: 8px; /* Reduced from 12px */
-  height: 8px; /* Reduced from 12px */
-  background: var(--gold-bright);
-  box-shadow:
-    0 0 0   2px rgba(240, 208, 96, 0.3),
-    0 0 10px 2px rgba(212, 175, 55, 0.8);
 }
 
 @keyframes ring-pulse {
@@ -241,7 +221,6 @@
 }
 
 /* ── HQ beacon — larger, brighter core ── */
-
 .beacon--active.is-hq .beacon__core,
 .beacon[aria-label*="Headquarters"] .beacon__core {
   width: 12px;
@@ -253,7 +232,6 @@
 }
 
 /* ── Floating Labels ───────────────────────────────────────────────────────── */
-
 .beacon__label {
   position: absolute;
   top: 50%;
@@ -339,7 +317,6 @@
 /* =============================================================================
    SVG PARABOLA ARCS (Two-Phase Force Projection)
    ============================================================================= */
-
 .network-arcs {
   position: absolute;
   top: 0;
@@ -357,14 +334,11 @@
   stroke-width: 0.6; 
   stroke-linecap: round;
   filter: drop-shadow(0 0 4px rgba(212, 175, 55, 1));
-  
   stroke-dasharray: 120;
   stroke-dashoffset: 120;
 }
 
-/* --- PHASE 1: ACTIVE ROUTES (Solid Gold Lasers) --- */
 .is-visible .arc-line {
-  /* CHANGE: Increased from 3s to 4.5s for a slow, tactical deployment */
   animation: draw-arc 8s cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
   animation-delay: 0.5s; 
 }
@@ -374,18 +348,29 @@
 }
 
 /* --- THE RADAR CLIP (Shoots the dots outward from Delhi) --- */
+/* iOS SAFARI FIX: Animating the CSS transform scale instead of the SVG 'r' attribute */
 .radar-circle {
-  r: 0; /* Starts completely invisible at HQ */
+  r: 150; /* Set to full expansion size by default */
+  transform-origin: 32px 29px; /* Lock the scale origin exactly to your cx/cy coordinates */
+  transform: scale(0);
+  -webkit-transform: scale(0); /* Crucial for older Apple devices */
 }
 
 .is-visible .radar-circle {
-  /* Expands massively at 2.5s to reveal the paths sequentially */
-  animation: radar-burst 10s cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
+  animation: radar-burst-scale 10s cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
+  -webkit-animation: radar-burst-scale 10s cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
   animation-delay: 2.5s;
+  -webkit-animation-delay: 2.5s;
 }
 
-@keyframes radar-burst {
-  to { r: 150; } /* Expands to cover the entire map */
+@keyframes radar-burst-scale {
+  0%   { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+@-webkit-keyframes radar-burst-scale {
+  0%   { -webkit-transform: scale(0); }
+  100% { -webkit-transform: scale(1); }
 }
 
 /* --- PHASE 2: EXPANSION ROUTES (Flowing Data Stream) --- */
@@ -395,10 +380,8 @@
   stroke-width: 0.6; 
   stroke-linecap: round;
   filter: drop-shadow(0 0 4px rgba(56, 189, 248, 1));
-  
   /* Tight dots */
   stroke-dasharray: 3 3; 
-  /* No opacity hidden state needed! The radar-circle hides it perfectly */
 }
 
 /* Continually animates the dots sliding forward */
@@ -414,7 +397,6 @@
 /* =============================================================================
    LEGEND
    ============================================================================= */
-
 .network__legend {
   display: flex;
   align-items: center;
@@ -477,7 +459,6 @@
 /* =============================================================================
    MOBILE — ≤ 768px
    ============================================================================= */
-
 @media (max-width: 768px) {
   .network-section {
     padding: 60px 0 50px;
