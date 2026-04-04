@@ -3,6 +3,7 @@
     background-color: var(--bg-primary, #ffffff);
 }
 
+/* --- HERO BANNER --- */
 .career-hero {
     position: relative;
     width: 100%;
@@ -10,10 +11,14 @@
     background-color: var(--bg-dark, #050505);
     background-size: cover;
     background-position: center;
+    
+    /* THE VERTICAL CENTERING MAGIC */
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 10%;
+    align-items: center; /* This forces vertical centering */
+    justify-content: flex-start; /* Keeps it on the left horizontally */
+    
+    padding-left: 10%; 
+    /* Make sure there is NO padding-top or padding-bottom here! */
 }
 
 .career-hero .overlay {
@@ -33,11 +38,28 @@
     text-transform: uppercase;
     letter-spacing: 3px;
     z-index: 2;
-    border-left: 5px solid var(--accent-gold, #ffd700);
+    border-left: none;
+    
+    /* CRITICAL FOR PERFECT CENTERING */
+    margin: 0; /* Kills the browser's hidden spacing */
+    line-height: 1.15; /* Keeps multi-line text tight */
+    
     padding-left: 24px;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* The Independent Yellow Accent Line */
+.career-hero h1::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background-color: var(--accent-gold, #ffd700);
+    border-radius: 4px;
 }
 
 @keyframes fadeInUp {
@@ -193,8 +215,6 @@
 .form-group select {
     width: 100%;
     padding: 16px;
-    
-    /* Match the input box dark background */
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-light, #ffffff);
@@ -202,32 +222,25 @@
     border-radius: 2px;
     outline: none;
     font-family: 'Inter', sans-serif;
-
-    /* KILL THE DEFAULT BROWSER WHITE BOX */
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
-
-    /* Inject a custom, minimalist white arrow */
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 16px center;
     background-size: 16px;
 }
 
-/* Force the dropdown options to be dark when clicked */
 .form-group select option {
     background-color: var(--bg-dark, #0f172a);
     color: var(--text-light, #ffffff);
     padding: 15px;
 }
 
-/* Make it glow Gold when the user clicks it */
 .form-group select:focus {
     border-color: var(--accent-gold, #ffd700);
     background-color: rgba(255, 215, 0, 0.03);
-    /* Change arrow to gold on focus */
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffd700' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
 }
 
@@ -275,10 +288,29 @@
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
 }
 
+/* =============================================================================
+   MOBILE RESPONSIVENESS — ≤ 768px
+   ============================================================================= */
 @media (max-width: 768px) {
-    .career-details-grid, .elite-application-form .form-grid {
-        grid-template-columns: 1fr;
+    .career-hero {
+        height: 300px;
+        padding-left: 20px;
     }
+
+    .career-hero h1 {
+        font-size: 2.2rem;
+        padding-left: 18px;
+        max-width: 90%; /* Prevents text overflow */
+    }
+
+    .career-hero h1::before {
+        width: 4px; /* Scaled down vertical line */
+    }
+
+    .career-details-grid, .elite-application-form .form-grid {
+        grid-template-columns: 1fr; /* Ensures form fields stack cleanly */
+    }
+    
     .career-featured-image {
         height: 300px;
     }

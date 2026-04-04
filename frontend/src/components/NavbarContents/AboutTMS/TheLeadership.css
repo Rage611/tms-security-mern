@@ -3,6 +3,7 @@
     background-color: var(--bg-primary);
 }
 
+/* --- LEADERSHIP HERO (Exact Clone of Company Hero) --- */
 .leadership-hero {
     position: relative;
     width: 100%;
@@ -11,8 +12,10 @@
     background-position: center;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding-left: 0;
+    
+    /* FIX: Force it to the left side, exactly like the Company page */
+    justify-content: flex-start; 
+    padding-left: 10%; 
 }
 
 .leadership-hero .overlay {
@@ -32,14 +35,33 @@
     text-transform: uppercase;
     letter-spacing: 3px;
     z-index: 2;
-    border-left: 5px solid var(--accent-gold);
+    
+    border-left: none;
+    
+    /* FIX: Removed the centering margins and widths */
+    margin: 0; 
+    line-height: 1.15;
     padding-left: 24px;
+    
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    width: 100%;
-    max-width: 1160px;
-    margin: 0 auto;
+}
+
+/* The clean, symmetrical line */
+/* --- FIX: Stretched Symmetrical Line --- */
+.leadership-hero h1::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    
+    /* Pull the line slightly above and below the text box */
+    top: -6px; 
+    bottom: -6px; 
+    
+    width: 5px;
+    background-color: var(--accent-gold);
+    border-radius: 4px;
 }
 
 @keyframes fadeInUp {
@@ -257,8 +279,17 @@
         text-align: left;
     }
     
+    .leadership-hero {
+        padding-left: 0;
+        justify-content: center;
+    }
+
     .leadership-hero h1 {
         font-size: 2.5rem;
         padding-left: 20px;
+    }
+
+    .leadership-hero h1::before {
+        width: 4px;
     }
 }

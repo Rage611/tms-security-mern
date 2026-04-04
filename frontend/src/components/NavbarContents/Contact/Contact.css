@@ -230,9 +230,46 @@
     filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(85%) sepia(20%);
 }
 
-@media (max-width: 900px) {
+/* =============================================================================
+   MOBILE RESPONSIVENESS — ≤ 768px
+   ============================================================================= */
+
+@media (max-width: 768px) {
+    /* 1. Fix the Hero Banner height and text wrapping */
+    .contact-hero {
+        height: 300px;
+        padding-left: 20px;
+    }
+
+    .contact-hero h1 {
+        font-size: 2.2rem; /* Shrinks text so 'CONTACT US' stays proportionate */
+        padding-left: 16px;
+    }
+
+    /* 2. Reduce the massive top/bottom spacing */
+    .contact-container {
+        padding: 60px 20px;
+    }
+
+    /* 3. Give the form inputs more room by reducing inner box padding */
+    .contact-form-section {
+        padding: 40px 20px;
+    }
+
+    /* 4. Scale down the section headings */
+    .office-heading {
+        font-size: 1.7rem;
+        margin-bottom: 15px;
+    }
+    
+    /* 5. Tighten the gap between the text and the form when stacked */
     .contact-flex-wrapper {
         flex-direction: column;
-        gap: 60px;
+        gap: 40px; 
+    }
+
+    /* 6. Slightly reduce map height so it doesn't take up the whole phone screen */
+    .map-section {
+        min-height: 350px;
     }
 }
