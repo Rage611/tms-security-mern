@@ -1,7 +1,9 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // Removed BrowserRouter import
+// IMPORT FIX: Added 'Navigate' to handle the redirects
+import { Routes, Route, Navigate } from 'react-router-dom'; 
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from '@vercel/speed-insights/react';
+
 /* --- Components --- */
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar/Navbar';
@@ -26,10 +28,6 @@ import PSO from "./components/NavbarContents/Services/ManPowerServices/ManPowerC
 import TrainedGunman from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/TrainedGunman/TrainedGunman";
 import SecurityGuards from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/SecurityGuard/SecurityGuard";
 
-
-
-
-
 const Home = () => (
   <>
     <Hero />
@@ -48,6 +46,7 @@ function App() {
       
       <main>
         <Routes>
+          {/* --- NORMAL NEW ROUTES --- */}
           <Route path="/" element={<Home />} />
           <Route path="/company" element={<TheCompany />} />
           <Route path="/leadership" element={<TheLeadership />} />
@@ -59,6 +58,15 @@ function App() {
           <Route path="/pso" element={<PSO />} />
           <Route path="/trained-gunman" element={<TrainedGunman />} />
           <Route path="/security-guards" element={<SecurityGuards />} />
+
+          {/* --- THE GOOGLE SEO FIX (Legacy Redirects) --- */}
+          {/* Automatically forwards users clicking the dead .aspx links */}
+          <Route path="/Services.aspx" element={<Navigate to="/" replace />} />
+          <Route path="/ContactUs.aspx" element={<Navigate to="/contact" replace />} />
+          <Route path="/Clients.aspx" element={<Navigate to="/" replace />} />
+          
+          {/* Catch-All: If Google or a user tries ANY other broken link, send them Home safely */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
 
