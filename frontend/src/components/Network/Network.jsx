@@ -52,11 +52,6 @@ const NetworkArcs = () => (
         <stop offset="0%" stopColor="#38bdf8" stopOpacity="1" />       {/* Bright Cyan */}
         <stop offset="100%" stopColor="#1d4ed8" stopOpacity="0.1" />   {/* Fading Deep Blue */}
       </linearGradient>
-
-      {/* NEW: The Expanding Radar Clip centered on Delhi HQ */}
-      <clipPath id="radar-clip">
-        <circle cx="32" cy="29" r="0" className="radar-circle" />
-      </clipPath>
     </defs>
 
     {/* --- PHASE 1: ACTIVE ROUTES (Gold Lasers - Simultaneous Launch) --- */}
@@ -66,19 +61,26 @@ const NetworkArcs = () => (
     <path className="arc-line" d="M 32 29 Q 46 20 59.5 37.5" /> 
          {/* Bihar */}
 
-    {/* --- PHASE 2: EXPANSION TARGETS (Wrapped in Radar Clip) --- */}
-    <g clipPath="url(#radar-clip)">
-      <path className="arc-line-exp" d="M 32 29 Q 36 26 35 23" />      {/* Uttarakhand */}
-      <path className="arc-line-exp" d="M 32 29 Q 25 30 22 36" />      {/* Rajasthan */}
-      <path className="arc-line-exp" d="M 32 29 Q 36 38 33 49" />      {/* MP */}
-      <path className="arc-line-exp" d="M 32 29 Q 45 34 59 46" />      {/* Jharkhand */}
-      
-      {/* The South - Fanned out and perfectly synced! */}
-      <path className="arc-line-exp" d="M 32 29 Q 12 45 16.5 62" />    {/* Mumbai */}
-      <path className="arc-line-exp" d="M 32 29 Q 25 50 37 66" />      {/* Hyderabad */}
-      <path className="arc-line-exp" d="M 32 29 Q 18 55 29 82.5" />    {/* Bengaluru */}
-      <path className="arc-line-exp" d="M 32 29 Q 28 22 24 22" />      {/* Punjab */}
-    </g>
+    {/* --- PHASE 2: EXPANSION TARGETS (HQ launch first, then dotted flow) --- */}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 36 26 35 23" />      {/* Uttarakhand */}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 25 30 22 36" />      {/* Rajasthan */}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 36 38 33 49" />      {/* MP */}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 45 34 59 46" />      {/* Jharkhand */}
+    
+    {/* The South - Fanned out and perfectly synced! */}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 12 45 16.5 62" />    {/* Mumbai */}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 25 50 37 66" />      {/* Hyderabad */}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 18 55 29 82.5" />    {/* Bengaluru */}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 28 22 24 22" />      {/* Punjab */}
+
+    <path className="arc-line-exp" d="M 32 29 Q 36 26 35 23" />      {/* Uttarakhand */}
+    <path className="arc-line-exp" d="M 32 29 Q 25 30 22 36" />      {/* Rajasthan */}
+    <path className="arc-line-exp" d="M 32 29 Q 36 38 33 49" />      {/* MP */}
+    <path className="arc-line-exp" d="M 32 29 Q 45 34 59 46" />      {/* Jharkhand */}
+    <path className="arc-line-exp" d="M 32 29 Q 12 45 16.5 62" />    {/* Mumbai */}
+    <path className="arc-line-exp" d="M 32 29 Q 25 50 37 66" />      {/* Hyderabad */}
+    <path className="arc-line-exp" d="M 32 29 Q 18 55 29 82.5" />    {/* Bengaluru */}
+    <path className="arc-line-exp" d="M 32 29 Q 28 22 24 22" />      {/* Punjab */}
   </svg>
 );
 

@@ -4,6 +4,16 @@
     box-sizing: border-box;
 }
 
+/* --- THE NUCLEAR OVERFLOW FIX --- */
+/* Lock down every single parent layer React uses */
+html, body, #root {
+    width: 100%;
+    max-width: 100%; /* Never use vw here! */
+    overflow-x: hidden !important;
+    position: relative;
+    min-height: 100%;
+}
+
 :root {
     --bg-primary: #ffffff;
     --bg-dark: #050505;
@@ -20,31 +30,80 @@
     --nav-height: 90px;
 }
 
+html {
+    background-color: #050505;
+    overflow-x: clip;
+    scrollbar-gutter: stable;
+}
+
 body {
-    background-color: var(--bg-primary);
+    background-color: #050505;
     color: var(--text-primary);
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 215, 0, 0.35) #050505;
 }
 
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: rgba(255, 215, 0, 0.35);
+    border: 2px solid #050505;
+    border-radius: 999px;
+}
+
+/* ... keep container as is ... */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 40px;
 }
 
+/* ... update your app-wrapper ... */
 .app-wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     background-color: var(--bg-primary);
+    
+    /* Lock the wrapper inside the root */
+    width: 100%;
+    max-width: 100%; 
+    overflow-x: hidden !important; 
+    position: relative;
+}
+
+.full-width {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    position: relative;
 }
 
 main {
+    display: block;
     flex: 1;
     width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+}
+
+section,
+header,
+footer {
+    width: 100%;
+    max-width: 100%;
 }
 
 .text-theme-dark {
