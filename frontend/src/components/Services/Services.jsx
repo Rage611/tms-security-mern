@@ -7,7 +7,7 @@ import './Services.css';
 import guardImg from '../../assets/images/services/manpower.jpg';
 import escortImg from '../../assets/images/services/escort.jpg';
 import bouncerImg from '../../assets/images/services/bouncer.png';
-import housekeepingImg from '../../assets/images/services/housekeeping.png'; 
+import facilityImg from '../../assets/images/services/housekeeping.png'; 
 
 const Services = () => {
   const { ref, inView } = useInView({
@@ -35,10 +35,10 @@ const Services = () => {
       delay: "0.5s" 
     },
     { 
-      title: "Housekeeping", 
-      description: "Premium facility management ensuring pristine, secure, and fully operational commercial environments.",
-      img: housekeepingImg, 
-      delay: "0.7s" 
+      title: "Facility Management", 
+    description: "Comprehensive facility management ensuring pristine, secure, and fully operational commercial environments.",
+    img: facilityImg, 
+    delay: "0.7s" 
     }
   ];
 

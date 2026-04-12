@@ -155,7 +155,7 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 40px 40px; 
+    padding: 30px 8%; /* FIX: 8% horizontal padding adapts to the shrinking card */
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -167,7 +167,7 @@
 .card-title {
     font-family: 'Inter', sans-serif;
     color: #ffffff;
-    font-size: 1.5rem;
+    font-size: clamp(1.2rem, 2vw, 1.5rem); /* FIX: Font scales down smoothly */
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -333,5 +333,20 @@
 
     .stats__header {
         margin-bottom: 40px !important; 
+    }
+
+    
+}
+/* =========================================
+   TABLET RESPONSIVE RULES (1024px)
+   ========================================= */
+@media (max-width: 1024px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr); /* Drops to a 2x2 grid */
+        padding: 0 5%;
+    }
+    
+    .service-card {
+        aspect-ratio: 4 / 3; /* Makes the cards slightly wider to fit the text beautifully */
     }
 }

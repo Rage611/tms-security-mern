@@ -50,7 +50,7 @@ const NetworkArcs = () => (
       {/* FIXED: Uniform Ice-Blue Glow */}
       <linearGradient id="arc-glow-blue" x1="0%" y1="0%" x2="100%" y2="0%">
         <stop offset="0%" stopColor="#38bdf8" stopOpacity="1" />       {/* Bright Cyan */}
-        <stop offset="100%" stopColor="#1d4ed8" stopOpacity="0.1" />   {/* Fading Deep Blue */}
+        <stop offset="100%" stopColor="#1d4ed8" stopOpacity="1" />   {/* Fading Deep Blue */}
       </linearGradient>
     </defs>
 

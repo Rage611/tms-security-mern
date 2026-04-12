@@ -141,12 +141,6 @@
     transition: all 0.3s ease;   
 }
 
-.dropdown:hover .dropdown-menu {
-    opacity: 1;                
-    visibility: visible;       
-    transform: translateY(0);  
-}
-
 .dropdown-link {
     display: block;
     padding: 12px 20px;
@@ -191,12 +185,6 @@
     transition: all 0.3s ease;   
 }
 
-.nested-menu.show-nested {
-    opacity: 1;                
-    visibility: visible;       
-    transform: translateX(0);  
-}
-
 .nested-link {
     display: flex;
     justify-content: space-between;
@@ -207,6 +195,21 @@
     font-size: 0.6rem;
     color: var(--accent-gold);
     transition: transform 0.3s ease;
+}
+
+/* =========================================
+   DESKTOP HOVER LOGIC (CSS ONLY)
+   ========================================= */
+.dropdown:hover > .dropdown-menu {
+    opacity: 1;                
+    visibility: visible;       
+    transform: translateY(0);  
+}
+
+.nested-dropdown:hover > .nested-menu {
+    opacity: 1;                
+    visibility: visible;       
+    transform: translateX(0);  
 }
 
 .nested-dropdown:hover > .dropdown-link {
@@ -242,6 +245,9 @@
     }
 }
 
+/* =========================================
+   MOBILE RESPONSIVE LOGIC
+   ========================================= */
 @media (max-width: 1024px) {
     .header {
         height: 80px !important;
@@ -315,7 +321,8 @@
         width: 100%;
     }
 
-    .dropdown-menu {
+    /* 1. RESET MENUS FOR MOBILE DISPLAY */
+    .dropdown-menu, .nested-menu {
         position: static;
         width: 100%;
         transform: none !important;
@@ -323,30 +330,26 @@
         border-top: none;
         background-color: transparent;
         padding: 0;
-        display: none;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .dropdown:hover .dropdown-menu {
-        display: block;
-        transform: none;
-    }
-
-    .nested-menu {
-        position: static; 
-        width: 100%;
-        transform: none;
-        border: none;
-        background-color: rgba(0, 0, 0, 0.2); 
-        display: none; 
+        display: none; /* Hide them physically, not just visually */
         opacity: 1;
         visibility: visible;
     }
     
-    .nested-menu.show-nested {
-        display: block; 
-        transform: none;
+    .nested-menu {
+        background-color: rgba(0, 0, 0, 0.2); 
+    }
+
+    /* 2. KILL DESKTOP HOVER ON MOBILE TO PREVENT GLITCHES */
+    .dropdown:hover > .dropdown-menu,
+    .nested-dropdown:hover > .nested-menu {
+        display: none; 
+    }
+
+    /* 3. SHOW MENUS ONLY WHEN REACT ADDS THESE CLASSES */
+    .dropdown-menu.mobile-open, 
+    .nested-menu.mobile-nested-open {
+        display: block !important;
+        transform: none !important;
     }
 
     .nested-link {
