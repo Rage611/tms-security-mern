@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 
 import '../../../SharedServiceLayout.css';
 // Pre-applied the deep nesting fix for your image paths!
-import serviceBanner from '../../../../../../assets/images/hero/hero-1.png'; 
+import serviceBanner from '../../../../../../assets/images/hero/hero-1.webp'; 
 import armedImg from '../../../../../../assets/images/NavbarServices/gunman.png'; 
 
 const TrainedGunman = () => {

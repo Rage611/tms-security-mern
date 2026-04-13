@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 // Update this path based on where your SharedServiceLayout.css is located!
 import '../SharedServiceLayout.css'; 
 
-import serviceBanner from '../../../../assets/images/hero/hero-1.png'; 
+import serviceBanner from '../../../../assets/images/hero/hero-1.webp'; 
 import facilityImg from '../../../../assets/images/NavbarServices/facilitymanagement.png'; 
  
 const FacilityManagement = () => {

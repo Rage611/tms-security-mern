@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 
-import contactBanner from '../../../assets/images/hero/hero-2.png'; 
+import contactBanner from '../../../assets/images/hero/hero-2.webp'; 
 
 const Contact = () => {
   const { pathname } = useLocation();
@@ -94,11 +94,11 @@ const Contact = () => {
                   Site-1, Vikas Puri, New Delhi, 110018
                 </li>
                 <li>
-                  <strong>DIRECT LINE:</strong><br />
+                  <strong>Contact Number:</strong><br />
                   +91 9717763351
                 </li>
                 <li>
-                  <strong>SECURE FAX:</strong><br />
+                  <strong>DIRECT LINE:</strong><br />
                   +91 11 4140 1113
                 </li>
               </ul>

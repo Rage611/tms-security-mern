@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom'; // <-- 1. Must import this
 import { HashLink } from 'react-router-hash-link';
 import './TheCompany.css';
-import companyBanner from '../../../assets/images/hero/hero-2.png'; 
+import companyBanner from '../../../assets/images/hero/hero-2.webp'; 
 
 const TheCompany = () => {
   // 🎯 2. THIS IS THE MISSING LINE THAT CAUSED THE CRASH:

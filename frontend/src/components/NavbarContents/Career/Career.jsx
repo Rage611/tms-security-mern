@@ -5,8 +5,8 @@ import { Turnstile } from '@marsidev/react-turnstile';
 import emailjs from '@emailjs/browser';
 import './Career.css';
 
-import careerBanner from '../../../assets/images/hero/hero-3.png'; 
-import guardTeam from '../../../assets/images/hero/hero-1.png';
+import careerBanner from '../../../assets/images/hero/hero-3.webp'; 
+import guardTeam from '../../../assets/images/hero/hero-1.webp';
 
 const Career = () => {
   const { pathname } = useLocation();

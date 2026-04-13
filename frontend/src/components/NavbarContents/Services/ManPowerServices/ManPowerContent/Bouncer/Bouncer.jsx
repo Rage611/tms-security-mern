@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../../SharedServiceLayout.css';
 
-import serviceBanner from "../../../../../../assets/images/hero/hero-1.png"; 
+import serviceBanner from "../../../../../../assets/images/hero/hero-1.webp"; 
 import tacticalImg from "../../../../../../assets/images/NavbarServices/bouncer.png";
 
 const Bouncer = () => {

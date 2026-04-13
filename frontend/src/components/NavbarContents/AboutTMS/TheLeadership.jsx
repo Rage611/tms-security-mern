@@ -1,8 +1,8 @@
 import React from 'react';
 import './TheLeadership.css';
-import leadershipBanner from '../../../assets/images/hero/hero-3.png'; 
+import leadershipBanner from '../../../assets/images/hero/hero-3.webp'; 
 import leader1 from '../../../assets/images/leadership/owner-logo.jpeg'; 
-import leader2 from '../../../assets/images/hero/hero-2.png';
+import leader2 from '../../../assets/images/hero/hero-2.webp';
 
 const TheLeadership = () => {
   return (
