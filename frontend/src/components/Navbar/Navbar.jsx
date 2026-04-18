@@ -1,7 +1,7 @@
 import './Navbar.css';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import logo from "../../assets/images/Logo.png";
+import logo from "../../assets/images/Logo.webp";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,7 +62,6 @@ const Navbar = () => {
             >
               ABOUT TMS <span className="arrow">▼</span>
             </a>
-            {/* Class added ONLY on mobile click */}
             <ul className={`dropdown-menu ${mobileActive === 'about' ? 'mobile-open' : ''}`}>
               <li><Link to="/company" className="dropdown-link" onClick={closeMenu}>THE COMPANY</Link></li>
               <li><Link to="/leadership" className="dropdown-link" onClick={closeMenu}>THE LEADERSHIP</Link></li>
@@ -79,7 +78,6 @@ const Navbar = () => {
             >
               SERVICES <span className="arrow">▼</span>
             </a>
-            {/* Class added ONLY on mobile click */}
             <ul className={`dropdown-menu ${mobileActive === 'services' ? 'mobile-open' : ''}`}>
               
               {/* MANNED GUARDING */}
@@ -93,7 +91,6 @@ const Navbar = () => {
                   MANNED GUARDING <span className="arrow-right">▶</span>
                 </a>
                 
-                {/* Class added ONLY on mobile click */}
                 <ul className={`nested-menu ${nestedMobileActive ? 'mobile-nested-open' : ''}`}>
                   <li><Link to="/security-guards" className="dropdown-link" onClick={closeMenu}>SECURITY GUARDS</Link></li>
                   <li><Link to="/bouncer" className="dropdown-link" onClick={closeMenu}>BOUNCER</Link></li>
@@ -104,6 +101,9 @@ const Navbar = () => {
 
               <li><Link to="/facility-management" className="dropdown-link" onClick={closeMenu}>FACILITY MANAGEMENT</Link></li>        
               <li><Link to="/housekeeping" className="dropdown-link" onClick={closeMenu}>HOUSE KEEPING</Link></li>
+              
+              {/* NEW DATA ENTRY LINK ADDED HERE */}
+              <li><Link to="/data-entry-operator" className="dropdown-link" onClick={closeMenu}>DATA ENTRY OPERATOR</Link></li>
             </ul>
           </li>
 

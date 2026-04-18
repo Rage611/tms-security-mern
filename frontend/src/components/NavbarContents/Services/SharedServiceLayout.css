@@ -1,3 +1,5 @@
+/* --- SHARED SERVICE LAYOUT --- */
+
 .service-page {
     width: 100%;
     background-color: var(--bg-primary, #ffffff);
@@ -48,6 +50,12 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 80px 20px;
+    
+    /* FIX: Forces all child elements (image, text, grid) to stack vertically, 
+       overriding any global CSS that was forcing them into a horizontal row. */
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100%;
 }
 
 .service-featured-image {

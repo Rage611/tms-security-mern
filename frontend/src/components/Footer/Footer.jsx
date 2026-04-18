@@ -1,7 +1,7 @@
 import React from 'react';
 import { HashLink } from 'react-router-hash-link'; // <-- The smooth-scroller
 import './Footer.css';
-import logo from '../../assets/images/Logo.png';
+import logo from '../../assets/images/Logo.webp';
 
 const Footer = () => {
   return (

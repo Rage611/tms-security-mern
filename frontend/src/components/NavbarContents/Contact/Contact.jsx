@@ -5,7 +5,7 @@ import { Helmet } from 'react-helmet-async';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 
-import contactBanner from '../../../assets/images/hero/hero-2.webp'; 
+import contactBanner from '../../../assets/images/Headingbg.webp/'; 
 
 const Contact = () => {
   const { pathname } = useLocation();

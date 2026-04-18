@@ -1,6 +1,6 @@
 import React from 'react';
 import './TheLeadership.css';
-import leadershipBanner from '../../../assets/images/hero/hero-3.webp'; 
+import leadershipBanner from '../../../assets/images/Headingbg.webp/'; 
 import leader1 from '../../../assets/images/leadership/owner-logo.jpeg'; 
 import leader2 from '../../../assets/images/hero/hero-2.webp';
 

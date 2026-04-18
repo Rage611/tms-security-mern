@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import './About.css';
-import aboutLogo from '../../assets/images/Logo.png'; 
+import aboutLogo from '../../assets/images/Logo.webp'; 
 
 const About = () => {
   const sectionRef = useRef(null);

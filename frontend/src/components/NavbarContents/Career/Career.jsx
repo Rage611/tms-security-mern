@@ -5,7 +5,7 @@ import { Turnstile } from '@marsidev/react-turnstile';
 import emailjs from '@emailjs/browser';
 import './Career.css';
 
-import careerBanner from '../../../assets/images/hero/hero-3.webp'; 
+import careerBanner from '../../../assets/images/Headingbg.webp/'; 
 import guardTeam from '../../../assets/images/hero/hero-1.webp';
 
 const Career = () => {

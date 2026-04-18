@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /Bustle/
+Disallow: /DateSheet/
+
+Sitemap: https://www.tmsecurity.in/sitemap.xml

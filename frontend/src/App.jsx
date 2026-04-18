@@ -1,5 +1,4 @@
 import React from 'react';
-// IMPORT FIX: Added 'Navigate' to handle the redirects
 import { Routes, Route, Navigate } from 'react-router-dom'; 
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from '@vercel/speed-insights/react';
@@ -28,6 +27,9 @@ import PSO from "./components/NavbarContents/Services/ManPowerServices/ManPowerC
 import TrainedGunman from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/TrainedGunman/TrainedGunman";
 import SecurityGuards from "./components/NavbarContents/Services/ManPowerServices/ManPowerContent/SecurityGuard/SecurityGuard";
 
+// NEW IMPORT FOR DATA ENTRY
+import DataEntry from "./components/NavbarContents/Services/DataEntry/DataEntry";
+
 const Home = () => (
   <>
     <Hero />
@@ -52,6 +54,10 @@ function App() {
           <Route path="/leadership" element={<TheLeadership />} />
           <Route path="/facility-management" element={<FacilityManagement />} />
           <Route path="/housekeeping" element={<Housekeeping />} />
+          
+          {/* NEW DATA ENTRY ROUTE ADDED HERE */}
+          <Route path="/data-entry-operator" element={<DataEntry />} />
+          
           <Route path="/career" element={<Career />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/bouncer" element={<Bouncer />} />
@@ -60,12 +66,11 @@ function App() {
           <Route path="/security-guards" element={<SecurityGuards />} />
 
           {/* --- THE GOOGLE SEO FIX (Legacy Redirects) --- */}
-          {/* Automatically forwards users clicking the dead .aspx links */}
           <Route path="/Services.aspx" element={<Navigate to="/" replace />} />
           <Route path="/ContactUs.aspx" element={<Navigate to="/contact" replace />} />
           <Route path="/Clients.aspx" element={<Navigate to="/" replace />} />
           
-          {/* Catch-All: If Google or a user tries ANY other broken link, send them Home safely */}
+          {/* Catch-All */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
