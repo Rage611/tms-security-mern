@@ -1,7 +1,7 @@
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import './Network.css';
-import tmsMap from '../../assets/images/tms-map.png';
+import tmsMap from '../../assets/images/tms-map.webp';
 
 const ActiveBeacon = ({ top, left, label, isHQ, labelDir, index, inView }) => (
   <div
