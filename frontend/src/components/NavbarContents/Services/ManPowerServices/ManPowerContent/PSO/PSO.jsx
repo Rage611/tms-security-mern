@@ -4,8 +4,8 @@ import { Link, useLocation } from 'react-router-dom';
 import '../../../SharedServiceLayout.css';
 
 // Pre-applied the deep nesting fix for your image paths!
-import serviceBanner from '../../../../../../assets/images/Headingbg.webp/'; 
-import psoImg from '../../../../../../assets/images/NavbarServices/pso.png'; 
+import serviceBanner from '../../../../../../assets/images/Headingbg.webp'; 
+import psoImg from '../../../../../../assets/images/NavbarServices/pso.webp'; 
 
 const PSO = () => {
   const { pathname } = useLocation();

@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import "./SecurityGuard.css";
 
-import serviceBanner from "../../../../../../assets/images/Headingbg.webp/";
-import guardTeam from "../../../../../../assets/images/NavbarServices/securityguard.jpg";
+import serviceBanner from "../../../../../../assets/images/Headingbg.webp";
+import guardTeam from "../../../../../../assets/images/NavbarServices/securityguard.webp";
 
 const SecurityGuards = () => {
   const { pathname } = useLocation();

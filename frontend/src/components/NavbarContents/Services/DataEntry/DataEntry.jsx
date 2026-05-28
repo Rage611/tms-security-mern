@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 // Import your shared CSS file here (adjust the path to match your folder structure)
 import '../SharedServiceLayout.css'; 
 import heroImage from '../../../../assets/images/Headingbg.webp';
-import featuredImage from '../../../../assets/images/NavbarServices/DEO.png';
+import featuredImage from '../../../../assets/images/NavbarServices/DEO.webp';
 
 
 const DataEntry = () => {

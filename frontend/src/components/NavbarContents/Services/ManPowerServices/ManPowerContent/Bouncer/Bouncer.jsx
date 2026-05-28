@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../../SharedServiceLayout.css';
 
-import serviceBanner from "../../../../../../assets/images/Headingbg.webp/"; 
-import tacticalImg from "../../../../../../assets/images/NavbarServices/bouncer.png";
+import serviceBanner from "../../../../../../assets/images/Headingbg.webp"; 
+import tacticalImg from "../../../../../../assets/images/NavbarServices/bouncer.webp";
 
 const Bouncer = () => {
   const { pathname } = useLocation();
