@@ -29,6 +29,11 @@ const NotFound = lazy(() => import('./components/NotFound/NotFound'));
 
 const Home = () => (
   <>
+    <Helmet>
+      <title>TMS Security Group | Best Security Services in India & Delhi NCR</title>
+      <meta name="description" content="Looking for the best security services? TMS Group provides elite industrial guarding, trained gunmen, and facility management solutions across India." />
+      <link rel="canonical" href="https://tmssecurity.in/" />
+    </Helmet>
     <Hero />
     <About />
     <Services />
