@@ -1,5 +1,6 @@
 import React from 'react';
-import { HashLink } from 'react-router-hash-link'; // <-- The smooth-scroller
+import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import './Footer.css';
 import logo from '../../assets/images/Logo.webp';
 
@@ -31,15 +32,11 @@ const Footer = () => {
         <div className="footer-column">
           <h3>USEFUL LINKS</h3>
           <ul>
-            {/* Standard Links for fast routing */}
-            <li><a href="/">HOME</a></li>
-            <li><a href="/career">CAREER</a></li>
-            <li><a href="/contact">CONTACT US</a></li>
-            
-            {/* 🎯 THE TACTICAL UPDATE: Smooth Glide to the About/Company page */}
-            <li>
-              <HashLink smooth to="/company">ABOUT US</HashLink>
-            </li>
+            <li><Link to="/">HOME</Link></li>
+            <li><Link to="/career">CAREER</Link></li>
+            <li><Link to="/contact">CONTACT US</Link></li>
+            <li><Link to="/company">ABOUT US</Link></li>
+
           </ul>
         </div>
 
