@@ -25,6 +25,7 @@ const Bouncer = lazy(() => import('./components/NavbarContents/Services/ManPower
 const PSO = lazy(() => import('./components/NavbarContents/Services/ManPowerServices/ManPowerContent/PSO/PSO'));
 const TrainedGunman = lazy(() => import('./components/NavbarContents/Services/ManPowerServices/ManPowerContent/TrainedGunman/TrainedGunman'));
 const SecurityGuards = lazy(() => import('./components/NavbarContents/Services/ManPowerServices/ManPowerContent/SecurityGuard/SecurityGuard'));
+const NotFound = lazy(() => import('./components/NotFound/NotFound'));
 
 const Home = () => (
   <>
@@ -62,7 +63,8 @@ function App() {
             <Route path="/ContactUs.aspx" element={<Navigate to="/contact" replace />} />
             <Route path="/Clients.aspx" element={<Navigate to="/" replace />} />
 
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<NotFound />} />
+
           </Routes>
         </Suspense>
       </main>
