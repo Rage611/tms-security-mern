@@ -81,7 +81,7 @@ const Housekeeping = () => {
              <h4>EXPLORE MORE SERVICES</h4>
              <div className="nav-links">
                 <Link to="/facility-management">Facility Management</Link>
-                <Link to="/security-guard">Security Guards</Link>
+                <Link to="/security-guards">Security Guards</Link>
              </div>
           </div>
         </div>
