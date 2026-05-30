@@ -44,7 +44,7 @@ const Footer = () => {
           <h3>OUR SOLUTIONS</h3>
           <ul>
             <li><Link to="/security-guards">Security Guards</Link></li>
-            <li><Link to="/bouncer">Bouncer Services</Link></li>
+            <li><Link to="/data-entry-operator">Data Entry</Link></li>
             <li><Link to="/trained-gunman">Trained Gunman</Link></li>
             <li><Link to="/housekeeping">Housekeeping</Link></li>
           </ul>
