@@ -1,20 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Turnstile } from '@marsidev/react-turnstile';
 import emailjs from '@emailjs/browser';
 import './Career.css';
 
-import careerBanner from '../../../assets/images/Headingbg.webp/'; 
+import careerBanner from '../../../assets/images/Headingbg.webp'; 
 import guardTeam from '../../../assets/images/hero/hero-1.webp';
 
 const Career = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   const [formData, setFormData] = useState({ 
     name: '', email: '', phone: '', position: '', experience: '', message: '' 
   });
@@ -103,7 +96,7 @@ const Career = () => {
   };
 
   return (
-    <div className="career-page full-width" key={pathname}>
+    <div className="career-page full-width">
       
       <Helmet>
         <title>Security Jobs in India | Join the TMS Security Force</title>
@@ -135,7 +128,7 @@ const Career = () => {
             </blockquote>
 
             <div className="career-details-grid">
-                <div className="career-text-block">
+              <div className="career-text-block">
                 <h3 className="text-theme-dark">Who We Look For</h3>
                 <p className="career-body-text">
                   Our core operational philosophy is built on defense legacy and tactical precision. 
@@ -163,8 +156,8 @@ const Career = () => {
         <div className="portal-container">
           
           <div className="portal-header">
-              <h2>APPLICATION PORTAL</h2>
-              <p>Submit your details for preliminary evaluation by our recruitment division.</p>
+            <h2>APPLICATION PORTAL</h2>
+            <p>Submit your details for preliminary evaluation by our recruitment division.</p>
           </div>
 
           {status === 'success' ? (
@@ -197,7 +190,7 @@ const Career = () => {
                     <option value="Field Officer">Field Officer</option>
                     <option value="Housekeeping">Housekeeping</option>
                     <option value="Bouncer">Bouncer</option>
-                    <option value="trained gunman"> Trained Gunman</option>
+                    <option value="Trained Gunman">Trained Gunman</option>
                   </select>
                 </div>
               </div>
@@ -233,7 +226,6 @@ const Career = () => {
               </button>
             </form>
           )}
-
         </div>
       </section>
 

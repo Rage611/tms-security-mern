@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import '../../../SharedServiceLayout.css';
 
@@ -7,12 +7,6 @@ import serviceBanner from '../../../../../../assets/images/Headingbg.webp';
 import guardTeam from '../../../../../../assets/images/NavbarServices/securityguard.webp';
 
 const SecurityGuards = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   return (
     <div className="service-page full-width" key={pathname}>
 

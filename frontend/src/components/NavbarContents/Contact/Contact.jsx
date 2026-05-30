@@ -1,18 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Turnstile } from '@marsidev/react-turnstile';
 import { Helmet } from 'react-helmet-async';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 
-import contactBanner from '../../../assets/images/Headingbg.webp/'; 
+import contactBanner from '../../../assets/images/Headingbg.webp'; 
 
 const Contact = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
 
   const [formData, setFormData] = useState({ 
     name: '', email: '', subject: '', service: '', message: '' 
@@ -62,7 +56,7 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact-section" className="contact-page full-width" key={pathname}>
+    <div id="contact-section" className="contact-page full-width">
 
       <Helmet>
         <title>Contact TMS Security | Best Security Services in Vikas Puri, Delhi</title>

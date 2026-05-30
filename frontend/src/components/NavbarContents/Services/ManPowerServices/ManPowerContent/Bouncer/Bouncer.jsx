@@ -1,52 +1,48 @@
-import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 import '../../../SharedServiceLayout.css';
 
-import serviceBanner from "../../../../../../assets/images/Headingbg.webp"; 
+import serviceBanner from "../../../../../../assets/images/Headingbg.webp";
 import tacticalImg from "../../../../../../assets/images/NavbarServices/bouncer.webp";
 
 const Bouncer = () => {
-  const { pathname } = useLocation();
-
-  // Route Reset: Snaps to top on load
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   return (
-    <div className="service-page full-width" key={pathname}>
-      
-      {/* 1. Hero Banner */}
+    <div className="service-page full-width">
+      <Helmet>
+        <title>Bouncer & Crowd Control Services Delhi | TMS Security</title>
+        <meta name="description" content="TMS Security provides elite bouncers and crowd control specialists for premium venues, corporate events and high-profile gatherings across Delhi NCR." />
+        <link rel="canonical" href="https://tmssecurity.in/bouncer" />
+      </Helmet>
+
       <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
         <div className="overlay"></div>
         <h1>TACTICAL CROWD CONTROL</h1>
       </div>
 
-      {/* 2. Main Narrative Content */}
       <div className="content-container">
         <div className="service-content-main">
-          
           <img src={tacticalImg} alt="Elite Event Security Personnel" className="service-featured-image" />
-          
+
           <div className="service-text-wrap">
             <h2 className="section-title text-theme-dark">ELITE BOUNCER & ACCESS CONTROL SERVICES</h2>
-            
+
             <p className="service-body-text">
-              TMS Security provides highly trained physical intervention and crowd management specialists 
-              for premium venues, high-profile corporate events, and exclusive private gatherings. We 
+              TMS Security provides highly trained physical intervention and crowd management specialists
+              for premium venues, high-profile corporate events, and exclusive private gatherings. We
               deploy personnel who command respect through professional presence, not just physical force.
             </p>
-            
+
             <blockquote className="elite-quote text-theme-dark">
               "True security is the ability to maintain absolute order and neutralize threats discreetly, before they ever escalate."
             </blockquote>
 
             <div className="service-details-grid">
-               <div className="service-text-block">
+              <div className="service-text-block">
                 <h3 className="text-theme-dark">Psychological & Physical Superiority</h3>
                 <p className="service-body-text">
-                  Our bouncers undergo rigorous training in crowd psychology, threat assessment, and conflict 
-                  de-escalation. While they possess the physical capability to handle immediate physical threats, 
+                  Our bouncers undergo rigorous training in crowd psychology, threat assessment, and conflict
+                  de-escalation. While they possess the physical capability to handle immediate physical threats,
                   their primary objective is to maintain a seamless, secure environment for your guests and VIPs without disruption.
                 </p>
               </div>
@@ -54,8 +50,8 @@ const Bouncer = () => {
               <div className="service-text-block">
                 <h3 className="text-theme-dark">High-Value Deployment Scenarios</h3>
                 <p className="service-body-text">
-                  We specialize in securing environments where brand reputation and guest safety are paramount. 
-                  This includes elite hospitality venues, red-carpet premieres, executive corporate retreats, 
+                  We specialize in securing environments where brand reputation and guest safety are paramount.
+                  This includes elite hospitality venues, red-carpet premieres, executive corporate retreats,
                   and high-risk crowd environments requiring strict access control.
                 </p>
               </div>
@@ -71,36 +67,31 @@ const Bouncer = () => {
                 <li>Uncompromising adherence to client confidentiality and discretion.</li>
               </ul>
             </div>
-
           </div>
         </div>
       </div>
 
-      {/* 3. Bottom CTA Section (Matching your theme) */}
       <section className="service-action-section">
         <div className="action-container">
-          
           <div className="contact-full-box">
-             <h2 className="text-theme-dark">SECURE YOUR VENUE</h2>
-             <p>Deploy TMS tactical bouncers and crowd control specialists for your next high-profile requirement.</p>
-             <div style={{ marginTop: '40px' }}>
-                <Link to="/contact" className="submit-btn-gold" style={{ display: 'inline-block', textAlign: 'center', textDecoration: 'none' }}>
-                  REQUEST A DEPLOYMENT CONSULTATION
-                </Link>
-             </div>
+            <h2 className="text-theme-dark">SECURE YOUR VENUE</h2>
+            <p>Deploy TMS tactical bouncers and crowd control specialists for your next high-profile requirement.</p>
+            <div style={{ marginTop: '40px' }}>
+              <Link to="/contact" className="submit-btn-gold" style={{ display: 'inline-block', textAlign: 'center', textDecoration: 'none' }}>
+                REQUEST A DEPLOYMENT CONSULTATION
+              </Link>
+            </div>
           </div>
 
           <div className="service-nav-footer">
-             <h4>EXPLORE MANNED GUARDING SOLUTIONS</h4>
-             <div className="nav-links">
-                <Link to="/trained-gunman">Trained Gunman</Link>
-                <Link to="/pso">Personal Security Officer (PSO)</Link>
-             </div>
+            <h4>EXPLORE MANNED GUARDING SOLUTIONS</h4>
+            <div className="nav-links">
+              <Link to="/trained-gunman">Trained Gunman</Link>
+              <Link to="/pso">Personal Security Officer (PSO)</Link>
+            </div>
           </div>
-
         </div>
       </section>
-
     </div>
   );
 };
