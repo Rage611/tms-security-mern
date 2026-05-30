@@ -10,7 +10,7 @@ const Footer = () => {
       <div className="footer-top-bar">
         <div className="top-bar-content">
           <img src={logo} alt="TMS Logo" className="footer-logo-small" />
-          <p>A Market Leader in Security, Facility Management and Cash Logistics</p>
+          <p>A Market Leader in Security, Facility Management and Manpower Solutions</p>
           
           {/* Glide to Contact Form */}
           <HashLink smooth to="/contact#contact-section" className="get-in-touch-btn">
@@ -43,10 +43,10 @@ const Footer = () => {
         <div className="footer-column">
           <h3>OUR SOLUTIONS</h3>
           <ul>
-            <li>SECURITY SOLUTIONS</li>
-            <li>INDUSTRIAL GUARDING</li>
-            <li>TRAINED GUNMAN</li>
-            <li>HOUSEKEEPING</li>
+            <li><Link to="/security-guards">Security Guards</Link></li>
+            <li><Link to="/bouncer">Bouncer Services</Link></li>
+            <li><Link to="/trained-gunman">Trained Gunman</Link></li>
+            <li><Link to="/housekeeping">Housekeeping</Link></li>
           </ul>
         </div>
 
