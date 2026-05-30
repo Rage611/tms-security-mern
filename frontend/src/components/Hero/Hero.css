@@ -161,8 +161,8 @@
 
 @media (max-width: 1024px) {
   .hero {
-    height: calc(100vh - 80px); 
-    margin-top: 80px; 
+    height: calc(100vh - var(--nav-height-mobile)); 
+    margin-top: var(--nav-height-mobile); 
   }
 
   /* Your existing 1024px rules */
@@ -174,8 +174,8 @@
 
 @media (max-width: 768px) {
   .hero {
-    height: calc(100vh - 80px);
-    margin-top: 80px;
+    height: calc(100vh - var(--nav-height-mobile));
+    margin-top: var(--nav-height-mobile);
   }
 
   .hero__slide {
