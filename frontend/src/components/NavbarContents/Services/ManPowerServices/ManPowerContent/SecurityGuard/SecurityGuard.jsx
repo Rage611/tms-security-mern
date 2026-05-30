@@ -8,7 +8,7 @@ import guardTeam from '../../../../../../assets/images/NavbarServices/securitygu
 
 const SecurityGuards = () => {
   return (
-    <div className="service-page full-width" key={pathname}>
+    <div className="service-page full-width">
 
       <Helmet>
         <title>Security Guard Services Delhi NCR | TMS Security</title>
