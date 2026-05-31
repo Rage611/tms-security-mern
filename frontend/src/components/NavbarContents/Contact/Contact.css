@@ -3,11 +3,10 @@
     background-color: var(--bg-primary, #ffffff);
     display: flex;
     flex-direction: column;
-    min-height: calc(100vh - 120px); 
+    min-height: calc(100vh - var(--nav-height));
 }
 
-/* --- HERO BANNER --- */
-.contact-hero {
+.contact-page .contact-hero {
     position: relative;
     width: 100%;
     height: 400px;
@@ -20,14 +19,14 @@
     padding-left: 10%;
 }
 
-.contact-hero .overlay {
+.contact-page .contact-hero .overlay {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
     background: linear-gradient(135deg, rgba(5, 5, 5, 0.9) 0%, rgba(5, 5, 5, 0.3) 100%);
 }
 
-.contact-hero h1 {
+.contact-page .contact-hero h1 {
     position: relative;
     color: var(--text-light, #ffffff);
     font-size: 3.5rem;
@@ -39,30 +38,29 @@
     padding-left: 24px;
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: contactFadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-@keyframes fadeInUp {
+@keyframes contactFadeInUp {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* --- CONTACT GRID LAYOUT --- */
-.contact-container {
+.contact-page .contact-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 100px 20px;
 }
 
-.contact-flex-wrapper {
+.contact-page .contact-flex-wrapper {
     display: flex;
     gap: 80px;
 }
 
-.office-details-section {
+.contact-page .office-details-section {
     flex: 1;
 }
 
-.office-heading {
+.contact-page .office-heading {
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: 1px;
@@ -70,20 +68,20 @@
     color: #111;
 }
 
-.contact-body-text {
+.contact-page .contact-body-text {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-secondary, #475569);
     margin-bottom: 30px;
 }
 
-.info-block {
+.contact-page .info-block {
     margin-top: 40px;
     padding-top: 30px;
     border-top: 1px solid #eee;
 }
 
-.gold-heading {
+.contact-page .gold-heading {
     font-size: 1.3rem;
     font-weight: 800;
     color: #111;
@@ -93,7 +91,7 @@
     gap: 12px;
 }
 
-.gold-heading::before {
+.contact-page .gold-heading::before {
     content: "";
     display: block;
     width: 5px;
@@ -102,27 +100,26 @@
     border-radius: 2px;
 }
 
-.tactical-info-list {
+.contact-page .tactical-info-list {
     list-style: none;
     padding: 0;
 }
 
-.tactical-info-list li {
+.contact-page .tactical-info-list li {
     margin-bottom: 25px;
     font-size: 1.05rem;
     color: #333;
     line-height: 1.6;
 }
 
-.tactical-info-list strong {
-    color: var(--accent-gold, #cfab00);
+.contact-page .tactical-info-list strong {
+    color: var(--accent-gold, #ffd700);
     text-transform: uppercase;
     font-size: 0.9rem;
     letter-spacing: 1px;
 }
 
-/* --- SECURE PORTAL FORM (DARK MODE) --- */
-.contact-form-section {
+.contact-page .contact-form-section {
     flex: 1.2;
     background: var(--bg-dark, #0f172a);
     padding: 50px 40px;
@@ -131,7 +128,7 @@
     border-radius: 4px;
 }
 
-.portal-header-small h2 {
+.contact-page .portal-header-small h2 {
     color: var(--text-light, #ffffff);
     font-size: 1.5rem;
     font-weight: 800;
@@ -141,14 +138,13 @@
     padding-bottom: 15px;
 }
 
-.input-row {
+.contact-page .input-row {
     margin-bottom: 20px;
 }
 
-/* Premium Dark Mode Inputs */
-.elite-contact-form input, 
-.elite-contact-form textarea,
-.elite-contact-form select {
+.contact-page .elite-contact-form input,
+.contact-page .elite-contact-form textarea,
+.contact-page .elite-contact-form select {
     width: 100%;
     padding: 16px;
     background: rgba(255, 255, 255, 0.05);
@@ -161,8 +157,7 @@
     font-family: 'Inter', sans-serif;
 }
 
-/* Custom Dropdown Arrow Fix */
-.elite-contact-form select {
+.contact-page .elite-contact-form select {
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -173,24 +168,24 @@
     background-size: 16px;
 }
 
-.elite-contact-form select option {
+.contact-page .elite-contact-form select option {
     background-color: var(--bg-dark, #0f172a);
     color: var(--text-light, #ffffff);
     padding: 15px;
 }
 
-.elite-contact-form input:focus, 
-.elite-contact-form textarea:focus,
-.elite-contact-form select:focus {
+.contact-page .elite-contact-form input:focus,
+.contact-page .elite-contact-form textarea:focus,
+.contact-page .elite-contact-form select:focus {
     border-color: var(--accent-gold, #ffd700);
     background-color: rgba(255, 215, 0, 0.03);
 }
 
-.elite-contact-form select:focus {
+.contact-page .elite-contact-form select:focus {
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffd700' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
 }
 
-.contact-send-btn {
+.contact-page .contact-send-btn {
     width: 100%;
     padding: 20px;
     background: transparent;
@@ -205,22 +200,21 @@
     margin-top: 10px;
 }
 
-.contact-send-btn:hover {
+.contact-page .contact-send-btn:hover {
     background: var(--accent-gold, #ffd700);
     color: var(--bg-dark, #0f172a);
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
 }
 
-/* --- TACTICAL MAP (Using your invert filter!) --- */
-.map-section {
+.contact-page .map-section {
     width: 100%;
-    min-height: 450px; 
-    flex-grow: 1; 
-    background-color: var(--bg-dark); 
-    position: relative; 
+    min-height: 450px;
+    flex-grow: 1;
+    background-color: var(--bg-dark);
+    position: relative;
 }
 
-.map-section iframe {
+.contact-page .map-section iframe {
     position: absolute;
     top: 0;
     left: 0;
@@ -230,46 +224,36 @@
     filter: invert(90%) hue-rotate(180deg) brightness(85%) contrast(85%) sepia(20%);
 }
 
-/* =============================================================================
-   MOBILE RESPONSIVENESS — ≤ 768px
-   ============================================================================= */
-
 @media (max-width: 768px) {
-    /* 1. Fix the Hero Banner height and text wrapping */
-    .contact-hero {
+    .contact-page .contact-hero {
         height: 300px;
         padding-left: 20px;
     }
 
-    .contact-hero h1 {
-        font-size: 2.2rem; /* Shrinks text so 'CONTACT US' stays proportionate */
+    .contact-page .contact-hero h1 {
+        font-size: 2.2rem;
         padding-left: 16px;
     }
 
-    /* 2. Reduce the massive top/bottom spacing */
-    .contact-container {
+    .contact-page .contact-container {
         padding: 60px 20px;
     }
 
-    /* 3. Give the form inputs more room by reducing inner box padding */
-    .contact-form-section {
+    .contact-page .contact-form-section {
         padding: 40px 20px;
     }
 
-    /* 4. Scale down the section headings */
-    .office-heading {
+    .contact-page .office-heading {
         font-size: 1.7rem;
         margin-bottom: 15px;
     }
-    
-    /* 5. Tighten the gap between the text and the form when stacked */
-    .contact-flex-wrapper {
+
+    .contact-page .contact-flex-wrapper {
         flex-direction: column;
-        gap: 40px; 
+        gap: 40px;
     }
 
-    /* 6. Slightly reduce map height so it doesn't take up the whole phone screen */
-    .map-section {
+    .contact-page .map-section {
         min-height: 350px;
     }
 }

@@ -21,7 +21,7 @@
     box-shadow: 0 0 10px rgba(255, 215, 0, 0.12);
 }
 
-.nav-container {
+.header .nav-container {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
@@ -31,12 +31,12 @@
     padding: 0 20px;
 }
 
-.logo-container {
+.header .logo-container {
     display: flex;
     align-items: center;
 }
 
-.logo-link {
+.header .logo-link {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -45,42 +45,42 @@
     z-index: 10001;  
 }
 
-.logo-img {
+.header .logo-img {
     height: 80px; 
     width: auto;
     transition: transform 0.3s ease;
 }
 
-.logo-img:hover {
+.header .logo-img:hover {
     transform: scale(1.05);
     filter: drop-shadow(0 0 8px var(--border-gold));
 }
 
-.logo-text {
+.header .logo-text {
     display: flex;
     gap: 8px;
     font-size: 2.2rem; 
     letter-spacing: 1px;
 }
 
-.brand-bold {
+.header .brand-bold {
     font-weight: 800;
     color: var(--accent-gold); 
 }
 
-.brand-light {
+.header .brand-light {
     font-weight: bold;
     color: var(--text-muted);
 }
 
-.nav__list {
+.header .nav__list {
     display: flex;
     gap: 2.5rem;
     align-items: center;
     list-style: none;
 }
 
-.nav__link {
+.header .nav__link {
     color: var(--text-muted); 
     text-decoration: none;
     font-size: 1.15rem;
@@ -90,11 +90,11 @@
     transition: color 0.3s ease;
 }
 
-.nav__link:hover {
+.header .nav__link:hover {
     color: var(--accent-gold); 
 }
 
-.btn-primary {
+.header .btn-primary {
     background-color: transparent;
     color: var(--accent-gold) !important; 
     border: 1px solid var(--accent-gold);
@@ -107,24 +107,24 @@
     transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
+.header .btn-primary:hover {
     background-color: var(--accent-gold);
     color: var(--text-primary) !important;
     box-shadow: 0 0 15px var(--border-gold);
 }
 
-.hamburger {
+.header .hamburger {
     display: none;
 }
 
-.dropdown {
+.header .dropdown {
     position: relative;
     height: 100%;
     display: flex;
     align-items: center;
 }
 
-.dropdown-menu {
+.header .dropdown-menu {
     position: absolute;
     top: 100%;
     left: 0;
@@ -141,7 +141,7 @@
     transition: all 0.3s ease;   
 }
 
-.dropdown-link {
+.header .dropdown-link {
     display: block;
     padding: 12px 20px;
     color: var(--text-muted);
@@ -152,23 +152,23 @@
     transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-.dropdown-link:hover {
+.header .dropdown-link:hover {
     background-color: rgba(255, 255, 255, 0.05);
     color: var(--accent-gold);
 }
 
-.arrow {
+.header .arrow {
     font-size: 0.6rem;
     margin-left: 8px;
     color: var(--accent-gold);
     vertical-align: middle;
 }
 
-.dropdown-menu > li {
+.header .dropdown-menu > li {
     position: relative;
 }
 
-.nested-menu {
+.header .nested-menu {
     position: absolute;
     top: 0;
     left: 100%; 
@@ -185,13 +185,13 @@
     transition: all 0.3s ease;   
 }
 
-.nested-link {
+.header .nested-link {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.arrow-right {
+.header .arrow-right {
     font-size: 0.6rem;
     color: var(--accent-gold);
     transition: transform 0.3s ease;
@@ -200,47 +200,47 @@
 /* =========================================
    DESKTOP HOVER LOGIC (CSS ONLY)
    ========================================= */
-.dropdown:hover > .dropdown-menu {
+.header .dropdown:hover > .dropdown-menu {
     opacity: 1;                
     visibility: visible;       
     transform: translateY(0);  
 }
 
-.nested-dropdown:hover > .nested-menu {
+.header .nested-dropdown:hover > .nested-menu {
     opacity: 1;                
     visibility: visible;       
     transform: translateX(0);  
 }
 
-.nested-dropdown:hover > .dropdown-link {
+.header .nested-dropdown:hover > .dropdown-link {
     background-color: rgba(255, 255, 255, 0.05);
     color: var(--accent-gold);
 }
 
-.nested-menu .dropdown-link {
+.header .nested-menu .dropdown-link {
     color: var(--text-muted);          
     background-color: transparent;      
 }
 
-.nested-menu .dropdown-link:hover {
+.header .nested-menu .dropdown-link:hover {
     background-color: rgba(255, 255, 255, 0.05); 
     color: var(--accent-gold);                  
 }
 
 @media (max-width: 1200px) and (min-width: 1025px) {
-    .nav__list {
+    .header .nav__list {
         gap: 1.2rem;
     }
     
-    .nav__link {
+    .header .nav__link {
         font-size: 1rem;
     }
     
-    .logo-text {
+    .header .logo-text {
         font-size: 1.8rem;
     }
     
-    .btn-primary {
+    .header .btn-primary {
         padding: 0.6rem 1.2rem;
     }
 }
@@ -254,7 +254,7 @@
         overflow: visible;
     }
 
-    .hamburger {
+    .header .hamburger {
         display: flex !important;
         flex-direction: column;
         gap: 5px;
@@ -262,32 +262,32 @@
         z-index: 10001;
     }
 
-    .bar {
+    .header .bar {
         width: 25px;
         height: 3px;
         background-color: var(--accent-gold) !important;
         border-radius: 2px;
     }
 
-    .logo-img {
+    .header .logo-img {
         height: 50px; 
         width: auto;
         object-fit: contain;
     }
 
-    .logo-text {
+    .header .logo-text {
         font-size: 1.5rem; 
     }
 
-    .logo-link {
+    .header .logo-link {
         gap: 10px; 
     }
 
-    .logo-container {
+    .header .logo-container {
         margin-left: 0;
     }
 
-    .nav__list {
+    .header .nav__list {
         display: flex;
         flex-direction: column;
         position: fixed;
@@ -304,25 +304,25 @@
         gap: 15px;
     }
 
-    .nav__list.active {
+    .header .nav__list.active {
         left: 0;
     }
 
-    .nav__list li {
+    .header .nav__list li {
         list-style: none;
         width: 100%;
         text-align: center;
         padding: 10px 0;
     }
 
-    .dropdown {
+    .header .dropdown {
         height: auto !important;
         display: block;
         width: 100%;
     }
 
-    /* 1. RESET MENUS FOR MOBILE DISPLAY */
-    .dropdown-menu, .nested-menu {
+    .header .dropdown-menu,
+    .header .nested-menu {
         position: static;
         width: 100%;
         transform: none !important;
@@ -330,29 +330,27 @@
         border-top: none;
         background-color: transparent;
         padding: 0;
-        display: none; /* Hide them physically, not just visually */
+        display: none;
         opacity: 1;
         visibility: visible;
     }
     
-    .nested-menu {
+    .header .nested-menu {
         background-color: rgba(0, 0, 0, 0.2); 
     }
 
-    /* 2. KILL DESKTOP HOVER ON MOBILE TO PREVENT GLITCHES */
-    .dropdown:hover > .dropdown-menu,
-    .nested-dropdown:hover > .nested-menu {
+    .header .dropdown:hover > .dropdown-menu,
+    .header .nested-dropdown:hover > .nested-menu {
         display: none; 
     }
 
-    /* 3. SHOW MENUS ONLY WHEN REACT ADDS THESE CLASSES */
-    .dropdown-menu.mobile-open, 
-    .nested-menu.mobile-nested-open {
+    .header .dropdown-menu.mobile-open, 
+    .header .nested-menu.mobile-nested-open {
         display: block !important;
         transform: none !important;
     }
 
-    .nested-link {
+    .header .nested-link {
         justify-content: center;
         gap: 10px;
     }

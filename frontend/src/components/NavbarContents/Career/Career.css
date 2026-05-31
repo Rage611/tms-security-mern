@@ -3,25 +3,20 @@
     background-color: var(--bg-primary, #ffffff);
 }
 
-/* --- HERO BANNER --- */
-.career-hero {
+.career-page .career-hero {
     position: relative;
     width: 100%;
     height: 400px;
     background-color: var(--bg-dark, #050505);
     background-size: cover;
     background-position: center;
-    
-    /* THE VERTICAL CENTERING MAGIC */
     display: flex;
-    align-items: center; /* This forces vertical centering */
-    justify-content: flex-start; /* Keeps it on the left horizontally */
-    
-    padding-left: 10%; 
-    /* Make sure there is NO padding-top or padding-bottom here! */
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10%;
 }
 
-.career-hero .overlay {
+.career-page .career-hero .overlay {
     position: absolute;
     top: 0;
     left: 0;
@@ -30,7 +25,7 @@
     background: linear-gradient(135deg, rgba(5, 5, 5, 0.9) 0%, rgba(5, 5, 5, 0.3) 100%);
 }
 
-.career-hero h1 {
+.career-page .career-hero h1 {
     position: relative;
     color: var(--text-light, #ffffff);
     font-size: 3.5rem;
@@ -39,19 +34,15 @@
     letter-spacing: 3px;
     z-index: 2;
     border-left: none;
-    
-    /* CRITICAL FOR PERFECT CENTERING */
-    margin: 0; /* Kills the browser's hidden spacing */
-    line-height: 1.15; /* Keeps multi-line text tight */
-    
+    margin: 0;
+    line-height: 1.15;
     padding-left: 24px;
     opacity: 0;
     transform: translateY(30px);
-    animation: fadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: careerFadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
-/* The Independent Yellow Accent Line */
-.career-hero h1::before {
+.career-page .career-hero h1::before {
     content: "";
     position: absolute;
     left: 0;
@@ -62,21 +53,21 @@
     border-radius: 4px;
 }
 
-@keyframes fadeInUp {
+@keyframes careerFadeInUp {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.content-container {
+.career-page .content-container {
     max-width: 900px;
     margin: 0 auto;
     padding: 100px 20px;
 }
 
-.career-content-main {
+.career-page .career-content-main {
     width: 100%;
 }
 
-.career-featured-image {
+.career-page .career-featured-image {
     width: 100%;
     height: 500px;
     object-fit: cover;
@@ -85,7 +76,7 @@
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);
 }
 
-.section-title {
+.career-page .section-title {
     font-size: 2rem;
     font-weight: 800;
     letter-spacing: 1px;
@@ -93,7 +84,7 @@
     color: #111;
 }
 
-.career-body-text {
+.career-page .career-body-text {
     font-size: 1.1rem;
     line-height: 1.8;
     color: var(--text-secondary, #475569);
@@ -101,7 +92,7 @@
     text-align: justify;
 }
 
-.elite-quote {
+.career-page .elite-quote {
     font-size: 1.4rem;
     font-style: italic;
     border-left: 4px solid var(--accent-gold, #ffd700);
@@ -114,14 +105,14 @@
     color: #111;
 }
 
-.career-details-grid {
+.career-page .career-details-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     margin-top: 60px;
 }
 
-.career-text-block h3 {
+.career-page .career-text-block h3 {
     font-size: 1.3rem;
     font-weight: 800;
     margin-bottom: 15px;
@@ -131,7 +122,7 @@
     color: #111;
 }
 
-.career-text-block h3::before {
+.career-page .career-text-block h3::before {
     content: "";
     display: block;
     width: 5px;
@@ -140,12 +131,12 @@
     border-radius: 2px;
 }
 
-.tactical-list {
+.career-page .tactical-list {
     list-style: none;
     padding-left: 0;
 }
 
-.tactical-list li {
+.career-page .tactical-list li {
     position: relative;
     padding-left: 28px;
     margin-bottom: 16px;
@@ -154,7 +145,7 @@
     line-height: 1.6;
 }
 
-.tactical-list li::before {
+.career-page .tactical-list li::before {
     content: "";
     position: absolute;
     left: 0;
@@ -165,24 +156,24 @@
     border: 2px solid var(--accent-gold, #ffd700);
 }
 
-.application-portal-section {
+.career-page .application-portal-section {
     background: var(--bg-dark, #0f172a);
     padding: 100px 0;
     border-top: 4px solid var(--accent-gold, #ffd700);
 }
 
-.portal-container {
+.career-page .portal-container {
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-.portal-header {
+.career-page .portal-header {
     text-align: center;
     margin-bottom: 50px;
 }
 
-.portal-header h2 {
+.career-page .portal-header h2 {
     color: var(--text-light, #ffffff);
     font-size: 2.2rem;
     font-weight: 800;
@@ -190,19 +181,19 @@
     margin-bottom: 15px;
 }
 
-.portal-header p {
+.career-page .portal-header p {
     color: var(--text-muted, #94a3b8);
     font-size: 1.1rem;
 }
 
-.elite-application-form .form-grid {
+.career-page .elite-application-form .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 30px;
     margin-bottom: 30px;
 }
 
-.form-group label {
+.career-page .form-group label {
     display: block;
     color: var(--text-light, #ffffff);
     font-weight: 600;
@@ -211,8 +202,7 @@
     font-size: 0.9rem;
 }
 
-/* --- ELITE DROPDOWN OVERRIDE --- */
-.form-group select {
+.career-page .form-group select {
     width: 100%;
     padding: 16px;
     background-color: rgba(255, 255, 255, 0.05);
@@ -232,20 +222,20 @@
     background-size: 16px;
 }
 
-.form-group select option {
+.career-page .form-group select option {
     background-color: var(--bg-dark, #0f172a);
     color: var(--text-light, #ffffff);
     padding: 15px;
 }
 
-.form-group select:focus {
+.career-page .form-group select:focus {
     border-color: var(--accent-gold, #ffd700);
     background-color: rgba(255, 215, 0, 0.03);
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffd700' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
 }
 
-.form-group input, 
-.form-group textarea {
+.career-page .form-group input,
+.career-page .form-group textarea {
     width: 100%;
     padding: 16px;
     background: rgba(255, 255, 255, 0.05);
@@ -258,17 +248,17 @@
     font-family: 'Inter', sans-serif;
 }
 
-.form-group input:focus, 
-.form-group textarea:focus {
+.career-page .form-group input:focus,
+.career-page .form-group textarea:focus {
     border-color: var(--accent-gold, #ffd700);
     background: rgba(255, 215, 0, 0.03);
 }
 
-.full-width-input {
+.career-page .full-width-input {
     margin-bottom: 40px;
 }
 
-.submit-btn-gold {
+.career-page .submit-btn-gold {
     width: 100%;
     padding: 20px;
     background: transparent;
@@ -282,36 +272,34 @@
     text-transform: uppercase;
 }
 
-.submit-btn-gold:hover {
+.career-page .submit-btn-gold:hover {
     background: var(--accent-gold, #ffd700);
     color: var(--bg-dark, #0f172a);
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
 }
 
-/* =============================================================================
-   MOBILE RESPONSIVENESS — ≤ 768px
-   ============================================================================= */
 @media (max-width: 768px) {
-    .career-hero {
+    .career-page .career-hero {
         height: 300px;
         padding-left: 20px;
     }
 
-    .career-hero h1 {
+    .career-page .career-hero h1 {
         font-size: 2.2rem;
         padding-left: 18px;
-        max-width: 90%; /* Prevents text overflow */
+        max-width: 90%;
     }
 
-    .career-hero h1::before {
-        width: 4px; /* Scaled down vertical line */
+    .career-page .career-hero h1::before {
+        width: 4px;
     }
 
-    .career-details-grid, .elite-application-form .form-grid {
-        grid-template-columns: 1fr; /* Ensures form fields stack cleanly */
+    .career-page .career-details-grid,
+    .career-page .elite-application-form .form-grid {
+        grid-template-columns: 1fr;
     }
-    
-    .career-featured-image {
+
+    .career-page .career-featured-image {
         height: 300px;
     }
 }

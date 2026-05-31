@@ -6,21 +6,21 @@
     z-index: 10;
 }
 
-.logo-slider {
+.clients-section .logo-slider {
     width: 100%;
     margin-top: 40px;
     position: relative;
     display: flex;
 }
 
-.logo-track {
+.clients-section .logo-track {
     display: flex;
     white-space: nowrap;
-    width: calc(250px * 12); 
+    width: calc(250px * 12);
     animation: scrollInfinite 30s linear infinite;
 }
 
-.client-logo {
+.clients-section .client-logo {
     width: 250px;
     padding: 0 40px;
     display: flex;
@@ -29,15 +29,15 @@
     flex-shrink: 0;
 }
 
-.client-logo img {
+.clients-section .client-logo img {
     max-width: 100%;
     height: auto;
-    filter: none; /* Start grey for a professional look */
+    filter: none;
     opacity: 0.8;
     transition: all 0.3s ease;
 }
 
-.client-logo:hover img {
+.clients-section .client-logo:hover img {
     filter: grayscale(0%);
     opacity: 1;
     transform: scale(1.1);
@@ -45,18 +45,15 @@
 
 @keyframes scrollInfinite {
     0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-250px * 6)); } /* Moves past first 6 logos */
+    100% { transform: translateX(calc(-250px * 6)); }
 }
 
-/* Add this to your Clients.css */
-
-.logo-slider::before,
-.logo-slider::after {
+.clients-section .logo-slider::before,
+.clients-section .logo-slider::after {
     content: "";
     height: 100%;
     width: 150px;
     position: absolute;
     z-index: 2;
-    pointer-events: none; /* Allows you to still click/hover logos underneath */
+    pointer-events: none;
 }
-
