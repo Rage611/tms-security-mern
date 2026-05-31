@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Turnstile } from '@marsidev/react-turnstile';
 import emailjs from '@emailjs/browser';
@@ -11,7 +11,8 @@ const Career = () => {
   const [formData, setFormData] = useState({ 
     name: '', email: '', phone: '', position: '', experience: '', message: '' 
   });
-  const [resumeFile, setResumeFile] = useState(null); 
+  const [resumeFile, setResumeFile] = useState(null);
+  const fileInputRef = useRef(null);
   const [status, setStatus] = useState('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [turnstileToken, setTurnstileToken] = useState(null);
@@ -88,7 +89,7 @@ const Career = () => {
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', position: '', experience: '', message: '' });
       setResumeFile(null);
-      e.target.reset();
+      if (fileInputRef.current) fileInputRef.current.value = '';
     } catch (error) {
       setStatus('error');
       setErrorMessage('Transmission failed. Try again.');
@@ -207,7 +208,7 @@ const Career = () => {
 
               <div className="form-group full-width-input" style={{ padding: '15px', border: '1px dashed rgba(255,255,255,0.3)', backgroundColor: 'rgba(0,0,0,0.2)' }}>
                 <label>Upload Resume (PDF or DOC, max 5MB)*</label>
-                <input type="file" name="resume" accept=".pdf,.doc,.docx" onChange={handleFileChange} required style={{ border: 'none', padding: '10px 0' }} />
+                <input ref={fileInputRef} type="file" name="resume" accept=".pdf,.doc,.docx" onChange={handleFileChange} required style={{ border: 'none', padding: '10px 0' }} />
               </div>
 
               <div className="form-group full-width-input" style={{ marginTop: '10px' }}>

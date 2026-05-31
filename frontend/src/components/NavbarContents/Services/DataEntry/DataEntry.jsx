@@ -12,7 +12,7 @@ const DataEntry = () => {
       <Helmet>
         <title>Data Entry Operator Services Delhi | TMS Security</title>
         <meta name="description" content="TMS Security provides vetted data entry operators and back-office support staff for corporate enterprises across Delhi NCR." />
-        <link rel="canonical" href="https://tmssecurity.in/data-entry-operator" />
+        <link rel="canonical" href="https://tmssecurity.in/data-entry-operators" />
       </Helmet>
 
       <section className="service-hero" style={{ backgroundImage: `url(${heroImage})` }}>

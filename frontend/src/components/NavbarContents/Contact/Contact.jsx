@@ -48,7 +48,6 @@ const Contact = () => {
 
       setStatus('success');
       setFormData({ name: '', email: '', subject: '', service: '', message: '' });
-      e.target.reset();
     } catch (error) {
       setStatus('error');
       setErrorMessage('Transmission failed. Try again.');
