@@ -4,6 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from '@vercel/speed-insights/react';
 /* --- Always loaded --- */
+import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -49,29 +50,31 @@ function App() {
       <Navbar />
 
       <main>
-        <Suspense fallback={<div style={{ minHeight: '100vh', backgroundColor: '#050505' }} />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/company" element={<TheCompany />} />
-            <Route path="/leadership" element={<TheLeadership />} />
-            <Route path="/facility-management" element={<FacilityManagement />} />
-            <Route path="/housekeeping" element={<Housekeeping />} />
-            <Route path="/data-entry-operator" element={<DataEntry />} />
-            <Route path="/career" element={<Career />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/bouncer" element={<Bouncer />} />
-            <Route path="/pso" element={<PSO />} />
-            <Route path="/trained-gunman" element={<TrainedGunman />} />
-            <Route path="/security-guards" element={<SecurityGuards />} />
+        <ErrorBoundary>
+          <Suspense fallback={<div style={{ minHeight: '100vh', backgroundColor: '#050505' }} />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/company" element={<TheCompany />} />
+              <Route path="/leadership" element={<TheLeadership />} />
+              <Route path="/facility-management" element={<FacilityManagement />} />
+              <Route path="/housekeeping" element={<Housekeeping />} />
+              <Route path="/data-entry-operators" element={<DataEntry />} />
+              <Route path="/career" element={<Career />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/bouncer" element={<Bouncer />} />
+              <Route path="/pso" element={<PSO />} />
+              <Route path="/trained-gunman" element={<TrainedGunman />} />
+              <Route path="/security-guards" element={<SecurityGuards />} />
 
-            <Route path="/Services.aspx" element={<Navigate to="/" replace />} />
-            <Route path="/ContactUs.aspx" element={<Navigate to="/contact" replace />} />
-            <Route path="/Clients.aspx" element={<Navigate to="/" replace />} />
+              <Route path="/Services.aspx" element={<Navigate to="/" replace />} />
+              <Route path="/ContactUs.aspx" element={<Navigate to="/contact" replace />} />
+              <Route path="/Clients.aspx" element={<Navigate to="/" replace />} />
 
-            <Route path="*" element={<NotFound />} />
+              <Route path="*" element={<NotFound />} />
 
-          </Routes>
-        </Suspense>
+            </Routes>
+          </Suspense>
+        </ErrorBoundary>
       </main>
 
       <Footer />

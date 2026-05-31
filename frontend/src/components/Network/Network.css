@@ -1,27 +1,10 @@
 /* =============================================================================
    NETWORK.CSS — TMS Security | Live Satellite Radar
-   Design: Zero lines. Zero boxes. Pure sonar-pulse beacons on a dark map.
-   Each beacon is 100% CSS — concentric rings, floating text-shadow labels.
    ============================================================================= */
 
-/* ── CSS Variables ─────────────────────────────────────────────────────────── */
-:root {
-  --gold:          #d4af37;
-  --gold-bright:   #f0d060;
-  --gold-dim:      rgba(212, 175, 55, 0.15);
-  
-  /* THE COLOR PIVOT: Back to the original Stealth Blue */
-  --blue-exp:      #3b82f6; 
-  --blue-dim:      rgba(59, 130, 246, 0.18);
-  
-  --map-bg:        #050505;
-  --font:          'Inter', system-ui, sans-serif;
-}
-
-/* ── Section Shell ─────────────────────────────────────────────────────────── */
 .network-section {
   position: relative;
-  background-color: var(--map-bg);
+  background-color: #050505;
   padding: 90px 0 80px;
   display: flex;
   justify-content: center;
@@ -30,7 +13,6 @@
   z-index: 1;
 }
 
-/* Dramatic radial glow behind the map — gives depth without noise */
 .network-section::before {
   content: '';
   position: absolute;
@@ -42,9 +24,7 @@
   z-index: 0;
 }
 
-/* ── CRT Scanlines ─────────────────────────────────────────────────────────── */
-/* Extremely subtle — adds texture without being distracting on mobile */
-.network__scanlines {
+.network-section .network__scanlines {
   position: absolute;
   inset: 0;
   background: repeating-linear-gradient(
@@ -58,8 +38,7 @@
   z-index: 0;
 }
 
-/* ── Inner Layout ──────────────────────────────────────────────────────────── */
-.network__inner {
+.network-section .network__inner {
   position: relative;
   width: 100%;
   display: flex;
@@ -68,8 +47,7 @@
   z-index: 1;
 }
 
-/* ── Section Header ────────────────────────────────────────────────────────── */
-.network__header {
+.network-section .network__header {
   text-align: center;
   margin-bottom: 36px;
   opacity: 0;
@@ -77,42 +55,42 @@
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
-.network__header--visible {
+.network-section .network__header--visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.network__overline {
+.network-section .network__overline {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font);
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.7rem;
   font-weight: 600;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: var(--gold);
+  color: #d4af37;
   margin: 0 0 12px;
   opacity: 0.85;
 }
 
-.overline__dot {
+.network-section .overline__dot {
   display: inline-block;
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 8px var(--gold);
-  animation: overline-pulse 2s ease-in-out infinite;
+  background: #d4af37;
+  box-shadow: 0 0 8px #d4af37;
+  animation: overlinePulse 2s ease-in-out infinite;
 }
 
-@keyframes overline-pulse {
-  0%, 100% { box-shadow: 0 0 4px var(--gold); }
-  50%       { box-shadow: 0 0 14px var(--gold-bright); }
+@keyframes overlinePulse {
+  0%, 100% { box-shadow: 0 0 4px #d4af37; }
+  50%       { box-shadow: 0 0 14px #f0d060; }
 }
 
-.network__title {
-  font-family: var(--font);
+.network-section .network__title {
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   font-weight: 700;
   color: #ffffff;
@@ -121,118 +99,99 @@
   text-transform: uppercase;
 }
 
-.network__rule {
+.network-section .network__rule {
   width: 48px;
   height: 2px;
-  background: linear-gradient(to right, var(--gold), transparent);
+  background: linear-gradient(to right, #d4af37, transparent);
   margin: 0 auto;
 }
 
-/* ── Map Container ─────────────────────────────────────────────────────────── */
-.map-container {
+.network-section .map-container {
   position: relative;
   width: 46%;
   max-width: 660px;
   margin: 0 auto;
 }
 
-.map-image {
+.network-section .map-image {
   display: block;
   width: 100%;
   height: auto;
   object-fit: contain;
-  /* Subtle cool-toned glow so the map reads as a "screen" */
   filter:
     drop-shadow(0 0 30px rgba(30, 80, 180, 0.22))
-    drop-shadow(0 0 8px  rgba(212, 175, 55, 0.08));
+    drop-shadow(0 0 8px rgba(212, 175, 55, 0.08));
 }
 
-/* =============================================================================
-   BEACON SYSTEM
-   Each beacon is position:absolute, transform:translate(-50%,-50%) so the
-   percentage top/left anchors to the exact city location on the image.
-   ============================================================================= */
-.beacon {
+.network-section .beacon {
   position: absolute;
   transform: translate(-50%, -50%);
   z-index: 10;
-  /* Staggered fade-in when section enters viewport */
   opacity: 0;
   transition: opacity 0.5s ease var(--entry-delay, 0s);
 }
 
-.beacon--visible {
+.network-section .beacon--visible {
   opacity: 1;
 }
 
-/* ── Core dot ── */
-.beacon__core {
+.network-section .beacon__core {
   display: block;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 5px; 
-  height: 5px; 
+  width: 5px;
+  height: 5px;
   border-radius: 50%;
-  background: var(--gold);
-  /* Tighter, less muddy glow */
+  background: #d4af37;
   box-shadow:
     0 0 0   1px rgba(212, 175, 55, 0.35),
     0 0 6px 1px rgba(212, 175, 55, 0.6);
   z-index: 2;
 }
 
-/* Expansion core — dim blue */
-.beacon__core--exp {
-  width: 4px; 
-  height: 4px; 
+.network-section .beacon__core--exp {
+  width: 4px;
+  height: 4px;
   background: #1d4ed8;
   box-shadow:
     0 0 0   1px rgba(59, 130, 246, 0.25),
     0 0 5px 1px rgba(59, 130, 246, 0.45);
 }
 
-/* ── Pulse rings ── */
-.beacon__ring {
+.network-section .beacon__ring {
   display: block;
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 12px; 
-  height: 12px; 
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(0);
-  border: 1.5px solid var(--gold);
+  border: 1.5px solid #d4af37;
   opacity: 0;
-  animation: ring-pulse 3s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
+  animation: ringPulse 3s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
   animation-delay: var(--ring-delay, 0s);
   z-index: 1;
 }
 
-@keyframes ring-pulse {
-  0%   { transform: translate(-50%, -50%) scale(0);   opacity: 0.9; border-width: 2px; }
-  100% { transform: translate(-50%, -50%) scale(5);   opacity: 0;   border-width: 0px; } 
+@keyframes ringPulse {
+  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.9; border-width: 2px; }
+  100% { transform: translate(-50%, -50%) scale(5); opacity: 0;   border-width: 0px; }
 }
 
-@keyframes ring-pulse-exp {
-  0%   { transform: translate(-50%, -50%) scale(0);   opacity: 0.8; border-width: 2px; }
-  100% { transform: translate(-50%, -50%) scale(4);   opacity: 0;   border-width: 0px; } 
-}
-
-/* ── HQ beacon — larger, brighter core ── */
-.beacon--active.is-hq .beacon__core,
-.beacon[aria-label*="Headquarters"] .beacon__core {
+.network-section .beacon--active.is-hq .beacon__core,
+.network-section .beacon[aria-label*="Headquarters"] .beacon__core {
   width: 12px;
   height: 12px;
-  background: var(--gold-bright);
+  background: #f0d060;
   box-shadow:
     0 0 0   3px rgba(240, 208, 96, 0.3),
     0 0 16px 4px rgba(212, 175, 55, 0.8);
 }
 
-/* ── Floating Labels ───────────────────────────────────────────────────────── */
-.beacon__label {
+.network-section .beacon__label {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -244,19 +203,17 @@
   z-index: 3;
 }
 
-.beacon__label--right { left:  calc(50% + 11px); }
-.beacon__label--left  { right: calc(50% + 11px); flex-direction: row-reverse; }
+.network-section .beacon__label--right { left:  calc(50% + 11px); }
+.network-section .beacon__label--left  { right: calc(50% + 11px); flex-direction: row-reverse; }
 
-/* Pushes the label perfectly centered beneath the dot */
-.beacon__label--bottom {
-  top: calc(50% + 10px); 
+.network-section .beacon__label--bottom {
+  top: calc(50% + 10px);
   left: 50%;
-  transform: translateX(-50%); 
+  transform: translateX(-50%);
 }
 
-/* City name */
-.beacon__city-name {
-  font-family: var(--font);
+.network-section .beacon__city-name {
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.72rem;
   font-weight: 700;
   color: #ffffff;
@@ -270,8 +227,7 @@
     0 0 20px rgba(212, 175, 55, 0.45);
 }
 
-/* Expansion city name — Muted Emerald */
-.beacon__city-name--exp {
+.network-section .beacon__city-name--exp {
   color: #93c5fd;
   text-shadow:
     0 0 8px  rgba(0, 0, 0, 1),
@@ -281,26 +237,24 @@
     0 0 16px rgba(59, 130, 246, 0.6);
 }
 
-/* ── HQ Badge ── */
-.beacon__hq-badge {
+.network-section .beacon__hq-badge {
   display: inline-block;
-  font-family: var(--font);
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.52rem;
   font-weight: 800;
   letter-spacing: 1.5px;
   color: #050505;
-  background: var(--gold);
-  padding: 1px 5px 1px 5px;
+  background: #d4af37;
+  padding: 1px 5px;
   border-radius: 2px;
   line-height: 1.5;
   flex-shrink: 0;
   box-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
 }
 
-/* ── Upcoming Badge ── */
-.beacon__upcoming-tag {
+.network-section .beacon__upcoming-tag {
   display: inline-block;
-  font-family: var(--font);
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.46rem;
   font-weight: 700;
   letter-spacing: 1.2px;
@@ -314,41 +268,36 @@
   backdrop-filter: blur(4px);
 }
 
-/* =============================================================================
-   SVG PARABOLA ARCS (Two-Phase Force Projection)
-   ============================================================================= */
-.network-arcs {
+.network-section .network-arcs {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: 5; 
-  pointer-events: none; 
+  z-index: 5;
+  pointer-events: none;
 }
 
-/* --- PHASE 1: ACTIVE ROUTES (Solid Gold Lasers) --- */
-.arc-line {
+.network-section .arc-line {
   fill: none;
-  stroke: url(#arc-glow); 
-  stroke-width: 0.6; 
+  stroke: url(#arc-glow);
+  stroke-width: 0.6;
   stroke-linecap: round;
   filter: drop-shadow(0 0 4px rgba(212, 175, 55, 1));
   stroke-dasharray: 120;
   stroke-dashoffset: 120;
 }
 
-.is-visible .arc-line {
-  animation: draw-arc 8s cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
-  animation-delay: 0.5s; 
+.network-section.is-visible .arc-line {
+  animation: drawArc 8s cubic-bezier(0.2, 0.6, 0.4, 1) forwards;
+  animation-delay: 0.5s;
 }
 
-@keyframes draw-arc {
+@keyframes drawArc {
   to { stroke-dashoffset: 0; }
 }
 
-/* --- PHASE 2: EXPANSION ROUTES (Flowing Data Stream) --- */
-.arc-line-exp-launch {
+.network-section .arc-line-exp-launch {
   fill: none;
   stroke: url(#arc-glow-blue);
   stroke-width: 0.8;
@@ -359,59 +308,48 @@
   stroke-dashoffset: 100;
 }
 
-.is-visible .arc-line-exp-launch {
+.network-section.is-visible .arc-line-exp-launch {
   animation:
-    draw-exp-arc 2.3s cubic-bezier(0.2, 0.6, 0.4, 1) forwards 2.5s,
-    fade-exp-launch 0.25s linear forwards 4.8s;
+    drawExpArc 2.3s cubic-bezier(0.2, 0.6, 0.4, 1) forwards 2.5s,
+    fadeExpLaunch 0.25s linear forwards 4.8s;
 }
 
-.arc-line-exp {
+.network-section .arc-line-exp {
   fill: none;
   stroke: url(#arc-glow-blue);
-  stroke-width: 0.6; 
+  stroke-width: 0.6;
   stroke-linecap: round;
   filter: drop-shadow(0 0 4px rgba(56, 189, 248, 1));
   opacity: 0;
-  /* Tight dots */
   stroke-dasharray: 3 3;
   stroke-dashoffset: 60;
 }
 
-/* Continually animates the dots sliding forward */
-.is-visible .arc-line-exp {
+.network-section.is-visible .arc-line-exp {
   animation:
-    reveal-exp-flow 0.01s linear forwards 4.8s,
-    flow-dots 8s linear infinite 4.8s;
+    revealExpFlow 0.01s linear forwards 4.8s,
+    flowDots 8s linear infinite 4.8s;
 }
 
-@keyframes draw-exp-arc {
-  0% {
-    opacity: 1;
-    stroke-dashoffset: 100;
-  }
-  100% {
-    opacity: 1;
-    stroke-dashoffset: 0;
-  }
+@keyframes drawExpArc {
+  0%   { opacity: 1; stroke-dashoffset: 100; }
+  100% { opacity: 1; stroke-dashoffset: 0; }
 }
 
-@keyframes fade-exp-launch {
+@keyframes fadeExpLaunch {
   to { opacity: 0; }
 }
 
-@keyframes reveal-exp-flow {
+@keyframes revealExpFlow {
   to { opacity: 1; }
 }
 
-@keyframes flow-dots {
+@keyframes flowDots {
   from { stroke-dashoffset: 60; }
-  to { stroke-dashoffset: 0; }
+  to   { stroke-dashoffset: 0; }
 }
 
-/* =============================================================================
-   LEGEND
-   ============================================================================= */
-.network__legend {
+.network-section .network__legend {
   display: flex;
   align-items: center;
   gap: 24px;
@@ -426,18 +364,18 @@
   transition: opacity 0.6s ease 0.9s, transform 0.6s ease 0.9s;
 }
 
-.network__legend--visible {
+.network-section .network__legend--visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.legend__item {
+.network-section .legend__item {
   display: flex;
   align-items: center;
   gap: 9px;
 }
 
-.legend__pip {
+.network-section .legend__pip {
   display: inline-block;
   width: 8px;
   height: 8px;
@@ -445,18 +383,18 @@
   flex-shrink: 0;
 }
 
-.legend__pip--active {
-  background: var(--gold);
-  box-shadow: 0 0 8px var(--gold);
+.network-section .legend__pip--active {
+  background: #d4af37;
+  box-shadow: 0 0 8px #d4af37;
 }
 
-.legend__pip--exp {
-  background: var(--blue-exp);
-  box-shadow: 0 0 8px var(--blue-exp);
+.network-section .legend__pip--exp {
+  background: #3b82f6;
+  box-shadow: 0 0 8px #3b82f6;
 }
 
-.legend__text {
-  font-family: var(--font);
+.network-section .legend__text {
+  font-family: 'Inter', system-ui, sans-serif;
   font-size: 0.68rem;
   font-weight: 500;
   letter-spacing: 0.8px;
@@ -464,91 +402,88 @@
   color: #64748b;
 }
 
-.legend__sep {
+.network-section .legend__sep {
   width: 1px;
   height: 18px;
   background: rgba(255, 255, 255, 0.1);
 }
 
-/* =============================================================================
-   MOBILE — ≤ 768px
-   ============================================================================= */
 @media (max-width: 768px) {
   .network-section {
     padding: 60px 0 50px;
   }
 
-  .map-container {
+  .network-section .map-container {
     width: 92%;
   }
 
-  .beacon__core {
+  .network-section .beacon__core {
     width: 4px;
     height: 4px;
   }
 
-  .beacon__core--exp {
+  .network-section .beacon__core--exp {
     width: 3px;
     height: 3px;
   }
 
-  .beacon__ring {
+  .network-section .beacon__ring {
     width: 10px;
     height: 10px;
   }
 
-  .beacon__city-name {
+  .network-section .beacon__city-name {
     font-size: 0.58rem;
     letter-spacing: 0.4px;
   }
 
-  .beacon__label--right { left:  calc(50% + 8px); }
-  .beacon__label--left  { right: calc(50% + 8px); }
+  .network-section .beacon__label--right { left:  calc(50% + 8px); }
+  .network-section .beacon__label--left  { right: calc(50% + 8px); }
 
-  .beacon__upcoming-tag {
+  .network-section .beacon__upcoming-tag {
     display: none;
   }
 
-  .beacon__label--bottom { top: calc(50% + 14px); }
+  .network-section .beacon__label--bottom { top: calc(50% + 14px); }
 
-  .beacon__hq-badge {
+  .network-section .beacon__hq-badge {
     font-size: 0.44rem;
     padding: 1px 3px;
   }
 
-  .network__legend {
+  .network-section .network__legend {
     flex-direction: column;
     gap: 12px;
     margin-top: 28px;
     padding: 12px 20px;
   }
 
-  .legend__sep {
+  .network-section .legend__sep {
     width: 40px;
     height: 1px;
   }
 }
 
 @media (max-width: 420px) {
-  .map-container {
+  .network-section .map-container {
     width: 98%;
   }
 
-  .beacon__city-name {
+  .network-section .beacon__city-name {
     font-size: 0.5rem;
   }
 
-  .beacon__label {
+  .network-section .beacon__label {
     flex-direction: column;
     align-items: flex-start;
     gap: 2px;
   }
 
-  .beacon__label--left {
+  .network-section .beacon__label--left {
     align-items: flex-end;
   }
 
-  .beacon__hq-badge {
+  .network-section .beacon__hq-badge {
     display: none;
   }
 }

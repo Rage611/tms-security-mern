@@ -1,47 +1,60 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import hero1 from '../../assets/images/hero/hero-1.webp';
 import hero2 from '../../assets/images/hero/hero-2.webp';
 import hero3 from '../../assets/images/hero/hero-3.webp';
 import './Hero.css';
 
-const Hero = () => {
-  const slides = [
-    {
-      img: hero1,
-      title: "TMS Security Services",
-      subtitle: "Your safety is our primary commitment.",
-      layout: "left-align"
-    },
-    {
-      img: hero2,
-      title: "Advanced Surveillance",
-      subtitle: "State-of-the-art monitoring for complete peace of mind.",
-      layout: "left-align lower-text"
-    },
-    {
-      img: hero3,
-      title: "Manned Guarding",
-      subtitle: "Highly trained professionals protecting your assets 24/7.",
-      layout: "right-align lower-text"
-    }
-  ];
+const slides = [
+  {
+    img: hero1,
+    title: "TMS Security Services",
+    subtitle: "Your safety is our primary commitment.",
+    layout: "left-align"
+  },
+  {
+    img: hero2,
+    title: "Advanced Surveillance",
+    subtitle: "State-of-the-art monitoring for complete peace of mind.",
+    layout: "left-align lower-text"
+  },
+  {
+    img: hero3,
+    title: "Manned Guarding",
+    subtitle: "Highly trained professionals protecting your assets 24/7.",
+    layout: "right-align lower-text"
+  }
+];
 
+const SLIDE_COUNT = slides.length;
+const AUTO_ADVANCE_MS = 8000;
+
+const Hero = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const intervalRef = useRef(null);
+
+  const resetTimer = useCallback(() => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % SLIDE_COUNT);
+    }, AUTO_ADVANCE_MS);
+  }, []);
 
   const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % slides.length);
-  }, [slides.length]);
+    setCurrentIndex((prev) => (prev + 1) % SLIDE_COUNT);
+    resetTimer();
+  }, [resetTimer]);
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
+  const prevSlide = useCallback(() => {
+    setCurrentIndex((prev) => (prev === 0 ? SLIDE_COUNT - 1 : prev - 1));
+    resetTimer();
+  }, [resetTimer]);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 8000);
-    return () => clearInterval(interval);
-  }, [currentIndex, nextSlide]);
+    resetTimer();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, [resetTimer]);
 
   return (
     <section className="hero">

@@ -1,39 +1,42 @@
 import './Navbar.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import logo from "../../assets/images/Logo.webp";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  
-  // Track ONLY mobile click states
+  const [isMobile, setIsMobile] = useState(false);
   const [mobileActive, setMobileActive] = useState(null);
   const [nestedMobileActive, setNestedMobileActive] = useState(false);
 
-  const closeMenu = () => {
+  useEffect(() => {
+    const mql = window.matchMedia('(max-width: 1024px)');
+    const handler = (e) => setIsMobile(e.matches);
+    setIsMobile(mql.matches);
+    mql.addEventListener('change', handler);
+    return () => mql.removeEventListener('change', handler);
+  }, []);
+
+  const closeMenu = useCallback(() => {
     setIsOpen(false);
     setMobileActive(null);
     setNestedMobileActive(false);
-  };
+  }, []);
 
-  // Mobile Click Handler for "ABOUT TMS" and "SERVICES"
-  const handleMainToggle = (e, menuName) => {
+  const handleMainToggle = useCallback((e, menuName) => {
     e.preventDefault();
     e.stopPropagation();
-    if (window.innerWidth <= 1024) {
-      setMobileActive(mobileActive === menuName ? null : menuName);
-      setNestedMobileActive(false); // Reset nested menu if switching main menus
-    }
-  };
+    if (!isMobile) return;
+    setMobileActive((prev) => (prev === menuName ? null : menuName));
+    setNestedMobileActive(false);
+  }, [isMobile]);
 
-  // Mobile Click Handler for "MANNED GUARDING"
-  const handleNestedToggle = (e) => {
+  const handleNestedToggle = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (window.innerWidth <= 1024) {
-      setNestedMobileActive(!nestedMobileActive);
-    }
-  };
+    if (!isMobile) return;
+    setNestedMobileActive((prev) => !prev);
+  }, [isMobile]);
 
   return (
     <header className="header">
@@ -103,7 +106,7 @@ const Navbar = () => {
               <li><Link to="/housekeeping" className="dropdown-link" onClick={closeMenu}>HOUSE KEEPING</Link></li>
               
               {/* NEW DATA ENTRY LINK ADDED HERE */}
-              <li><Link to="/data-entry-operator" className="dropdown-link" onClick={closeMenu}>DATA ENTRY OPERATOR</Link></li>
+              <li><Link to="/data-entry-operators" className="dropdown-link" onClick={closeMenu}>DATA ENTRY OPERATORS</Link></li>
             </ul>
           </li>
 

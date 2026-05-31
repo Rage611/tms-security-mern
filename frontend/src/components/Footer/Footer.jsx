@@ -12,7 +12,6 @@ const Footer = () => {
           <img src={logo} alt="TMS Logo" className="footer-logo-small" />
           <p>A Market Leader in Security, Facility Management and Manpower Solutions</p>
           
-          {/* Glide to Contact Form */}
           <HashLink smooth to="/contact#contact-section" className="get-in-touch-btn">
             GET IN TOUCH
           </HashLink>
@@ -44,7 +43,7 @@ const Footer = () => {
           <h3>OUR SOLUTIONS</h3>
           <ul>
             <li><Link to="/security-guards">Security Guards</Link></li>
-            <li><Link to="/data-entry-operator">Data Entry</Link></li>
+            <li><Link to="/data-entry-operators">Data Entry Operators</Link></li>
             <li><Link to="/trained-gunman">Trained Gunman</Link></li>
             <li><Link to="/housekeeping">Housekeeping</Link></li>
           </ul>

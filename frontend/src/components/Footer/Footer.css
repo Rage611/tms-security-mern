@@ -5,14 +5,14 @@
 }
 
 /* --- THE TOP BAR (Command Strip) --- */
-.footer-top-bar {
-    background-color: #0a0a0a; /* Slightly lighter than the main footer to create depth */
-    padding: 35px 0; /* MASSIVE increase in breathing room */
-    border-top: 1px solid rgba(255, 215, 0, 0.4); /* Subtle, elegant gold line */
+.footer .footer-top-bar {
+    background-color: #0a0a0a;
+    padding: 35px 0;
+    border-top: 1px solid rgba(255, 215, 0, 0.4);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.top-bar-content {
+.footer .top-bar-content {
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -21,21 +21,21 @@
     padding: 0 40px;
 }
 
-.footer-logo-small {
-    height: 70px; /* Much larger, commands authority */
+.footer .footer-logo-small {
+    height: 70px;
     width: auto;
-    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.2)); /* Subtle gold glow */
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.2));
 }
 
-.top-bar-content p {
+.footer .top-bar-content p {
     font-size: 1rem;
     font-weight: 500;
-    letter-spacing: 2px; /* Wider tracking looks more expensive */
+    letter-spacing: 2px;
     color: var(--text-muted);
     text-transform: uppercase;
 }
 
-.get-in-touch-btn {
+.footer .get-in-touch-btn {
     background: transparent;
     border: 1px solid var(--accent-gold);
     color: var(--accent-gold);
@@ -46,11 +46,11 @@
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    text-decoration: none !important; /* Forcefully removes the underline */
+    text-decoration: none !important;
     display: inline-block;
 }
 
-.get-in-touch-btn:hover {
+.footer .get-in-touch-btn:hover {
     background: var(--accent-gold);
     color: var(--bg-dark);
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
@@ -58,22 +58,21 @@
 }
 
 /* --- THE MAIN FOOTER --- */
-.footer-main {
+.footer .footer-main {
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    /* Force a strict 4-column layout on desktop to prevent collapsing */
-    grid-template-columns: 2fr 1fr 1fr 1.5fr; 
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
     gap: 60px;
-    padding: 100px 40px; /* Massive vertical space */
+    padding: 100px 40px;
 }
 
-.footer-column {
+.footer .footer-column {
     display: flex;
     flex-direction: column;
 }
 
-.footer-column h3 {
+.footer .footer-column h3 {
     color: var(--text-light);
     font-size: 1.05rem;
     margin-bottom: 30px;
@@ -82,11 +81,10 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    white-space: nowrap; /* Prevents awkward stacking */
+    white-space: nowrap;
 }
 
-/* Replaced the harsh side-border with the elegant gold dot used on the Contact page */
-.footer-column h3::before {
+.footer .footer-column h3::before {
     content: "";
     display: block;
     width: 6px;
@@ -95,54 +93,54 @@
     border-radius: 50%;
 }
 
-.footer-column p, 
-.footer-column li {
+.footer .footer-column p,
+.footer .footer-column li {
     font-size: 0.95rem;
     line-height: 1.9;
     color: var(--text-muted);
     margin-bottom: 15px;
 }
 
-.footer-column strong {
+.footer .footer-column strong {
     color: var(--text-light);
     font-weight: 600;
     margin-right: 5px;
 }
 
-.footer-column ul {
+.footer .footer-column ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.footer-column a {
+.footer .footer-column a {
     color: var(--text-muted);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     display: inline-block;
 }
 
-.footer-column a:hover {
+.footer .footer-column a:hover {
     color: var(--accent-gold);
-    transform: translateX(5px); /* Smooth hover animation */
+    transform: translateX(5px);
 }
 
 @media (max-width: 992px) {
-    .footer-main {
-        grid-template-columns: 1fr 1fr; /* 2 columns on tablets */
+    .footer .footer-main {
+        grid-template-columns: 1fr 1fr;
         padding: 80px 30px;
     }
 }
 
 @media (max-width: 768px) {
-    .top-bar-content {
+    .footer .top-bar-content {
         flex-direction: column;
         gap: 25px;
         text-align: center;
     }
-    
-    .footer-main {
-        grid-template-columns: 1fr; /* 1 column on mobile */
+
+    .footer .footer-main {
+        grid-template-columns: 1fr;
         gap: 50px;
         padding: 60px 20px;
     }

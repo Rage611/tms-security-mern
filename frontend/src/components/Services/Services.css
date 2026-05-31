@@ -1,26 +1,27 @@
 .services-section {
     background-color: #050505;
-    padding: 60px 0; 
+    padding: 60px 0;
     position: relative;
     overflow: hidden;
 }
 
 .stats-section {
     background-color: #050505;
-    padding: 60px 0 100px 0; 
+    padding: 60px 0 100px 0;
     position: relative;
     overflow: hidden;
     text-align: center;
     border-top: 1px solid rgba(212, 175, 55, 0.05);
 }
 
-.services__inner, .stats__inner {
+.services-section .services__inner,
+.stats-section .stats__inner {
     max-width: 1200px;
     margin: 0 auto;
-    width: 90%; 
+    width: 90%;
 }
 
-.services-header {
+.services-section .services-header {
     text-align: center;
     margin-bottom: 80px;
     position: relative;
@@ -33,7 +34,7 @@
     align-items: center;
 }
 
-.stats__header {
+.stats-section .stats__header {
     text-align: center;
     margin-bottom: 80px;
     opacity: 0;
@@ -45,7 +46,8 @@
     align-items: center;
 }
 
-.section-tagline {
+.services-section .section-tagline,
+.stats-section .section-tagline {
     display: inline-flex;
     align-items: center;
     font-family: 'Inter', sans-serif;
@@ -57,7 +59,8 @@
     margin-bottom: 24px;
 }
 
-.section-title {
+.services-section .section-title,
+.stats-section .section-title {
     font-family: 'Inter', sans-serif;
     font-size: clamp(3.2rem, 6vw, 5.5rem);
     font-weight: 300;
@@ -65,22 +68,22 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    color: transparent; 
+    color: transparent;
     line-height: 1.25;
     letter-spacing: -2px;
     margin: 0;
 }
 
-.services-header .section-tagline,
-.stats__header .section-tagline {
+.services-section .services-header .section-tagline,
+.stats-section .stats__header .section-tagline {
     justify-content: center;
     margin-bottom: 30px;
     position: relative;
     padding-bottom: 15px;
 }
 
-.services-header .section-tagline::after,
-.stats__header .section-tagline::after {
+.services-section .services-header .section-tagline::after,
+.stats-section .stats__header .section-tagline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -92,24 +95,24 @@
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
 }
 
-.services-header .section-title,
-.stats__header .section-title {
+.services-section .services-header .section-title,
+.stats-section .stats__header .section-title {
     text-align: center;
 }
 
-.is-visible .services-header, 
-.is-visible .stats__header {
+.services-section.is-visible .services-header,
+.stats-section.is-visible .stats__header {
     opacity: 1;
     transform: translateY(0);
 }
 
-.services-grid {
+.services-section .services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 }
 
-.service-card {
+.services-section .service-card {
     position: relative;
     border-radius: 4px;
     overflow: hidden;
@@ -122,23 +125,23 @@
     border: none;
 }
 
-.is-visible .service-card {
+.services-section.is-visible .service-card {
     opacity: 1;
     transform: translateY(0);
 }
 
-.card-image {
+.services-section .card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.service-card:hover .card-image {
+.services-section .service-card:hover .card-image {
     transform: scale(1.08);
 }
 
-.card-overlay {
+.services-section .card-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.1) 40%, transparent 100%);
@@ -146,16 +149,16 @@
     z-index: 1;
 }
 
-.service-card:hover .card-overlay {
+.services-section .service-card:hover .card-overlay {
     background: linear-gradient(to top, rgba(5,5,5,0.98) 0%, rgba(5,5,5,0.85) 60%, rgba(5,5,5,0.4) 100%);
 }
 
-.card-content {
+.services-section .card-content {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    padding: 30px 8%; /* FIX: 8% horizontal padding adapts to the shrinking card */
+    padding: 30px 8%;
     z-index: 2;
     display: flex;
     flex-direction: column;
@@ -164,36 +167,36 @@
     box-sizing: border-box;
 }
 
-.card-title {
+.services-section .card-title {
     font-family: 'Inter', sans-serif;
     color: #ffffff;
-    font-size: clamp(1.2rem, 2vw, 1.5rem); /* FIX: Font scales down smoothly */
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     transition: color 0.3s ease-in-out;
-    line-height: 1.4; 
+    line-height: 1.4;
     margin: 0;
     text-align: left;
     text-shadow: 0 2px 10px rgba(0,0,0,0.6);
 }
 
-.service-card:hover .card-title {
-  color: #D4AF37 ; /* Your official TMS Gold */
+.services-section .service-card:hover .card-title {
+    color: #d4af37;
 }
 
-.card-text-wrapper {
+.services-section .card-text-wrapper {
     display: grid;
     grid-template-rows: 0fr;
     transition: grid-template-rows 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     width: 100%;
 }
 
-.service-card:hover .card-text-wrapper {
+.services-section .service-card:hover .card-text-wrapper {
     grid-template-rows: 1fr;
 }
 
-.card-description {
+.services-section .card-description {
     overflow: hidden;
     opacity: 0;
     color: #e2e8f0;
@@ -205,13 +208,13 @@
     transition: opacity 0.4s ease, padding-top 0.4s ease;
 }
 
-.service-card:hover .card-description {
+.services-section .service-card:hover .card-description {
     opacity: 1;
     padding-top: 15px;
     transition-delay: 0.15s;
 }
 
-.stats-grid {
+.stats-section .stats-grid {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -219,7 +222,7 @@
     gap: 3rem;
 }
 
-.stat-item {
+.stats-section .stat-item {
     flex: 1;
     min-width: 200px;
     opacity: 0;
@@ -229,31 +232,28 @@
 }
 
 #capabilities-grid {
-    scroll-margin-top: 130px; /* Adjust this number based on your header's height */
+    scroll-margin-top: 130px;
 }
 
-.is-visible .stat-item {
+.stats-section.is-visible .stat-item {
     opacity: 1;
     transform: translateY(0);
 }
 
-.stat-number {
+.stats-section .stat-number {
     font-family: 'Inter', sans-serif;
     font-size: clamp(3rem, 5vw, 4.5rem);
     font-weight: 300;
     background: linear-gradient(180deg, #fcd34d 0%, #d4af37 100%);
-    
-    /* THE FIX: Add the standard version alongside the webkit version */
-    background-clip: text; 
+    background-clip: text;
     -webkit-background-clip: text;
-    
     -webkit-text-fill-color: transparent;
     color: transparent;
     margin-bottom: 12px;
     letter-spacing: -2px;
 }
 
-.stat-label {
+.stats-section .stat-label {
     color: #94a3b8;
     font-family: 'Inter', sans-serif;
     font-size: 0.95rem;
@@ -262,91 +262,81 @@
     letter-spacing: 3px;
 }
 
-/* =========================================
-   MOBILE RESPONSIVE RULES (CLEANED UP)
-   ========================================= */
 @media (max-width: 768px) {
-    /* 1. Remove side padding */
-    .services-section, .stats-section {
-        padding: 80px 0; 
-    }
-    
-    /* 2. Release container width */
-    .services__inner, .stats__inner {
-        width: 100%; 
+    .services-section,
+    .stats-section {
+        padding: 80px 0;
     }
 
-    /* 3. Keep text safely padded */
-    .services-header, .stats__header {
-        padding: 0 5%; 
+    .services-section .services__inner,
+    .stats-section .stats__inner {
+        width: 100%;
     }
 
-    /* 4. THE HORIZONTAL CAROUSEL */
-    .services-grid {
+    .services-section .services-header,
+    .stats-section .stats__header {
+        padding: 0 5%;
+    }
+
+    .services-section .services-grid {
         display: flex;
         flex-direction: row;
         overflow-x: auto;
-        scroll-snap-type: x mandatory; 
+        scroll-snap-type: x mandatory;
         gap: 15px;
-        padding: 0 5%; 
-        scrollbar-width: none; 
-        -ms-overflow-style: none; 
+        padding: 0 5%;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
     }
 
-    .services-grid::-webkit-scrollbar {
-        display: none; 
+    .services-section .services-grid::-webkit-scrollbar {
+        display: none;
     }
 
-    /* 5. THE PEEK CARD */
-    .service-card {
-        min-width: 85%; 
-        max-width: 85%; 
-        height: 420px; 
-        aspect-ratio: auto; 
-        flex-shrink: 0; 
-        scroll-snap-align: center; 
+    .services-section .service-card {
+        min-width: 85%;
+        max-width: 85%;
+        height: 420px;
+        aspect-ratio: auto;
+        flex-shrink: 0;
+        scroll-snap-align: center;
     }
 
-    /* 6. THE 2x2 STATS GRID */
-    .stats-grid {
+    .stats-section .stats-grid {
         display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important; 
-        gap: 40px 15px !important; 
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 40px 15px !important;
         align-items: start;
     }
 
-    .stat-item {
-        min-width: unset; 
+    .stats-section .stat-item {
+        min-width: unset;
         padding: 0 10px;
     }
 
-    .stat-number {
-        font-size: 2.5rem !important; 
-        margin-bottom: 5px !important; 
+    .stats-section .stat-number {
+        font-size: 2.5rem !important;
+        margin-bottom: 5px !important;
     }
 
-    .stat-label {
-        font-size: 0.75rem !important; 
+    .stats-section .stat-label {
+        font-size: 0.75rem !important;
         letter-spacing: 2px;
         line-height: 1.4;
     }
 
-    .stats__header {
-        margin-bottom: 40px !important; 
+    .stats-section .stats__header {
+        margin-bottom: 40px !important;
     }
-
-    
 }
-/* =========================================
-   TABLET RESPONSIVE RULES (1024px)
-   ========================================= */
+
 @media (max-width: 1024px) {
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr); /* Drops to a 2x2 grid */
+    .services-section .services-grid {
+        grid-template-columns: repeat(2, 1fr);
         padding: 0 5%;
     }
-    
-    .service-card {
-        aspect-ratio: 4 / 3; /* Makes the cards slightly wider to fit the text beautifully */
+
+    .services-section .service-card {
+        aspect-ratio: 4 / 3;
     }
 }
