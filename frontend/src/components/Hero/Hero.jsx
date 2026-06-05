@@ -68,6 +68,8 @@ const Hero = () => {
               src={slide.img}
               className={`hero__slide ${index === currentIndex ? 'active' : ''}`}
               alt={`TMS Security ${slide.title}`}
+              loading="eager"
+              fetchPriority="high"
             />
             <div className={`hero__text-overlay ${slide.layout} ${index === currentIndex ? 'active' : ''}`}>
               <h1 className="hero__title">{slide.title}</h1>

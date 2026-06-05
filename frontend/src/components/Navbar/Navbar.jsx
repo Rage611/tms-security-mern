@@ -41,7 +41,6 @@ const Navbar = () => {
   return (
     <header className="header">
       <div className="nav-container">
-        
         <div className="logo-container">
           <Link to="/" onClick={closeMenu} className="logo-link">
             <img src={logo} alt="TMS Logo" className="logo-img" />
@@ -55,44 +54,38 @@ const Navbar = () => {
         <ul className={`nav__list ${isOpen ? "active" : ""}`}>
           <li><Link to="/" className="nav__link" onClick={closeMenu}>HOME</Link></li>
             
-          {/* ABOUT TMS */}
           <li className="nav-item dropdown">
-            <a 
-              href="#" 
+            <span 
               className="nav__link" 
               onClick={(e) => handleMainToggle(e, 'about')} 
-              style={{ cursor: "default" }}      
+              style={{ cursor: "pointer" }}      
             >
               ABOUT TMS <span className="arrow">▼</span>
-            </a>
+            </span>
             <ul className={`dropdown-menu ${mobileActive === 'about' ? 'mobile-open' : ''}`}>
               <li><Link to="/company" className="dropdown-link" onClick={closeMenu}>THE COMPANY</Link></li>
               <li><Link to="/leadership" className="dropdown-link" onClick={closeMenu}>THE LEADERSHIP</Link></li>
             </ul>
           </li>
 
-          {/* SERVICES */}
           <li className="nav-item dropdown">
-            <a 
-              href="#" 
+            <span 
               className="nav__link" 
               onClick={(e) => handleMainToggle(e, 'services')} 
-              style={{ cursor: "default" }}      
+              style={{ cursor: "pointer" }}      
             >
               SERVICES <span className="arrow">▼</span>
-            </a>
+            </span>
             <ul className={`dropdown-menu ${mobileActive === 'services' ? 'mobile-open' : ''}`}>
               
-              {/* MANNED GUARDING */}
               <li className="nested-dropdown">
-                <a 
-                  href="#" 
+                <span 
                   className="dropdown-link nested-link" 
                   onClick={handleNestedToggle} 
-                  style={{ cursor: 'default' }}
+                  style={{ cursor: 'pointer' }}
                 >
                   MANNED GUARDING <span className="arrow-right">▶</span>
-                </a>
+                </span>
                 
                 <ul className={`nested-menu ${nestedMobileActive ? 'mobile-nested-open' : ''}`}>
                   <li><Link to="/security-guards" className="dropdown-link" onClick={closeMenu}>SECURITY GUARDS</Link></li>
@@ -104,8 +97,6 @@ const Navbar = () => {
 
               <li><Link to="/facility-management" className="dropdown-link" onClick={closeMenu}>FACILITY MANAGEMENT</Link></li>        
               <li><Link to="/housekeeping" className="dropdown-link" onClick={closeMenu}>HOUSE KEEPING</Link></li>
-              
-              {/* NEW DATA ENTRY LINK ADDED HERE */}
               <li><Link to="/data-entry-operators" className="dropdown-link" onClick={closeMenu}>DATA ENTRY OPERATORS</Link></li>
             </ul>
           </li>
@@ -122,7 +113,6 @@ const Navbar = () => {
           <span className="bar"></span>
           <span className="bar"></span>
         </div>
-
       </div>
     </header>
   );
