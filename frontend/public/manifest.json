@@ -1,0 +1,22 @@
+{
+  "name": "TMS Security Services",
+  "short_name": "TMS Security",
+  "description": "India's premier PSARA-licensed corporate security agency. 500+ guards deployed, ISO 9001:2015 certified.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#050505",
+  "theme_color": "#ffd700",
+  "categories": ["business", "security"],
+  "lang": "en-IN",
+  "dir": "ltr",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/Logo.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ]
+}

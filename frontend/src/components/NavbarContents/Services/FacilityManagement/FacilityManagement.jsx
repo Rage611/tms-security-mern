@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEOHead from '../../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import '../SharedServiceLayout.css';
 
@@ -9,11 +9,11 @@ import facilityImg from '../../../../assets/images/NavbarServices/facilitymanage
 const FacilityManagement = () => {
   return (
     <div className="service-page full-width">
-      <Helmet>
-        <title>Facility Management Services Delhi NCR | TMS Security</title>
-        <meta name="description" content="TMS Security provides comprehensive facility management for corporate headquarters and commercial spaces across Delhi NCR." />
-        <link rel="canonical" href="https://tmssecurity.in/facility-management" />
-      </Helmet>
+      <SEOHead
+        title="Facility Management Services Delhi NCR | Office Maintenance | TMS Security"
+        description="End-to-end facility management for corporate offices, commercial complexes & industrial plants in Delhi NCR. ISO 9001:2015 certified operations — TMS Security."
+        canonical="https://tmssecurity.in/facility-management"
+      />
 
       <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
         <div className="overlay"></div>
@@ -22,7 +22,7 @@ const FacilityManagement = () => {
 
       <div className="content-container">
         <div className="service-content-main">
-          <img src={facilityImg} alt="Facility Management" className="service-featured-image" />
+          <img src={facilityImg} alt="Facility Management Services Delhi NCR" className="service-featured-image" fetchPriority="high" loading="eager" />
 
           <div className="service-text-wrap">
             <h2 className="section-title text-theme-dark">FACILITY MANAGEMENT SERVICES</h2>
@@ -45,22 +45,35 @@ const FacilityManagement = () => {
                 planned, and preventive maintenance architectures.
               </p>
             </div>
+
+            <div className="trust-badge-strip">
+              <div className="trust-badge">
+                <span className="trust-badge__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#b8860b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7l-9-5z" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                </span>
+                <span className="trust-badge__label">ISO 9001:2015 Certified</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
+      <section className="service-cta-banner">
+        <div className="cta-inner">
+          <h2>OPTIMIZE YOUR FACILITY OPERATIONS</h2>
+          <p>Trusted by 100+ corporate clients across India. Deploy TMS Facility Management for uncompromising operational standards.</p>
+          <div className="cta-btn-group">
+            <Link to="/contact" className="cta-btn cta-btn--primary">GET A FREE QUOTE</Link>
+            <a href="tel:+919717763351" className="cta-btn cta-btn--secondary">CALL NOW: +91-971-776-3351</a>
+          </div>
+        </div>
+      </section>
+
       <section className="service-action-section">
         <div className="action-container">
-          <div className="contact-full-box">
-            <h2 className="text-theme-dark">MAINTAIN OPERATIONAL SUPERIORITY</h2>
-            <p>Deploy TMS Facility Management for your corporate infrastructure.</p>
-            <div style={{ marginTop: '40px' }}>
-              <Link to="/contact" className="submit-btn-gold" style={{ display: 'inline-block', textAlign: 'center', textDecoration: 'none' }}>
-                REQUEST A CONSULTATION
-              </Link>
-            </div>
-          </div>
-
           <div className="service-nav-footer">
             <h4>EXPLORE MORE SERVICES</h4>
             <div className="nav-links">

@@ -1,159 +1,390 @@
 .company-page {
-    width: 100%;
-    background-color: var(--bg-primary);
+  width: 100%;
+  background-color: var(--bg-primary);
 }
 
 .company-page .company-hero {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    padding-left: 10%;
+  position: relative;
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 10%;
 }
 
 .company-page .company-hero .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(5, 5, 5, 0.9) 0%, rgba(5, 5, 5, 0.3) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(5, 5, 5, 0.9) 0%, rgba(5, 5, 5, 0.3) 100%);
 }
 
 .company-page .company-hero h1 {
-    position: relative;
-    color: var(--text-light);
-    font-size: 3.5rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    z-index: 2;
-    border-left: 5px solid var(--accent-gold);
-    padding-left: 24px;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: companyFadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  position: relative;
+  color: var(--text-light);
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  z-index: 2;
+  border-left: 5px solid var(--accent-gold);
+  padding-left: 24px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: companyFadeInUp 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes companyFadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.company-page .stats-bar {
+  background: #0a0a0a;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 40px 20px;
+  border-bottom: 3px solid gold;
+}
+
+.company-page .stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.company-page .stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: gold;
+  letter-spacing: 2px;
+}
+
+.company-page .stat-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #888;
+  margin-top: 8px;
 }
 
 .company-page .content-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 100px 20px;
-    display: flex;
-    gap: 80px;
-    align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 20px;
+  display: flex;
+  gap: 80px;
+  align-items: flex-start;
 }
 
 .company-page .text-content {
-    flex: 2;
-    margin-top: -6px;
+  flex: 2;
+  margin-top: -6px;
 }
 
 .company-page .section-title {
-    font-size: 1.8rem;
-    margin-top: 0;
-    margin-bottom: 30px;
-    font-weight: 800;
-    letter-spacing: 1px;
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 30px;
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 
 .company-page .text-content p {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: var(--text-secondary);
-    margin-bottom: 24px;
-    text-align: justify;
-    max-width: 70ch;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  text-align: justify;
+  max-width: 70ch;
 }
 
 .company-page .text-content p strong {
-    color: var(--text-primary);
-    font-weight: 700;
+  color: var(--text-primary);
+  font-weight: 700;
 }
 
 .company-page .sidebar {
-    flex: 1;
+  flex: 1;
 }
 
 .company-page .contact-widget {
-    background: var(--bg-glass-dark);
-    padding: 35px 30px;
-    border: 1px solid var(--border-gold);
-    border-top: 4px solid var(--accent-gold);
-    color: var(--text-light);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 4px;
-    position: sticky;
-    top: var(--nav-height);
+  background: var(--bg-glass-dark);
+  padding: 35px 30px;
+  border: 1px solid var(--border-gold);
+  border-top: 4px solid var(--accent-gold);
+  color: var(--text-light);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 4px;
+  position: sticky;
+  top: var(--nav-height);
 }
 
 .company-page .contact-widget h3 {
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 15px;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
 .company-page .contact-widget-text {
-    font-size: 0.95rem;
-    color: var(--text-muted);
-    margin-bottom: 25px;
-    line-height: 1.6;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 25px;
+  line-height: 1.6;
 }
 
 .company-page .submit-btn {
-    width: 100%;
-    padding: 14px;
-    background-color: transparent;
-    color: var(--accent-gold);
-    border: 1px solid var(--accent-gold);
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 2px;
-    text-transform: uppercase;
+  width: 100%;
+  padding: 14px;
+  background-color: transparent;
+  color: var(--accent-gold);
+  border: 1px solid var(--accent-gold);
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  text-transform: uppercase;
 }
 
 .company-page .submit-btn:hover {
-    background-color: var(--accent-gold);
-    color: var(--text-primary);
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  background-color: var(--accent-gold);
+  color: var(--text-primary);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.company-page .values-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+}
+
+.company-page .values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.company-page .value-card {
+  padding: 40px 30px;
+  background: #fafaf5;
+  border: 1px solid #e8e4d4;
+  border-top: 3px solid gold;
+  transition: transform 0.3s;
+}
+
+.company-page .value-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.company-page .value-card h3 {
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+.company-page .value-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: #475569;
+}
+
+.company-page .compliance-section {
+  background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.company-page .compliance-section h2 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #fff;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+.company-page .compliance-badges {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.company-page .compliance-badge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.company-page .compliance-badge .badge-icon {
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.company-page .compliance-badge .badge-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.company-page .compliance-badge .badge-text {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: gold;
+}
+
+.company-page .compliance-badge .badge-detail {
+  font-size: 0.8rem;
+  color: #888;
+  max-width: 200px;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.company-page .cta-section {
+  background: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.company-page .cta-section h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+.company-page .cta-section p {
+  font-size: 1.05rem;
+  color: #475569;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.company-page .cta-btn-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.company-page .cta-btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 40px;
+  background: gold;
+  color: #0a0a0a;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.35s;
+  border: none;
+  cursor: pointer;
+}
+
+.company-page .cta-btn-gold:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(255, 215, 0, 0.4);
+  background: #ffe44d;
+}
+
+.company-page .cta-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 40px;
+  background: transparent;
+  color: gold;
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.35s;
+  border: 1px solid gold;
+  cursor: pointer;
+}
+
+.company-page .cta-btn-outline:hover {
+  background: rgba(255, 215, 0, 0.08);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 768px) {
-    .company-page .content-container {
-        flex-direction: column;
-        gap: 50px;
-        padding: 60px 20px;
-    }
+  .company-page .content-container {
+    flex-direction: column;
+    gap: 50px;
+    padding: 60px 20px;
+  }
 
-    .company-page .company-hero h1 {
-        font-size: 2.5rem;
-        padding-left: 20px;
-    }
+  .company-page .company-hero h1 {
+    font-size: 2.5rem;
+    padding-left: 20px;
+  }
 
-    .company-page .company-hero {
-        padding-left: 0;
-        justify-content: center;
-    }
+  .company-page .company-hero {
+    padding-left: 0;
+    justify-content: center;
+  }
 
-    .company-page .text-content {
-        margin-top: 0;
-    }
+  .company-page .text-content {
+    margin-top: 0;
+  }
+
+  .company-page .stats-bar {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  .company-page .values-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .company-page .compliance-badges {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .company-page .cta-btn-row {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .company-page .cta-btn-gold,
+  .company-page .cta-btn-outline {
+    width: 100%;
+  }
 }

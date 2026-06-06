@@ -57,6 +57,39 @@
     to { opacity: 1; transform: translateY(0); }
 }
 
+.career-page .career-why-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    padding: 40px 20px;
+    background: #0a0a0a;
+    border-bottom: 3px solid var(--accent-gold, #ffd700);
+}
+
+.career-page .why-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.career-page .why-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent-gold, #ffd700);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.career-page .why-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #888;
+    margin-top: 8px;
+}
+
 .career-page .content-container {
     max-width: 900px;
     margin: 0 auto;
@@ -216,6 +249,7 @@
     -webkit-appearance: none;
     -moz-appearance: none;
     cursor: pointer;
+    transition: all 0.3s ease;
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
     background-repeat: no-repeat;
     background-position: right 16px center;
@@ -231,6 +265,7 @@
 .career-page .form-group select:focus {
     border-color: var(--accent-gold, #ffd700);
     background-color: rgba(255, 215, 0, 0.03);
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.08);
     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffd700' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
 }
 
@@ -252,10 +287,71 @@
 .career-page .form-group textarea:focus {
     border-color: var(--accent-gold, #ffd700);
     background: rgba(255, 215, 0, 0.03);
+    box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.08);
+}
+
+.career-page .form-group input::placeholder,
+.career-page .form-group textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+    letter-spacing: 0.5px;
 }
 
 .career-page .full-width-input {
     margin-bottom: 40px;
+}
+
+.career-page .file-upload-zone {
+    padding: 15px;
+    border: 1px dashed rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.career-page .file-upload-zone input[type="file"] {
+    border: none;
+    padding: 10px 0;
+}
+
+.career-page .career-success-state {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.career-page .career-success-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 24px;
+}
+
+.career-page .career-success-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.career-page .career-success-title {
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #10b981;
+    margin-bottom: 16px;
+}
+
+.career-page .career-success-text {
+    font-size: 1rem;
+    color: #a0a0a0;
+    line-height: 1.7;
+}
+
+.career-page .career-error-state {
+    color: #ef4444;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 15px;
+    padding: 12px 16px;
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    border-radius: 2px;
+    text-align: center;
 }
 
 .career-page .submit-btn-gold {
@@ -278,6 +374,11 @@
     box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
 }
 
+.career-page .submit-btn-gold:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
 @media (max-width: 768px) {
     .career-page .career-hero {
         height: 300px;
@@ -292,6 +393,12 @@
 
     .career-page .career-hero h1::before {
         width: 4px;
+    }
+
+    .career-page .career-why-strip {
+        flex-wrap: wrap;
+        gap: 30px;
+        padding: 30px 20px;
     }
 
     .career-page .career-details-grid,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEOHead from '../../../../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import '../../../SharedServiceLayout.css';
 
@@ -9,20 +9,26 @@ import tacticalImg from "../../../../../../assets/images/NavbarServices/bouncer.
 const Bouncer = () => {
   return (
     <div className="service-page full-width">
-      <Helmet>
-        <title>Bouncer & Crowd Control Services Delhi | TMS Security</title>
-        <meta name="description" content="TMS Security provides elite bouncers and crowd control specialists for premium venues, corporate events and high-profile gatherings across Delhi NCR." />
-        <link rel="canonical" href="https://tmssecurity.in/bouncer" />
-      </Helmet>
+      <SEOHead
+        title="Professional Bouncer Services in Delhi NCR | Event Security | TMS Security"
+        description="Hire elite bouncers and crowd control specialists for nightclubs, weddings, corporate events & VIP gatherings in Delhi NCR. PSARA licensed, ISO 9001:2015 certified — TMS Security."
+        canonical="https://tmssecurity.in/bouncer"
+      />
 
       <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
         <div className="overlay"></div>
-        <h1>TACTICAL CROWD CONTROL</h1>
+        <h1>BOUNCER</h1>
       </div>
 
       <div className="content-container">
         <div className="service-content-main">
-          <img src={tacticalImg} alt="Elite Event Security Personnel" className="service-featured-image" />
+          <img
+            src={tacticalImg}
+            alt="Elite Event Security Personnel"
+            className="service-featured-image"
+            fetchPriority="high"
+            loading="eager"
+          />
 
           <div className="service-text-wrap">
             <h2 className="section-title text-theme-dark">ELITE BOUNCER & ACCESS CONTROL SERVICES</h2>
@@ -67,22 +73,43 @@ const Bouncer = () => {
                 <li>Uncompromising adherence to client confidentiality and discretion.</li>
               </ul>
             </div>
+
+            <div className="trust-badge-strip">
+              <div className="trust-badge">
+                <span className="trust-badge__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </span>
+                <span className="trust-badge__label">PSARA Licensed</span>
+              </div>
+              <div className="trust-badge">
+                <span className="trust-badge__icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="4" width="18" height="16" rx="2" />
+                    <path d="M7 8h10" />
+                    <path d="M7 12h10" />
+                    <path d="M7 16h6" />
+                  </svg>
+                </span>
+                <span className="trust-badge__label">ISO 9001:2015 Certified</span>
+              </div>
+            </div>
+
+            <div className="service-cta-banner">
+              <h2>Secure Your Venue With Elite Bouncer Protection</h2>
+              <p>Deploy industry-leading crowd control specialists trained in threat assessment, conflict de-escalation, and VIP protection.</p>
+              <div className="cta-btn-group">
+                <Link to="/contact" className="cta-btn cta-btn--primary">GET A FREE QUOTE</Link>
+                <a href="tel:+919717763351" className="cta-btn cta-btn--secondary">CALL NOW: +91-971-776-3351</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       <section className="service-action-section">
         <div className="action-container">
-          <div className="contact-full-box">
-            <h2 className="text-theme-dark">SECURE YOUR VENUE</h2>
-            <p>Deploy TMS tactical bouncers and crowd control specialists for your next high-profile requirement.</p>
-            <div style={{ marginTop: '40px' }}>
-              <Link to="/contact" className="submit-btn-gold" style={{ display: 'inline-block', textAlign: 'center', textDecoration: 'none' }}>
-                REQUEST A DEPLOYMENT CONSULTATION
-              </Link>
-            </div>
-          </div>
-
           <div className="service-nav-footer">
             <h4>EXPLORE MANNED GUARDING SOLUTIONS</h4>
             <div className="nav-links">

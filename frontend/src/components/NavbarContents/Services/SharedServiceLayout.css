@@ -231,3 +231,174 @@
         margin: 15px 0;
     }
 }
+
+/* --- TRUST BADGE STRIP --- */
+
+.service-page .trust-badge-strip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    margin: 60px 0 0;
+    padding: 28px 24px;
+    background: linear-gradient(135deg, #fafaf5 0%, #f5f5eb 100%);
+    border: 1px solid #e8e4d4;
+    border-left: 4px solid var(--accent-gold, #ffd700);
+}
+
+.service-page .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.service-page .trust-badge__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.service-page .trust-badge__icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+.service-page .trust-badge__label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    line-height: 1.3;
+}
+
+/* --- CTA BANNER --- */
+
+.service-page .service-cta-banner {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    padding: 80px 20px;
+    text-align: center;
+    border-top: 3px solid var(--accent-gold, #ffd700);
+}
+
+.service-page .service-cta-banner .cta-inner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.service-page .service-cta-banner h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #ffffff;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+}
+
+.service-page .service-cta-banner p {
+    font-size: 1.1rem;
+    color: #a0a0a0;
+    line-height: 1.7;
+    margin-bottom: 40px;
+}
+
+.service-page .cta-btn-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.service-page .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 36px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: none;
+    min-width: 220px;
+}
+
+.service-page .cta-btn--primary {
+    background: var(--accent-gold, #ffd700);
+    color: #0a0a0a;
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.25);
+}
+
+.service-page .cta-btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(255, 215, 0, 0.4);
+    background: #ffe44d;
+}
+
+.service-page .cta-btn--secondary {
+    background: transparent;
+    color: var(--accent-gold, #ffd700);
+    border: 1px solid var(--accent-gold, #ffd700);
+}
+
+.service-page .cta-btn--secondary:hover {
+    background: rgba(255, 215, 0, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(255, 215, 0, 0.15);
+}
+
+/* --- CTA BANNER RESPONSIVE --- */
+
+@media (max-width: 768px) {
+    .service-page .trust-badge-strip {
+        flex-direction: column;
+        gap: 20px;
+        padding: 24px 16px;
+    }
+
+    .service-page .service-cta-banner {
+        padding: 60px 16px;
+    }
+
+    .service-page .service-cta-banner h2 {
+        font-size: 1.5rem;
+    }
+
+    .service-page .cta-btn-group {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .service-page .cta-btn {
+        width: 100%;
+        min-width: unset;
+        padding: 16px 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .service-page .service-hero h1 {
+        font-size: 2rem;
+        letter-spacing: 1px;
+        padding-left: 16px;
+    }
+
+    .service-page .content-container {
+        padding: 50px 16px;
+    }
+
+    .service-page .section-title {
+        font-size: 1.6rem;
+    }
+
+    .service-page .elite-quote {
+        padding: 20px 24px;
+        font-size: 1.15rem;
+    }
+}

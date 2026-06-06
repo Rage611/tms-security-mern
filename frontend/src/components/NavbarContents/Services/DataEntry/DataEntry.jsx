@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEOHead from '../../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import '../SharedServiceLayout.css';
 
@@ -9,19 +9,19 @@ import featuredImage from '../../../../assets/images/NavbarServices/DEO.webp';
 const DataEntry = () => {
   return (
     <div className="service-page full-width">
-      <Helmet>
-        <title>Data Entry Operator Services Delhi | TMS Security</title>
-        <meta name="description" content="TMS Security provides vetted data entry operators and back-office support staff for corporate enterprises across Delhi NCR." />
-        <link rel="canonical" href="https://tmssecurity.in/data-entry-operators" />
-      </Helmet>
+      <SEOHead
+        title="Data Entry Operator Services Delhi NCR | Back-Office Staffing | TMS Security"
+        description="Hire vetted data entry operators and back-office staff for corporate enterprises in Delhi NCR. Verified personnel with strict confidentiality protocols — TMS Security."
+        canonical="https://tmssecurity.in/data-entry-operators"
+      />
 
-      <section className="service-hero" style={{ backgroundImage: `url(${heroImage})` }}>
+      <div className="service-hero" style={{ backgroundImage: `url(${heroImage})` }}>
         <div className="overlay"></div>
-        <h1>DATA ENTRY OPERATOR</h1>
-      </section>
+        <h1>DATA ENTRY OPERATORS</h1>
+      </div>
 
       <div className="content-container">
-        <img src={featuredImage} alt="TMS Data Entry Specialist" className="service-featured-image" />
+        <img src={featuredImage} alt="TMS Data Entry Specialist" className="service-featured-image" fetchPriority="high" loading="eager" />
 
         <h2 className="section-title text-theme-dark">Expanded Administrative Support</h2>
         <p className="service-body-text">
@@ -68,12 +68,33 @@ const DataEntry = () => {
             environments, providing seamless integration into your existing workflows:
           </p>
           <ul className="tactical-list">
-            <li>CRM & Database Updating and Maintenance</li>
+            <li>CRM &amp; Database Updating and Maintenance</li>
             <li>Inventory, Invoice, and Receipt Digitization</li>
             <li>Offline to Online Data Migration Projects</li>
             <li>Document Formatting, Processing, and Filing</li>
             <li>General Administrative Back-Office Support</li>
           </ul>
+        </div>
+      </div>
+
+      <div className="trust-badge-strip">
+        <div className="trust-badge">
+          <span className="trust-badge__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7l-9-5z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+          </span>
+          <span className="trust-badge__label">ISO 9001:2015 Certified</span>
+        </div>
+      </div>
+
+      <div className="service-cta-banner">
+        <h2>Need Reliable Back-Office Staffing Solutions?</h2>
+        <p>Get vetted data entry operators deployed to your facility within 48 hours.</p>
+        <div className="service-cta-banner__actions">
+          <Link to="/contact" className="cta-btn cta-btn--primary">GET A FREE QUOTE</Link>
+          <a href="tel:+919717763351" className="cta-btn cta-btn--secondary">CALL NOW: +91-971-776-3351</a>
         </div>
       </div>
 

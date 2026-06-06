@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEOHead from '../../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import '../SharedServiceLayout.css';
 
@@ -9,20 +9,26 @@ import houseImg from '../../../../assets/images/NavbarServices/Housekeeping.webp
 const Housekeeping = () => {
   return (
     <div className="service-page full-width">
-      <Helmet>
-        <title>Professional Housekeeping Services Delhi | TMS Security</title>
-        <meta name="description" content="TMS Security provides military-grade housekeeping and environmental management for corporate offices and elite commercial spaces across India." />
-        <link rel="canonical" href="https://tmssecurity.in/housekeeping" />
-      </Helmet>
+      <SEOHead
+        title="Professional Housekeeping Services Delhi NCR | Commercial Cleaning | TMS Security"
+        description="Hire trained housekeeping staff for corporate offices, hospitals, malls & commercial buildings in Delhi NCR. ISO 9001:2015 certified cleaning operations — TMS Security."
+        canonical="https://tmssecurity.in/housekeeping"
+      />
 
       <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
         <div className="overlay"></div>
-        <h1>HOUSEKEEPING SERVICES</h1>
+        <h1>HOUSE KEEPING</h1>
       </div>
 
       <div className="content-container">
         <div className="service-content-main">
-          <img src={houseImg} alt="Professional Housekeeping Operations" className="service-featured-image" />
+          <img
+            src={houseImg}
+            alt="Professional Housekeeping Operations"
+            className="service-featured-image"
+            fetchPriority="high"
+            loading="eager"
+          />
 
           <div className="service-text-wrap">
             <h2 className="section-title text-theme-dark">PROFESSIONAL HOUSEKEEPING</h2>
@@ -59,6 +65,27 @@ const Housekeeping = () => {
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="trust-badge-strip">
+        <div className="trust-badge">
+          <span className="trust-badge__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2L3 7v5c0 5.25 3.75 10.74 9 12 5.25-1.26 9-6.75 9-12V7l-9-5z" />
+              <path d="M9 12l2 2 4-4" />
+            </svg>
+          </span>
+          <span className="trust-badge__label">ISO 9001:2015 Certified</span>
+        </div>
+      </div>
+
+      <div className="service-cta-banner">
+        <strong>Ready to Transform Your Facility's Cleanliness Standards?</strong>
+        <p>Get a customized housekeeping plan tailored to your commercial space — backed by ISO-certified operations.</p>
+        <div className="service-cta-banner__actions">
+          <Link to="/contact" className="cta-btn cta-btn--primary">GET A FREE QUOTE</Link>
+          <a href="tel:+919717763351" className="cta-btn cta-btn--secondary">CALL NOW: +91-971-776-3351</a>
         </div>
       </div>
 

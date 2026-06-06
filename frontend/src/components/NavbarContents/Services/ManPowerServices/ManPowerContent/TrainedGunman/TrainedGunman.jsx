@@ -1,5 +1,5 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
+import SEOHead from '../../../../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import '../../../SharedServiceLayout.css';
 
@@ -9,20 +9,26 @@ import armedImg from '../../../../../../assets/images/NavbarServices/gunman.webp
 const TrainedGunman = () => {
   return (
     <div className="service-page full-width">
-      <Helmet>
-        <title>Licensed Armed Security Personnel Delhi | TMS Security</title>
-        <meta name="description" content="TMS Security deploys fully licensed armed personnel for banks, ATMs, cash logistics and high-risk installations across Delhi NCR." />
-        <link rel="canonical" href="https://tmssecurity.in/trained-gunman" />
-      </Helmet>
+      <SEOHead
+        title="Licensed Trained Gunman Services Delhi NCR | Armed Security | TMS Security"
+        description="Deploy fully licensed armed security guards for banks, ATMs, cash-in-transit & high-risk facilities across Delhi NCR. PSARA licensed, ex-servicemen — TMS Security."
+        canonical="https://tmssecurity.in/trained-gunman"
+      />
 
       <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
         <div className="overlay"></div>
-        <h1>ARMED TACTICAL RESPONSE</h1>
+        <h1>TRAINED GUNMAN</h1>
       </div>
 
       <div className="content-container">
         <div className="service-content-main">
-          <img src={armedImg} alt="Licensed Armed Security Personnel" className="service-featured-image" />
+          <img
+            src={armedImg}
+            alt="Licensed Armed Security Personnel"
+            className="service-featured-image"
+            fetchPriority="high"
+            loading="eager"
+          />
 
           <div className="service-text-wrap">
             <h2 className="section-title text-theme-dark">LICENSED ARMED SECURITY PERSONNEL</h2>
@@ -68,6 +74,32 @@ const TrainedGunman = () => {
               </ul>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div className="trust-badge-strip">
+        <div className="trust-badge">
+          <svg className="trust-badge__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            <path d="M9 12l2 2 4-4" />
+          </svg>
+          <span className="trust-badge__label">PSARA Licensed</span>
+        </div>
+        <div className="trust-badge">
+          <svg className="trust-badge__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <circle cx="12" cy="12" r="10" />
+            <path d="M9 12l2 2 4-4" />
+          </svg>
+          <span className="trust-badge__label">ISO 9001:2015</span>
+        </div>
+      </div>
+
+      <div className="service-cta-banner">
+        <h2>Deploy Licensed Armed Security — Across Delhi NCR</h2>
+        <p>Get PSARA-compliant trained gunman services tailored for your facility. Rapid deployment, ex-servicemen operators, and 24/7 armed coverage.</p>
+        <div className="service-cta-banner__actions">
+          <Link to="/contact" className="cta-btn cta-btn--primary">GET A FREE QUOTE</Link>
+          <a href="tel:+919717763351" className="cta-btn cta-btn--secondary">CALL NOW: +91-971-776-3351</a>
         </div>
       </div>
 

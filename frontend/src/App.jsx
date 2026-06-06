@@ -1,20 +1,19 @@
 import React, { lazy, Suspense } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import SEOHead from './components/SEOHead/SEOHead';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from '@vercel/speed-insights/react';
-/* --- Always loaded --- */
 import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import ScrollToTop from './components/ScrollToTop';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
+import FloatingWhatsApp from './components/FloatingWhatsApp/FloatingWhatsApp';
 import Hero from './components/Hero/Hero';
 import About from './components/About/About';
 import Services from './components/Services/Services';
 import Network from './components/Network/Network';
 import Clients from './components/Clients/Clients';
 
-/* --- Lazy loaded page routes --- */
 const TheCompany = lazy(() => import('./components/NavbarContents/AboutTMS/TheCompany'));
 const TheLeadership = lazy(() => import('./components/NavbarContents/AboutTMS/TheLeadership'));
 const FacilityManagement = lazy(() => import('./components/NavbarContents/Services/FacilityManagement/FacilityManagement'));
@@ -28,13 +27,35 @@ const TrainedGunman = lazy(() => import('./components/NavbarContents/Services/Ma
 const SecurityGuards = lazy(() => import('./components/NavbarContents/Services/ManPowerServices/ManPowerContent/SecurityGuard/SecurityGuard'));
 const NotFound = lazy(() => import('./components/NotFound/NotFound'));
 
+const RouteLoader = () => (
+  <div style={{
+    minHeight: '100vh',
+    backgroundColor: '#050505',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    gap: '24px'
+  }}>
+    <div style={{
+      width: '40px',
+      height: '40px',
+      border: '3px solid rgba(255, 215, 0, 0.15)',
+      borderTopColor: '#ffd700',
+      borderRadius: '50%',
+      animation: 'routeSpin 0.8s linear infinite'
+    }} />
+    <style>{`@keyframes routeSpin { to { transform: rotate(360deg); } }`}</style>
+  </div>
+);
+
 const Home = () => (
   <>
-    <Helmet>
-      <title>TMS Security Group | Best Security Services in India & Delhi NCR</title>
-      <meta name="description" content="Looking for the best security services? TMS Group provides elite industrial guarding, trained gunmen, and facility management solutions across India." />
-      <link rel="canonical" href="https://tmssecurity.in/" />
-    </Helmet>
+    <SEOHead
+      title="TMS Security Group | PSARA Licensed Security Services in India & Delhi NCR"
+      description="India's premier PSARA-licensed corporate security agency. 500+ guards deployed, ISO 9001:2015 certified. Security guards, facility management, bouncers & armed personnel across Delhi NCR."
+      canonical="https://tmssecurity.in/"
+    />
     <Hero />
     <About />
     <Services />
@@ -51,7 +72,7 @@ function App() {
 
       <main>
         <ErrorBoundary>
-          <Suspense fallback={<div style={{ minHeight: '100vh', backgroundColor: '#050505' }} />}>
+          <Suspense fallback={<RouteLoader />}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/company" element={<TheCompany />} />
@@ -78,6 +99,7 @@ function App() {
       </main>
 
       <Footer />
+      <FloatingWhatsApp />
       <Analytics />
       <SpeedInsights />
     </div>
