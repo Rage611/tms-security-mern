@@ -124,7 +124,7 @@ const Network = () => {
         </div>
 
         <div className="map-container">
-          <img src={tmsMap} alt="India map" className="map-image" />
+          <img src={tmsMap} alt="TMS Security India operational network map" className="map-image" width="900" height="900" loading="lazy" decoding="async" />
           <NetworkArcs />
           {activeBeacons.map((b) => <ActiveBeacon key={b.id} {...b} inView={inView} />)}
           {expansionBeacons.map((b) => <ExpansionBeacon key={b.id} {...b} inView={inView} />)}

@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-top-bar">
         <div className="top-bar-content">
-          <img src={logo} alt="TMS Logo" className="footer-logo-small" />
+          <img src={logo} alt="TMS Security Logo" className="footer-logo-small" width="70" height="70" loading="lazy" decoding="async" />
           <p>A Market Leader in Security, Facility Management and Manpower Solutions</p>
           <HashLink smooth to="/contact#contact-section" className="get-in-touch-btn">
             GET IN TOUCH
