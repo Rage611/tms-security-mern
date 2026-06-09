@@ -138,6 +138,7 @@ function App() {
                     city="Faridabad"
                     state="Haryana"
                     canonicalSlug="faridabad"
+                    heroImage="/hero-faridabad.webp"
                     localKeywords={['security agency Faridabad', 'industrial security Faridabad', 'security guards Ballabhgarh']}
                   />
                 }
@@ -149,6 +150,7 @@ function App() {
                     city="Greater Noida"
                     state="Uttar Pradesh"
                     canonicalSlug="greater-noida"
+                    heroImage="/hero-greater-noida.webp"
                     localKeywords={['security agency Greater Noida', 'corporate security Noida Expressway', 'security guards Knowledge Park']}
                   />
                 }
@@ -160,6 +162,7 @@ function App() {
                     city="Ghaziabad"
                     state="Uttar Pradesh"
                     canonicalSlug="ghaziabad"
+                    heroImage="/hero-ghaziabad.webp"
                     localKeywords={['security agency Ghaziabad', 'warehouse security Ghaziabad', 'security guards Indirapuram']}
                   />
                 }
