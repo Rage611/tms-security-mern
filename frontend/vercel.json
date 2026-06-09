@@ -15,10 +15,6 @@
   ],
   "rewrites": [
     {
-      "source": "/security-services/:city",
-      "destination": "/index.html"
-    },
-    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
