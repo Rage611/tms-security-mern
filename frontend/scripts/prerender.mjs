@@ -37,6 +37,9 @@ const ROUTES = [
   '/trained-gunman',
   '/security-guards',
   '/data-entry-operators',
+  '/security-services/delhi',
+  '/security-services/noida',
+  '/security-services/gurgaon',
 ];
 
 /** Domains to block during capture (analytics, CAPTCHA, etc.) */
