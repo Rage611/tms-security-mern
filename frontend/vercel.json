@@ -3,26 +3,31 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/:path(.*)",
+      "source": "/(.*)",
       "has": [
         { 
           "type": "host", 
           "value": "www.tmssecurity.in" 
         }
       ],
-      "destination": "https://tmssecurity.in/:path",
+      "destination": "https://tmssecurity.in/$1",
       "permanent": true
     },
     { "source": "/Services.aspx", "destination": "/", "permanent": true },
+    { "source": "/services.aspx", "destination": "/", "permanent": true },
     { "source": "/ContactUs.aspx", "destination": "/contact", "permanent": true },
+    { "source": "/contactus.aspx", "destination": "/contact", "permanent": true },
     { "source": "/Clients.aspx", "destination": "/", "permanent": true },
+    { "source": "/clients.aspx", "destination": "/", "permanent": true },
     { "source": "/index.aspx", "destination": "/", "permanent": true },
+    { "source": "/AboutUs.aspx", "destination": "/company", "permanent": true },
     { "source": "/aboutus.aspx", "destination": "/company", "permanent": true },
-    { "source": "/LabourCompliance.aspx", "destination": "/compliance", "permanent": true }
+    { "source": "/LabourCompliance.aspx", "destination": "/compliance", "permanent": true },
+    { "source": "/labourcompliance.aspx", "destination": "/compliance", "permanent": true }
   ],
   "rewrites": [
     {
-      "source": "/:path*",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ],
