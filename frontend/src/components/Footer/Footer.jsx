@@ -48,6 +48,17 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-column">
+          <h3>SERVICE AREAS</h3>
+          <ul>
+            <li><Link to="/security-services/delhi">Delhi</Link></li>
+            <li><Link to="/security-services/noida">Noida</Link></li>
+            <li><Link to="/security-services/gurgaon">Gurgaon</Link></li>
+            <li><Link to="/security-services/faridabad">Faridabad</Link></li>
+            <li><Link to="/security-services/greater-noida">Greater Noida</Link></li>
+            <li><Link to="/security-services/ghaziabad">Ghaziabad</Link></li>
+          </ul>
+        </div>
+        <div className="footer-column">
           <h3>CORPORATE &amp; LEGAL</h3>
           <ul>
             <li><Link to="/compliance">Compliance &amp; Licenses</Link></li>

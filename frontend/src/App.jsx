@@ -28,6 +28,7 @@ const SecurityGuards = lazy(() => import('./components/NavbarContents/Services/M
 const Compliance = lazy(() => import('./components/NavbarContents/AboutTMS/Compliance/Compliance'));
 const NotFound = lazy(() => import('./components/NotFound/NotFound'));
 const LocationPage = lazy(() => import('./components/LocationPage/LocationPage'));
+const LocationsSection = lazy(() => import('./components/LocationsSection/LocationsSection'));
 
 const RouteLoader = () => (
   <div style={{
@@ -62,6 +63,9 @@ const Home = () => (
     <About />
     <Services />
     <Network />
+    <Suspense fallback={null}>
+      <LocationsSection />
+    </Suspense>
     <Clients />
   </>
 );
@@ -97,6 +101,7 @@ function App() {
                     city="Delhi"
                     state="Delhi NCR"
                     canonicalSlug="delhi"
+                    heroImage="/hero-delhi.webp"
                     localKeywords={['security agency Delhi', 'corporate security New Delhi', 'security guards Delhi NCR']}
                     mapEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d875.5182412238406!2d77.06984496967594!3d28.62757519847924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04d9ed2c7e95%3A0x327bdb98043e6095!2sTMS%20Security%20Services!5e0!3m2!1sen!2sus!4v1774792028883!5m2!1sen!2sus"
                   />
@@ -109,6 +114,7 @@ function App() {
                     city="Noida"
                     state="Uttar Pradesh"
                     canonicalSlug="noida"
+                    heroImage="/hero-noida.webp"
                     localKeywords={['security agency Noida', 'corporate security Noida Sector 62', 'security guards Greater Noida']}
                   />
                 }
@@ -120,7 +126,41 @@ function App() {
                     city="Gurgaon"
                     state="Haryana"
                     canonicalSlug="gurgaon"
+                    heroImage="/hero-gurgaon.webp"
                     localKeywords={['security agency Gurgaon', 'corporate security Gurugram', 'security guards Cyber City']}
+                  />
+                }
+              />
+              <Route
+                path="/security-services/faridabad"
+                element={
+                  <LocationPage
+                    city="Faridabad"
+                    state="Haryana"
+                    canonicalSlug="faridabad"
+                    localKeywords={['security agency Faridabad', 'industrial security Faridabad', 'security guards Ballabhgarh']}
+                  />
+                }
+              />
+              <Route
+                path="/security-services/greater-noida"
+                element={
+                  <LocationPage
+                    city="Greater Noida"
+                    state="Uttar Pradesh"
+                    canonicalSlug="greater-noida"
+                    localKeywords={['security agency Greater Noida', 'corporate security Noida Expressway', 'security guards Knowledge Park']}
+                  />
+                }
+              />
+              <Route
+                path="/security-services/ghaziabad"
+                element={
+                  <LocationPage
+                    city="Ghaziabad"
+                    state="Uttar Pradesh"
+                    canonicalSlug="ghaziabad"
+                    localKeywords={['security agency Ghaziabad', 'warehouse security Ghaziabad', 'security guards Indirapuram']}
                   />
                 }
               />
