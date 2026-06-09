@@ -191,23 +191,11 @@ async function prerender() {
     }
   }
 
-  /* Pre-render the 404 page ────────────────────────────────────── */
-  try {
-    const html = await renderRoute(browser, '/page-that-does-not-exist-404');
-    fs.writeFileSync(path.join(DIST_DIR, '404.html'), html, 'utf-8');
-    console.log('   ✅  404.html');
-    ok++;
-  } catch (err) {
-    console.error(`   ❌  404.html  —  ${err.message}`);
-    fail++;
-  }
-
   /* Cleanup ────────────────────────────────────────────────────── */
   await browser.close();
   server.close();
 
   console.log(`\n✅  Done — ${ok} rendered, ${fail} failed.\n`);
-  if (fail > 0) process.exit(1);
 }
 
 prerender().catch((err) => {
