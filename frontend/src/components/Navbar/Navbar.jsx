@@ -43,7 +43,7 @@ const Navbar = () => {
       <div className="nav-container">
         <div className="logo-container">
           <Link to="/" onClick={closeMenu} className="logo-link">
-            <img src={logo} alt="TMS Logo" className="logo-img" />
+            <img src={logo} alt="TMS Security Logo" className="logo-img" width="80" height="80" />
             <div className="logo-text">
               <span className="brand-bold">TMS</span>
               <span className="brand-light">Security</span>

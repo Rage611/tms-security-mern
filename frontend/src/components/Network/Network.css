@@ -168,17 +168,18 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
+  transform: translate(-50%, -50%) scale(1);
   border: 1.5px solid #d4af37;
   opacity: 0;
   animation: ringPulse 3s cubic-bezier(0.2, 0.6, 0.4, 1) infinite;
   animation-delay: var(--ring-delay, 0s);
+  will-change: transform, opacity;
   z-index: 1;
 }
 
 @keyframes ringPulse {
-  0%   { transform: translate(-50%, -50%) scale(0); opacity: 0.9; border-width: 2px; }
-  100% { transform: translate(-50%, -50%) scale(5); opacity: 0;   border-width: 0px; }
+  0%   { transform: translate(-50%, -50%) scale(1);   opacity: 0.9; }
+  100% { transform: translate(-50%, -50%) scale(4.5); opacity: 0;   }
 }
 
 .network-section .beacon--active.is-hq .beacon__core,
