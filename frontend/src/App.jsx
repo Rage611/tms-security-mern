@@ -25,6 +25,7 @@ const Bouncer = lazy(() => import('./components/NavbarContents/Services/ManPower
 const PSO = lazy(() => import('./components/NavbarContents/Services/ManPowerServices/ManPowerContent/PSO/PSO'));
 const TrainedGunman = lazy(() => import('./components/NavbarContents/Services/ManPowerServices/ManPowerContent/TrainedGunman/TrainedGunman'));
 const SecurityGuards = lazy(() => import('./components/NavbarContents/Services/ManPowerServices/ManPowerContent/SecurityGuard/SecurityGuard'));
+const Compliance = lazy(() => import('./components/NavbarContents/AboutTMS/Compliance/Compliance'));
 const NotFound = lazy(() => import('./components/NotFound/NotFound'));
 
 const RouteLoader = () => (
@@ -86,6 +87,7 @@ function App() {
               <Route path="/pso" element={<PSO />} />
               <Route path="/trained-gunman" element={<TrainedGunman />} />
               <Route path="/security-guards" element={<SecurityGuards />} />
+              <Route path="/compliance" element={<Compliance />} />
 
               <Route path="/Services.aspx" element={<Navigate to="/" replace />} />
               <Route path="/ContactUs.aspx" element={<Navigate to="/contact" replace />} />
