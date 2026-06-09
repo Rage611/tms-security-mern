@@ -40,6 +40,9 @@ const ROUTES = [
   '/security-services/delhi',
   '/security-services/noida',
   '/security-services/gurgaon',
+  '/security-services/faridabad',
+  '/security-services/greater-noida',
+  '/security-services/ghaziabad',
 ];
 
 /** Domains to block during capture (analytics, CAPTCHA, etc.) */
