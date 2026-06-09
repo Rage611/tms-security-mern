@@ -48,6 +48,15 @@ const Footer = () => {
           </ul>
         </div>
         <div className="footer-column">
+          <h3>CORPORATE &amp; LEGAL</h3>
+          <ul>
+            <li><Link to="/compliance">Compliance &amp; Licenses</Link></li>
+            <li><Link to="/company">The Company</Link></li>
+            <li><Link to="/leadership">Leadership</Link></li>
+            <li><Link to="/career">Careers</Link></li>
+          </ul>
+        </div>
+        <div className="footer-column">
           <h3>CONTACT DETAILS</h3>
           <p><strong>Address:</strong> 526, Ground Floor, Opp Metro Pillar No. 623, Site-1, Vikas Puri, New Delhi, 110018</p>
           <p><strong>Phone:</strong> +91-9717763351</p>

@@ -65,6 +65,7 @@ const Navbar = () => {
             <ul className={`dropdown-menu ${mobileActive === 'about' ? 'mobile-open' : ''}`}>
               <li><Link to="/company" className="dropdown-link" onClick={closeMenu}>THE COMPANY</Link></li>
               <li><Link to="/leadership" className="dropdown-link" onClick={closeMenu}>THE LEADERSHIP</Link></li>
+              <li><Link to="/compliance" className="dropdown-link" onClick={closeMenu}>COMPLIANCE &amp; LICENSES</Link></li>
             </ul>
           </li>
 
