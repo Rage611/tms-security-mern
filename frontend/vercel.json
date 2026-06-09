@@ -4,14 +4,21 @@
   "redirects": [
     {
       "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "www.tmssecurity.in" }],
+      "has": [
+        { 
+          "type": "host", 
+          "value": "www.tmssecurity.in" 
+        }
+      ],
       "destination": "https://tmssecurity.in/:path",
       "permanent": true
     },
-    { "source": "/Services.aspx",  "destination": "/", "permanent": true },
+    { "source": "/Services.aspx", "destination": "/", "permanent": true },
     { "source": "/ContactUs.aspx", "destination": "/contact", "permanent": true },
-    { "source": "/Clients.aspx",   "destination": "/", "permanent": true },
-    { "source": "/index.aspx",     "destination": "/", "permanent": true }
+    { "source": "/Clients.aspx", "destination": "/", "permanent": true },
+    { "source": "/index.aspx", "destination": "/", "permanent": true },
+    { "source": "/aboutus.aspx", "destination": "/company", "permanent": true },
+    { "source": "/LabourCompliance.aspx", "destination": "/compliance", "permanent": true }
   ],
   "rewrites": [
     {
@@ -60,12 +67,12 @@
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "X-Content-Type-Options",            "value": "nosniff" },
-        { "key": "X-Frame-Options",                   "value": "SAMEORIGIN" },
-        { "key": "X-XSS-Protection",                  "value": "1; mode=block" },
-        { "key": "Referrer-Policy",                   "value": "strict-origin-when-cross-origin" },
-        { "key": "Permissions-Policy",                "value": "camera=(), microphone=(), geolocation=(self)" },
-        { "key": "Strict-Transport-Security",         "value": "max-age=63072000; includeSubDomains; preload" }
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "X-XSS-Protection", "value": "1; mode=block" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=(self)" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" }
       ]
     }
   ]
