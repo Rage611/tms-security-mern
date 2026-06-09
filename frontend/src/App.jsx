@@ -27,6 +27,7 @@ const TrainedGunman = lazy(() => import('./components/NavbarContents/Services/Ma
 const SecurityGuards = lazy(() => import('./components/NavbarContents/Services/ManPowerServices/ManPowerContent/SecurityGuard/SecurityGuard'));
 const Compliance = lazy(() => import('./components/NavbarContents/AboutTMS/Compliance/Compliance'));
 const NotFound = lazy(() => import('./components/NotFound/NotFound'));
+const LocationPage = lazy(() => import('./components/LocationPage/LocationPage'));
 
 const RouteLoader = () => (
   <div style={{
@@ -88,6 +89,41 @@ function App() {
               <Route path="/trained-gunman" element={<TrainedGunman />} />
               <Route path="/security-guards" element={<SecurityGuards />} />
               <Route path="/compliance" element={<Compliance />} />
+
+              <Route
+                path="/security-services/delhi"
+                element={
+                  <LocationPage
+                    city="Delhi"
+                    state="Delhi NCR"
+                    canonicalSlug="delhi"
+                    localKeywords={['security agency Delhi', 'corporate security New Delhi', 'security guards Delhi NCR']}
+                    mapEmbedUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d875.5182412238406!2d77.06984496967594!3d28.62757519847924!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d04d9ed2c7e95%3A0x327bdb98043e6095!2sTMS%20Security%20Services!5e0!3m2!1sen!2sus!4v1774792028883!5m2!1sen!2sus"
+                  />
+                }
+              />
+              <Route
+                path="/security-services/noida"
+                element={
+                  <LocationPage
+                    city="Noida"
+                    state="Uttar Pradesh"
+                    canonicalSlug="noida"
+                    localKeywords={['security agency Noida', 'corporate security Noida Sector 62', 'security guards Greater Noida']}
+                  />
+                }
+              />
+              <Route
+                path="/security-services/gurgaon"
+                element={
+                  <LocationPage
+                    city="Gurgaon"
+                    state="Haryana"
+                    canonicalSlug="gurgaon"
+                    localKeywords={['security agency Gurgaon', 'corporate security Gurugram', 'security guards Cyber City']}
+                  />
+                }
+              />
 
               <Route path="/Services.aspx" element={<Navigate to="/" replace />} />
               <Route path="/ContactUs.aspx" element={<Navigate to="/contact" replace />} />
