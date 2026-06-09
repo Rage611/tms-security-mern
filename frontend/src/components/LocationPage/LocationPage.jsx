@@ -255,21 +255,12 @@ const LocationPage = ({
 
         <div className="lp-hero__content">
           <nav aria-label="Breadcrumb" className="lp-breadcrumb">
-            <ol itemScope itemType="https://schema.org/BreadcrumbList">
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <Link to="/" itemProp="item"><span itemProp="name">Home</span></Link>
-                <meta itemProp="position" content="1" />
-              </li>
+            <ol>
+              <li><Link to="/">Home</Link></li>
               <li aria-hidden="true">/</li>
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <span itemProp="name">Security Services</span>
-                <meta itemProp="position" content="2" />
-              </li>
+              <li>Security Services</li>
               <li aria-hidden="true">/</li>
-              <li itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
-                <span itemProp="name">{city}</span>
-                <meta itemProp="position" content="3" />
-              </li>
+              <li>{city}</li>
             </ol>
           </nav>
 
