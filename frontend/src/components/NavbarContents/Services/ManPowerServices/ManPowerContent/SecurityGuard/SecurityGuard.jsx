@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SEOHead from '../../../../../SEOHead/SEOHead';
 import '../../../SharedServiceLayout.css';
 
-import serviceBanner from '../../../../../../assets/images/Headingbg.webp';
+import PageHeader from '../../../../../PageHeader/PageHeader';
 import guardTeam from '../../../../../../assets/images/NavbarServices/securityguard.webp';
 
 const SecurityGuards = () => {
@@ -16,10 +16,7 @@ const SecurityGuards = () => {
         canonical="https://tmssecurity.in/security-guards"
       />
 
-      <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
-        <div className="overlay"></div>
-        <h1>SECURITY GUARDS</h1>
-      </div>
+      <PageHeader title="Security Guards" eyebrow="Manned Guarding" bgImage="/header-tactical.webp" />
 
       <div className="content-container">
         <div className="service-content-main">

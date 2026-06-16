@@ -3,7 +3,7 @@ import SEOHead from '../../../../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import '../../../SharedServiceLayout.css';
 
-import serviceBanner from "../../../../../../assets/images/Headingbg.webp";
+import PageHeader from '../../../../../PageHeader/PageHeader';
 import tacticalImg from "../../../../../../assets/images/NavbarServices/bouncer.webp";
 
 const Bouncer = () => {
@@ -15,10 +15,7 @@ const Bouncer = () => {
         canonical="https://tmssecurity.in/bouncer"
       />
 
-      <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
-        <div className="overlay"></div>
-        <h1>BOUNCER</h1>
-      </div>
+      <PageHeader title="Bouncer Services" eyebrow="Event Security" bgImage="/header-tactical.webp" />
 
       <div className="content-container">
         <div className="service-content-main">

@@ -3,7 +3,7 @@ import SEOHead from '../../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import '../SharedServiceLayout.css';
 
-import heroImage from '../../../../assets/images/Headingbg.webp';
+import PageHeader from '../../../PageHeader/PageHeader';
 import featuredImage from '../../../../assets/images/NavbarServices/DEO.webp';
 
 const DataEntry = () => {
@@ -15,10 +15,7 @@ const DataEntry = () => {
         canonical="https://tmssecurity.in/data-entry-operators"
       />
 
-      <div className="service-hero" style={{ backgroundImage: `url(${heroImage})` }}>
-        <div className="overlay"></div>
-        <h1>DATA ENTRY OPERATORS</h1>
-      </div>
+      <PageHeader title="Data Entry Operators" eyebrow="Back Office Support" bgImage="/header-facility.webp" />
 
       <div className="content-container">
         <img src={featuredImage} alt="TMS Data Entry Specialist" className="service-featured-image" fetchPriority="high" loading="eager" />

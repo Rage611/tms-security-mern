@@ -3,7 +3,7 @@ import SEOHead from '../../../../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import '../../../SharedServiceLayout.css';
 
-import serviceBanner from '../../../../../../assets/images/Headingbg.webp';
+import PageHeader from '../../../../../PageHeader/PageHeader';
 import psoImg from '../../../../../../assets/images/NavbarServices/pso.webp';
 
 const PSO = () => {
@@ -15,10 +15,7 @@ const PSO = () => {
         canonical="https://tmssecurity.in/pso"
       />
 
-      <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
-        <div className="overlay"></div>
-        <h1>PSO</h1>
-      </div>
+      <PageHeader title="Personal Security Officer" eyebrow="Close Protection" bgImage="/header-tactical.webp" />
 
       <div className="content-container">
         <div className="service-content-main">

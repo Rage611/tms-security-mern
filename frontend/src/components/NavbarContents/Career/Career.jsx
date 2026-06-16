@@ -5,7 +5,7 @@ import { track } from '@vercel/analytics';
 import emailjs from '@emailjs/browser';
 import './Career.css';
 
-import careerBanner from '../../../assets/images/Headingbg.webp';
+import PageHeader from '../../PageHeader/PageHeader';
 import guardTeam from '../../../assets/images/hero/hero-1.webp';
 
 const Career = () => {
@@ -110,31 +110,19 @@ const Career = () => {
         canonical="https://tmssecurity.in/career"
       />
 
-      <div className="career-hero" style={{ backgroundImage: `url(${careerBanner})` }}>
-        <div className="overlay"></div>
-        <h1>CAREERS AT TMS</h1>
-      </div>
+      <PageHeader
+        title="Careers at TMS"
+        eyebrow="Join The Elite"
+        bgImage="/header-career.webp"
+        stats={[
+          { value: 'EPF + ESI', label: 'Full Statutory Benefits' },
+          { value: '24/7', label: 'Operational Support' },
+          { value: 'PAN India', label: 'Deployment Locations' },
+          { value: 'Monthly', label: 'Training & Drills' },
+        ]}
+      />
 
-      <div className="career-why-strip">
-        <div className="why-item">
-          <span className="why-value">EPF + ESI</span>
-          <span className="why-label">Full Statutory Benefits</span>
-        </div>
-        <div className="why-item">
-          <span className="why-value">24/7</span>
-          <span className="why-label">Operational Support</span>
-        </div>
-        <div className="why-item">
-          <span className="why-value">PAN India</span>
-          <span className="why-label">Deployment Locations</span>
-        </div>
-        <div className="why-item">
-          <span className="why-value">Monthly</span>
-          <span className="why-label">Training & Drills</span>
-        </div>
-      </div>
-
-      <div className="content-container">
+      <div className="content-container" style={{ paddingTop: '60px' }}>
         <div className="career-content-main">
 
           <img src={guardTeam} alt="TMS Security Officer Team" className="career-featured-image" fetchPriority="high" loading="eager" />

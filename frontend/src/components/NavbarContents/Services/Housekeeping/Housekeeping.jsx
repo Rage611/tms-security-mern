@@ -3,7 +3,7 @@ import SEOHead from '../../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import '../SharedServiceLayout.css';
 
-import serviceBanner from '../../../../assets/images/Headingbg.webp';
+import PageHeader from '../../../PageHeader/PageHeader';
 import houseImg from '../../../../assets/images/NavbarServices/Housekeeping.webp';
 
 const Housekeeping = () => {
@@ -15,10 +15,7 @@ const Housekeeping = () => {
         canonical="https://tmssecurity.in/housekeeping"
       />
 
-      <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
-        <div className="overlay"></div>
-        <h1>HOUSE KEEPING</h1>
-      </div>
+      <PageHeader title="Housekeeping" eyebrow="Facility Care" bgImage="/header-facility.webp" />
 
       <div className="content-container">
         <div className="service-content-main">

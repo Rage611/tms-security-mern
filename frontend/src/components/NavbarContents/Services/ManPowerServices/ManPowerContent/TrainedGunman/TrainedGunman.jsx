@@ -3,7 +3,7 @@ import SEOHead from '../../../../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import '../../../SharedServiceLayout.css';
 
-import serviceBanner from '../../../../../../assets/images/Headingbg.webp';
+import PageHeader from '../../../../../PageHeader/PageHeader';
 import armedImg from '../../../../../../assets/images/NavbarServices/gunman.webp';
 
 const TrainedGunman = () => {
@@ -15,10 +15,7 @@ const TrainedGunman = () => {
         canonical="https://tmssecurity.in/trained-gunman"
       />
 
-      <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
-        <div className="overlay"></div>
-        <h1>TRAINED GUNMAN</h1>
-      </div>
+      <PageHeader title="Trained Gunman" eyebrow="Armed Response" bgImage="/header-tactical.webp" />
 
       <div className="content-container">
         <div className="service-content-main">

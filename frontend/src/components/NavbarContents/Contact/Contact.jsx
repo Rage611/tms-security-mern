@@ -5,7 +5,7 @@ import SEOHead from '../../SEOHead/SEOHead';
 import emailjs from '@emailjs/browser';
 import './Contact.css';
 
-import contactBanner from '../../../assets/images/Headingbg.webp';
+import PageHeader from '../../PageHeader/PageHeader';
 
 const Contact = () => {
 
@@ -68,10 +68,11 @@ const Contact = () => {
         canonical="https://tmssecurity.in/contact"
       />
 
-      <div className="contact-hero" style={{ backgroundImage: `url(${contactBanner})` }}>
-        <div className="overlay"></div>
-        <h1>CONTACT US</h1>
-      </div>
+      <PageHeader
+        title="Contact Us"
+        eyebrow="Get In Touch"
+        bgImage="/header-corporate.webp"
+      />
 
       <div className="contact-channels">
         <div className="channel-card">

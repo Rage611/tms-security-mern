@@ -2,7 +2,7 @@ import React from 'react';
 import SEOHead from '../../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import './Compliance.css';
-import complianceBanner from '../../../../assets/images/Headingbg.webp';
+import PageHeader from '../../../PageHeader/PageHeader';
 
 const certifications = [
   {
@@ -61,10 +61,11 @@ const Compliance = () => {
         canonical="https://tmssecurity.in/compliance"
       />
 
-      <div className="compliance-hero" style={{ backgroundImage: `url(${complianceBanner})` }}>
-        <div className="overlay"></div>
-        <h1>COMPLIANCE &amp; CERTIFICATIONS</h1>
-      </div>
+      <PageHeader
+        title="Compliance & Certifications"
+        eyebrow="Trust & Verification"
+        bgImage="/header-compliance.webp"
+      />
 
       <div className="compliance-intro-strip">
         <div className="intro-inner">

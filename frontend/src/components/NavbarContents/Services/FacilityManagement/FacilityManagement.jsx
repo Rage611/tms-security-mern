@@ -3,7 +3,7 @@ import SEOHead from '../../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import '../SharedServiceLayout.css';
 
-import serviceBanner from '../../../../assets/images/Headingbg.webp';
+import PageHeader from '../../../PageHeader/PageHeader';
 import facilityImg from '../../../../assets/images/NavbarServices/facilitymanagement.webp';
 
 const FacilityManagement = () => {
@@ -15,10 +15,7 @@ const FacilityManagement = () => {
         canonical="https://tmssecurity.in/facility-management"
       />
 
-      <div className="service-hero" style={{ backgroundImage: `url(${serviceBanner})` }}>
-        <div className="overlay"></div>
-        <h1>FACILITY MANAGEMENT</h1>
-      </div>
+      <PageHeader title="Facility Management" eyebrow="Integrated Solutions" bgImage="/header-facility.webp" />
 
       <div className="content-container">
         <div className="service-content-main">

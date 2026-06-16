@@ -2,7 +2,7 @@ import React from 'react';
 import SEOHead from '../../SEOHead/SEOHead';
 import { Link } from 'react-router-dom';
 import './TheCompany.css';
-import companyBanner from '../../../assets/images/Headingbg.webp';
+import PageHeader from '../../PageHeader/PageHeader';
 
 const TheCompany = () => {
   return (
@@ -13,31 +13,19 @@ const TheCompany = () => {
         canonical="https://tmssecurity.in/company"
       />
 
-      <div className="company-hero" style={{ backgroundImage: `url(${companyBanner})` }}>
-        <div className="overlay"></div>
-        <h1>THE COMPANY</h1>
-      </div>
+      <PageHeader
+        title="The Company"
+        eyebrow="Discover Our Legacy"
+        bgImage="/header-corporate.webp"
+        stats={[
+          { value: '15+', label: 'Years of Operations' },
+          { value: '500+', label: 'Guards Deployed' },
+          { value: '100+', label: 'Corporate Clients' },
+          { value: 'PAN', label: 'India Coverage' },
+        ]}
+      />
 
-      <div className="stats-bar">
-        <div className="stat-item">
-          <span className="stat-value">15+</span>
-          <span className="stat-label">Years of Operations</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-value">500+</span>
-          <span className="stat-label">Guards Deployed</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-value">100+</span>
-          <span className="stat-label">Corporate Clients</span>
-        </div>
-        <div className="stat-item">
-          <span className="stat-value">PAN</span>
-          <span className="stat-label">India Coverage</span>
-        </div>
-      </div>
-
-      <div className="content-container">
+      <div className="content-container" style={{ paddingTop: '60px' }}>
         <div className="text-content">
           <h2 className="section-title text-theme-dark">WHO WE ARE</h2>
           <p>
