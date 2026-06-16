@@ -102,8 +102,10 @@
 
 .career-page .career-featured-image {
     width: 100%;
-    height: 500px;
+    aspect-ratio: 16 / 7;
+    max-height: 550px;
     object-fit: cover;
+    object-position: center 20%;
     margin-bottom: 50px;
     border-bottom: 5px solid var(--accent-gold, #ffd700);
     box-shadow: 0 20px 40px rgba(0,0,0,0.1);

@@ -30,7 +30,6 @@ const PageHeader = ({ title, eyebrow, bgImage, stats }) => {
       <div className={`ph__content ${isVisible ? 'ph__content--visible' : ''}`}>
         {eyebrow && <span className="ph__eyebrow">{eyebrow}</span>}
         <h1 className="ph__title">{title}</h1>
-        <div className="ph__accent-line" />
       </div>
 
       {stats && stats.length > 0 && (
