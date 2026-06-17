@@ -11,7 +11,7 @@ const slides = [
         eyebrow: "Elite Protection",
         title: "TMS Security Services",
         subtitle: "Your safety is our primary commitment. We deploy highly trained personnel to protect your most valuable assets.",
-        layout: "layout-far-left"
+        layout: "layout-bottom"
     },
     {
         img: hero2,

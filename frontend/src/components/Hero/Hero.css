@@ -3,6 +3,7 @@
   width: 100%;
   height: calc(100vh - 120px);
   margin-top: 120px;
+  margin-bottom: -1px;
   overflow: hidden;
   background-color: #050505;
   display: flex;
@@ -44,7 +45,7 @@
 
 @keyframes heroKenBurns {
   0%   { transform: scale(1.05); }
-  100% { transform: scale(1); }
+  100% { transform: scale(1.01); }
 }
 
 .hero__overlay {
@@ -80,7 +81,7 @@
 }
 
 .hero__content-box.layout-far-left {
-  left: -3%;
+  left: 0;
   max-width: 500px;
   text-align: left;
 }
@@ -96,7 +97,7 @@
 
 .hero__content-box.layout-bottom {
   top: auto;
-  bottom: 15%;
+  bottom: 8%;
   left: 50%;
   transform: translate(-50%, 0);
   text-align: center;
@@ -234,6 +235,10 @@
   transform: scaleX(0);
 }
 
+.hero__nav-item.active .hero__nav-fill {
+  animation: progressFill 8s linear forwards;
+}
+
 @keyframes progressFill {
   0%   { transform: scaleX(0); }
   100% { transform: scaleX(1); }
@@ -250,18 +255,41 @@
   pointer-events: none;
 }
 
+@media (max-width: 1200px) {
+  .hero__content-box.layout-left,
+  .hero__content-box.layout-far-left,
+  .hero__content-box.layout-center,
+  .hero__content-box.layout-bottom {
+    top: auto;
+    bottom: 8%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero__content-box.layout-left.active,
+  .hero__content-box.layout-far-left.active,
+  .hero__content-box.layout-center.active,
+  .hero__content-box.layout-bottom.active {
+    animation: entranceBottom 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
 @media (max-width: 1024px) {
+  .hero {
+    height: calc(100vh - 80px);
+    margin-top: 80px;
+  }
+
   .hero__content-box {
     max-width: 550px;
   }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    height: calc(100vh - 100px);
-    margin-top: 100px;
-  }
-  
   .hero__overlay {
     background: linear-gradient(0deg, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.6) 50%, rgba(5,5,5,0.4) 100%);
   }
@@ -274,26 +302,7 @@
     max-width: 100%;
   }
 
-  /* Override desktop layouts on mobile to center everything */
-  .hero__content-box.layout-left,
-  .hero__content-box.layout-far-left,
-  .hero__content-box.layout-center,
-  .hero__content-box.layout-bottom {
-    top: 50%;
-    bottom: auto;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-  }
 
-  .hero__content-box.layout-left.active,
-  .hero__content-box.layout-far-left.active,
-  .hero__content-box.layout-bottom.active {
-    animation: entranceCenter 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  }
 
   .hero__title {
     background: #fff;

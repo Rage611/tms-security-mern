@@ -184,6 +184,12 @@
     padding: 80px 6% 50px;
   }
 
+  .ph__title {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+  }
+
   .ph__stats {
     position: relative;
     bottom: auto;
@@ -195,19 +201,28 @@
     gap: 1px;
     margin-top: 0;
     background: #0a0a0a;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .ph__stat-card {
-    padding: 16px 24px;
-    flex: 1 1 auto;
-    min-width: 120px;
+    padding: 16px 20px;
+    flex: 1 1 calc(50% - 1px);
+    min-width: 0;
     border-radius: 0 !important;
     border: none;
     border-right: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    box-sizing: border-box;
   }
 
-  .ph__stat-card:last-child {
+  .ph__stat-card:nth-child(even) {
     border-right: none;
+  }
+  
+  .ph__stat-card:nth-last-child(-n+2) {
+    border-bottom: none;
   }
 }
 
