@@ -44,7 +44,7 @@ const Services = () => {
 
   return (
     <>
-      {/* 🎯 THE TARGET: Added id="capabilities-section" right here! */}
+      {}
       <section id="capabilities-section" className={`services-section ${inView ? 'is-visible' : ''}`} ref={ref}>
         <div className="services__inner">
           

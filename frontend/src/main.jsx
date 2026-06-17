@@ -20,8 +20,6 @@ const app = (
   </React.StrictMode>
 );
 
-// Pre-rendered pages → hydrate existing HTML (instant paint, no flash)
-// Dev / non-pre-rendered → full client-side render
 if (rootElement.hasChildNodes()) {
   hydrateRoot(rootElement, app);
 } else {

@@ -197,9 +197,6 @@
     transition: transform 0.3s ease;
 }
 
-/* =========================================
-   DESKTOP HOVER LOGIC (CSS ONLY)
-   ========================================= */
 .header .dropdown:hover > .dropdown-menu {
     opacity: 1;                
     visibility: visible;       
@@ -245,9 +242,6 @@
     }
 }
 
-/* =========================================
-   MOBILE RESPONSIVE LOGIC
-   ========================================= */
 @media (max-width: 1024px) {
     .header {
         height: 80px !important;

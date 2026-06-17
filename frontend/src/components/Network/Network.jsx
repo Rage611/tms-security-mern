@@ -37,55 +37,51 @@ const ExpansionBeacon = ({ top, left, label, labelDir, index, inView }) => (
   </div>
 );
 
-// ─── FORCE PROJECTION ARCS (SVG) ──────────────────────────────────────────────
 const NetworkArcs = () => (
   <svg className="network-arcs" viewBox="0 0 100 100" preserveAspectRatio="none">
     <defs>
-      {/* Gold Active Glow */}
+      {}
       <linearGradient id="arc-glow" x1="0%" y1="0%" x2="100%" y2="0%">
         <stop offset="0%" stopColor="#d4af37" stopOpacity="1" />
         <stop offset="100%" stopColor="#d4af37" stopOpacity="0.4" />
       </linearGradient>
 
-      {/* FIXED: Uniform Ice-Blue Glow */}
+      {}
       <linearGradient id="arc-glow-blue" x1="0%" y1="0%" x2="100%" y2="0%">
-        <stop offset="0%" stopColor="#38bdf8" stopOpacity="1" />       {/* Bright Cyan */}
-        <stop offset="100%" stopColor="#1d4ed8" stopOpacity="1" />   {/* Fading Deep Blue */}
+        <stop offset="0%" stopColor="#38bdf8" stopOpacity="1" />       {}
+        <stop offset="100%" stopColor="#1d4ed8" stopOpacity="1" />   {}
       </linearGradient>
     </defs>
 
-    {/* --- PHASE 1: ACTIVE ROUTES (Gold Lasers - Simultaneous Launch) --- */}
-    <path className="arc-line" d="M 32 29 Q 36 28 38 33.5" />         {/* Noida */}
-    <path className="arc-line" d="M 32 29 Q 30 26 28 27.5" />        {/* Haryana */}
-    <path className="arc-line" d="M 32 29 Q 35 22 28.5 19.5" />      {/* Chandigarh */}
+    {}
+    <path className="arc-line" d="M 32 29 Q 36 28 38 33.5" />         {}
+    <path className="arc-line" d="M 32 29 Q 30 26 28 27.5" />        {}
+    <path className="arc-line" d="M 32 29 Q 35 22 28.5 19.5" />      {}
     <path className="arc-line" d="M 32 29 Q 46 20 59.5 37.5" /> 
-         {/* Bihar */}
+         {}
 
-    {/* --- PHASE 2: EXPANSION TARGETS (HQ launch first, then dotted flow) --- */}
-    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 36 26 35 23" />      {/* Uttarakhand */}
-    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 25 30 22 36" />      {/* Rajasthan */}
-    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 36 38 33 49" />      {/* MP */}
-    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 45 34 59 46" />      {/* Jharkhand */}
+    {}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 36 26 35 23" />      {}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 25 30 22 36" />      {}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 36 38 33 49" />      {}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 45 34 59 46" />      {}
     
-    {/* The South - Fanned out and perfectly synced! */}
-    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 12 45 16.5 62" />    {/* Mumbai */}
-    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 25 50 37 66" />      {/* Hyderabad */}
-    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 18 55 29 82.5" />    {/* Bengaluru */}
-    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 28 22 24 22" />      {/* Punjab */}
+    {}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 12 45 16.5 62" />    {}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 25 50 37 66" />      {}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 18 55 29 82.5" />    {}
+    <path className="arc-line-exp-launch" pathLength="100" d="M 32 29 Q 28 22 24 22" />      {}
 
-    <path className="arc-line-exp" d="M 32 29 Q 36 26 35 23" />      {/* Uttarakhand */}
-    <path className="arc-line-exp" d="M 32 29 Q 25 30 22 36" />      {/* Rajasthan */}
-    <path className="arc-line-exp" d="M 32 29 Q 36 38 33 49" />      {/* MP */}
-    <path className="arc-line-exp" d="M 32 29 Q 45 34 59 46" />      {/* Jharkhand */}
-    <path className="arc-line-exp" d="M 32 29 Q 12 45 16.5 62" />    {/* Mumbai */}
-    <path className="arc-line-exp" d="M 32 29 Q 25 50 37 66" />      {/* Hyderabad */}
-    <path className="arc-line-exp" d="M 32 29 Q 18 55 29 82.5" />    {/* Bengaluru */}
-    <path className="arc-line-exp" d="M 32 29 Q 28 22 24 22" />      {/* Punjab */}
+    <path className="arc-line-exp" d="M 32 29 Q 36 26 35 23" />      {}
+    <path className="arc-line-exp" d="M 32 29 Q 25 30 22 36" />      {}
+    <path className="arc-line-exp" d="M 32 29 Q 36 38 33 49" />      {}
+    <path className="arc-line-exp" d="M 32 29 Q 45 34 59 46" />      {}
+    <path className="arc-line-exp" d="M 32 29 Q 12 45 16.5 62" />    {}
+    <path className="arc-line-exp" d="M 32 29 Q 25 50 37 66" />      {}
+    <path className="arc-line-exp" d="M 32 29 Q 18 55 29 82.5" />    {}
+    <path className="arc-line-exp" d="M 32 29 Q 28 22 24 22" />      {}
   </svg>
 );
-
-
-// ─── MAIN COMPONENT ───────────────────────────────────────────────────────────
 
 const Network = () => {
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.6 });

@@ -38,7 +38,6 @@
   will-change: transform;
 }
 
-/* Ken Burns effect only runs when active */
 .hero__slide-wrap.active .hero__slide-bg {
   animation: heroKenBurns 12s ease-out forwards;
 }
@@ -97,7 +96,7 @@
 
 .hero__content-box.layout-bottom {
   top: auto;
-  bottom: 8%;
+  bottom: 10%;
   left: 50%;
   transform: translate(-50%, 0);
   text-align: center;
@@ -153,7 +152,7 @@
 }
 
 .hero__title {
-  font-size: clamp(3rem, 5vw, 4.5rem);
+  font-size: clamp(2rem, 3vw, 5rem);
   font-weight: 900;
   line-height: 1.1;
   color: #fff;
@@ -170,7 +169,7 @@
 }
 
 .hero__subtitle {
-  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+  font-size: clamp(1rem, 1vw, 2rem);
   color: #f8fafc;
   line-height: 1.6;
   margin: 0;
@@ -185,7 +184,6 @@
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* Custom Progress Nav */
 .hero__indicators {
   position: absolute;
   bottom: 40px;
@@ -261,7 +259,7 @@
   .hero__content-box.layout-center,
   .hero__content-box.layout-bottom {
     top: auto;
-    bottom: 8%;
+    bottom: 10%;
     left: 50%;
     transform: translate(-50%, 0);
     text-align: center;
@@ -302,12 +300,23 @@
     max-width: 100%;
   }
 
-
-
   .hero__title {
     background: #fff;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-size: 2.5rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero__content-box.layout-left,
+  .hero__content-box.layout-far-left,
+  .hero__content-box.layout-center,
+  .hero__content-box.layout-bottom {
+    bottom: 90px;
+    width: 100%;
   }
 
   .hero__indicators {

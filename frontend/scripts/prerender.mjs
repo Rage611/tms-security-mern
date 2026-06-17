@@ -1,15 +1,4 @@
 #!/usr/bin/env node
-/**
- * TMS Security — Post-build pre-render script
- *
- * Generates static HTML for every route so Googlebot receives
- * fully-populated pages instead of an empty <div id="root"></div>.
- *
- * Usage:  node scripts/prerender.mjs          (standalone)
- *         npm run build                        (called automatically after vite build)
- *
- * Requirements: puppeteer (devDependency)
- */
 
 import puppeteer from 'puppeteer';
 import http from 'http';
@@ -17,13 +6,10 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-/* ─── Config ────────────────────────────────────────────────────── */
-
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST_DIR = path.resolve(__dirname, '../dist');
 const PORT = 45678;
 
-/** Routes to pre-render (must match your React Router paths) */
 const ROUTES = [
   '/',
   '/company',
@@ -45,7 +31,6 @@ const ROUTES = [
   '/security-services/ghaziabad',
 ];
 
-/** Domains to block during capture (analytics, CAPTCHA, etc.) */
 const BLOCKED_DOMAINS = [
   'challenges.cloudflare.com',
   'vercel.com',
@@ -55,7 +40,6 @@ const BLOCKED_DOMAINS = [
   'googletagmanager.com',
 ];
 
-/** MIME types for the local static server */
 const MIME = {
   '.html': 'text/html; charset=utf-8',
   '.js':   'application/javascript',
@@ -74,26 +58,18 @@ const MIME = {
   '.txt':  'text/plain',
 };
 
-/* ─── Guards ────────────────────────────────────────────────────── */
-
 if (!fs.existsSync(DIST_DIR)) {
   console.error('❌  dist/ not found. Run "vite build" first.');
   process.exit(1);
 }
 
-/* Keep the original SPA shell in memory so the fallback always
-   returns the un-prerendered shell (avoids hydration mismatches
-   when we overwrite index.html with the pre-rendered home page). */
 const SPA_SHELL = fs.readFileSync(path.join(DIST_DIR, 'index.html'), 'utf-8');
-
-/* ─── Static file server with SPA fallback ──────────────────────── */
 
 function createServer() {
   return http.createServer((req, res) => {
     const pathname = new URL(req.url, `http://localhost:${PORT}`).pathname;
     const filePath  = path.join(DIST_DIR, pathname);
 
-    // 1. Exact file match
     if (fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
       const ext = path.extname(filePath).toLowerCase();
       res.writeHead(200, { 'Content-Type': MIME[ext] || 'application/octet-stream' });
@@ -101,7 +77,6 @@ function createServer() {
       return;
     }
 
-    // 2. Directory → index.html inside it
     const idx = path.join(filePath, 'index.html');
     if (fs.existsSync(idx) && fs.statSync(idx).isFile()) {
       res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
@@ -109,19 +84,15 @@ function createServer() {
       return;
     }
 
-    // 3. SPA fallback — serve the ORIGINAL shell from memory
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
     res.end(SPA_SHELL);
   });
 }
 
-/* ─── Puppeteer helper: render one route ────────────────────────── */
-
 async function renderRoute(browser, route) {
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
 
-  // Block third-party requests that slow down / break prerender
   await page.setRequestInterception(true);
   page.on('request', (req) => {
     if (BLOCKED_DOMAINS.some((d) => req.url().includes(d))) {
@@ -136,10 +107,8 @@ async function renderRoute(browser, route) {
     timeout: 30_000,
   });
 
-  // Wait for React to mount something inside #root
   await page.waitForSelector('#root > *', { timeout: 10_000 });
 
-  // Give react-helmet-async a tick to flush <head> updates
   await page.evaluate(() => new Promise((r) => setTimeout(r, 500)));
 
   const html = await page.content();
@@ -147,13 +116,10 @@ async function renderRoute(browser, route) {
   return html;
 }
 
-/* ─── Main ──────────────────────────────────────────────────────── */
-
 async function prerender() {
   console.log('\n🚀  Pre-rendering TMS Security pages…\n');
 
-  /* Launch browser ─────────────────────────────────────────────── */
-  let browser;
+    let browser;
   try {
     browser = await puppeteer.launch({
       headless: true,
@@ -164,18 +130,16 @@ async function prerender() {
     console.warn('    Build locally with Chrome available, then deploy with:');
     console.warn('    vercel deploy --prebuilt\n');
     console.warn(`    Error: ${err.message}\n`);
-    process.exit(0);          // exit 0 so the build doesn't fail
+    process.exit(0);          
   }
 
-  /* Start local server ─────────────────────────────────────────── */
-  const server = createServer();
+    const server = createServer();
   await new Promise((resolve) => server.listen(PORT, resolve));
 
   let ok = 0;
   let fail = 0;
 
-  /* Pre-render each route ──────────────────────────────────────── */
-  for (const route of ROUTES) {
+    for (const route of ROUTES) {
     try {
       const html = await renderRoute(browser, route);
 
@@ -194,8 +158,7 @@ async function prerender() {
     }
   }
 
-  /* Cleanup ────────────────────────────────────────────────────── */
-  await browser.close();
+    await browser.close();
   server.close();
 
   console.log(`\n✅  Done — ${ok} rendered, ${fail} failed.\n`);

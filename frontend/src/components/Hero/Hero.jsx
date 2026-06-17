@@ -46,11 +46,10 @@ const Hero = () => {
 
     const resetTimer = useCallback(() => {
         if (intervalRef.current) clearInterval(intervalRef.current);
-        
-        // Reset CSS animation for progress bar
+
         if (progressRef.current) {
             progressRef.current.style.animation = 'none';
-            void progressRef.current.offsetWidth; // trigger reflow
+            void progressRef.current.offsetWidth; 
             progressRef.current.style.animation = `progressFill ${AUTO_ADVANCE_MS}ms linear forwards`;
         }
 
