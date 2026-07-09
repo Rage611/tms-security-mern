@@ -34,8 +34,8 @@ const certifications = [
 const psaraLicenses = [
   {
     state: 'Haryana',
-    license: 'PSA/L/44/HR/2025/OCT/3/1539',
-    validity: 'Valid through October 2030',
+    license: 'PSA/L/66/HR/2026/JUL/3/1774',
+    validity: 'Valid through July 2031',
     status: 'Active'
   },
   {
