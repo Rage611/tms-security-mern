@@ -51,7 +51,7 @@ const Footer = () => {
           <h3>CONTACT DETAILS</h3>
           <p className="contact-item"><strong>Address:</strong> 526, Ground Floor, Opp Metro Pillar No. 623, Site-1, Vikas Puri, New Delhi, 110018</p>
           <p className="contact-item"><strong>Phone:</strong> +91-9717763351</p>
-          <p className="contact-item"><strong>Email:</strong> contact@tmssecurity.in</p>
+          <p className="contact-item"><strong>Email:</strong> ajaytmsgroup10@gmail.com</p>
         </div>
       </div>
       <div className="footer-bottom">
