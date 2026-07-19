@@ -3,12 +3,12 @@ import { track } from '@vercel/analytics';
 import './FloatingWhatsApp.css';
 
 const WHATSAPP_URL =
-  'https://wa.me/919717763351?text=Namaste%20TMS%2C%20I%20would%20like%20to%20request%20a%20commercial%20security%20quotation%20for%20my%20facility.';
+  'https://wa.me/919717817318?text=Namaste%20TMS%2C%20I%20would%20like%20to%20request%20a%20commercial%20security%20quotation%20for%20my%20facility.';
 
 const handleClick = () => {
   track('whatsapp_conversion_click', {
     source: 'floating_widget',
-    target: '+919717763351'
+    target: '+919717817318'
   });
 };
 
