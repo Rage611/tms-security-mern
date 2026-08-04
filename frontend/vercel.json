@@ -27,6 +27,10 @@
   ],
   "rewrites": [
     {
+      "source": "/compliance",
+      "destination": "/index.html"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
