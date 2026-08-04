@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-import puppeteer from 'puppeteer';
+import puppeteer from 'puppeteer-core';
+import chromium from '@sparticuz/chromium';
 import http from 'http';
 import fs from 'fs';
 import path from 'path';
@@ -122,8 +123,14 @@ async function prerender() {
     let browser;
   try {
     browser = await puppeteer.launch({
-      headless: true,
-      args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'],
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless,
+      args: [
+        ...chromium.args,
+        '--no-sandbox',
+        '--disable-setuid-sandbox',
+        '--disable-dev-shm-usage',
+      ],
     });
   } catch (err) {
     console.warn('⚠️   Puppeteer could not launch — pre-rendering SKIPPED.');
