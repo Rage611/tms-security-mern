@@ -83,7 +83,7 @@ const Contact = () => {
           </div>
           <h3 className="channel-title">Corporate Inquiry</h3>
           <p className="channel-desc">For B2B partnerships, bulk deployments, and enterprise-level security contracts.</p>
-          <a href="tel:+919717763351" className="channel-action">+91 9717763351</a>
+          <a href="tel:+917838701180" className="channel-action">+91 7838701180</a>
         </div>
         <div className="channel-card">
           <div className="channel-icon">
@@ -128,7 +128,7 @@ const Contact = () => {
                 </li>
                 <li>
                   <strong>Contact Number:</strong><br />
-                  +91 9717763351
+                  +91 7838701180
                 </li>
                 <li>
                   <strong>DIRECT LINE:</strong><br />
