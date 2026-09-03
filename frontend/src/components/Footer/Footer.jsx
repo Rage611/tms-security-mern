@@ -57,7 +57,7 @@ const Footer = () => {
       <div className="footer-areas-bar">
         <div className="footer-areas-inner">
           <div className="footer-areas-title">
-            <span className="footer-areas-heading">AREAS WE SERVE (DELHI NCR)</span>
+            <span className="footer-areas-heading">AREAS WE SERVE (DELHI NCR &amp; NORTH INDIA)</span>
             <span className="footer-areas-sub">PSARA Licensed Regional Coverage</span>
           </div>
           <div className="footer-areas-list">
@@ -70,6 +70,8 @@ const Footer = () => {
               <Link to="/security-services/gurgaon" className="footer-area-link">Gurgaon</Link>
               <span className="footer-area-sep">•</span>
               <Link to="/security-services/faridabad" className="footer-area-link">Faridabad</Link>
+              <span className="footer-area-sep">•</span>
+              <Link to="/security-services/hisar" className="footer-area-link">Hisar</Link>
             </div>
             <div className="footer-state-col">
               <strong className="footer-state-name">Uttar Pradesh:</strong>
@@ -78,6 +80,8 @@ const Footer = () => {
               <Link to="/security-services/greater-noida" className="footer-area-link">Greater Noida</Link>
               <span className="footer-area-sep">•</span>
               <Link to="/security-services/ghaziabad" className="footer-area-link">Ghaziabad</Link>
+              <span className="footer-area-sep">•</span>
+              <Link to="/security-services/varanasi" className="footer-area-link">Varanasi</Link>
             </div>
           </div>
         </div>

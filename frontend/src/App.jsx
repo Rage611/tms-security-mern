@@ -140,6 +140,18 @@ function App() {
                 }
               />
               <Route
+                path="/security-services/hisar"
+                element={
+                  <LocationPage
+                    city="Hisar"
+                    state="Haryana"
+                    canonicalSlug="hisar"
+                    heroImage="/hero-hisar.webp"
+                    localKeywords={['security agency Hisar', 'industrial security Hisar', 'security guards Hisar Haryana', 'factory security Jindal Hisar']}
+                  />
+                }
+              />
+              <Route
                 path="/security-services/greater-noida"
                 element={
                   <LocationPage
@@ -160,6 +172,18 @@ function App() {
                     canonicalSlug="ghaziabad"
                     heroImage="/hero-ghaziabad.webp"
                     localKeywords={['security agency Ghaziabad', 'warehouse security Ghaziabad', 'security guards Indirapuram']}
+                  />
+                }
+              />
+              <Route
+                path="/security-services/varanasi"
+                element={
+                  <LocationPage
+                    city="Varanasi"
+                    state="Uttar Pradesh"
+                    canonicalSlug="varanasi"
+                    heroImage="/hero-varanasi.webp"
+                    localKeywords={['security agency Varanasi', 'commercial security Varanasi', 'security guards Kashi Varanasi', 'hotel security Varanasi']}
                   />
                 }
               />

@@ -134,10 +134,10 @@ const TheCompany = () => {
               </div>
               <h3 className="state-row-heading">Haryana</h3>
               <p className="state-row-summary">
-                Authorized through 2030. Enterprise protection for Fortune 500 tech campuses, 24/7 BPO night shifts, and heavy automotive manufacturing belts.
+                Authorized through 2030. Enterprise protection for Fortune 500 tech campuses, heavy metallurgy and steel plants, 24/7 BPO shifts, and manufacturing corridors across Gurugram, Faridabad, and Hisar.
               </p>
             </div>
-            <div className="state-row-right state-grid-double">
+            <div className="state-row-right state-grid-triple">
               <Link to="/security-services/gurgaon" className="regional-link-card" id="company-area-gurgaon">
                 <div className="regional-link-info">
                   <div className="regional-title-row">
@@ -158,6 +158,16 @@ const TheCompany = () => {
                 </div>
                 <span className="regional-link-arrow">→</span>
               </Link>
+              <Link to="/security-services/hisar" className="regional-link-card" id="company-area-hisar">
+                <div className="regional-link-info">
+                  <div className="regional-title-row">
+                    <strong className="regional-link-city">Hisar</strong>
+                    <span className="regional-pill">Steel &amp; Industry</span>
+                  </div>
+                  <span className="regional-link-hubs">Industrial Area Phase I/II • Delhi Rd • Jindal City • Barwala Rd</span>
+                </div>
+                <span className="regional-link-arrow">→</span>
+              </Link>
             </div>
           </div>
 
@@ -170,10 +180,10 @@ const TheCompany = () => {
               </div>
               <h3 className="state-row-heading">Uttar Pradesh</h3>
               <p className="state-row-summary">
-                Authorized through 2026. Manned guarding for IT hubs, media networks, university campuses, and industrial SEZs across Western UP.
+                Authorized through 2026. Manned guarding for IT tech parks, media houses, luxury hospitality resorts, university campuses, and industrial SEZs across Western UP and Varanasi.
               </p>
             </div>
-            <div className="state-row-right state-grid-triple">
+            <div className="state-row-right state-grid-quad">
               <Link to="/security-services/noida" className="regional-link-card" id="company-area-noida">
                 <div className="regional-link-info">
                   <div className="regional-title-row">
@@ -201,6 +211,16 @@ const TheCompany = () => {
                     <span className="regional-pill">Manufacturing</span>
                   </div>
                   <span className="regional-link-hubs">Sahibabad Industrial Area • Indirapuram • Kavi Nagar</span>
+                </div>
+                <span className="regional-link-arrow">→</span>
+              </Link>
+              <Link to="/security-services/varanasi" className="regional-link-card" id="company-area-varanasi">
+                <div className="regional-link-info">
+                  <div className="regional-title-row">
+                    <strong className="regional-link-city">Varanasi</strong>
+                    <span className="regional-pill">Hospitality &amp; Industry</span>
+                  </div>
+                  <span className="regional-link-hubs">Ramnagar Ind. Area • Cantt Luxury Hotels • Sigra • Babatpur Corridor</span>
                 </div>
                 <span className="regional-link-arrow">→</span>
               </Link>

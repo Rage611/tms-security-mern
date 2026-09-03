@@ -76,8 +76,10 @@ const SIBLING_LOCATIONS = [
   { slug: 'gurgaon', city: 'Gurgaon', state: 'Haryana' },
   { slug: 'noida', city: 'Noida', state: 'Uttar Pradesh' },
   { slug: 'faridabad', city: 'Faridabad', state: 'Haryana' },
+  { slug: 'hisar', city: 'Hisar', state: 'Haryana' },
   { slug: 'greater-noida', city: 'Greater Noida', state: 'Uttar Pradesh' },
   { slug: 'ghaziabad', city: 'Ghaziabad', state: 'Uttar Pradesh' },
+  { slug: 'varanasi', city: 'Varanasi', state: 'Uttar Pradesh' },
 ];
 
 const CITY_LOCAL_DATA = {
@@ -169,6 +171,28 @@ const CITY_LOCAL_DATA = {
     ],
     localCompliance: 'Full compliance under Haryana PSARA License #PSA/L/44/HR/2025/OCT/3/1539. Regular industrial fire drill training and emergency crisis protocol execution.'
   },
+  hisar: {
+    heroHeading: 'Industrial & Commercial Security Services in Hisar, Haryana',
+    tagline: 'Steel Plant Defense, Industrial Manufacturing Security & Commercial Manned Guarding in Hisar',
+    metaTitle: 'Security Agency in Hisar, Haryana | PSARA Licensed | TMS Security',
+    metaDesc: 'PSARA-licensed security agency in Hisar, Haryana. Steel manufacturing defense, industrial factory guarding, and commercial protection across Hisar Industrial Area & Delhi Road.',
+    zonesHeading: 'Key Industrial Belts & Commercial Sectors in Hisar',
+    zones: [
+      { name: 'Industrial Area Phase I & II', desc: 'Large-scale steel processing, metallurgy works, and heavy engineering facilities requiring 24/7 vehicular access control and weighbridge oversight.' },
+      { name: 'Delhi Road & Tosham Road Commercial Belt', desc: 'Corporate office branches, commercial banks, automotive dealerships, and shopping complexes requiring visible deterrence and visitor logging.' },
+      { name: 'OP Jindal Global City & Sector 14/15 Hubs', desc: 'Educational campuses, premier corporate complexes, and residential townships demanding courteous, background-verified security staff.' },
+      { name: 'Hisar Cantonment & Airport Transit Corridor', desc: 'Logistics depots, cargo container yards, and aviation feeder warehouses requiring round-the-clock perimeter surveillance and vehicle inspection.' },
+      { name: 'Barwala Road Agro-Industrial Zone', desc: 'Food processing plants, grain terminals, and cold storage facilities requiring strict gate-pass monitoring and material inventory checks.' },
+      { name: 'Auto Market & Machinery Complex', desc: 'High-density commercial automobile trade centers and machinery yards demanding nighttime mobile security patrols and anti-theft vigilance.' },
+    ],
+    sectorFocus: [
+      'Steel, Metallurgy & Pipe Manufacturing Plants',
+      'Agro-Processing & Cold Storage Facilities',
+      'Commercial Complexes & Automobile Markets',
+      'Educational Institutions & Corporate Offices'
+    ],
+    localCompliance: 'Authorized under Haryana PSARA License #PSA/L/44/HR/2025/OCT/3/1539 (valid through October 2030). Dedicated zonal inspection officers for Western Haryana operations.'
+  },
   'greater-noida': {
     heroHeading: 'Campus & Industrial Security in Greater Noida, Uttar Pradesh',
     tagline: 'Educational Campus Security in Knowledge Park, Ecotech Electronics Hubs & Data Centers',
@@ -212,6 +236,28 @@ const CITY_LOCAL_DATA = {
       'Packaging, Fabrication & Chemical Units'
     ],
     localCompliance: 'Certified under Uttar Pradesh PSARA License #PSA/L/93/UP/2021/DEC/3/330. Direct supervisory checking by roving Ghaziabad area field officers.'
+  },
+  varanasi: {
+    heroHeading: 'Corporate & Hospitality Security Services in Varanasi, Uttar Pradesh',
+    tagline: 'PSARA-Licensed Guarding for Luxury Hospitality, Commercial Corridors & Industrial Estates in Kashi',
+    metaTitle: 'Security Agency in Varanasi, Uttar Pradesh | PSARA Licensed | TMS Security',
+    metaDesc: 'Top PSARA-licensed security agency in Varanasi (Kashi), UP. Specialized hotel & hospitality security, industrial guarding in Ramnagar, and corporate facility management.',
+    zonesHeading: 'Major Commercial, Hospitality & Industrial Hubs in Varanasi',
+    zones: [
+      { name: 'Ramnagar Industrial Area', desc: 'Industrial manufacturing plants, textile processing units, and logistics parks requiring strict vehicular logging and perimeter security.' },
+      { name: 'Cantonment (Cantt) & Nadesar Hospitality District', desc: '5-star luxury hotels, heritage guest resorts, and corporate travel offices requiring elite concierge security and diplomatic crowd management.' },
+      { name: 'Sigra & Rathyatra Commercial Hubs', desc: 'High-density shopping centers, jewelry showrooms, and banking branches demanding armed guards, bouncers, and rapid incident response.' },
+      { name: 'Shivpur & Babatpur Airport Highway Corridor', desc: 'Freight transit hubs, corporate distribution centers, and warehousing facilities needing 24/7 gate security and CCTV monitoring.' },
+      { name: 'Kashi Vishwanath & Ghats Vicinity', desc: 'High-footfall institutional facilities, guest complexes, and heritage commercial centers needing polite, crowd-control-trained security personnel.' },
+      { name: 'Chandpur Industrial Estate', desc: 'MSME manufacturing, packaging units, and machinery yards demanding strict shift change supervision and inventory loss prevention.' },
+    ],
+    sectorFocus: [
+      'Luxury Hospitality, Hotels & Heritage Resorts',
+      'Textile, Silk & Handloom Export Units',
+      'Manufacturing & Logistics in Ramnagar Industrial Area',
+      'Retail Malls, Banking & High-Footfall Commercial Hubs'
+    ],
+    localCompliance: 'Certified under Uttar Pradesh PSARA License #PSA/L/93/UP/2021/DEC/3/330 (valid through December 2026). Specialized guest-relations and de-escalation training for Varanasi personnel.'
   }
 };
 

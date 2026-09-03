@@ -333,6 +333,12 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+.company-page .state-grid-quad {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
 .company-page .regional-link-card {
   display: flex;
   align-items: center;
@@ -424,13 +430,16 @@
     padding: 28px 24px;
   }
 
-  .company-page .state-grid-triple {
-    grid-template-columns: 1fr;
+  .company-page .state-grid-triple,
+  .company-page .state-grid-quad {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .company-page .state-grid-double {
+  .company-page .state-grid-double,
+  .company-page .state-grid-triple,
+  .company-page .state-grid-quad {
     grid-template-columns: 1fr;
   }
   
