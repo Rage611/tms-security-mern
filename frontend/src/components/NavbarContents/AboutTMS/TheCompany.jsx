@@ -87,6 +87,101 @@ const TheCompany = () => {
         </div>
       </div>
 
+      <div className="areas-served-section">
+        <div className="areas-header">
+          <span className="areas-eyebrow">REGIONAL OPERATIONS &amp; COVERAGE</span>
+          <h2 className="section-title text-theme-dark" style={{ textAlign: 'center', marginBottom: '16px' }}>
+            AREAS WE SERVE ACROSS DELHI NCR
+          </h2>
+          <p className="areas-subtitle">
+            PSARA-licensed deployments, dedicated zonal field officers, and rapid guard mobilization across all major commercial, IT, and industrial corridors in Delhi, Haryana, and Uttar Pradesh.
+          </p>
+        </div>
+
+        <div className="state-coverage-grid">
+          {/* State 1: Delhi (NCT) */}
+          <div className="state-group-card">
+            <div className="state-card-header">
+              <span className="state-tag">NATIONAL CAPITAL</span>
+              <h3>Delhi (NCT)</h3>
+            </div>
+            <p className="state-card-desc">
+              Command headquarters providing high-tier corporate guarding, PSO close protection, and commercial facility security across all zones.
+            </p>
+            <div className="regional-links-list">
+              <Link to="/security-services/delhi" className="regional-link-card" id="company-area-delhi">
+                <div className="regional-link-info">
+                  <strong className="regional-link-city">Delhi</strong>
+                  <span className="regional-link-hubs">Connaught Place • Nehru Place • Okhla • Aerocity</span>
+                </div>
+                <span className="regional-link-arrow">→</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* State 2: Haryana */}
+          <div className="state-group-card">
+            <div className="state-card-header">
+              <span className="state-tag">HARYANA STATE</span>
+              <h3>Haryana</h3>
+            </div>
+            <p className="state-card-desc">
+              PSARA License #PSA/L/44/HR/2025/OCT/3/1539. Comprehensive corporate and industrial deployments across Gurugram and Faridabad.
+            </p>
+            <div className="regional-links-list">
+              <Link to="/security-services/gurgaon" className="regional-link-card" id="company-area-gurgaon">
+                <div className="regional-link-info">
+                  <strong className="regional-link-city">Gurgaon (Gurugram)</strong>
+                  <span className="regional-link-hubs">Cyber City • Golf Course Rd • Udyog Vihar • IMT Manesar</span>
+                </div>
+                <span className="regional-link-arrow">→</span>
+              </Link>
+              <Link to="/security-services/faridabad" className="regional-link-card" id="company-area-faridabad">
+                <div className="regional-link-info">
+                  <strong className="regional-link-city">Faridabad</strong>
+                  <span className="regional-link-hubs">Mathura Rd • Bata Chowk • Ballabhgarh • Sector 24/25</span>
+                </div>
+                <span className="regional-link-arrow">→</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* State 3: Uttar Pradesh */}
+          <div className="state-group-card">
+            <div className="state-card-header">
+              <span className="state-tag">UTTAR PRADESH</span>
+              <h3>Uttar Pradesh</h3>
+            </div>
+            <p className="state-card-desc">
+              PSARA License #PSA/L/93/UP/2021/DEC/3/330. Enterprise protection for IT tech parks, educational campuses, SEZs, and manufacturing units.
+            </p>
+            <div className="regional-links-list">
+              <Link to="/security-services/noida" className="regional-link-card" id="company-area-noida">
+                <div className="regional-link-info">
+                  <strong className="regional-link-city">Noida</strong>
+                  <span className="regional-link-hubs">Sector 62/63 • Expressway • Film City • Phase II SEZ</span>
+                </div>
+                <span className="regional-link-arrow">→</span>
+              </Link>
+              <Link to="/security-services/greater-noida" className="regional-link-card" id="company-area-greater-noida">
+                <div className="regional-link-info">
+                  <strong className="regional-link-city">Greater Noida</strong>
+                  <span className="regional-link-hubs">Knowledge Park I–V • Ecotech • Pari Chowk • Techzone</span>
+                </div>
+                <span className="regional-link-arrow">→</span>
+              </Link>
+              <Link to="/security-services/ghaziabad" className="regional-link-card" id="company-area-ghaziabad">
+                <div className="regional-link-info">
+                  <strong className="regional-link-city">Ghaziabad</strong>
+                  <span className="regional-link-hubs">Sahibabad Industrial Area • Indirapuram • Kavi Nagar</span>
+                </div>
+                <span className="regional-link-arrow">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="compliance-section">
         <h2>CERTIFICATIONS &amp; COMPLIANCE</h2>
         <div className="compliance-badges">

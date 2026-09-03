@@ -804,3 +804,231 @@
     width: 100%;
   }
 }
+
+/* ==========================================================================
+   Local Operational Zones & Hubs
+   ========================================================================== */
+
+.lp-zones-section {
+  padding: 90px 0;
+  background-color: #fafaf5;
+  border-top: 1px solid #e8e4d4;
+  border-bottom: 1px solid #e8e4d4;
+}
+
+.lp-zones-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.lp-zone-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-top: 3px solid #b8860b;
+  border-radius: 4px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.lp-zone-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  border-top-color: #ffd700;
+}
+
+.lp-zone-card__header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.lp-zone-icon {
+  font-size: 1.1rem;
+}
+
+.lp-zone-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.lp-zone-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #475569;
+  margin: 0;
+}
+
+.lp-sector-focus-box {
+  margin-top: 50px;
+  background: #0f172a;
+  border-radius: 6px;
+  padding: 36px 40px;
+  border-left: 4px solid #ffd700;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.lp-sector-focus-header h3 {
+  font-size: 1.35rem;
+  color: #ffffff;
+  margin: 6px 0 20px 0;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.lp-sector-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #ffd700;
+  text-transform: uppercase;
+}
+
+.lp-sector-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.lp-sector-pill {
+  background: rgba(255, 215, 0, 0.08);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  color: #ffd700;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lp-pill-bullet {
+  color: #10b981;
+  font-weight: 800;
+}
+
+.lp-sector-compliance-note {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 18px;
+  margin: 0;
+}
+
+.lp-sector-compliance-note strong {
+  color: #ffd700;
+}
+
+/* ==========================================================================
+   Sibling Cross-Linking Section
+   ========================================================================== */
+
+.lp-siblings-section {
+  padding: 80px 0;
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+}
+
+.lp-siblings-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.lp-sibling-card {
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  padding: 16px 18px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+}
+
+.lp-sibling-card:hover {
+  background: #0f172a;
+  border-color: #0f172a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lp-sibling-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.lp-sibling-city {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #0f172a;
+  transition: color 0.2s ease;
+}
+
+.lp-sibling-card:hover .lp-sibling-city {
+  color: #ffd700;
+}
+
+.lp-sibling-state {
+  font-size: 0.72rem;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.lp-sibling-card:hover .lp-sibling-state {
+  color: #94a3b8;
+}
+
+.lp-sibling-arrow {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #b8860b;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.lp-sibling-card:hover .lp-sibling-arrow {
+  color: #ffd700;
+  transform: translateX(3px);
+}
+
+@media (max-width: 1024px) {
+  .lp-zones-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .lp-siblings-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .lp-zones-grid {
+    grid-template-columns: 1fr;
+  }
+  .lp-sector-focus-box {
+    padding: 28px 20px;
+  }
+  .lp-siblings-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .lp-siblings-grid {
+    grid-template-columns: 1fr;
+  }
+}
+

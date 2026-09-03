@@ -54,6 +54,34 @@ const Footer = () => {
           <p className="contact-item"><strong>Email:</strong> ajaytmsgroup10@gmail.com</p>
         </div>
       </div>
+      <div className="footer-areas-bar">
+        <div className="footer-areas-inner">
+          <div className="footer-areas-title">
+            <span className="footer-areas-heading">AREAS WE SERVE (DELHI NCR)</span>
+            <span className="footer-areas-sub">PSARA Licensed Regional Coverage</span>
+          </div>
+          <div className="footer-areas-list">
+            <div className="footer-state-col">
+              <strong className="footer-state-name">Delhi (NCT):</strong>
+              <Link to="/security-services/delhi" className="footer-area-link">Delhi</Link>
+            </div>
+            <div className="footer-state-col">
+              <strong className="footer-state-name">Haryana:</strong>
+              <Link to="/security-services/gurgaon" className="footer-area-link">Gurgaon</Link>
+              <span className="footer-area-sep">•</span>
+              <Link to="/security-services/faridabad" className="footer-area-link">Faridabad</Link>
+            </div>
+            <div className="footer-state-col">
+              <strong className="footer-state-name">Uttar Pradesh:</strong>
+              <Link to="/security-services/noida" className="footer-area-link">Noida</Link>
+              <span className="footer-area-sep">•</span>
+              <Link to="/security-services/greater-noida" className="footer-area-link">Greater Noida</Link>
+              <span className="footer-area-sep">•</span>
+              <Link to="/security-services/ghaziabad" className="footer-area-link">Ghaziabad</Link>
+            </div>
+          </div>
+        </div>
+      </div>
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} TMS Security Services. All Rights Reserved.</p>
       </div>

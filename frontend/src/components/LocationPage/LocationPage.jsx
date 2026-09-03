@@ -71,6 +71,150 @@ const TRUST_SIGNALS = [
   },
 ];
 
+const SIBLING_LOCATIONS = [
+  { slug: 'delhi', city: 'Delhi', state: 'Delhi (NCT)' },
+  { slug: 'gurgaon', city: 'Gurgaon', state: 'Haryana' },
+  { slug: 'noida', city: 'Noida', state: 'Uttar Pradesh' },
+  { slug: 'faridabad', city: 'Faridabad', state: 'Haryana' },
+  { slug: 'greater-noida', city: 'Greater Noida', state: 'Uttar Pradesh' },
+  { slug: 'ghaziabad', city: 'Ghaziabad', state: 'Uttar Pradesh' },
+];
+
+const CITY_LOCAL_DATA = {
+  delhi: {
+    heroHeading: 'Corporate Security Services in Delhi (NCT)',
+    tagline: 'PSARA-Licensed Guarding, PSO Close Protection & Enterprise Facility Security in the National Capital',
+    metaTitle: 'Corporate Security Services in Delhi (NCT) | PSARA Licensed | TMS Security',
+    metaDesc: 'PSARA-licensed corporate security agency in Delhi (NCT). 500+ guards deployed across Connaught Place, Nehru Place, Okhla Industrial Area, and Aerocity. ISO 9001:2015 certified.',
+    zonesHeading: 'Key Commercial & Industrial Hubs We Protect in Delhi',
+    zones: [
+      { name: 'Connaught Place & Central Delhi', desc: 'Corporate headquarters, banking institutions, and diplomatic missions requiring high-profile guarding and visitor screening.' },
+      { name: 'Nehru Place & South Delhi Hubs', desc: 'Commercial office complexes, financial firms, and IT trading centers requiring 24/7 access control and parking vigilance.' },
+      { name: 'Okhla Industrial Area (Phases I, II, III)', desc: 'Manufacturing plants, garment exports, tech warehouses, and logistics centers requiring strict gate management.' },
+      { name: 'Aerocity & Hospitality District', desc: 'Luxury hotels, retail precincts, and aviation transit offices requiring customer-centric security and rapid-response teams.' },
+      { name: 'Naraina & Mayapuri Industrial Belts', desc: 'Heavy machinery, manufacturing units, and raw material distribution yards requiring round-the-clock perimeter surveillance.' },
+      { name: 'Bhikaji Cama Place & Rajendra Place', desc: 'Multi-tenant commercial business districts with high pedestrian flow requiring credential verification and emergency egress management.' },
+    ],
+    sectorFocus: [
+      'BFSI & Banking Corporate Headquarters',
+      'Embassies, High Commissions & Diplomatic Enclaves',
+      'Industrial & Warehousing Logistics Parks in Okhla',
+      'Commercial High-Footfall Retail & Multiplexes'
+    ],
+    localCompliance: 'Licensed by the Controlling Authority under the Private Security Agencies (Regulation) Act (PSARA), Delhi jurisdiction. Backed by central control room dispatch and mobile night-patrol inspection units.'
+  },
+  gurgaon: {
+    heroHeading: 'Corporate Security Services in Gurgaon (Gurugram), Haryana',
+    tagline: 'Fortune 500 Tech Park Guarding, Executive PSO Details & IMT Manesar Industrial Security',
+    metaTitle: 'Corporate Security Services in Gurgaon, Haryana | Cyber City & Manesar | TMS Security',
+    metaDesc: 'Leading PSARA-licensed security company in Gurgaon (Gurugram), Haryana. Guarding Fortune 500 tech campuses in DLF Cyber City, Udyog Vihar, and manufacturing plants in IMT Manesar.',
+    zonesHeading: 'High-Value Commercial & Industrial Zones We Serve in Gurugram',
+    zones: [
+      { name: 'DLF Cyber City & CyberHub', desc: 'Global MNC headquarters, tech campuses, and commercial high-rises requiring elite uniformed guards, electronic access control, and executive bouncers.' },
+      { name: 'Udyog Vihar (Phases I to V)', desc: 'Extensive IT/ITeS offices, BPO hubs, and software development centers requiring 24/7 night-shift security, cab-escort protocols, and perimeter checks.' },
+      { name: 'Golf Course Road & Extension Corridor', desc: 'Ultra-luxury commercial towers, private equity offices, and executive residential enclaves requiring discreet PSO details and concierge security.' },
+      { name: 'IMT Manesar Industrial Hub', desc: 'Large-scale automotive manufacturing plants, assembly lines, and heavy export units requiring strict gate pass and inventory tracking.' },
+      { name: 'Sohna Road & Southern Peripheral Road (SPR)', desc: 'Emerging corporate business parks, mixed-use commercial developments, and warehousing clusters needing unified manned guarding.' },
+      { name: 'MG Road Commercial & Retail Belt', desc: 'High-density retail malls, corporate showrooms, and entertainment destinations demanding conflict de-escalation and crowd control.' },
+    ],
+    sectorFocus: [
+      'Fortune 500 & MNC Tech Campuses',
+      'Automotive & Industrial Manufacturing in IMT Manesar',
+      'Executive Close Protection (PSOs) along NH-48',
+      '24/7 BPO Employee Transit & Facility Security'
+    ],
+    localCompliance: 'Operating under Haryana PSARA License #PSA/L/44/HR/2025/OCT/3/1539 (valid through October 2030). Dedicated Gurgaon zonal operations team stationed for swift reinforcement.'
+  },
+  noida: {
+    heroHeading: 'Corporate & Industrial Security in Noida, Uttar Pradesh',
+    tagline: 'PSARA-Licensed Guarding for IT Parks in Sector 62, Noida Expressway & Industrial SEZs',
+    metaTitle: 'Security Services in Noida, Uttar Pradesh | Sector 62 & Expressway | TMS Security',
+    metaDesc: 'PSARA-licensed corporate security services in Noida, UP. Protecting IT hubs in Sector 62/63, corporate towers on Noida Expressway, and industrial units in Phase II SEZ.',
+    zonesHeading: 'Strategic IT Parks & Industrial Sectors We Cover in Noida',
+    zones: [
+      { name: 'Sector 62 & 63 Institutional & IT Belt', desc: 'Premier software development hubs, multinational research centers, and educational institutes requiring access turnstiles and CCTV monitoring.' },
+      { name: 'Noida-Greater Noida Expressway Corridor', desc: 'Modern commercial skyscrapers, global data centers, and corporate headquarters requiring multi-tier perimeter and vehicular checkpoint protocols.' },
+      { name: 'Film City (Sector 16A)', desc: 'Broadcasting networks, media houses, and studio facilities requiring stringent credential verification, VIP escorting, and media crowd management.' },
+      { name: 'Sector 18 & Commercial District', desc: 'High-footfall commercial shopping centers, financial branches, and corporate retail stores requiring visible deterrence and theft prevention.' },
+      { name: 'Phase II Industrial Area & Hosiery Complex', desc: 'Apparel manufacturing, electronics assembly, and Special Economic Zone (SEZ) units demanding round-the-clock shift-change supervision.' },
+      { name: 'Sector 125–135 Technology Corridors', desc: 'Large-scale technology parks and BPO centers with dedicated night security patrols and emergency response teams.' },
+    ],
+    sectorFocus: [
+      'IT/ITeS Corporate Tech Campuses',
+      'Media Houses & Studio Installations in Film City',
+      'Phase II Industrial Units & Logistics Hubs',
+      'Expressway Commercial Towers & Data Centers'
+    ],
+    localCompliance: 'Operating under Uttar Pradesh PSARA License #PSA/L/93/UP/2021/DEC/3/330 (valid through December 2026). Compliant with all UP Labour and statutory wage standards.'
+  },
+  faridabad: {
+    heroHeading: 'Industrial & Corporate Security in Faridabad, Haryana',
+    tagline: 'Heavy Manufacturing Plant Protection, Warehouse Security & Mathura Road Industrial Belts',
+    metaTitle: 'Industrial & Corporate Security Services in Faridabad, Haryana | TMS Security',
+    metaDesc: 'PSARA-licensed industrial security agency in Faridabad, Haryana. Heavy machinery plant security, factory guarding, and warehouse protection across Ballabhgarh & Mathura Road.',
+    zonesHeading: 'Industrial Belts & Manufacturing Corridors We Guard in Faridabad',
+    zones: [
+      { name: 'Mathura Road (NH-44) Industrial Belt', desc: 'Large manufacturing complexes, auto-ancillary factories, and logistics terminals requiring structured vehicular checkpoints and weighbridge monitoring.' },
+      { name: 'Bata Chowk & Sector 12 Commercial Hub', desc: 'Corporate branch offices, district courts, and commercial business complexes needing executive security guards and visitor management.' },
+      { name: 'Sector 24, 25 & 58 Industrial Areas', desc: 'Engineering fabrication units, tool manufacturing, and raw material stores demanding strict material in/out registers and perimeter defense.' },
+      { name: 'Ballabhgarh Industrial Zone', desc: 'Heavy manufacturing plants, chemical processing facilities, and storage yards requiring trained fire-fighting and emergency hazard responders.' },
+      { name: 'DLF Industrial Area', desc: 'Light engineering MSMEs, textile processing units, and multi-tenant industrial sheds requiring perimeter fencing patrols and gate control.' },
+      { name: 'Prithla & Sikri Logistics Hubs', desc: 'High-capacity warehousing and distribution centers requiring inventory loss prevention, truck seal checking, and 24/7 security guard presence.' },
+    ],
+    sectorFocus: [
+      'Heavy Machinery & Automotive Component Plants',
+      'Warehousing, Freight & Container Depots',
+      'Steel, Fabrication & Raw Material Yards',
+      'Corporate Offices & Commercial Complexes'
+    ],
+    localCompliance: 'Full compliance under Haryana PSARA License #PSA/L/44/HR/2025/OCT/3/1539. Regular industrial fire drill training and emergency crisis protocol execution.'
+  },
+  'greater-noida': {
+    heroHeading: 'Campus & Industrial Security in Greater Noida, Uttar Pradesh',
+    tagline: 'Educational Campus Security in Knowledge Park, Ecotech Electronics Hubs & Data Centers',
+    metaTitle: 'Security Services in Greater Noida, Uttar Pradesh | Knowledge Park & Ecotech | TMS Security',
+    metaDesc: 'PSARA-licensed security agency in Greater Noida, UP. Guarding educational campuses in Knowledge Park, electronics manufacturing in Ecotech, and Techzone facilities.',
+    zonesHeading: 'Key Institutional, Tech & Industrial Hubs in Greater Noida',
+    zones: [
+      { name: 'Knowledge Park (I, II, III, IV, V)', desc: 'Large university campuses, management institutes, and student housing needing student safety management, perimeter patrols, and anti-ragging security presence.' },
+      { name: 'Ecotech Industrial Areas (Ecotech I to XI)', desc: 'Heavy electronics manufacturing, mobile assembly plants, and auto manufacturers demanding advanced access turnstiles and material tracking.' },
+      { name: 'Techzone IV & Techzone VII', desc: 'State-of-the-art enterprise data centers, cloud infrastructure facilities, and software parks with biometric checkpoints and 24/7 CCTV surveillance.' },
+      { name: 'Pari Chowk Commercial & Transit Hub', desc: 'Central transit nexus and bustling retail commercial centers requiring active crowd dispersal, bouncer deployment, and parking protection.' },
+      { name: 'Yamuna Expressway (YEIDA) Industrial Belt', desc: 'Rapidly growing manufacturing clusters, upcoming airport feeder facilities, and logistics corridors requiring scalable guard deployments.' },
+      { name: 'Surajpur Industrial Area', desc: 'Established industrial manufacturing factories, packaging units, and commercial depots with perimeter guard posts and nighttime canine patrols.' },
+    ],
+    sectorFocus: [
+      'Colleges, Universities & Educational Institutions',
+      'Electronics & High-Tech Hardware Manufacturing',
+      'Enterprise Hyperscale Data Centers',
+      'Industrial Complexes & Logistics Parks'
+    ],
+    localCompliance: 'Authorized under Uttar Pradesh PSARA License #PSA/L/93/UP/2021/DEC/3/330. Rigorous background verification and police clearance for all campus and industrial personnel.'
+  },
+  ghaziabad: {
+    heroHeading: 'Industrial & Logistics Security Services in Ghaziabad, Uttar Pradesh',
+    tagline: 'Manufacturing Perimeter Guarding in Sahibabad, Indirapuram Commercial Hubs & Logistics Depots',
+    metaTitle: 'Industrial Security Agency in Ghaziabad, Uttar Pradesh | Sahibabad | TMS Security',
+    metaDesc: 'PSARA-licensed security services in Ghaziabad, UP. Specialized warehouse guarding, logistics security, and factory protection across Sahibabad Industrial Area & Indirapuram.',
+    zonesHeading: 'Major Manufacturing Belts & Commercial Sectors in Ghaziabad',
+    zones: [
+      { name: 'Sahibabad Industrial Area (Sites 1 to 4)', desc: 'High-density industrial production, metal fabrication, and FMCG manufacturing plants requiring disciplined gate security and shift management.' },
+      { name: 'Indirapuram & Vaishali Commercial Centers', desc: 'Modern shopping complexes, corporate co-working spaces, and premium gated residential townships requiring courteous, verified security staff.' },
+      { name: 'Loni Industrial Area', desc: 'Medium and small-scale manufacturing units, metal works, and processing sheds requiring perimeter vigil and theft deterrence.' },
+      { name: 'Kavi Nagar & Bulandshahr Road Belts', desc: 'Long-standing heavy industrial enterprises and commercial depots requiring 24/7 security guarding, entry logging, and fire safety readiness.' },
+      { name: 'Mohan Nagar Industrial Zone', desc: 'Beverage plants, packaging facilities, and logistics terminals along GT Road requiring freight vehicle inspection and visitor management.' },
+      { name: 'Dasna & Meerut Road Logistics Belt', desc: 'Container yards, e-commerce fulfillment hubs, and heavy logistics distribution centers demanding loss prevention officers.' },
+    ],
+    sectorFocus: [
+      'Heavy Industrial & Manufacturing Facilities',
+      'E-Commerce Warehousing & Cargo Depots',
+      'Commercial Retail & Residential Complexes',
+      'Packaging, Fabrication & Chemical Units'
+    ],
+    localCompliance: 'Certified under Uttar Pradesh PSARA License #PSA/L/93/UP/2021/DEC/3/330. Direct supervisory checking by roving Ghaziabad area field officers.'
+  }
+};
+
 const LocationPage = ({
   city = 'Delhi',
   state = 'Delhi NCR',
@@ -81,8 +225,9 @@ const LocationPage = ({
 }) => {
   const slug = canonicalSlug || city.toLowerCase().replace(/\s+/g, '-');
   const canonical = `${SITE_URL}/security-services/${slug}`;
-  const pageTitle = `${city} Corporate Security Services | PSARA Licensed | TMS Security`;
-  const metaDescription = `Top-rated PSARA-licensed corporate security agency in ${city}, ${state}. ISO 9001:2015 certified. Security guards, PSOs, bouncers & facility management. 500+ guards deployed. Call now for a free quote.`;
+  const localData = CITY_LOCAL_DATA[slug] || {};
+  const pageTitle = localData.metaTitle || `${city} Corporate Security Services | PSARA Licensed | TMS Security`;
+  const metaDescription = localData.metaDesc || `Top-rated PSARA-licensed corporate security agency in ${city}, ${state}. ISO 9001:2015 certified. Security guards, PSOs, bouncers & facility management. 500+ guards deployed. Call now for a free quote.`;
 
   const whatsappUrl = `${WHATSAPP_BASE}${encodeURIComponent(city)}.`;
 
@@ -265,10 +410,12 @@ const LocationPage = ({
           </nav>
 
           <h1 className="lp-hero__h1">
-            Premier Corporate Security in <span className="lp-hero__city">{city}</span>
+            {localData.heroHeading || (
+              <>Premier Corporate Security in <span className="lp-hero__city">{city}</span></>
+            )}
           </h1>
           <p className="lp-hero__sub">
-            PSARA-licensed, ISO 9001:2015 certified. Trusted by 100+ enterprises across {state} for guard deployment, PSO services, and full facility management.
+            {localData.tagline || `PSARA-licensed, ISO 9001:2015 certified. Trusted by 100+ enterprises across ${state} for guard deployment, PSO services, and full facility management.`}
           </p>
 
           <div className="lp-hero__cta-group">
@@ -345,6 +492,54 @@ const LocationPage = ({
           </div>
         </div>
       </article>
+
+      {/* Local Operational Hubs & Zones Section */}
+      {localData.zones && (
+        <section id="location-zones" className="lp-zones-section" aria-label={`Operational Hubs in ${city}`}>
+          <div className="lp-container">
+            <header className="lp-section-header">
+              <p className="lp-section-header__eyebrow">Local Deployments &amp; Coverage</p>
+              <h2 className="lp-section-header__title">{localData.zonesHeading}</h2>
+              <p className="lp-section-header__desc">
+                TMS Security maintains rapid-response units, active manned guarding, and dedicated patrol routes across {city}'s primary commercial, IT, and industrial corridors.
+              </p>
+            </header>
+
+            <div className="lp-zones-grid">
+              {localData.zones.map((zone, idx) => (
+                <div key={idx} className="lp-zone-card">
+                  <div className="lp-zone-card__header">
+                    <span className="lp-zone-icon" aria-hidden="true">📍</span>
+                    <h3 className="lp-zone-title">{zone.name}</h3>
+                  </div>
+                  <p className="lp-zone-desc">{zone.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {localData.sectorFocus && (
+              <div className="lp-sector-focus-box">
+                <div className="lp-sector-focus-header">
+                  <span className="lp-sector-eyebrow">SPECIALIZED INDUSTRY FOCUS IN {city.toUpperCase()}</span>
+                  <h3>Tailored Security Protocols</h3>
+                </div>
+                <div className="lp-sector-pills">
+                  {localData.sectorFocus.map((sec, idx) => (
+                    <span key={idx} className="lp-sector-pill">
+                      <span className="lp-pill-bullet">✓</span> {sec}
+                    </span>
+                  ))}
+                </div>
+                {localData.localCompliance && (
+                  <p className="lp-sector-compliance-note">
+                    <strong>Jurisdictional Compliance:</strong> {localData.localCompliance}
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       <section id="location-why-tms" className="lp-why-section">
         <div className="lp-container">
@@ -542,6 +737,34 @@ const LocationPage = ({
           />
         </section>
       )}
+
+      <section id="location-siblings" className="lp-siblings-section" aria-label="Other NCR Locations">
+        <div className="lp-container">
+          <header className="lp-section-header">
+            <p className="lp-section-header__eyebrow">Regional Network</p>
+            <h2 className="lp-section-header__title">Explore Other Delhi NCR Service Hubs</h2>
+            <p className="lp-section-header__desc">
+              Looking for commercial security or facility management in neighbouring districts? Explore our localized coverage across NCR:
+            </p>
+          </header>
+          <div className="lp-siblings-grid">
+            {SIBLING_LOCATIONS.filter((loc) => loc.slug !== slug).map((loc) => (
+              <Link
+                key={loc.slug}
+                to={`/security-services/${loc.slug}`}
+                className="lp-sibling-card"
+                id={`lp-sibling-${loc.slug}`}
+              >
+                <div className="lp-sibling-info">
+                  <strong className="lp-sibling-city">{loc.city}</strong>
+                  <span className="lp-sibling-state">{loc.state}</span>
+                </div>
+                <span className="lp-sibling-arrow" aria-hidden="true">→</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <section id="location-cta-final" className="lp-final-cta">
         <div className="lp-container lp-container--narrow">

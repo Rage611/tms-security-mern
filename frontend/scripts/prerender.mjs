@@ -24,6 +24,7 @@ const ROUTES = [
   '/trained-gunman',
   '/security-guards',
   '/data-entry-operators',
+  '/compliance',
   '/security-services/delhi',
   '/security-services/noida',
   '/security-services/gurgaon',
