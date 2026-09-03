@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import './Network.css';
 import tmsMap from '../../assets/images/tms-map.webp';
@@ -135,6 +136,46 @@ const Network = () => {
           <div className="legend__item">
             <span className="legend__pip legend__pip--exp" />
             <span className="legend__text">Upcoming Expansion</span>
+          </div>
+        </div>
+
+        {/* Crawler & User Anchor Fallback for Regional Hubs */}
+        <div className={`network__crawler-fallback ${inView ? 'network__crawler-fallback--visible' : ''}`} aria-label="Regional Deployment City Hubs">
+          <div className="network__fallback-title">
+            <span className="fallback-tag">OPERATIONAL JURISDICTIONS &amp; CITY HUBS</span>
+            <span className="fallback-sub">Explore PSARA-licensed enterprise manned guarding and facility security across regional commands:</span>
+          </div>
+          <div className="network__fallback-grid">
+            <div className="network__fallback-state">
+              <span className="network__state-name">DELHI (NCT):</span>
+              <Link to="/security-services/delhi" className="network__hub-link">Delhi Command HQ</Link>
+            </div>
+            <div className="network__fallback-state">
+              <span className="network__state-name">HARYANA:</span>
+              <Link to="/security-services/gurgaon" className="network__hub-link">Gurgaon</Link>
+              <span className="network__hub-sep">•</span>
+              <Link to="/security-services/faridabad" className="network__hub-link">Faridabad</Link>
+              <span className="network__hub-sep">•</span>
+              <Link to="/security-services/hisar" className="network__hub-link">Hisar</Link>
+              <span className="network__hub-sep">•</span>
+              <Link to="/security-services/rohtak" className="network__hub-link">Rohtak</Link>
+            </div>
+            <div className="network__fallback-state">
+              <span className="network__state-name">UTTAR PRADESH:</span>
+              <Link to="/security-services/noida" className="network__hub-link">Noida</Link>
+              <span className="network__hub-sep">•</span>
+              <Link to="/security-services/greater-noida" className="network__hub-link">Greater Noida</Link>
+              <span className="network__hub-sep">•</span>
+              <Link to="/security-services/ghaziabad" className="network__hub-link">Ghaziabad</Link>
+              <span className="network__hub-sep">•</span>
+              <Link to="/security-services/lucknow" className="network__hub-link">Lucknow</Link>
+              <span className="network__hub-sep">•</span>
+              <Link to="/security-services/varanasi" className="network__hub-link">Varanasi</Link>
+            </div>
+            <div className="network__fallback-state">
+              <span className="network__state-name">BIHAR:</span>
+              <Link to="/security-services/patna" className="network__hub-link">Patna Regional Operations</Link>
+            </div>
           </div>
         </div>
       </div>

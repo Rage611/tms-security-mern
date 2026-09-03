@@ -4,6 +4,7 @@ import SEOHead from '../../../../../SEOHead/SEOHead';
 import '../../../SharedServiceLayout.css';
 
 import PageHeader from '../../../../../PageHeader/PageHeader';
+import ServiceOperatingRegions from '../../../ServiceOperatingRegions';
 import guardTeam from '../../../../../../assets/images/NavbarServices/securityguard.webp';
 
 const SecurityGuards = () => {
@@ -117,6 +118,8 @@ const SecurityGuards = () => {
           </div>
         </div>
       </section>
+
+      <ServiceOperatingRegions serviceName="Security Guard Services" />
 
       <section className="service-action-section">
         <div className="action-container">

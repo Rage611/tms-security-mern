@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../SharedServiceLayout.css';
 
 import PageHeader from '../../../PageHeader/PageHeader';
+import ServiceOperatingRegions from '../ServiceOperatingRegions';
 import facilityImg from '../../../../assets/images/NavbarServices/facilitymanagement.webp';
 
 const FacilityManagement = () => {
@@ -68,6 +69,8 @@ const FacilityManagement = () => {
           </div>
         </div>
       </section>
+
+      <ServiceOperatingRegions serviceName="Facility Management Services" />
 
       <section className="service-action-section">
         <div className="action-container">

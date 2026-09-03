@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../../../SharedServiceLayout.css';
 
 import PageHeader from '../../../../../PageHeader/PageHeader';
+import ServiceOperatingRegions from '../../../ServiceOperatingRegions';
 import tacticalImg from "../../../../../../assets/images/NavbarServices/bouncer.webp";
 
 const Bouncer = () => {
@@ -104,6 +105,8 @@ const Bouncer = () => {
           </div>
         </div>
       </div>
+
+      <ServiceOperatingRegions serviceName="Bouncers & Event Security" />
 
       <section className="service-action-section">
         <div className="action-container">

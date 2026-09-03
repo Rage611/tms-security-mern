@@ -299,6 +299,19 @@
   border-radius: 2px;
 }
 
+.company-page .state-sub-pill--link {
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.company-page .state-sub-pill--link:hover {
+  background: #047857;
+  color: #ffffff;
+  border-color: #047857;
+  transform: translateY(-1px);
+}
+
 .company-page .state-row-heading {
   font-size: 1.45rem;
   font-weight: 800;

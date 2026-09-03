@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../../../SharedServiceLayout.css';
 
 import PageHeader from '../../../../../PageHeader/PageHeader';
+import ServiceOperatingRegions from '../../../ServiceOperatingRegions';
 import armedImg from '../../../../../../assets/images/NavbarServices/gunman.webp';
 
 const TrainedGunman = () => {
@@ -99,6 +100,8 @@ const TrainedGunman = () => {
           <a href="tel:+919717763351" className="cta-btn cta-btn--secondary">CALL NOW: +91-971-776-3351</a>
         </div>
       </div>
+
+      <ServiceOperatingRegions serviceName="Armed & Trained Gunman Services" />
 
       <section className="service-action-section">
         <div className="action-container">

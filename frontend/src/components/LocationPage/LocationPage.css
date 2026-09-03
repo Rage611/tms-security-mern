@@ -242,7 +242,12 @@
   gap: 16px;
   padding: 28px 32px;
   border-right: 1px solid rgba(184, 134, 11, 0.15);
-  transition: background 0.25s;
+  transition: background 0.25s, transform 0.25s;
+  text-decoration: none;
+}
+
+.lp-trust-card--linked {
+  cursor: pointer;
 }
 
 .lp-trust-card:last-child {
@@ -250,7 +255,11 @@
 }
 
 .lp-trust-card:hover {
-  background: rgba(255, 215, 0, 0.05);
+  background: rgba(255, 215, 0, 0.08);
+}
+
+.lp-trust-card--linked:hover .lp-trust-card__label {
+  color: #b8860b;
 }
 
 .lp-trust-card__icon {
@@ -396,11 +405,44 @@
   text-transform: uppercase;
 }
 
+.lp-service-title-link {
+  color: #111;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.lp-service-title-link:hover {
+  color: #b8860b;
+}
+
 .lp-service-card__desc {
   font-size: 0.9rem;
   color: #666;
   line-height: 1.65;
   margin-bottom: 20px;
+}
+
+.lp-service-card__links-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.lp-service-card__learn-more {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+}
+
+.lp-service-card__learn-more:hover {
+  color: #b8860b;
+  transform: translateX(2px);
 }
 
 .lp-service-card__link {

@@ -102,6 +102,41 @@ const Navbar = () => {
             </ul>
           </li>
 
+          <li className="nav-item dropdown">
+            <span 
+              className="nav__link" 
+              onClick={(e) => handleMainToggle(e, 'areas')} 
+              style={{ cursor: "pointer" }}      
+            >
+              AREAS WE SERVE <span className="arrow">▼</span>
+            </span>
+            <div className={`dropdown-menu dropdown-mega ${mobileActive === 'areas' ? 'mobile-open' : ''}`}>
+              <div className="mega-state-col">
+                <span className="mega-state-title">DELHI (NCT)</span>
+                <Link to="/security-services/delhi" className="dropdown-link" onClick={closeMenu}>Delhi (HQ)</Link>
+              </div>
+              <div className="mega-state-col">
+                <span className="mega-state-title">HARYANA</span>
+                <Link to="/security-services/gurgaon" className="dropdown-link" onClick={closeMenu}>Gurgaon</Link>
+                <Link to="/security-services/faridabad" className="dropdown-link" onClick={closeMenu}>Faridabad</Link>
+                <Link to="/security-services/hisar" className="dropdown-link" onClick={closeMenu}>Hisar</Link>
+                <Link to="/security-services/rohtak" className="dropdown-link" onClick={closeMenu}>Rohtak</Link>
+              </div>
+              <div className="mega-state-col">
+                <span className="mega-state-title">UTTAR PRADESH</span>
+                <Link to="/security-services/noida" className="dropdown-link" onClick={closeMenu}>Noida</Link>
+                <Link to="/security-services/greater-noida" className="dropdown-link" onClick={closeMenu}>Greater Noida</Link>
+                <Link to="/security-services/ghaziabad" className="dropdown-link" onClick={closeMenu}>Ghaziabad</Link>
+                <Link to="/security-services/lucknow" className="dropdown-link" onClick={closeMenu}>Lucknow</Link>
+                <Link to="/security-services/varanasi" className="dropdown-link" onClick={closeMenu}>Varanasi</Link>
+              </div>
+              <div className="mega-state-col">
+                <span className="mega-state-title">BIHAR</span>
+                <Link to="/security-services/patna" className="dropdown-link" onClick={closeMenu}>Patna</Link>
+              </div>
+            </div>
+          </li>
+
           <li><Link to="/career" className="nav__link" onClick={closeMenu}>CAREER</Link></li>
             
           <li>

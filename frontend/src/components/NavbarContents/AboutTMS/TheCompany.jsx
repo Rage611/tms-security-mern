@@ -104,11 +104,16 @@ const TheCompany = () => {
             <div className="state-row-left">
               <div className="state-tag-group">
                 <span className="state-tag">NATIONAL CAPITAL</span>
-                <span className="state-sub-pill">COMMAND HQ</span>
+                <Link to="/compliance" className="state-sub-pill state-sub-pill--link" title="Verify PSARA Delhi Compliance">
+                  PSARA DELHI JURISDICTION
+                </Link>
               </div>
               <h3 className="state-row-heading">Delhi (NCT)</h3>
               <p className="state-row-summary">
-                Command headquarters deployed across Central Ministries (DoPT North Block, MEA Shastri Bhawan, CGDA), healthcare logistics (Entero Healthcare), premier retail (Woodland, Wave Infratech, Adidas), and DSIIDC industrial estates.
+                Command headquarters deployed across Central Ministries (DoPT North Block, MEA Shastri Bhawan, CGDA), healthcare logistics (Entero Healthcare), premier retail (Woodland, Wave Infratech, Adidas), and DSIIDC industrial estates under verified{' '}
+                <Link to="/compliance" style={{ color: '#b8860b', fontWeight: 600, textDecoration: 'underline' }}>
+                  PSARA protocols
+                </Link>.
               </p>
             </div>
             <div className="state-row-right state-grid-single">
@@ -130,11 +135,15 @@ const TheCompany = () => {
             <div className="state-row-left">
               <div className="state-tag-group">
                 <span className="state-tag">HARYANA STATE</span>
-                <span className="state-sub-pill">PSARA #PSA/L/44/HR/2025</span>
+                <Link to="/compliance" className="state-sub-pill state-sub-pill--link" title="Verify Haryana PSARA License #PSA/L/44/HR/2025/OCT/3/1539">
+                  PSARA #PSA/L/44/HR/2025
+                </Link>
               </div>
               <h3 className="state-row-heading">Haryana</h3>
               <p className="state-row-summary">
-                Authorized through 2030. Enterprise protection for Central Govt tax bodies (CBDT Aayakar Bhawan Rohtak), Fortune 500 retail networks (Woodland, Vijay Sales), and heavy manufacturing corridors.
+                <Link to="/compliance" style={{ color: '#b8860b', fontWeight: 600, textDecoration: 'underline' }}>
+                  Haryana PSARA Authorized through 2030
+                </Link>. Enterprise protection for Central Govt tax bodies (CBDT Aayakar Bhawan Rohtak), Fortune 500 retail networks (Woodland, Vijay Sales), and heavy manufacturing corridors.
               </p>
             </div>
             <div className="state-row-right state-grid-quad">
@@ -186,11 +195,15 @@ const TheCompany = () => {
             <div className="state-row-left">
               <div className="state-tag-group">
                 <span className="state-tag">UTTAR PRADESH</span>
-                <span className="state-sub-pill">PSARA #PSA/L/93/UP/2021</span>
+                <Link to="/compliance" className="state-sub-pill state-sub-pill--link" title="Verify UP PSARA License #PSA/L/93/UP/2021/DEC/3/330">
+                  PSARA #PSA/L/93/UP/2021
+                </Link>
               </div>
               <h3 className="state-row-heading">Uttar Pradesh</h3>
               <p className="state-row-summary">
-                Authorized through 2026. Manned guarding for Sovereign &amp; PSU entities (India Govt Mint SPMCIL Noida, HPCL Lucknow), retail giants, and Kashi hospitality resorts.
+                <Link to="/compliance" style={{ color: '#b8860b', fontWeight: 600, textDecoration: 'underline' }}>
+                  UP PSARA Authorized through 2026
+                </Link>. Manned guarding for Sovereign &amp; PSU entities (India Govt Mint SPMCIL Noida, HPCL Lucknow), retail giants, and Kashi hospitality resorts.
               </p>
             </div>
             <div className="state-row-right state-grid-penta">
@@ -252,11 +265,17 @@ const TheCompany = () => {
             <div className="state-row-left">
               <div className="state-tag-group">
                 <span className="state-tag">EASTERN ZONE</span>
-                <span className="state-sub-pill">REGIONAL EXPANSION</span>
+                <Link to="/compliance" className="state-sub-pill state-sub-pill--link" title="Verify Compliance & Operations">
+                  COMPLIANCE VERIFIED
+                </Link>
               </div>
               <h3 className="state-row-heading">Bihar</h3>
               <p className="state-row-summary">
-                Commercial security and loss prevention for multi-floor retail establishments (Adi Sports Khagaul), banking complexes, and logistics transit hubs across Greater Patna.
+                Commercial security and loss prevention under verified{' '}
+                <Link to="/compliance" style={{ color: '#b8860b', fontWeight: 600, textDecoration: 'underline' }}>
+                  statutory compliance
+                </Link>{' '}
+                for multi-floor retail establishments (Adi Sports Khagaul), banking complexes, and logistics transit hubs across Greater Patna.
               </p>
             </div>
             <div className="state-row-right state-grid-single">

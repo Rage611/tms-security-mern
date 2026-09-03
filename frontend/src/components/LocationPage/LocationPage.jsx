@@ -14,12 +14,12 @@ const PHONE_DISPLAY = '+91-97177-63351';
 const SITE_URL = 'https://tmssecurity.in';
 
 const DEFAULT_SERVICES = [
-  { id: 'guards', label: 'Security Guard Deployment', icon: 'shield' },
-  { id: 'pso', label: 'Personal Security Officers (PSO)', icon: 'person' },
-  { id: 'bouncer', label: 'Bouncers & Access Control', icon: 'lock' },
-  { id: 'gunman', label: 'Armed / Trained Gunmen', icon: 'target' },
-  { id: 'facility', label: 'Facility Management', icon: 'building' },
-  { id: 'housekeeping', label: 'Housekeeping & Sanitation', icon: 'star' },
+  { id: 'guards', label: 'Security Guard Deployment', path: '/security-guards', icon: 'shield' },
+  { id: 'pso', label: 'Personal Security Officers (PSO)', path: '/pso', icon: 'person' },
+  { id: 'bouncer', label: 'Bouncers & Access Control', path: '/bouncer', icon: 'lock' },
+  { id: 'gunman', label: 'Armed / Trained Gunmen', path: '/trained-gunman', icon: 'target' },
+  { id: 'facility', label: 'Facility Management', path: '/facility-management', icon: 'building' },
+  { id: 'housekeeping', label: 'Housekeeping & Sanitation', path: '/housekeeping', icon: 'star' },
 ];
 
 const TRUST_SIGNALS = [
@@ -27,6 +27,7 @@ const TRUST_SIGNALS = [
     id: 'psara',
     label: 'PSARA Licensed',
     sublabel: 'Govt. of India',
+    link: '/compliance',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#b8860b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2L3 7v5c0 5.25 3.75 10.15 9 11.25C17.25 22.15 21 17.25 21 12V7l-9-5z" />
@@ -38,6 +39,7 @@ const TRUST_SIGNALS = [
     id: 'iso',
     label: 'ISO 9001:2015',
     sublabel: 'Quality Certified',
+    link: '/compliance',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#b8860b" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="8" r="6" />
@@ -530,7 +532,23 @@ const LocationPage = ({
             )}
           </h1>
           <p className="lp-hero__sub">
-            {localData.tagline || `PSARA-licensed, ISO 9001:2015 certified. Trusted by 100+ enterprises across ${state} for guard deployment, PSO services, and full facility management.`}
+            {localData.tagline || (
+              <>
+                PSARA-licensed, ISO 9001:2015 certified. Trusted by 100+ enterprises across {state} for{' '}
+                <Link to="/security-guards" style={{ color: '#ffd700', textDecoration: 'underline', textUnderlineOffset: '2px' }}>
+                  guard deployment
+                </Link>
+                ,{' '}
+                <Link to="/pso" style={{ color: '#ffd700', textDecoration: 'underline', textUnderlineOffset: '2px' }}>
+                  PSO close protection
+                </Link>
+                , and full{' '}
+                <Link to="/facility-management" style={{ color: '#ffd700', textDecoration: 'underline', textUnderlineOffset: '2px' }}>
+                  facility management
+                </Link>
+                .
+              </>
+            )}
           </p>
 
           <div className="lp-hero__cta-group">
@@ -566,15 +584,27 @@ const LocationPage = ({
       <section id="location-trust-signals" className="lp-trust-section" aria-label="Certifications and trust signals">
         <div className="lp-container">
           <div className="lp-trust-grid">
-            {TRUST_SIGNALS.map((signal) => (
-              <div key={signal.id} className="lp-trust-card">
-                <span className="lp-trust-card__icon" aria-hidden="true">{signal.icon}</span>
-                <div className="lp-trust-card__body">
-                  <strong className="lp-trust-card__label">{signal.label}</strong>
-                  <span className="lp-trust-card__sub">{signal.sublabel}</span>
+            {TRUST_SIGNALS.map((signal) => {
+              const content = (
+                <>
+                  <span className="lp-trust-card__icon" aria-hidden="true">{signal.icon}</span>
+                  <div className="lp-trust-card__body">
+                    <strong className="lp-trust-card__label">{signal.label}</strong>
+                    <span className="lp-trust-card__sub">{signal.sublabel}</span>
+                  </div>
+                </>
+              );
+
+              return signal.link ? (
+                <Link key={signal.id} to={signal.link} className="lp-trust-card lp-trust-card--linked">
+                  {content}
+                </Link>
+              ) : (
+                <div key={signal.id} className="lp-trust-card">
+                  {content}
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -595,13 +625,22 @@ const LocationPage = ({
                 <span className="lp-service-card__badge" aria-hidden="true">
                   <ServiceIcon type={svc.icon} />
                 </span>
-                <h3 className="lp-service-card__title">{svc.label}</h3>
+                <h3 className="lp-service-card__title">
+                  <Link to={svc.path} className="lp-service-title-link">
+                    {svc.label}
+                  </Link>
+                </h3>
                 <p className="lp-service-card__desc">
                   Available for immediate deployment in {city} and surrounding {state} districts. Fully licensed and uniformed personnel.
                 </p>
-                <Link to="/contact" className="lp-service-card__link">
-                  Enquire →
-                </Link>
+                <div className="lp-service-card__links-row">
+                  <Link to={svc.path} className="lp-service-card__learn-more">
+                    Overview →
+                  </Link>
+                  <Link to="/contact" className="lp-service-card__link">
+                    Enquire
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -647,7 +686,10 @@ const LocationPage = ({
                 </div>
                 {localData.localCompliance && (
                   <p className="lp-sector-compliance-note">
-                    <strong>Jurisdictional Compliance:</strong> {localData.localCompliance}
+                    <strong>Jurisdictional Compliance:</strong> {localData.localCompliance}{' '}
+                    <Link to="/compliance" className="lp-compliance-link" style={{ color: '#b8860b', fontWeight: 600, textDecoration: 'underline' }}>
+                      [Verify PSARA License &amp; ISO Credentials →]
+                    </Link>
                   </p>
                 )}
               </div>
@@ -677,8 +719,18 @@ const LocationPage = ({
                 <li className="lp-why-list__item">
                   <span className="lp-why-list__bullet" aria-hidden="true" />
                   <div>
-                    <strong>PSARA & State Compliance</strong>
-                    <p>Every personnel member is licensed, background-verified, and compliant with {state} jurisdiction requirements.</p>
+                    <strong>
+                      <Link to="/compliance" style={{ color: '#ffffff', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                        PSARA &amp; State Compliance
+                      </Link>
+                    </strong>
+                    <p>
+                      Every personnel member is licensed, background-verified, and compliant under official{' '}
+                      <Link to="/compliance" style={{ color: '#ffd700', textDecoration: 'underline' }}>
+                        PSARA State Licenses
+                      </Link>{' '}
+                      for {state} jurisdiction requirements.
+                    </p>
                   </div>
                 </li>
                 <li className="lp-why-list__item">

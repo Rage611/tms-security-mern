@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../SharedServiceLayout.css';
 
 import PageHeader from '../../../PageHeader/PageHeader';
+import ServiceOperatingRegions from '../ServiceOperatingRegions';
 import houseImg from '../../../../assets/images/NavbarServices/Housekeeping.webp';
 
 const Housekeeping = () => {
@@ -85,6 +86,8 @@ const Housekeeping = () => {
           <a href="tel:+919717763351" className="cta-btn cta-btn--secondary">CALL NOW: +91-971-776-3351</a>
         </div>
       </div>
+
+      <ServiceOperatingRegions serviceName="Housekeeping & Commercial Sanitation" />
 
       <section className="service-action-section">
         <div className="action-container">

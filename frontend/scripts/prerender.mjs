@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import puppeteer from 'puppeteer-core';
-import chromium from '@sparticuz/chromium';
 import http from 'http';
 import fs from 'fs';
 import path from 'path';
@@ -128,21 +127,45 @@ async function prerender() {
 
     let browser;
   try {
+    let executablePath;
+    let launchArgs = ['--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage'];
+
+    try {
+      const chromiumMod = await import('@sparticuz/chromium');
+      const chromium = chromiumMod.default || chromiumMod;
+      executablePath = await chromium.executablePath();
+      if (chromium.args) {
+        launchArgs = [...chromium.args, ...launchArgs];
+      }
+    } catch {
+      const localChromeCandidates = [
+        'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',
+        'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe',
+        path.join(process.env.LOCALAPPDATA || '', 'Google\\Chrome\\Application\\chrome.exe'),
+        '/usr/bin/google-chrome',
+        '/usr/bin/chromium-browser',
+        '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
+      ];
+      for (const p of localChromeCandidates) {
+        if (p && fs.existsSync(p)) {
+          executablePath = p;
+          break;
+        }
+      }
+    }
+
+    if (!executablePath) {
+      throw new Error('No local Chrome or @sparticuz/chromium executable found.');
+    }
+
     browser = await puppeteer.launch({
-      executablePath: await chromium.executablePath(),
-      headless: chromium.headless,
-      args: [
-        ...chromium.args,
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-      ],
+      executablePath,
+      headless: true,
+      args: launchArgs,
     });
   } catch (err) {
     console.warn('⚠️   Puppeteer could not launch — pre-rendering SKIPPED.');
-    console.warn('    Build locally with Chrome available, then deploy with:');
-    console.warn('    vercel deploy --prebuilt\n');
-    console.warn(`    Error: ${err.message}\n`);
+    console.warn(`    Reason: ${err.message}\n`);
     process.exit(0);          
   }
 

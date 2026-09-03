@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import '../../../SharedServiceLayout.css';
 
 import PageHeader from '../../../../../PageHeader/PageHeader';
+import ServiceOperatingRegions from '../../../ServiceOperatingRegions';
 import psoImg from '../../../../../../assets/images/NavbarServices/pso.webp';
 
 const PSO = () => {
@@ -100,6 +101,8 @@ const PSO = () => {
           </div>
         </div>
       </section>
+
+      <ServiceOperatingRegions serviceName="Personal Security Officer (PSO) Details" />
 
       <section className="service-action-section">
         <div className="action-container">

@@ -486,3 +486,102 @@
     display: none;
   }
 }
+
+/* ============================================================
+   Crawler & User Regional Fallback Links
+   ============================================================ */
+.network-section .network__crawler-fallback {
+  width: 100%;
+  max-width: 960px;
+  margin-top: 36px;
+  padding: 24px 28px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  border-radius: 4px;
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+}
+
+.network-section .network__crawler-fallback--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.network-section .network__fallback-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 12px;
+}
+
+.network-section .fallback-tag {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  color: #ffd700;
+  text-transform: uppercase;
+}
+
+.network-section .fallback-sub {
+  font-size: 0.82rem;
+  color: #94a3b8;
+}
+
+.network-section .network__fallback-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.network-section .network__fallback-state {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+}
+
+.network-section .network__state-name {
+  font-weight: 800;
+  color: #e2e8f0;
+  font-size: 0.78rem;
+  min-width: 110px;
+  letter-spacing: 0.5px;
+}
+
+.network-section .network__hub-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  padding: 2px 6px;
+  border-radius: 2px;
+}
+
+.network-section .network__hub-link:hover {
+  color: #ffd700;
+  background: rgba(255, 215, 0, 0.1);
+  text-decoration: underline;
+}
+
+.network-section .network__hub-sep {
+  color: rgba(212, 175, 55, 0.4);
+  font-size: 0.7rem;
+}
+
+@media (max-width: 768px) {
+  .network-section .network__crawler-fallback {
+    padding: 18px 16px;
+    margin-top: 24px;
+  }
+
+  .network-section .network__state-name {
+    min-width: 100%;
+    margin-bottom: 2px;
+    color: #ffd700;
+  }
+}
