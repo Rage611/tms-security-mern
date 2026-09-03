@@ -28,7 +28,6 @@ const SecurityGuards = lazy(() => import('./components/NavbarContents/Services/M
 const Compliance = lazy(() => import('./components/NavbarContents/AboutTMS/Compliance/Compliance'));
 const NotFound = lazy(() => import('./components/NotFound/NotFound'));
 const LocationPage = lazy(() => import('./components/LocationPage/LocationPage'));
-const LocationsSection = lazy(() => import('./components/LocationsSection/LocationsSection'));
 
 const RouteLoader = () => (
   <div style={{
@@ -63,9 +62,6 @@ const Home = () => (
     <About />
     <Services />
     <Network />
-    <Suspense fallback={null}>
-      <LocationsSection />
-    </Suspense>
     <Clients />
   </>
 );

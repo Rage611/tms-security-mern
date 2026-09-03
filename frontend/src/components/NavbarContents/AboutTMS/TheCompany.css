@@ -237,37 +237,48 @@
   color: #475569;
 }
 
-.company-page .state-coverage-grid {
+.company-page .state-rows-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-}
-
-.company-page .state-group-card {
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-top: 4px solid #b8860b;
-  border-radius: 4px;
-  padding: 32px 24px;
   display: flex;
   flex-direction: column;
+  gap: 28px;
+}
+
+.company-page .state-row-block {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 5px solid #b8860b;
+  border-radius: 6px;
+  padding: 32px 36px;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  align-items: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left-color 0.3s ease;
 }
 
-.company-page .state-group-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+.company-page .state-row-block:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  border-left-color: #ffd700;
 }
 
-.company-page .state-card-header {
-  margin-bottom: 12px;
+.company-page .state-row-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.company-page .state-tag-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .company-page .state-tag {
-  display: inline-block;
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 1.5px;
@@ -275,58 +286,87 @@
   background: rgba(184, 134, 11, 0.08);
   padding: 4px 10px;
   border-radius: 2px;
-  margin-bottom: 8px;
 }
 
-.company-page .state-card-header h3 {
-  font-size: 1.35rem;
+.company-page .state-sub-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #047857;
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.company-page .state-row-heading {
+  font-size: 1.45rem;
   font-weight: 800;
   color: #0f172a;
   margin: 0;
   letter-spacing: 0.5px;
 }
 
-.company-page .state-card-desc {
-  font-size: 0.9rem;
+.company-page .state-row-summary {
+  font-size: 0.88rem;
   line-height: 1.6;
   color: #64748b;
-  margin-bottom: 24px;
-  min-height: 58px;
+  margin: 0;
 }
 
-.company-page .regional-links-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: auto;
+/* Grids for the right column */
+.company-page .state-row-right {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}
+
+.company-page .state-grid-single {
+  grid-template-columns: 1fr;
+}
+
+.company-page .state-grid-double {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.company-page .state-grid-triple {
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .company-page .regional-link-card {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 16px;
+  padding: 16px 20px;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
-  border-radius: 3px;
+  border-radius: 4px;
   text-decoration: none;
   transition: all 0.25s ease;
+  min-height: 84px;
 }
 
 .company-page .regional-link-card:hover {
   background: #0f172a;
   border-color: #0f172a;
   transform: translateX(4px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .company-page .regional-link-info {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+}
+
+.company-page .regional-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .company-page .regional-link-city {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #0f172a;
   transition: color 0.2s ease;
@@ -336,10 +376,27 @@
   color: #ffd700;
 }
 
-.company-page .regional-link-hubs {
-  font-size: 0.74rem;
+.company-page .regional-pill {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   color: #64748b;
-  line-height: 1.3;
+  background: #e2e8f0;
+  padding: 2px 6px;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.company-page .regional-link-card:hover .regional-pill {
+  background: rgba(255, 215, 0, 0.2);
+  color: #ffd700;
+}
+
+.company-page .regional-link-hubs {
+  font-size: 0.76rem;
+  color: #64748b;
+  line-height: 1.4;
   transition: color 0.2s ease;
 }
 
@@ -348,25 +405,37 @@
 }
 
 .company-page .regional-link-arrow {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: #b8860b;
+  padding-left: 12px;
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .company-page .regional-link-card:hover .regional-link-arrow {
   color: #ffd700;
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
-@media (max-width: 1024px) {
-  .company-page .state-coverage-grid {
+@media (max-width: 1100px) {
+  .company-page .state-row-block {
     grid-template-columns: 1fr;
     gap: 24px;
+    padding: 28px 24px;
   }
 
-  .company-page .state-card-desc {
-    min-height: auto;
+  .company-page .state-grid-triple {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .company-page .state-grid-double {
+    grid-template-columns: 1fr;
+  }
+  
+  .company-page .regional-link-card {
+    padding: 14px 16px;
   }
 }
 
