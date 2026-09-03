@@ -57,8 +57,8 @@ const Footer = () => {
       <div className="footer-areas-bar">
         <div className="footer-areas-inner">
           <div className="footer-areas-title">
-            <span className="footer-areas-heading">AREAS WE SERVE (DELHI NCR &amp; NORTH INDIA)</span>
-            <span className="footer-areas-sub">PSARA Licensed Regional Coverage</span>
+            <span className="footer-areas-heading">AREAS WE SERVE (DELHI NCR &amp; REGIONAL OPERATIONS)</span>
+            <span className="footer-areas-sub">PSARA Licensed Multi-State Security Deployments</span>
           </div>
           <div className="footer-areas-list">
             <div className="footer-state-col">
@@ -72,6 +72,8 @@ const Footer = () => {
               <Link to="/security-services/faridabad" className="footer-area-link">Faridabad</Link>
               <span className="footer-area-sep">•</span>
               <Link to="/security-services/hisar" className="footer-area-link">Hisar</Link>
+              <span className="footer-area-sep">•</span>
+              <Link to="/security-services/rohtak" className="footer-area-link">Rohtak</Link>
             </div>
             <div className="footer-state-col">
               <strong className="footer-state-name">Uttar Pradesh:</strong>
@@ -81,7 +83,13 @@ const Footer = () => {
               <span className="footer-area-sep">•</span>
               <Link to="/security-services/ghaziabad" className="footer-area-link">Ghaziabad</Link>
               <span className="footer-area-sep">•</span>
+              <Link to="/security-services/lucknow" className="footer-area-link">Lucknow</Link>
+              <span className="footer-area-sep">•</span>
               <Link to="/security-services/varanasi" className="footer-area-link">Varanasi</Link>
+            </div>
+            <div className="footer-state-col">
+              <strong className="footer-state-name">Bihar:</strong>
+              <Link to="/security-services/patna" className="footer-area-link">Patna</Link>
             </div>
           </div>
         </div>

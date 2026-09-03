@@ -108,7 +108,7 @@ const TheCompany = () => {
               </div>
               <h3 className="state-row-heading">Delhi (NCT)</h3>
               <p className="state-row-summary">
-                Command center operations providing corporate office guarding, diplomatic enclave security, and high-footfall commercial access control.
+                Command headquarters deployed across Central Ministries (DoPT North Block, MEA Shastri Bhawan, CGDA), healthcare logistics (Entero Healthcare), premier retail (Woodland, Wave Infratech, Adidas), and DSIIDC industrial estates.
               </p>
             </div>
             <div className="state-row-right state-grid-single">
@@ -118,7 +118,7 @@ const TheCompany = () => {
                     <strong className="regional-link-city">Delhi Regional Deployment</strong>
                     <span className="regional-pill">Central Hub</span>
                   </div>
-                  <span className="regional-link-hubs">Connaught Place • Nehru Place • Okhla Phases I–III • Aerocity • Bhikaji Cama Place</span>
+                  <span className="regional-link-hubs">Central Govt Ministries (DoPT/MEA) • Connaught Place • Okhla • Patparganj • Naraina • Kapashera • Aerocity</span>
                 </div>
                 <span className="regional-link-arrow">→</span>
               </Link>
@@ -134,17 +134,17 @@ const TheCompany = () => {
               </div>
               <h3 className="state-row-heading">Haryana</h3>
               <p className="state-row-summary">
-                Authorized through 2030. Enterprise protection for Fortune 500 tech campuses, heavy metallurgy and steel plants, 24/7 BPO shifts, and manufacturing corridors across Gurugram, Faridabad, and Hisar.
+                Authorized through 2030. Enterprise protection for Central Govt tax bodies (CBDT Aayakar Bhawan Rohtak), Fortune 500 retail networks (Woodland, Vijay Sales), and heavy manufacturing corridors.
               </p>
             </div>
-            <div className="state-row-right state-grid-triple">
+            <div className="state-row-right state-grid-quad">
               <Link to="/security-services/gurgaon" className="regional-link-card" id="company-area-gurgaon">
                 <div className="regional-link-info">
                   <div className="regional-title-row">
                     <strong className="regional-link-city">Gurgaon (Gurugram)</strong>
                     <span className="regional-pill">Tech Corridor</span>
                   </div>
-                  <span className="regional-link-hubs">DLF Cyber City • Golf Course Rd • Udyog Vihar • IMT Manesar</span>
+                  <span className="regional-link-hubs">Woodland Sec-14 • Adi Sports Old Delhi Rd • Cyber City • IMT Manesar</span>
                 </div>
                 <span className="regional-link-arrow">→</span>
               </Link>
@@ -154,7 +154,7 @@ const TheCompany = () => {
                     <strong className="regional-link-city">Faridabad</strong>
                     <span className="regional-pill">Industrial Belt</span>
                   </div>
-                  <span className="regional-link-hubs">Mathura Rd (NH-44) • Bata Chowk • Ballabhgarh • Sector 24/25</span>
+                  <span className="regional-link-hubs">Vijay Sales Sec-20A • Mathura Rd (NH-44) • Bata Chowk • Ballabhgarh</span>
                 </div>
                 <span className="regional-link-arrow">→</span>
               </Link>
@@ -164,7 +164,17 @@ const TheCompany = () => {
                     <strong className="regional-link-city">Hisar</strong>
                     <span className="regional-pill">Steel &amp; Industry</span>
                   </div>
-                  <span className="regional-link-hubs">Industrial Area Phase I/II • Delhi Rd • Jindal City • Barwala Rd</span>
+                  <span className="regional-link-hubs">Adi Sports NH-9 Plaza • Industrial Area I/II • Jindal City • Barwala Rd</span>
+                </div>
+                <span className="regional-link-arrow">→</span>
+              </Link>
+              <Link to="/security-services/rohtak" className="regional-link-card" id="company-area-rohtak">
+                <div className="regional-link-info">
+                  <div className="regional-title-row">
+                    <strong className="regional-link-city">Rohtak</strong>
+                    <span className="regional-pill">Institutional</span>
+                  </div>
+                  <span className="regional-link-hubs">CBDT Aayakar Bhawan • Civil Rd • IMT Rohtak • Mansarover Park</span>
                 </div>
                 <span className="regional-link-arrow">→</span>
               </Link>
@@ -180,17 +190,17 @@ const TheCompany = () => {
               </div>
               <h3 className="state-row-heading">Uttar Pradesh</h3>
               <p className="state-row-summary">
-                Authorized through 2026. Manned guarding for IT tech parks, media houses, luxury hospitality resorts, university campuses, and industrial SEZs across Western UP and Varanasi.
+                Authorized through 2026. Manned guarding for Sovereign &amp; PSU entities (India Govt Mint SPMCIL Noida, HPCL Lucknow), retail giants, and Kashi hospitality resorts.
               </p>
             </div>
-            <div className="state-row-right state-grid-quad">
+            <div className="state-row-right state-grid-penta">
               <Link to="/security-services/noida" className="regional-link-card" id="company-area-noida">
                 <div className="regional-link-info">
                   <div className="regional-title-row">
                     <strong className="regional-link-city">Noida</strong>
-                    <span className="regional-pill">IT &amp; Media</span>
+                    <span className="regional-pill">Govt Mint &amp; IT</span>
                   </div>
-                  <span className="regional-link-hubs">Sector 62/63 • Expressway • Film City • Phase II SEZ</span>
+                  <span className="regional-link-hubs">SPMCIL India Govt Mint Sec-1 • Adi Sports Sec-15 • Expressway • Film City</span>
                 </div>
                 <span className="regional-link-arrow">→</span>
               </Link>
@@ -208,9 +218,19 @@ const TheCompany = () => {
                 <div className="regional-link-info">
                   <div className="regional-title-row">
                     <strong className="regional-link-city">Ghaziabad</strong>
-                    <span className="regional-pill">Manufacturing</span>
+                    <span className="regional-pill">Retail &amp; Industry</span>
                   </div>
-                  <span className="regional-link-hubs">Sahibabad Industrial Area • Indirapuram • Kavi Nagar</span>
+                  <span className="regional-link-hubs">Adi Sports Opp Bikanerwala • Sahibabad • Indirapuram • Kavi Nagar</span>
+                </div>
+                <span className="regional-link-arrow">→</span>
+              </Link>
+              <Link to="/security-services/lucknow" className="regional-link-card" id="company-area-lucknow">
+                <div className="regional-link-info">
+                  <div className="regional-title-row">
+                    <strong className="regional-link-city">Lucknow</strong>
+                    <span className="regional-pill">State Capital &amp; PSU</span>
+                  </div>
+                  <span className="regional-link-hubs">HPCL Gomti Nagar • Vibhuti Khand • Shaheed Path IT City</span>
                 </div>
                 <span className="regional-link-arrow">→</span>
               </Link>
@@ -218,9 +238,35 @@ const TheCompany = () => {
                 <div className="regional-link-info">
                   <div className="regional-title-row">
                     <strong className="regional-link-city">Varanasi</strong>
-                    <span className="regional-pill">Hospitality &amp; Industry</span>
+                    <span className="regional-pill">Hospitality &amp; Heritage</span>
                   </div>
                   <span className="regional-link-hubs">Ramnagar Ind. Area • Cantt Luxury Hotels • Sigra • Babatpur Corridor</span>
+                </div>
+                <span className="regional-link-arrow">→</span>
+              </Link>
+            </div>
+          </div>
+
+          {/* State 4: Bihar */}
+          <div className="state-row-block">
+            <div className="state-row-left">
+              <div className="state-tag-group">
+                <span className="state-tag">EASTERN ZONE</span>
+                <span className="state-sub-pill">REGIONAL EXPANSION</span>
+              </div>
+              <h3 className="state-row-heading">Bihar</h3>
+              <p className="state-row-summary">
+                Commercial security and loss prevention for multi-floor retail establishments (Adi Sports Khagaul), banking complexes, and logistics transit hubs across Greater Patna.
+              </p>
+            </div>
+            <div className="state-row-right state-grid-single">
+              <Link to="/security-services/patna" className="regional-link-card" id="company-area-patna">
+                <div className="regional-link-info">
+                  <div className="regional-title-row">
+                    <strong className="regional-link-city">Patna Regional Operations</strong>
+                    <span className="regional-pill">Commercial Hub</span>
+                  </div>
+                  <span className="regional-link-hubs">Adi Sports Khagaul Main Rd • Bailey Road • Fraser Road • Danapur Logistics Corridor • Patliputra</span>
                 </div>
                 <span className="regional-link-arrow">→</span>
               </Link>

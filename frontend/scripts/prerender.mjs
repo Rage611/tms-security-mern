@@ -30,9 +30,12 @@ const ROUTES = [
   '/security-services/gurgaon',
   '/security-services/faridabad',
   '/security-services/hisar',
+  '/security-services/rohtak',
   '/security-services/greater-noida',
   '/security-services/ghaziabad',
+  '/security-services/lucknow',
   '/security-services/varanasi',
+  '/security-services/patna',
 ];
 
 const BLOCKED_DOMAINS = [

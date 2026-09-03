@@ -152,6 +152,18 @@ function App() {
                 }
               />
               <Route
+                path="/security-services/rohtak"
+                element={
+                  <LocationPage
+                    city="Rohtak"
+                    state="Haryana"
+                    canonicalSlug="rohtak"
+                    heroImage="/hero-rohtak.webp"
+                    localKeywords={['security agency Rohtak', 'CBDT security Rohtak', 'security guards Rohtak Haryana', 'institutional security Rohtak']}
+                  />
+                }
+              />
+              <Route
                 path="/security-services/greater-noida"
                 element={
                   <LocationPage
@@ -176,6 +188,18 @@ function App() {
                 }
               />
               <Route
+                path="/security-services/lucknow"
+                element={
+                  <LocationPage
+                    city="Lucknow"
+                    state="Uttar Pradesh"
+                    canonicalSlug="lucknow"
+                    heroImage="/hero-lucknow.webp"
+                    localKeywords={['security agency Lucknow', 'HPCL security Lucknow', 'security guards Gomti Nagar', 'corporate security Lucknow UP']}
+                  />
+                }
+              />
+              <Route
                 path="/security-services/varanasi"
                 element={
                   <LocationPage
@@ -184,6 +208,18 @@ function App() {
                     canonicalSlug="varanasi"
                     heroImage="/hero-varanasi.webp"
                     localKeywords={['security agency Varanasi', 'commercial security Varanasi', 'security guards Kashi Varanasi', 'hotel security Varanasi']}
+                  />
+                }
+              />
+              <Route
+                path="/security-services/patna"
+                element={
+                  <LocationPage
+                    city="Patna"
+                    state="Bihar"
+                    canonicalSlug="patna"
+                    heroImage="/hero-patna.webp"
+                    localKeywords={['security agency Patna', 'security guards Patna Bihar', 'commercial security Khagaul', 'retail security Patna']}
                   />
                 }
               />

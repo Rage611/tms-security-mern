@@ -74,12 +74,15 @@ const TRUST_SIGNALS = [
 const SIBLING_LOCATIONS = [
   { slug: 'delhi', city: 'Delhi', state: 'Delhi (NCT)' },
   { slug: 'gurgaon', city: 'Gurgaon', state: 'Haryana' },
-  { slug: 'noida', city: 'Noida', state: 'Uttar Pradesh' },
   { slug: 'faridabad', city: 'Faridabad', state: 'Haryana' },
   { slug: 'hisar', city: 'Hisar', state: 'Haryana' },
+  { slug: 'rohtak', city: 'Rohtak', state: 'Haryana' },
+  { slug: 'noida', city: 'Noida', state: 'Uttar Pradesh' },
   { slug: 'greater-noida', city: 'Greater Noida', state: 'Uttar Pradesh' },
   { slug: 'ghaziabad', city: 'Ghaziabad', state: 'Uttar Pradesh' },
+  { slug: 'lucknow', city: 'Lucknow', state: 'Uttar Pradesh' },
   { slug: 'varanasi', city: 'Varanasi', state: 'Uttar Pradesh' },
+  { slug: 'patna', city: 'Patna', state: 'Bihar' },
 ];
 
 const CITY_LOCAL_DATA = {
@@ -215,6 +218,28 @@ const CITY_LOCAL_DATA = {
     ],
     localCompliance: 'Authorized under Uttar Pradesh PSARA License #PSA/L/93/UP/2021/DEC/3/330. Rigorous background verification and police clearance for all campus and industrial personnel.'
   },
+  rohtak: {
+    heroHeading: 'Institutional & Corporate Security in Rohtak, Haryana',
+    tagline: 'Government Tax Buildings, Educational Hubs & Commercial Security in Rohtak',
+    metaTitle: 'Security Services in Rohtak, Haryana | PSARA Licensed | TMS Security',
+    metaDesc: 'PSARA-licensed security agency in Rohtak, Haryana. Protecting Central Government offices including CBDT Aayakar Bhawan, educational institutes, and commercial complexes.',
+    zonesHeading: 'Key Institutional, Commercial & Industrial Belts in Rohtak',
+    zones: [
+      { name: 'Aayakar Bhawan & Civil Road Administrative Hub', desc: 'Central Board of Direct Taxes (CBDT) administrative complex and government judicial offices demanding strict credential checking, metal detectors, and armed guarding.' },
+      { name: 'Mansarover Park & Delhi Road Commercial Corridor', desc: 'Commercial banking establishments, retail centers, and corporate regional branch offices requiring professional uniformed security.' },
+      { name: 'IMT Rohtak Industrial Belt', desc: 'Major automotive component manufacturers, battery plants, and engineering complexes requiring weighbridge logging, material gate passes, and perimeter surveillance.' },
+      { name: 'MDU & University Institutional Sector', desc: 'Extensive educational campuses and training institutions requiring student safety management, anti-ragging presence, and parking regulation.' },
+      { name: 'Hisar Road & Jind Bypass Freight Logistics', desc: 'Warehouses, agricultural produce terminals, and freight transport hubs requiring vehicle inspections and inventory loss prevention.' },
+      { name: 'Old City Commercial & Grain Markets', desc: 'High-density trade centers and financial transactions zones demanding daytime deterrence and nocturnal security patrols.' },
+    ],
+    sectorFocus: [
+      'Central Government & Public Administration (CBDT / Aayakar Bhawan)',
+      'Educational Campuses & Institutional Facilities',
+      'Automotive & Industrial Manufacturing in IMT Rohtak',
+      'Banking Branches, Financial Centers & Commercial Showrooms'
+    ],
+    localCompliance: 'Authorized under Haryana PSARA License #PSA/L/44/HR/2025/OCT/3/1539. Regular background verification and strict central government security protocol adherence.'
+  },
   ghaziabad: {
     heroHeading: 'Industrial & Logistics Security Services in Ghaziabad, Uttar Pradesh',
     tagline: 'Manufacturing Perimeter Guarding in Sahibabad, Indirapuram Commercial Hubs & Logistics Depots',
@@ -237,6 +262,28 @@ const CITY_LOCAL_DATA = {
     ],
     localCompliance: 'Certified under Uttar Pradesh PSARA License #PSA/L/93/UP/2021/DEC/3/330. Direct supervisory checking by roving Ghaziabad area field officers.'
   },
+  lucknow: {
+    heroHeading: 'PSU & Corporate Security Services in Lucknow, Uttar Pradesh',
+    tagline: 'Enterprise Guarding in Gomti Nagar, Public Sector Undertakings & Commercial Hubs in Lucknow',
+    metaTitle: 'Corporate Security Agency in Lucknow, Uttar Pradesh | PSARA Licensed | TMS Security',
+    metaDesc: 'PSARA-licensed corporate security services in Lucknow, UP. Protecting PSU entities including HPCL Gomti Nagar, IT City on Shaheed Path, and banking complexes.',
+    zonesHeading: 'Key Corporate, PSU & Commercial Corridors in Lucknow',
+    zones: [
+      { name: 'Vibhuti Khand & Gomti Nagar Commercial Hub', desc: 'Major Public Sector Undertakings including Hindustan Petroleum Corporation Ltd (HPCL), corporate towers, and financial institutions requiring access control.' },
+      { name: 'Shaheed Path & IT City Corridor', desc: 'HCL Technologies campus, software parks, and modern enterprise IT centers requiring multi-tier visitor screening and 24/7 facility guarding.' },
+      { name: 'Hazratganj & Central Commercial District', desc: 'Heritage corporate branches, government administrative offices, and high-street retail complexes demanding visible deterrence and executive bouncers.' },
+      { name: 'Transport Nagar & Amausi Logistics Hub', desc: 'Freight transport terminals, logistics warehouses, and distribution centers along Kanpur Road requiring vehicle inspection and inventory protection.' },
+      { name: 'Talkatora & Sarojini Nagar Industrial Areas', desc: 'Manufacturing plants, packaging units, and engineering workshops requiring round-the-clock shift-change supervision and fire watch.' },
+      { name: 'Aliganj & Mahanagar Institutional Belt', desc: 'Financial branch offices, educational centers, and corporate training institutes requiring verified security personnel.' },
+    ],
+    sectorFocus: [
+      'Public Sector Undertakings (PSUs) & Sovereign Bodies (HPCL)',
+      'Enterprise IT Parks & Technology Centers along Shaheed Path',
+      'Banking, Financial Services & Insurance (BFSI) Branches',
+      'Warehousing, Freight Logistics & Industrial Plants'
+    ],
+    localCompliance: 'Certified under Uttar Pradesh PSARA License #PSA/L/93/UP/2021/DEC/3/330. Rigorous background verification, biometric logging, and regular field officer inspections.'
+  },
   varanasi: {
     heroHeading: 'Corporate & Hospitality Security Services in Varanasi, Uttar Pradesh',
     tagline: 'PSARA-Licensed Guarding for Luxury Hospitality, Commercial Corridors & Industrial Estates in Kashi',
@@ -258,6 +305,28 @@ const CITY_LOCAL_DATA = {
       'Retail Malls, Banking & High-Footfall Commercial Hubs'
     ],
     localCompliance: 'Certified under Uttar Pradesh PSARA License #PSA/L/93/UP/2021/DEC/3/330 (valid through December 2026). Specialized guest-relations and de-escalation training for Varanasi personnel.'
+  },
+  patna: {
+    heroHeading: 'Commercial & Retail Security Services in Patna, Bihar',
+    tagline: 'Multi-Floor Retail Security, Commercial Corridors & Logistics Gate Guarding in Patna',
+    metaTitle: 'Security Agency in Patna, Bihar | Commercial & Retail Security | TMS Security',
+    metaDesc: 'Top commercial security agency in Patna, Bihar. Guarding major retail chains along Khagaul Main Road, Bailey Road commercial complexes, and Danapur logistics parks.',
+    zonesHeading: 'Major Commercial, Retail & Logistics Belts We Guard in Patna',
+    zones: [
+      { name: 'Khagaul Main Road Commercial & Retail Hub', desc: 'Multi-floor branded retail outlets including Adi Sports, commercial complexes, and automobile showrooms requiring loss prevention and courteous guarding.' },
+      { name: 'Bailey Road & Jawaharlal Nehru Marg Corridor', desc: 'High-density commercial towers, corporate banks, and government administrative establishments demanding access control and parking security.' },
+      { name: 'Fraser Road & Dak Bunglow Commercial Center', desc: 'Financial nerve center of Patna with major banking headquarters, jewelry showrooms, and corporate hotels requiring armed guards and bouncers.' },
+      { name: 'Patliputra Industrial Area & Digha Corridor', desc: 'Pharmaceutical packaging, food processing, and consumer manufacturing units requiring gate-pass monitoring and perimeter watch.' },
+      { name: 'Danapur & Bihta Logistics Corridor', desc: 'Rapidly expanding freight warehousing, logistics hubs, and educational campuses requiring 24/7 security gates and vehicular inspection.' },
+      { name: 'Boring Road & Kankarbagh Commercial Enclaves', desc: 'Educational coaching institutes, shopping arcades, and healthcare facilities demanding crowd management and dispute de-escalation.' },
+    ],
+    sectorFocus: [
+      'Multi-Level Branded Retail Outlets & Showrooms (Adi Sports)',
+      'Banking Headquarters, Cash-in-Transit & Financial Institutions',
+      'Logistics Depots, Freight Terminals & E-Commerce Hubs in Danapur',
+      'Corporate Offices, Hospitals & Educational Campuses'
+    ],
+    localCompliance: 'Trained in accordance with the Private Security Agencies (Regulation) Act. Strict background screening, police verification, and supervisory patrol checks.'
   }
 };
 
