@@ -85,7 +85,7 @@ const NetworkArcs = () => (
 );
 
 const Network = () => {
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.6 });
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.15 });
 
   const activeBeacons = [
     { id: 'delhi-ncr', label: 'DELHI NCR', top: '29%', left: '32%', isHQ: true, labelDir: 'bottom', index: 0 },
