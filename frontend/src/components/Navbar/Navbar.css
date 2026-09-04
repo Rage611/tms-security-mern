@@ -127,9 +127,21 @@
     align-items: center;
 }
 
-.header .dropdown-menu {
+/* Transparent bridge: fills gap between nav bar bottom and dropdown top
+   so the mouse doesn't "leave" the hover zone while traveling to the panel */
+.header .dropdown::after {
+    content: '';
     position: absolute;
     top: 100%;
+    left: -20px;
+    right: -20px;
+    height: 12px;
+    background: transparent;
+}
+
+.header .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 12px);
     left: 0;
     background-color: var(--bg-dark); 
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -139,9 +151,10 @@
     list-style: none;
     z-index: 10000;
     opacity: 0;                
-    visibility: hidden;        
-    transform: translateY(-15px); 
-    transition: all 0.3s ease;   
+    visibility: hidden;
+    /* No translateY — positional shift was creating the gap that caused flicker */
+    transition: opacity 0.2s ease,
+                visibility 0s ease 0.18s; /* delay hiding so brief mouse-overs don't close it */
 }
 
 .header .dropdown-link {
@@ -183,9 +196,10 @@
     list-style: none;
     z-index: 10001; 
     opacity: 0;                
-    visibility: hidden;        
-    transform: translateX(-15px); 
-    transition: all 0.3s ease;   
+    visibility: hidden;
+    /* No translateX — same fix */
+    transition: opacity 0.2s ease,
+                visibility 0s ease 0.18s;
 }
 
 .header .nested-link {
@@ -208,6 +222,7 @@
     gap: 12px;
     left: auto;
     right: 0;
+    top: calc(100% + 12px);
 }
 
 .header .mega-state-col {
@@ -233,16 +248,19 @@
     white-space: nowrap;
 }
 
+/* On hover: show instantly (0s delay), transition opacity in */
 .header .dropdown:hover > .dropdown-menu {
     opacity: 1;                
-    visibility: visible;       
-    transform: translateY(0);  
+    visibility: visible;
+    transition: opacity 0.2s ease,
+                visibility 0s ease 0s;
 }
 
 .header .nested-dropdown:hover > .nested-menu {
     opacity: 1;                
-    visibility: visible;       
-    transform: translateX(0);  
+    visibility: visible;
+    transition: opacity 0.2s ease,
+                visibility 0s ease 0s;
 }
 
 .header .nested-dropdown:hover > .dropdown-link {
