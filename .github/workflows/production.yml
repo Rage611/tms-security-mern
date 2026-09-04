@@ -17,6 +17,18 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install Frontend Dependencies
+        working-directory: frontend
+        run: npm ci
+
+      - name: Install Playwright Chromium
+        working-directory: frontend
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Automated Quality Guard Tests
+        working-directory: frontend
+        run: npm test
+
       - name: Install Vercel CLI
         run: npm install --global vercel@latest
 
