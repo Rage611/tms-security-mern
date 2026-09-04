@@ -9,8 +9,8 @@ import './LocationPage.css';
 const WHATSAPP_BASE =
   'https://wa.me/919717763351?text=Namaste%20TMS%2C%20I%20am%20looking%20for%20corporate%20security%20services%20in%20';
 
-const PHONE_PRIMARY = '+919717763351';
-const PHONE_DISPLAY = '+91-97177-63351';
+const PHONE_PRIMARY = '+917838701180';
+const PHONE_DISPLAY = '+91-7838701180';
 const SITE_URL = 'https://tmssecurity.in';
 
 const DEFAULT_SERVICES = [
